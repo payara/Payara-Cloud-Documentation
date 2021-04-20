@@ -1,0 +1,10 @@
+name: docs
+title: Payara Cloud
+version: master
+start_page: ROOT:README.adoc
+nav:
+- modules/ROOT/nav.adoc
+asciidoc:
+  attributes:
+    currentVersion: '1.0'
+    glassfishVersion: '5'

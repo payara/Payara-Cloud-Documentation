@@ -1,0 +1,8 @@
+
+.General Info
+* xref:General Info/general-info.adoc[general-info]
+* xref:General Info/getting-started.adoc[getting-started]
+* xref:General Info/supported-platforms.adoc[supported-platforms]
+
+.Technical Documentation
+* xref:Technical Documentation/*[*]

@@ -1,0 +1,3 @@
+== Introduction
+
+This is the documentation for the Payara Cloud, targeted for developers and users looking to utalise the power of Payara in the Cloud.
