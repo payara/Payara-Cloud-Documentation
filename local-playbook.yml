@@ -1,6 +1,6 @@
 site:
-    title: Payara Documentation Preview
-    start_page: docs::README.adoc
+    title: Payara Cloud Documentation
+    start_page: docs::Overview.adoc
 content:
     sources:
     - url: ./

@@ -7,7 +7,7 @@
     <meta name="generator" content="Antora 2.2.0">
     <link rel="stylesheet" href="../../_/css/site.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
-    <meta name="docsearch:version" content="master" />
+    <meta name="docsearch:version" content="community-latest" />
   </head>
   <body class="article">
   <header class="header">
@@ -28,7 +28,9 @@
 
       </div>
       <div class="navbar-item hide-for-print">
-            <input type="text" id="search-input" name="search-input" placeholder="Search...">
+            <div id="search-input-container">
+      <input type="text" id="search-input" name="search-input" placeholder="Search...">
+    </div>
       </div>
 
       <div class="navbar-end">
@@ -52,7 +54,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../README.html">Payara Platform</a></h3>
+    <h3 class="title"><a href="../README.html">Payara Cloud</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
@@ -83,12 +85,12 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Payara Platform</span>
+    <span class="title">Payara Cloud</span>
     <span class="version">master</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <span class="title">Payara Platform</span>
+      <span class="title">Payara Cloud</span>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../README.html">master</a>
@@ -106,12 +108,12 @@
   <a href="../README.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../README.html">Payara Platform</a></li>
+    <li><a href="../README.html">Payara Cloud</a></li>
     <li>General Info</li>
     <li><a href="supported-platforms.html">supported-platforms</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="file:///home/alanroth/workspace/payara-cloud-documentation/docs/modules/ROOT/pages/General%20Info/supported-platforms.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="file:///home/alan/Workspace/cloud-docs/Payara-Cloud-Documentation/docs/modules/ROOT/pages/General%20Info/supported-platforms.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <article class="doc">
@@ -137,14 +139,21 @@ details the JVMs currently supported by the Payara Platform Community (both Paya
 <script type="text/javascript"> 
 (function () {
     function getCurrentVersion() {
-        var containerElement = document.getElementsByClassName("nav-container")[0];
-        if (containerElement) {
-            var versionAttribute = containerElement.attributes["data-version"];
-            if (versionAttribute) {
-                return versionAttribute.value;
+        let docsVersion = null;
+        const versionMetaTag = document.querySelector('meta[name="docsearch:version"]');
+        if (versionMetaTag) {
+            docsVersion = versionMetaTag.content;
+        }
+        if (!docsVersion) {
+            const containerElement = document.getElementsByClassName("nav-container")[0];
+            if (containerElement) {
+                const versionAttribute = containerElement.attributes["data-version"];
+                if (versionAttribute) {
+                    docsVersion = versionAttribute.value;
+                }
             }
         }
-        return null;
+        return docsVersion;
     }
 
     var currentVersion = getCurrentVersion();
@@ -157,7 +166,7 @@ details the JVMs currently supported by the Payara Platform Community (both Paya
         apiKey: '0e166e657e381ec2661d7bd2d4426011',
         indexName: 'payara',
         inputSelector: '#search-input',
-        algoliaOptions: { 'facetFilters': facetFilters },
+        algoliaOptions: { 'facetFilters': facetFilters, 'hitsPerPage' : 30 },
         debug: false // Set debug to true if you want to inspect the dropdown
         });
         
