@@ -1,0 +1,66 @@
+= How to Access Payara Micro Enterprise Binaries for Local Development
+
+Payara Cloud customers with a Premium subscription have access to Payara Micro Enterprise binaries to test their applications locally on the same environment they will use when they deploy to the cloud.
+
+As part of the Payara Cloud Premium subscription, you are entitled to: 
+
+* Full access to the Payara Customer support portal for raising support tickets for 2 users 
+* A single, shared Nexus repository account for your organisation 
+
+__Sonatype Nexus__is a repository manager which we use to provide our Enterprise builds and private builds for Payara Micro. It also contains the binaries for our connectors (Cloud, Testing, Security, etc …), Docker Images, and IDE plugins which are tested with our Enterprise Edition software. The repository can also be used to store large files for your support tickets. 
+
+By the time you receive this guide, accounts should have been created for you on these two key platforms. 
+
+*Verify Your Customer Support Portal Access*
+
+You should have received an email with a link to create a password for your support portal 
+
+account. Please click the link and set a password to be able to view your tickets on the web. 
+
+If you would like to add/swap named contacts for your company, you may request to do so either through a support ticket or by emailing mailto:support@payara.fish[+++support@payara.fish+++. ]The maximum number of Zendesk users for Payara Cloud support is 2. 
+
+*Change Your Nexus Password*
+
+You should receive an email with your Nexus credentials, which contains a default password. Since email notifications are an inherently insecure communication method, it is your responsibility to change the password immediately. 
+
+Use the generated password to log in to your account and change your password by clicking the profile option in the top-right corner of the user interface first, and then clicking on the __Change Password __button: 
+
+image::image36.png[Graphical user interface, application Description automatically generated,width=668,height=207]
+
+If there is something wrong with access to either of these, please send an email to 
+
++++support@payara.fish+++ which will automatically create a ticket in our system and allow us to make sure you have everything you need. 
+
+Please refer to the Payara Cloud Premium Customer Support Guide for details about how to raise a ticket for support.
+
+== Download Payara Micro Enterprise
+
+All Payara Micro Enterprise downloads are made available on the official Nexus Server at 
+
+https://nexus.payara.fish/ 
+
+Within Nexus, there should be five repositories visible, as shown below: 
+
+image::image37.png[Graphical user interface Description automatically generated,width=693,height=192]
+
+Here is a summary of each repository’s purpose: 
+
+* *_payara-micro-enterprise_*
+
+This repository is public to all customers and is used to host releases of Payara Enterprise distributions. New releases of Payara Enterprise will be pushed to this repository when available. This repository also contains the connectors (Cloud, Testing, Security, etc …), and IDE plugins. 
+
+* *_payara-patches_*
+
+This repository is public to all customers and is used to host legacy patches builds of Payara Platform version 4.1.x and 5.x releases. 
+
+* *_payara-patches-$\{customer-name}_*
+
+This repository is private to each customer and contains specific hotfix and/or patch builds of Payara Enterprise distributions that were created for that customer on their request or to handle the resolution of a support ticket. 
+
+* *_$\{customer-name}_*
+
+This repository is private to each customer and is reserved for the customer's use to upload large files that are required for troubleshooting support tickets like JVM snapshots, profiling sessions compressed data, virtual machines, etc. 
+
+* *_zulu-jdk_*
+
+This repository is public to each customer and hosts all new releases and patched for Zulu Enterprise JDK (OpenJDK) installer binaries. 

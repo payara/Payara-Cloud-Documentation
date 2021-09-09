@@ -1,4 +1,10 @@
 
+.Appendix
+* xref:Appendix/Access Payara Micro Binaries.adoc[Access Payara Micro Binaries]
+
+.Configuration
+* xref:Configuration/Custom Domains.adoc[Custom Domains]
+
 .General Info
 * xref:General Info/Getting Started.adoc[Getting Started]
-* xref:General Info/General Info.adoc[General Info]
+* xref:General Info/Logging.adoc[Logging]

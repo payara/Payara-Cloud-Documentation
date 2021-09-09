@@ -33,7 +33,6 @@ cd $WORKING_DIR
 # This function is responsible for writing to the nav at appropriate points
 write_to_nav() {
     readarray -t dirs < <(find . -type d -printf '%P\n')
-
     for dir in "${dirs[@]}"; do
         readarray -t files_to_sort < <(find "$dir" -maxdepth 1 -type f)
         #If there is only one directory, it is the one we currently are in, so we search in it.

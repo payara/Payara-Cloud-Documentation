@@ -1,3 +1,128 @@
-= Introduction
+= Cloud Documentation
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consectetur, diam quis maximus dapibus, ante odio finibus libero, at mattis risus metus eget tortor. Sed id rhoncus dolor, at blandit eros. Suspendisse consequat lectus turpis, quis malesuada mi mattis eu. In hac habitasse platea dictumst. Nunc odio libero, rutrum elementum dapibus sodales, ultricies mattis lorem. Aliquam eu est vel sapien egestas faucibus quis congue velit. Etiam tincidunt nec lectus vel vulputate. Morbi ut orci dui. Duis rutrum porttitor ultrices. Maecenas mollis, libero in porttitor lacinia, dolor dui iaculis leo, quis blandit enim mi ac libero.
+Payara Cloud is an all-in-one serverless platform and PaaS solution for Jakarta EE (Java EE) and MicroProfile applications. It makes deployment in a cloud environment easier by simplifying cloud infrastructure management and eliminating the need for application servers and Kubernetes knowledge.
+
+Instead of dealing with low-level components like Docker and Kubernetes yourself, the UI allows you to graphically define the configuration parameters and the application which needs to be deployed.
+
+If you’re new to Payara Cloud, we recommend starting with the *Getting Started* section to get you moving in the right direction.
+
+== Structure
+
+By design, Payara Cloud does a lot of hidden work in the background that you don’t need to worry about. Behind the scenes, a Payara Micro instance is set up to run your application. All the integrations with the cloud environment are done for you automatically, such as setting up SSL certificates, routing, and integration with logging and monitoring tools.
+
+Since your application is running on a Payara Micro instance, Payara Cloud can run Java EE / Jakarta EE Web Profile based applications. 
+
+The Payara Cloud environment is centered around two main concepts: the namespace and the application. You manage your namespaces and applications within Payara Cloud’s graphical user interface.
+
+To access and manage your applications, you click on the name of the Namespace containing your applications.
+
+== Features
+
+*Basic subscription features:*
+
+* 4 vCPU / 8 Gb
+* Choose small, medium, or large runtime size
+
+*Standard subscription features:*
+
+* 16 vCPU / 32 Gb
+* Multiple Custom Domains
+* Choose small, medium, large, or XL runtime size
+
+*Premium subscription features:*
+
+Everything in the Standard subscription, plus:
+
+* Payara Micro Enterprise binaries for local development
+* Access to Payara support team
+
+== Pricing
+
+*Basic* – $700 per 30 days, additional usage billed at $190 per vCPU per 30 days (pro-rata).
+
+*Standard* – $2500 per 30 days, additional usage billed at $160 per vCPU per 30 days (pro-rata).
+
+*Premium* – $3500 per 30 days, additional usage billed at $160 per vCPU per 30 days (pro-rata).
+
+When you subscribe to Payara Cloud, the flat rate of the chosen subscription plan is billed immediately, which gives you access to Payara Cloud for 30 days. For example, if you choose a Basic subscription plan, you are billed $700 during the sign up process and can begin using Payara Cloud immediately.
+
+Your actual vCPU usage is calculated over the next 30 days to generate the pro-rata fees for any vCPU usage beyond the included vCPU of your subscription.
+
+*Additional Usage Calculations*
+
+Calculation of your pro-rata charges are as follows:
+
+_Basic Subscription_
+
+A Basic Subscription includes 4 vCPU, which is 172,800 vCPU minutes, per 30 days. Any usage over the included 4 vCPU within the 30-day billing period is calculated at the rate of 0.004398148 per vCPU minute.
+
+If you use 190,000 vCPU minutes, you’ve used 17,200 vCPU minutes over your included 172,800 vCPU minutes.
+
+17,200 vCPU minutes x $0.004398148 = $75.648.
+
+In the example above, your additional usage charge for the 30-day billing period would be $75.65. Additional usage charges are billed with your next 30-day period subscription fee. In this example, your invoice would look like this:
+
+Day 1, subscribe to the Payara Cloud Basic Subscription = $700.
+
+Day 31:
+
+Additional Usage calculated for previous 30-day billing period = $75.65
+
+Next 30-day period subscription fee = $700
+
+Total Invoice: $775.65
+
+_Standard and Premium Subscriptions_
+
+Choosing a Standard Subscription plan results in a $2500 fee for your first 30-day billing period during the sign up process. Choosing a Premium Subscription results in a $3500 fee for your first 30-day billing period. You will have immediate access to Payara Cloud upon completing the sign up and billing process.
+
+Your actual vCPU usage is calculated over the next 30 days to generate the pro-rata fees for any vCPU usage beyond the included vCPU of your subscription.
+
+Both Standard and Premium subscriptions include 16 vCPU, which is 691,200 vCPU minutes, per 30 days. Any usage over the included 16 vCPU within the 30-day billing period is calculated at the rate of 0.003703704 per vCPU minute.
+
+For example, if you use 900,000 vCPU minutes, you’ve used 208,800 vCPU minutes over your included 691,200 vCPU minutes.
+
+208,800 vCPU minutes x $0.003703704 = $773.332
+
+In the example above, your additional usage charge for the 30-day billing period would be $773.33. Additional usage charges are billed with your next 30-day period subscription fee. In this example, your invoice as a Standard subscriber would look like this:
+
+Day 1, subscribe to the Payara Cloud Standard Subscription = $2500.
+
+Day 31:
+
+Additional Usage calculated for previous 30-day billing period = $773.33
+
+Next 30-day period subscription fee = $2500
+
+Total Invoice: $3,273.33
+
+If you chose a Premium subscription, your invoice would look like this:
+
+Day 1, subscribe to the Payara Cloud Premium Subscription = $3500.
+
+Day 31:
+
+Additional Usage calculated for previous 30-day billing period = $773.33
+
+Next 30-day period subscription fee = $3500
+
+Total Invoice: $4,273.33
+
+*Account Management and Current Usage*
+
+You can check how many vCPU you’ve used at any time. After logging into your Payara Cloud account, click on the arrow next to your username to open the menu.
+
+Click on Billing Management.
+
+Click on Review or Edit Your Billing and Invoicing Details.
+
+image:extracted-media/media/image30.png[image,width=624,height=202]
+
+From the next screen (Payara Cloud Subscription Management powered by Stripe) you can cancel your plan, add and remove payment methods, update your billing information, and view your billing history and current usage.
+
+
+== See Also
+
+https://www.payara.fish/products/payara-cloud/#faq[Payara Cloud Frequently Asked Questions]
+
+https://www.youtube.com/playlist?list=PLFMhxiCgmMR-V2lVMRw3B7eV3gqvJshvh[Payara Cloud Demo Videos]
