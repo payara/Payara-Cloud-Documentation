@@ -116,7 +116,7 @@ Click on Billing Management.
 
 Click on Review or Edit Your Billing and Invoicing Details.
 
-image:extracted-media/media/image30.png[image,width=624,height=202]
+image:image30.png[image,width=624,height=202]
 
 From the next screen (Payara Cloud Subscription Management powered by Stripe) you can cancel your plan, add and remove payment methods, update your billing information, and view your billing history and current usage.
 
