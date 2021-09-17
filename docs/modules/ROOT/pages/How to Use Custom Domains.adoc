@@ -1,4 +1,4 @@
-= Custom Domains
+= How to Use Custom Domains
 
 Payara Cloud customers with the Standard or Premium level subscriptions have the option of creating custom domains for end users to access their applications.
 

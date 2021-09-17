@@ -11,7 +11,7 @@ __Sonatype Nexus__is a repository manager which we use to provide our Enterpris
 
 By the time you receive this guide, accounts should have been created for you on these two key platforms. 
 
-*Verify Your Customer Support Portal Access*
+== Verify Your Customer Support Portal Access
 
 You should have received an email with a link to create a password for your support portal 
 

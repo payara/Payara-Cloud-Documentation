@@ -1,7 +1,0 @@
-= Thread Dumps
-
-You can analyze the Thread usages of your applications by obtaining a Thread Dump through the Application Actions, Acquire Thread Dump item. This dump is identical to a Thread Dump you obtain from a local JVM and can be used to analyze potential performance issues with your application.
-
-When the Thread dump is ready, it starts downloading a file containing the dump. This file can be analyzed with the same tools when you capture a Thread dump locally.
-
-The file appears at the bottom of the diagnostic exports table. It can be downloaded again from this location during the next 7 days.
