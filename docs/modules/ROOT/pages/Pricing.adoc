@@ -1,42 +1,4 @@
-= Cloud Documentation
-
-Payara Cloud is an all-in-one serverless platform and PaaS solution for Jakarta EE (Java EE) and MicroProfile applications. It makes deployment in a cloud environment easier by simplifying cloud infrastructure management and eliminating the need for application servers and Kubernetes knowledge.
-
-Instead of dealing with low-level components like Docker and Kubernetes yourself, the UI allows you to graphically define the configuration parameters and the application which needs to be deployed.
-
-If you’re new to Payara Cloud, we recommend starting with the *Getting Started* section to get you moving in the right direction.
-
-== Structure
-
-By design, Payara Cloud does a lot of hidden work in the background that you don’t need to worry about. Behind the scenes, a Payara Micro instance is set up to run your application. All the integrations with the cloud environment are done for you automatically, such as setting up SSL certificates, routing, and integration with logging and monitoring tools.
-
-Since your application is running on a Payara Micro instance, Payara Cloud can run Java EE / Jakarta EE Web Profile based applications. 
-
-The Payara Cloud environment is centered around two main concepts: the namespace and the application. You manage your namespaces and applications within Payara Cloud’s graphical user interface.
-
-To access and manage your applications, you click on the name of the Namespace containing your applications.
-
-== Features
-
-*Basic subscription features:*
-
-* 4 vCPU / 8 Gb
-* Choose small, medium, or large runtime size
-
-*Standard subscription features:*
-
-* 16 vCPU / 32 Gb
-* Multiple Custom Domains
-* Choose small, medium, large, or XL runtime size
-
-*Premium subscription features:*
-
-Everything in the Standard subscription, plus:
-
-* Payara Micro Enterprise binaries for local development
-* Access to Payara support team
-
-== Pricing
+= Pricing
 
 *Basic* – $700 per 30 days, additional usage billed at $190 per vCPU per 30 days (pro-rata).
 

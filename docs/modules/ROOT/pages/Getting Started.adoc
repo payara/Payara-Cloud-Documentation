@@ -53,7 +53,7 @@ For each namespace, the name is a link to the namespace details. You can also se
 
 You upload an application from the *Namespace Details Screen* by clicking on the Upload Application button.
 
- image::image8.png[Graphical user interface, application Description automatically generated,width=624,height=257]
+image::image8.png[Graphical user interface, application Description automatically generated,width=624,height=257]
 
 You’ll get a dialog where you can select the WAR file that needs to be deployed. The _Deploy Immediately_ checkbox can be checked to deploy the application with default values. In most cases you will need a specific configuration (such as if your application connects to a database) and this checkbox should not be ticked.  
 

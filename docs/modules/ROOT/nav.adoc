@@ -1,10 +1,6 @@
-
-.Appendix
-* xref:Appendix/Access Payara Micro Binaries.adoc[Access Payara Micro Binaries]
-
-.Configuration
-* xref:Configuration/Custom Domains.adoc[Custom Domains]
-
-.General Info
-* xref:General Info/Getting Started.adoc[Getting Started]
-* xref:General Info/Logging.adoc[Logging]
+* xref:Getting Started.adoc[Getting Started]
+* xref:Logging.adoc[Logging]
+* xref:How to Use Custom Domains.adoc[How to Use Custom Domains]
+* xref:Access Payara Micro Binaries.adoc[Access Payara Micro Binaries]
+* xref:Pricing.adoc[Pricing]
+* xref:Account Management and How to View Current Usage.adoc[Account Management and How to View Current Usage]

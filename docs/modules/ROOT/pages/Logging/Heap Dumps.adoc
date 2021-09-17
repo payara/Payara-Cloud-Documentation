@@ -1,0 +1,9 @@
+= Heap Dumps
+
+A Heap Dump can be used to analyze issues with your application if you suspect there is an object usage problem causing it. You can create a Heap dump of the JVM process running your application through the Application Actions, Acquire Heap Dump item.
+
+When the Heap dump is ready, it starts downloading a file containing the Heap dump. This file can be analyzed with the same tools when you capture a Heap dump locally.
+
+The file appears at the bottom of the diagnostic exports table. It can be downloaded again from this location during the next 7 days.
+
+image::image32.png[image,width=480,height=66]

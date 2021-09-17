@@ -4,7 +4,7 @@ version: master
 display_version: '21.6.0'
 start_page: ROOT:Overview.adoc
 nav:
-- modules/ROOT/nav.adoc
+- modules/ROOT/nav-alt.adoc
 asciidoc:
   attributes:
     currentVersion: '1.0'
