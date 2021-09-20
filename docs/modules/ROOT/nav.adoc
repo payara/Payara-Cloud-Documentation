@@ -25,3 +25,6 @@
 
 * xref:Pricing.adoc[Pricing]
 * xref:Account Management and How to View Current Usage.adoc[Account Management and How to View Current Usage]
+
+* https://www.payara.fish/products/payara-cloud/#faq[Frequently Asked Questions]
+* https://www.youtube.com/playlist?list=PLFMhxiCgmMR-V2lVMRw3B7eV3gqvJshvh[Demo Videos]
