@@ -11,6 +11,7 @@ __Sonatype Nexus__is a repository manager which we use to provide our Enterpris
 
 By the time you receive this guide, accounts should have been created for you on these two key platforms. 
 
+[[verify-your-customer-support-portal-access]]
 == Verify Your Customer Support Portal Access
 
 You should have received an email with a link to create a password for your support portal 
@@ -33,6 +34,7 @@ If there is something wrong with access to either of these, please s
 
 Please refer to the Payara Cloud Premium Customer Support Guide for details about how to raise a ticket for support.
 
+[[download-payara-micro-enterprise]]
 == Download Payara Micro Enterprise
 
 All Payara Micro Enterprise downloads are made available on the official Nexus Server at 

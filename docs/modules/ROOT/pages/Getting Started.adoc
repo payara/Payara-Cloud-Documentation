@@ -3,6 +3,7 @@
 
 Using the Payara Cloud environment requires a user account that is linked to a _Subscription_. A _Subscription_ is a unit for billing purposes. For the product launch, Payara Cloud allows a single user account to access your subscription. A future feature will allow you to add multiple users with different access levels to your account. 
 
+[[register]]
 == Register 
 
 Subscribe to Payara Cloud at +++payara.cloud/#subscribe+++
@@ -23,7 +24,8 @@ image::image4.png[image,width=624,height=460]
 
 After confirming you agree with the Terms & Conditions of your Payara Cloud account, click Subscribe to create your account and bill your card for the first 30 days of your subscription.
 
-=== Log into Your Account 
+[[log-into-your-account]]
+== Log into Your Account 
 
 image::image5.png[Graphical user interface, text Description automatically generated,width=672,height=361]
 
@@ -31,6 +33,7 @@ Visit https://payara.cloud to log in.
 
 When you log into your account you are taken directly to the Namespaces screen. A starter namespace is provided for you the first time you log into Payara Cloud. You can use the starter namespace to test the functionality of Payara Cloud, or you can delete it and create your own namespace.
 
+[[create-a-namespace]]
 == Create a Namespace
 
 A _Namespace_ is a group of related applications in the Payara Cloud environment. This namespace is characterized by a project name and a stage.
@@ -49,6 +52,7 @@ Each time you login into Payara Cloud you will see a list of all the namespaces 
 
 For each namespace, the name is a link to the namespace details. You can also see the project, stage, and domain. If you have deployed applications to the namespace, the last column of the namespace table contains a link to the URL of the application that is deployed on the root. If no context route is defined or you haven’t yet uploaded any applications within the namespace, you will receive an error message when clicking on that link. 
 
+[[upload-an-application]]
 == Upload an Application
 
 You upload an application from the *Namespace Details Screen* by clicking on the Upload Application button.
@@ -75,6 +79,7 @@ For each application, an additional DNS name is created based on the _appName_�
 
 When you have two applications deployed in the same namespace, let say _service-a_ and _service-b_, the code in _service-a_ can call an endpoint in the application _service-b_ by using the URL http://service-b/%3ccontext-root%3e/path/to/endpoint[+++http://service-b/<context-root>/path/to/endpoint+++] when the appName of this service-b application is set to _service-b_. 
 
+[[configure-your-application-for-deployment]]
 == Configure Your Application for Deployment
 
 Click on the …Application Actions button to access all actions related to the application.
@@ -93,7 +98,8 @@ You’ll select your runtime size in the drop down box based on the amount of re
 
 image::image13.png[image,width=480,height=149]
 
-*MicroProfile Configuration Values* 
+[[microprofile-configuration-values]]
+=== MicroProfile Configuration Values
 
 MicroProfile configuration is a preferred way to externalize the configuration parameters for your application. You can Inject them similar to a CDI or retrieve them programmatically. 
 
@@ -101,13 +107,15 @@ When you upload your application, Payara Cloud looks for the file _microprofile
 
 image::image14.png[image,width=480,height=108]
 
-*Context Root*
+[[context-root]]
+=== Context Root
 
 By default, the name of the WAR file is taken as the context root on which the application is made available.  Using the Application Configuration screen, this value can be changed. 
 
 image::image15.png[Table Description automatically generated with medium confidence,width=624,height=221]
 
-*Internet-Accessible Paths*
+[[internet-accessible-paths]]
+=== Internet-Accessible Paths
 
 Top of Form
 
@@ -131,7 +139,8 @@ Requests to https://namespace-domain.payara.app/orders/place will be handled b
 
 Other applications within this namespace can reach the handler for /place of this application by accessing http://applicationName/orders/place.
 
-*Database Configuration* 
+[[database-configuration]]
+=== Database Configuration 
 
 When you upload your application, Payara Cloud looks for the _persistence.xml_ file. If detected, the necessary minimal configuration parameters for a database source for the reference JNDI name can be specified.  
 
@@ -170,7 +179,8 @@ If you are using plain JDBC connections instead of the JPA functionality of Jaka
 
 image::image17.png[image,width=480,height=108]
 
-*Allowing Access to your Database from Payara Cloud* 
+[[allowing-access-to-your-database-from-payara-cloud]]
+Allowing Access to your Database from Payara Cloud
 
 If your database access is restricted by IP address, the source IP of the cluster is <<TODO: Cluster IP address of production environment for each region>>. If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace. 
 
@@ -178,6 +188,7 @@ When you are happy with your configuration settings, click Save to return to the
 
 image::image18.png[A screenshot of a computer Description automatically generated,width=624,height=320]
 
+[[deploy-application]]
 == Deploy Application
 
 You need to deploy the application to make it publicly available after you’ve configured it for the first time, or anytime you have changed the configuration of the application.
@@ -192,6 +203,7 @@ image::image20.png[A screenshot of a computer Description automatically generate
 
 From here, you can click on the Application URL to access your application.
 
+[[make-changes-to-your-applications-configuration-and-redeploy]]
 == Make Changes to Your Application’s Configuration and Redeploy 
 
 * Start on the Application detail screen for the application you wish to change.
@@ -217,6 +229,7 @@ On the application details screen, you’ll see the changes are no longer pendin
 
 image::image24.png[A screenshot of a computer Description automatically generated,width=624,height=344]
 
+[[how-to-stop-an-application]]
 == How to Stop an Application
 
 Payara Cloud offers an easy way to stop an application if you need to stop an application that is currently running in the cloud.
@@ -231,6 +244,7 @@ You will be presented with the ‘stop application wait screen’ while Payara C
 
 When the process completes, you’ll see a success message and will be taken back to the Application Detail screen. You’ll see the status of your application is STOPPED and the application is no longer accessible online.
 
+[[deploy-a-stopped-application]]
 *Deploy a Stopped Application*
 
 You can redeploy the same version of a stopped application in the Revisions menu of the Application Detail screen. Click on the … Revision Actions to open the drop down menu, and choose Deploy.

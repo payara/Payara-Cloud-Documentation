@@ -1,6 +1,27 @@
 * xref:Getting Started.adoc[Getting Started]
+** xref:Getting Started.adoc#register[Register]
+** xref:Getting Started.adoc#log-into-your-account[Log into Your Account]
+** xref:Getting Started.adoc#create-a-namespace[Create a Namespace]
+** xref:Getting Started.adoc#upload-an-application[Upload an Application]
+** xref:Getting Started.adoc#configure-your-application-for-deployment[Configure Your Application for Deployment]
+*** xref:Getting Started.adoc#microprofile-configuration-values[MicroProfile Configuration Values]
+*** xref:Getting Started.adoc#context-root[Context Root]
+*** xref:Getting Started.adoc#internet-accessible-paths[Internet Accessible Paths]
+*** xref:Getting Started.adoc#database-configuration[Database Configuration]
+** xref:Getting Started.adoc#deploy-application[Deploy Application]
+** xref:Getting Started.adoc#make-changes-to-your-applications-configuration-and-redeploy[Make Changes to Your Application's Configuration and Redeploy]
+** xref:Getting Started.adoc#how-to-stop-an-application[How to Stop an Application]
+*** xref:Getting Started.adoc#deploy-a-stopped-application[Deploy a Stopped Application]
+
 * xref:Logging.adoc[Logging]
+** xref:Logging.adoc#heap-dumps[Heap Dumps]
+** xref:Logging.adoc#thread-dumps[Thread Dumps]
+
 * xref:How to Use Custom Domains.adoc[How to Use Custom Domains]
-* xref:Access Payara Micro Binaries.adoc[Access Payara Micro Binaries]
+
+* xref:How to Access Payara Micro Binaries.adoc[How to Access Payara Micro Binaries]
+** xref:How to Access Payara Micro Binaries.adoc#verify-your-customer-support-portal-access[Verify Your Customer Support Portal Access]
+** xref:How to Access Payara Micro Binaries.adoc#download-payara-micro-enterprise[Download Payara Micro Enterprise]
+
 * xref:Pricing.adoc[Pricing]
 * xref:Account Management and How to View Current Usage.adoc[Account Management and How to View Current Usage]

@@ -32,6 +32,7 @@ When defining a timestamp, you can specify a date, a date in combination with ho
 
 *20/01/2021 08:00*: Besides the date, also hour and minutes are defined. In the _timestamp from_ field, the beginning of the hour is assumed and in the end field, the end of the hour.
 
+[[heap-dumps]]
 == Heap Dumps
 
 A Heap Dump can be used to analyze issues with your application if you suspect there is an object usage problem causing it. You can create a Heap dump of the JVM process running your application through the Application Actions, Acquire Heap Dump item.
@@ -42,6 +43,7 @@ The file appears at the bottom of the diagnostic exports table. It can be downlo
 
 image::image32.png[image,width=480,height=66]
 
+[[thread-dumps]]
 == Thread Dumps
 
 You can analyze the Thread usages of your applications by obtaining a Thread Dump through the Application Actions, Acquire Thread Dump item. This dump is identical to a Thread Dump you obtain from a local JVM and can be used to analyze potential performance issues with your application.
