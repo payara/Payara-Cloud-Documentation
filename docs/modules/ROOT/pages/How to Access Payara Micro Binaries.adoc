@@ -20,7 +20,8 @@ If you would like to add/swap named contacts for your company, you may request t
 
 *Change Your Nexus Password*
 
-You should receive an email with your Nexus credentials, which contains a default password. Since email notifications are an inherently insecure communication method, it is your responsibility to change the password immediately. 
+You should receive an email with your Nexus credentials, which contains a default password. 
+Since email notifications are an inherently insecure communication method, it is your responsibility to change the password immediately. 
 
 Use the generated password to log in to your account and change your password by clicking the profile option in the top-right corner of the user interface first, and then clicking on the __Change Password __button: 
 
