@@ -150,7 +150,8 @@ If you are using plain JDBC connections instead of the JPA functionality of Jaka
 
 make use of the @DataSourceDefinition or define the data source within the _web.xml_ file. 
 
-____
+[source,java]
+----
 @DataSourceDefinition(name="java:global/jdbc/cloud-postgres",  +
         className="org.postgresql.ds.PGSimpleDataSource",  +
         serverName = "$\{MPCONFIG=ds_servername}",  +
@@ -159,12 +160,14 @@ ____
         user="$\{MPCONFIG=ds_username}",  +
         password="$\{MPCONFIG=ds_password}"  +
 ) 
-____
+----
 
   
 
 Or <data-source> element in _web.xml_ 
 
+[source,xml]
+----
 <data-source>  +
     <name>java:global/jdbc/cloud-mysql</name>  +
     <class-name>com.mysql.jdbc.jdbc2.optional.MysqlDataSource</class-name>  +
@@ -174,13 +177,14 @@ Or <data-source> element in _web.xml_ 
     <user>$\{MPCONFIG=ds_username}</user>  +
     <password>$\{MPCONFIG=ds_password}</password>  +
 </data-source> 
+----
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in Payara Cloud so the system can detect them as described above. Click ‘Add Configuration Key’ and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy. 
 
 image::image17.png[image,width=480,height=108]
 
 [[allowing-access-to-your-database-from-payara-cloud]]
-Allowing Access to your Database from Payara Cloud
+==== *Allowing Access to your Database from Payara Cloud*
 
 If your database access is restricted by IP address, the source IP of the cluster is <<TODO: Cluster IP address of production environment for each region>>. If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace. 
 
