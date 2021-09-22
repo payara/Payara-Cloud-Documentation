@@ -1,4 +1,4 @@
-= Cloud Documentation
+= Payara Cloud Documentation
 
 Payara Cloud is an all-in-one serverless platform and PaaS solution for Jakarta EE (Java EE) and MicroProfile applications. It makes deployment in a cloud environment easier by simplifying cloud infrastructure management and eliminating the need for application servers and Kubernetes knowledge.
 
