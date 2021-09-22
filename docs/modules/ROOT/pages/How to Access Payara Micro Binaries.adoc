@@ -56,7 +56,8 @@ This repository is public to all customers and is used to host legac
 
 * *_payara-patches-$\{customer-name}_*
 
-This repository is private to each customer and contains specific hotfix and/or patch builds of Payara Enterprise distributions that were created for that customer on their request or to handle the resolution of a support ticket. 
+This repository is private to each customer and contains specific hotfix and/or patch builds of Payaira Enterprise distributions
+that were created for that customer on their request or to handle the resolution of a support ticket. 
 
 * *_$\{customer-name}_*
 
