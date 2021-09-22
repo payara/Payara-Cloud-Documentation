@@ -117,8 +117,6 @@ image::image15.png[Table Description automatically generated with medium confide
 [[internet-accessible-paths]]
 === Internet-Accessible Paths
 
-Top of Form
-
 While everything served under a specified context root path is accessible to other applications within the namespace, it is possible to restrict which sub-paths of the context root are accessible over the internet.
 
 To set which sub-paths are accessible, enter space-separated patterns in the form of /prefix*. Sub-paths matching this prefix will be available through the domain name of the namespace, while other paths will only be accessible to other applications within the same namespace.
