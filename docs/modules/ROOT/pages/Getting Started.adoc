@@ -33,6 +33,8 @@ Visit https://payara.cloud to log in.
 
 When you log into your account you are taken directly to the Namespaces screen. A starter namespace is provided for you the first time you log into Payara Cloud. You can use the starter namespace to test the functionality of Payara Cloud, or you can delete it and create your own namespace.
 
+Attempting to click on the URL at this time will display an error message. You must first upload an application and give the DNS time to propagate before you can access the application at the URL.
+
 [[create-a-namespace]]
 == Create a Namespace
 
