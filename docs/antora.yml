@@ -1,7 +1,7 @@
 name: docs
 title: Payara Cloud
 version: master
-display_version: '21.6.0'
+display_version: '21.11.0'
 start_page: ROOT:Overview.adoc
 nav:
 - modules/ROOT/nav.adoc

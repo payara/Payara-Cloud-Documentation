@@ -2,6 +2,8 @@
 
 You can check how many vCPU you’ve used at any time. After logging into your Payara Cloud account, click on the arrow next to your username to open the menu.
 
+image:Account_management.png[image,width=624,height=202]
+
 Click on Billing Management.
 
 Click on Review or Edit Your Billing and Invoicing Details.
