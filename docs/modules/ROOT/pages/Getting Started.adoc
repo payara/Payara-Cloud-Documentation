@@ -22,18 +22,34 @@ Once you’ve created your Payara Cloud account you’ll be presented with the S
 
 image::image4.png[image,width=624,height=460]
 
+[[tax-id]]
+=== Tax ID 
+When creating your account you are asked to enter your Tax ID. The field is required and validated against VIES (https://ec.europa.eu/taxation_customs/vies/faq.html#item_1) if your country is one of the following: 
+
+Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland,  
+Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania,  
+Slovakia, Slovenia, Spain, Sweden 
+
 After confirming you agree with the Terms & Conditions of your Payara Cloud account, click Subscribe to create your account and bill your card for the first 30 days of your subscription.
+
+NOTE: If you don’t complete the subscription sign up process in a timely manner, your session will timeout. Click the “restart” button to resume the process. It will automatically set you up with a Basic subscription but you can upgrade it to Standard or Premium at any time.
+
+image::Session_expired.png[Graphical user interface, To protect your information, your session expired]
 
 [[log-into-your-account]]
 == Log into Your Account 
 
+If you create an account but do not finish the subscription process, it is possible to log in as an existing subscriber, but you will be presented with a “No Subscriptions Available” screen until you enter your payment details and set up your subscription. 
+
+image::No_subscriptions.png[Graphical user interface, no active subscriptions]
+
+After completing the sign up process entirely, you can log in at https://payara.cloud. 
+
 image::image5.png[Graphical user interface, text Description automatically generated,width=672,height=361]
 
-Visit https://payara.cloud to log in.
+When you log into your account you are taken directly to the Namespaces screen. A starter namespace is provided for you the first time you log into Payara Cloud. You can use the starter namespace to test the functionality of Payara Cloud, or you can delete it and create your own namespace. 
 
-When you log into your account you are taken directly to the Namespaces screen. A starter namespace is provided for you the first time you log into Payara Cloud. You can use the starter namespace to test the functionality of Payara Cloud, or you can delete it and create your own namespace.
-
-Attempting to click on the URL at this time will display an error message. You must first upload an application and give the DNS time to propagate before you can access the application at the URL.
+Attempting to click on the URL at this time will display an error message. You must first upload an application and give the DNS time to propagate before you can access the application at the URL. 
 
 [[create-a-namespace]]
 == Create a Namespace
