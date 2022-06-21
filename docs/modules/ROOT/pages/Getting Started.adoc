@@ -108,7 +108,7 @@ To configure your application for deployment, click Change Configuration.
 
 Configuration screen:
 
-Payara Cloud has support for three configuration areas, MicroProfile configuration parameters, context root, and a database connection for a JPA data source.  The configuration screen will only display the MicroProfile Configuration values for an application using microprofile.config.properties and will only show you the Database Configuration values if your application contains a persistence.xml file.
+Payara Cloud has support for three configuration areas, https://microprofile.io/[MicroProfile^] configuration parameters, context root, and a database connection for a JPA data source.  The configuration screen will only display the MicroProfile Configuration values for an application using microprofile.config.properties and will only show you the Database Configuration values if your application contains a persistence.xml file.
 
 If your application connects to a datasource you’ll first provide the JDBC URL, datasource class, and the username and password used to authenticate your connection to the database server.
 
@@ -164,7 +164,7 @@ image::image16.png[Application Description automatically generated,width=624,hei
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you can
 
-make use of the @DataSourceDefinition or define the data source within the _web.xml_ file. 
+make use of the @DataSourceDefinition  
 
 [source,java]
 ----
@@ -180,7 +180,7 @@ make use of the @DataSourceDefinition or define the data source within the _w
 
   
 
-Or <data-source> element in _web.xml_ 
+Or define the <data-source> element in _web.xml_ 
 
 [source,xml]
 ----
@@ -194,6 +194,8 @@ Or <data-source> element in _web.xml_ 
     <password>$\{MPCONFIG=ds_password}</password>  +
 </data-source> 
 ----
+
+combined with `MPCONFIG` Microprofile Config variables. These Mp Config variables can be configured with the Payara Cloud GUI
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in Payara Cloud so the system can detect them as described above. Click ‘Add Configuration Key’ and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy. 
 
