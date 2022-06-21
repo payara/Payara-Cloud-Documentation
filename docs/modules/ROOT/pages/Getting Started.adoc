@@ -95,7 +95,7 @@ Applications in the same namespace can communicate directly with each other, wit
 
 For each application, an additional DNS name is created based on the _appName_ property in the contextRoot panel of the configuration.
 
-When you have two applications deployed in the same namespace, let say _service-a_ and _service-b_, the code in _service-a_ can call an endpoint in the application _service-b_ by using the URL http://service-b/%3ccontext-root%3e/path/to/endpoint[+++http://service-b/<context-root>/path/to/endpoint+++] when the appName of this service-b application is set to _service-b_. 
+When you have two applications deployed in the same namespace, let say _service-a_ and _service-b_, the code in _service-a_ can call an endpoint in the application _service-b_ by using the URL \http://service-b/%3ccontext-root%3e/path/to/endpoint[+++http://service-b/<context-root>/path/to/endpoint+++] when the appName of this service-b application is set to _service-b_. 
 
 [[configure-your-application-for-deployment]]
 == Configure Your Application for Deployment
@@ -143,17 +143,17 @@ For example, let's assume Context Root of /orders and Internet-Accessible Path
 
 Then requests like 
 
-https://namespace-domain.payara.app/orders/details/000234 
+\https://namespace-domain.payara.app/orders/details/000234 
 
 or 
 
-https://namespace-domain.payara.app/orders/cancel/00234 
+\https://namespace-domain.payara.app/orders/cancel/00234 
 
 are directed to application.
 
-Requests to https://namespace-domain.payara.app/orders/place will be handled by the application handling the root namespace.
+Requests to \https://namespace-domain.payara.app/orders/place will be handled by the application handling the root namespace.
 
-Other applications within this namespace can reach the handler for /place of this application by accessing http://applicationName/orders/place.
+Other applications within this namespace can reach the handler for /place of this application by accessing \http://applicationName/orders/place.
 
 [[database-configuration]]
 === Database Configuration 

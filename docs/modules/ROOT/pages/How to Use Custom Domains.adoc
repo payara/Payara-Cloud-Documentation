@@ -2,11 +2,11 @@
 
 Payara Cloud customers with the Standard or Premium level subscriptions have the option of creating custom domains for end users to access their applications.
 
-Payara Cloud defines a URL to applications when you upload them to your namespace. By default, the url is a combination of your namespace name and application name to ensure it is unique. It might look something like this: https://guide-docu-6696a94c.payara.app/demo
+Payara Cloud defines a URL to applications when you upload them to your namespace. By default, the url is a combination of your namespace name and application name to ensure it is unique. It might look something like this: \https://guide-docu-6696a94c.payara.app/demo
 
 (not a real URL).
 
-You probably don’t want to give a URL that looks like that to your end users to access your application. With Payara Cloud’s custom domain option, you can customize the url so it is something like https://your.brand.com/demo instead.
+You probably don’t want to give a URL that looks like that to your end users to access your application. With Payara Cloud’s custom domain option, you can customize the url so it is something like \https://your.brand.com/demo instead.
 
 Click on the namespace containing your application from the Namespace Navigator. In the … Namespace Actions drop down menu, click Custom Domain.
 
