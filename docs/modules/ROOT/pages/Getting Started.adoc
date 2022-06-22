@@ -178,7 +178,7 @@ make use of the @DataSourceDefinition:  
 ) 
 ----
 
-Or define the <data-source> element in _web.xml_ 
+Or define the <data-source> element in _web.xml_:
 
 [source,xml]
 ----
