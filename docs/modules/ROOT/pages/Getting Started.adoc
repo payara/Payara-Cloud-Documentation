@@ -164,7 +164,7 @@ image::image16.png[Application Description automatically generated,width=624,hei
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you can
 
-make use of the @DataSourceDefinition  
+make use of the @DataSourceDefinition:  
 
 [source,java]
 ----
