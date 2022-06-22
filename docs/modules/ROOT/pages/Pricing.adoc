@@ -10,14 +10,17 @@ When you subscribe to Payara Cloud, the flat rate of the chosen subscription pla
 
 Your actual vCPU usage is calculated over the next 30 days to generate the pro-rata fees for any vCPU usage beyond the included vCPU of your subscription.
 
-*Additional Usage Calculations*
+== Additional Usage Calculations
 
 Calculation of your pro-rata charges are as follows:
 
-_Basic Subscription_
+=== Basic Subscription
 
-A Basic Subscription includes 4 vCPU, which is 172,800 vCPU minutes, per 30 days. Any usage over the included 4 vCPU within the 30-day billing period is calculated at the rate of 0.004398148 per vCPU minute.
+A Basic Subscription includes 4 vCPU, which is 172,800 vCPU minutes, per 30 days. Any usage over the included 4 vCPU within the 30-day billing period is calculated at the rate of $0.004398148 per vCPU minute.
 
+.Basic Subscriptions
+[example]
+====
 If you use 190,000 vCPU minutes, you’ve used 17,200 vCPU minutes over your included 172,800 vCPU minutes.
 
 17,200 vCPU minutes x $0.004398148 = $75.648.
@@ -33,16 +36,20 @@ Additional Usage calculated for previous 30-day billing period = $75.65
 Next 30-day period subscription fee = $700
 
 Total Invoice: $775.65
+====
 
-_Standard and Premium Subscriptions_
+=== Standard and Premium Subscriptions
 
 Choosing a Standard Subscription plan results in a $2500 fee for your first 30-day billing period during the sign up process. Choosing a Premium Subscription results in a $3500 fee for your first 30-day billing period. You will have immediate access to Payara Cloud upon completing the sign up and billing process.
 
 Your actual vCPU usage is calculated over the next 30 days to generate the pro-rata fees for any vCPU usage beyond the included vCPU of your subscription.
 
-Both Standard and Premium subscriptions include 16 vCPU, which is 691,200 vCPU minutes, per 30 days. Any usage over the included 16 vCPU within the 30-day billing period is calculated at the rate of 0.003703704 per vCPU minute.
+Both Standard and Premium subscriptions include 16 vCPU, which is 691,200 vCPU minutes, per 30 days. Any usage over the included 16 vCPU within the 30-day billing period is calculated at the rate of $0.003703704 per vCPU minute.
 
-For example, if you use 900,000 vCPU minutes, you’ve used 208,800 vCPU minutes over your included 691,200 vCPU minutes.
+.Standard & Premium 
+[example]
+====
+If you use 900,000 vCPU minutes, you’ve used 208,800 vCPU minutes over your included 691,200 vCPU minutes.
 
 208,800 vCPU minutes x $0.003703704 = $773.332
 
@@ -69,4 +76,8 @@ Additional Usage calculated for previous 30-day billing period = $773.33
 Next 30-day period subscription fee = $3500
 
 Total Invoice: $4,273.33
+====
 
+=== Final Invoice
+
+The final invoice will only include additional use (if any) for the final month of use. 
