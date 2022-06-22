@@ -108,7 +108,7 @@ To configure your application for deployment, click Change Configuration.
 
 Configuration screen:
 
-Payara Cloud has support for three configuration areas, https://microprofile.io/[MicroProfile^] configuration parameters, context root, and a database connection for a JPA data source.  The configuration screen will only display the MicroProfile Configuration values for an application using microprofile.config.properties and will only show you the Database Configuration values if your application contains a persistence.xml file.
+Payara Cloud has support for three configuration areas, MicroProfile Config properties, context root, and a database connections for a JPA data sources.  The configuration screen will only display the MicroProfile Configuration values for an application using microprofile.config.properties and will only show you the Database Configuration values if your application contains a persistence.xml file.
 
 If your application connects to a datasource you’ll first provide the JDBC URL, datasource class, and the username and password used to authenticate your connection to the database server.
 
