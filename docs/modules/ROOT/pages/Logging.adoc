@@ -1,6 +1,6 @@
 = Logging
 
-Payara Cloud includes application logging. To view or search the logs, go to the application you wish to view and click on the `Application Actions` button to open the drop down menu.
+Payara Cloud includes application logging. To view or search the logs, go to the application you wish to view and click on the btn:[Application Actions] button to open the drop down menu.
 
 image::image25.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=287]
 

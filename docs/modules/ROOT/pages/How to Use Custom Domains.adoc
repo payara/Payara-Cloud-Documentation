@@ -26,4 +26,4 @@ image::image35.png[Graphical user interface, application, Teams Description auto
 
 Copy the value in the Set up CNAME DNS Record value field and enter it into the CNAME of the DNS system you are using.
 
-After setting up the CNAME value, click on the `Check DNS` button of this screen to ensure it was set up correctly. If the set up was successful, you can then use the custom domain you set up to access your application. _Note that it can take some time for changes in the DNS system to propagate_.
+After setting up the CNAME value, click on the btn:[Check DNS] button of this screen to ensure it was set up correctly. If the set up was successful, you can then use the custom domain you set up to access your application. _Note that it can take some time for changes in the DNS system to propagate_.

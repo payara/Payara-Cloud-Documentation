@@ -32,7 +32,7 @@ Slovakia, Slovenia, Spain, Sweden
 
 After confirming you agree with the Terms & Conditions of your Payara Cloud account, click Subscribe to create your account and bill your card for the first 30 days of your subscription.
 
-NOTE: If you don’t complete the subscription sign up process in a timely manner, your session will timeout. Click the `restart` button to resume the process. It will automatically set you up with a Basic subscription but you can upgrade it to Standard or Premium at any time.
+NOTE: If you don’t complete the subscription sign up process in a timely manner, your session will timeout. Click the btn:[restart] button to resume the process. It will automatically set you up with a Basic subscription but you can upgrade it to Standard or Premium at any time.
 
 image::Session_expired.png[Graphical user interface, To protect your information, your session expired]
 
@@ -56,7 +56,7 @@ Attempting to click on the URL at this time will display an error message. You m
 
 A _Namespace_ is a group of related applications in the Payara Cloud environment. This namespace is characterized by a project name and a stage.
 
-Click `Create New Namespace` button.
+Click btn:[Create New Namespace] button.
 
 Your namespace project name must be unique from other project names within your subscription. The name is also used as the subdomain name of the URL that gives you access to the deployed application. To ensure the project name is also unique from all other project names within the Payara Cloud environment, a random value is added to the name you specify.
 
@@ -64,7 +64,7 @@ Use the stage field to indicate the phase of your application. For example, 
 
 image::image6.png[Graphical user interface, application Description automatically generated,width=504,height=435]
 
-After entering the project name, stage, and choosing your cloud region, click `Create namespace` button. The namespace is created and you are taken to the namespace details screen where you can begin adding applications to your namespace.
+After entering the project name, stage, and choosing your cloud region, click btn:[Create namespace] button. The namespace is created and you are taken to the namespace details screen where you can begin adding applications to your namespace.
 
 Each time you login into Payara Cloud you will see a list of all the namespaces that are linked to your subscription.
 
@@ -73,7 +73,7 @@ For each namespace, the name is a link to the namespace details. You can also se
 [[upload-an-application]]
 == Upload an Application
 
-You upload an application from the *Namespace Details Screen* by clicking on the `Upload Application` button.
+You upload an application from the *Namespace Details Screen* by clicking on the btn:[Upload Application] button.
 
 image::image8.png[Graphical user interface, application Description automatically generated,width=624,height=257]
 
@@ -100,7 +100,7 @@ When you have two applications deployed in the same namespace, let say _serv
 [[configure-your-application-for-deployment]]
 == Configure Your Application for Deployment
 
-Click on the `Application Actions` button to access all actions related to the application.
+Click on the btn:[Application Actions] button to access all actions related to the application.
 
 The unconfigured status means that the platform detected that a configuration is required before you can deploy your application. The Deploy action is also not available when the status is unconfigured. When the application uses a database (found a persistence.xml file, not when using @DataSourceDefinition) the status is automatically unconfigured until the configuration is made.
 
@@ -213,7 +213,7 @@ image::image18.png[A screenshot of a computer Description automatically generate
 
 You need to deploy the application to make it publicly available after you’ve configured it for the first time, or anytime you have changed the configuration of the application.
 
-From the application details screen, click `Applications Actions` button to open the menu, and choose the Deploy Changes option.
+From the application details screen, click btn:[Applications Actions] button to open the menu, and choose the Deploy Changes option.
 
 image::image19.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=256]
 
@@ -227,7 +227,7 @@ From here, you can click on the Application URL to access your application. Ther
 == Make Changes to Your Application’s Configuration and Redeploy 
 
 * Start on the Application detail screen for the application you wish to change.
-* Click the `Application Actions` button.
+* Click the btn:[Application Actions] button.
 * Choose Change Configuration.
 * Make your changes on the configuration screen, click SAVE to create a revision of your application.
 
@@ -237,7 +237,7 @@ After saving your configuration changes, you’ll see the updated application de
 
 image::image21.png[Graphical user interface, application Description automatically generated,width=624,height=339]
 
-Your revised application is saved in the “Pending Changes” box. Click on the `Actions` button within the Pending Changes box to open the menu of actions you can make on the revised application.
+Your revised application is saved in the “Pending Changes” box. Click on the btn:[Actions] button within the Pending Changes box to open the menu of actions you can make on the revised application.
 
 image::image22.png[Graphical user interface Description automatically generated,width=624,height=341]
 
