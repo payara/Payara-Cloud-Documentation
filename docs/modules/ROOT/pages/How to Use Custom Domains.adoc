@@ -8,7 +8,7 @@ Payara Cloud defines a URL to applications when you upload them to your namespac
 
 You probably don’t want to give a URL that looks like that to your end users to access your application. With Payara Cloud’s custom domain option, you can customize the url so it is something like \https://your.brand.com/demo instead.
 
-Click on the namespace containing your application from the Namespace Navigator. In the `Namespace Actions` drop down menu, click Custom Domain.
+Click on the namespace containing your application from the Namespace Navigator. In the btn:[Namespace Actions] drop down menu, click Custom Domain.
 
 image::image33.png[A screenshot of a computer Description automatically generated,width=624,height=290]
 
