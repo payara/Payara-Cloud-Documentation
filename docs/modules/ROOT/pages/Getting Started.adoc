@@ -267,6 +267,6 @@ When the process completes, you’ll see a success message and will be taken bac
 [[deploy-a-stopped-application]]
 *Deploy a Stopped Application*
 
-You can redeploy the same version of a stopped application in the Revisions menu of the Application Detail screen. Click on the `Revision Actions` to open the drop down menu, and choose Deploy.
+You can redeploy the same version of a stopped application in the Revisions menu of the Application Detail screen. Click on the btn:[Revision Actions] to open the drop down menu, and choose Deploy.
 
 image::image28.png[Table Description automatically generated,width=624,height=231]
