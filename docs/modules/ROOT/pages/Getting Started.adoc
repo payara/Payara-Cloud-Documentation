@@ -221,7 +221,7 @@ If there are no errors, your application successfully deploys and the status of 
 
 image::image20.png[A screenshot of a computer Description automatically generated,width=624,height=307]
 
-From here, you can click on the Application URL to access your application.
+From here, you can click on the Application URL to access your application. There may be a delay whilst DNS propagation completes 
 
 [[make-changes-to-your-applications-configuration-and-redeploy]]
 == Make Changes to Your Application’s Configuration and Redeploy 
@@ -254,7 +254,7 @@ image::image24.png[A screenshot of a computer Description automatically generate
 
 Payara Cloud offers an easy way to stop an application if you need to stop an application that is currently running in the cloud.
 
-Click on the application you want to stop from the Namespace Navigator sidebar and then open the …Application Actions drop down menu.
+Click on the application you want to stop from the Namespace Navigator sidebar and then open the `Application Actions`` drop down menu.
 
 image::image25.png[image,width=624,height=287]
 
@@ -267,6 +267,6 @@ When the process completes, you’ll see a success message and will be taken bac
 [[deploy-a-stopped-application]]
 *Deploy a Stopped Application*
 
-You can redeploy the same version of a stopped application in the Revisions menu of the Application Detail screen. Click on the … Revision Actions to open the drop down menu, and choose Deploy.
+You can redeploy the same version of a stopped application in the Revisions menu of the Application Detail screen. Click on the `Revision Actions` to open the drop down menu, and choose Deploy.
 
 image::image28.png[Table Description automatically generated,width=624,height=231]

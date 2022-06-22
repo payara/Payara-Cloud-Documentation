@@ -14,23 +14,23 @@ Search queries will search the entire log entry. Search terms are alphanumeric s
 
 Using the full-text query to locate specific information, you can define which words need to be present in the message or other fields, or which words should not be present.
 
-Only whole words are recognized, for example when specifying load, log entries containing loading are not matched.
+Only whole words are recognized, for example when specifying `load`, log entries containing `loading` are not matched.
 
-When specifying multiple words, without any prefix, a log entry is shown when one of those words is found in the message. For example, loading network returns the log entries containing either loading or network.
+When specifying multiple words, without any prefix, a log entry is shown when one of those words is found in the message. For example, `loading network` returns the log entries containing either `loading` or `network`.
 
-If you require that a certain word needs to be present in the message, prefix it with +. And when you want to exclude a message based on the occurrence of a word, use the – prefix.
+If you require that a certain word needs to be present in the message, prefix it with `+`. And when you want to exclude a message based on the occurrence of a word, use the `–` prefix.
 
-The prefixes can be combined with words without a prefix. For example, the following is a valid query loading network -policy. It returns those entries where the message contains either the word loading or network but excludes those having the word policy.
+The prefixes can be combined with words without a prefix. For example, the following is a valid query `loading network -policy`. It returns those entries where the message contains either the word `loading` or `network` but excludes those having the word `policy`.
 
 You can also filter the log entries based on the timestamp of the log entry.
 
-You can either specify a _timestamp from_ or _timestamp from_ and _timestamp to_ - but specifying only a _timestamp to_ value to retrieve entries older than the specified timestamp is not allowed. In that case, put a timestamp for last week or month in the _timestamp from_ field.
+You can either specify a `timestamp from` or `timestamp from` and `timestamp to` - but specifying only a `timestamp to` value to retrieve entries older than the specified timestamp is not allowed. In that case, put a timestamp for last week or month in the `timestamp from` field.
 
 When defining a timestamp, you can specify a date, a date in combination with hour and minutes, or a more detailed timestamp as indicated by the pattern visible in the field.
 
-*20/01/2021*: Only the date is specified and when used in the _timestamp from_ field, the beginning of the day is assumed. In the field _timestamp to_, the end of the day is taken as value.
+*20/01/2021*: Only the date is specified and when used in the `timestamp from` field, the beginning of the day is assumed. In the field `timestamp to`, the end of the day is taken as value.
 
-*20/01/2021 08:00*: Besides the date, also hour and minutes are defined. In the _timestamp from_ field, the beginning of the hour is assumed and in the end field, the end of the hour.
+*20/01/2021 08:00*: Besides the date, also hour and minutes are defined. In the `timestamp from` field, the beginning of the hour is assumed and in the end field, the end of the hour.
 
 [[heap-dumps]]
 == Heap Dumps

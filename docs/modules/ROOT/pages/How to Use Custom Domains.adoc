@@ -8,7 +8,7 @@ Payara Cloud defines a URL to applications when you upload them to your namespac
 
 You probably don’t want to give a URL that looks like that to your end users to access your application. With Payara Cloud’s custom domain option, you can customize the url so it is something like \https://your.brand.com/demo instead.
 
-Click on the namespace containing your application from the Namespace Navigator. In the … Namespace Actions drop down menu, click Custom Domain.
+Click on the namespace containing your application from the Namespace Navigator. In the `Namespace Actions` drop down menu, click Custom Domain.
 
 image::image33.png[A screenshot of a computer Description automatically generated,width=624,height=290]
 
@@ -26,4 +26,4 @@ image::image35.png[Graphical user interface, application, Teams Description auto
 
 Copy the value in the Set up CNAME DNS Record value field and enter it into the CNAME of the DNS system you are using.
 
-After setting up the CNAME value, click on the `Check DNS` button of this screen to ensure it was set up correctly. If the set up was successful, you can then use the custom domain you set up to access your application.
+After setting up the CNAME value, click on the `Check DNS` button of this screen to ensure it was set up correctly. If the set up was successful, you can then use the custom domain you set up to access your application. _Note that it can take some time for changes in the DNS system to propagate_.
