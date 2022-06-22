@@ -193,7 +193,7 @@ Or define the <data-source> element in _web.xml_:
 </data-source> 
 ----
 
-combined with `MPCONFIG` Microprofile Config variables. These Mp Config variables can be configured with the Payara Cloud GUI
+combined with `MPCONFIG` Microprofile Config variables. These MicroProfile Config variables can be configured with the Payara Cloud GUI
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in Payara Cloud so the system can detect them as described above. Click ‘Add Configuration Key’ and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy. 
 
