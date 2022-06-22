@@ -32,7 +32,7 @@ Slovakia, Slovenia, Spain, Sweden
 
 After confirming you agree with the Terms & Conditions of your Payara Cloud account, click Subscribe to create your account and bill your card for the first 30 days of your subscription.
 
-NOTE: If you don’t complete the subscription sign up process in a timely manner, your session will timeout. Click the “restart” button to resume the process. It will automatically set you up with a Basic subscription but you can upgrade it to Standard or Premium at any time.
+NOTE: If you don’t complete the subscription sign up process in a timely manner, your session will timeout. Click the btn:[restart] button to resume the process. It will automatically set you up with a Basic subscription but you can upgrade it to Standard or Premium at any time.
 
 image::Session_expired.png[Graphical user interface, To protect your information, your session expired]
 
@@ -56,7 +56,7 @@ Attempting to click on the URL at this time will display an error message. You m
 
 A _Namespace_ is a group of related applications in the Payara Cloud environment. This namespace is characterized by a project name and a stage.
 
-Click *Create New Namespace* button.
+Click btn:[Create New Namespace] button.
 
 Your namespace project name must be unique from other project names within your subscription. The name is also used as the subdomain name of the URL that gives you access to the deployed application. To ensure the project name is also unique from all other project names within the Payara Cloud environment, a random value is added to the name you specify.
 
@@ -64,7 +64,7 @@ Use the stage field to indicate the phase of your application. For example, 
 
 image::image6.png[Graphical user interface, application Description automatically generated,width=504,height=435]
 
-After entering the project name, stage, and choosing your cloud region, click *Create namespace* button. The namespace is created and you are taken to the namespace details screen where you can begin adding applications to your namespace.
+After entering the project name, stage, and choosing your cloud region, click btn:[Create namespace] button. The namespace is created and you are taken to the namespace details screen where you can begin adding applications to your namespace.
 
 Each time you login into Payara Cloud you will see a list of all the namespaces that are linked to your subscription.
 
@@ -73,7 +73,7 @@ For each namespace, the name is a link to the namespace details. You can also se
 [[upload-an-application]]
 == Upload an Application
 
-You upload an application from the *Namespace Details Screen* by clicking on the Upload Application button.
+You upload an application from the *Namespace Details Screen* by clicking on the btn:[Upload Application] button.
 
 image::image8.png[Graphical user interface, application Description automatically generated,width=624,height=257]
 
@@ -100,7 +100,7 @@ When you have two applications deployed in the same namespace, let say _serv
 [[configure-your-application-for-deployment]]
 == Configure Your Application for Deployment
 
-Click on the …Application Actions button to access all actions related to the application.
+Click on the btn:[Application Actions] button to access all actions related to the application.
 
 The unconfigured status means that the platform detected that a configuration is required before you can deploy your application. The Deploy action is also not available when the status is unconfigured. When the application uses a database (found a persistence.xml file, not when using @DataSourceDefinition) the status is automatically unconfigured until the configuration is made.
 
@@ -108,7 +108,7 @@ To configure your application for deployment, click Change Configuration.
 
 Configuration screen:
 
-Payara Cloud has support for three configuration areas, MicroProfile configuration parameters, context root, and a database connection for a JPA data source.  The configuration screen will only display the MicroProfile Configuration values for an application using microprofile.config.properties and will only show you the Database Configuration values if your application contains a persistence.xml file.
+Payara Cloud has support for three configuration areas, MicroProfile Config properties, context root, and a database connections for a JPA data sources.  The configuration screen will only display the MicroProfile Configuration values for an application using microprofile.config.properties and will only show you the Database Configuration values if your application contains a persistence.xml file.
 
 If your application connects to a datasource you’ll first provide the JDBC URL, datasource class, and the username and password used to authenticate your connection to the database server.
 
@@ -143,17 +143,17 @@ For example, let's assume Context Root of /orders and Internet-Accessible Path
 
 Then requests like 
 
-https://namespace-domain.payara.app/orders/details/000234 
+\https://namespace-domain.payara.app/orders/details/000234 
 
 or 
 
-https://namespace-domain.payara.app/orders/cancel/00234 
+\https://namespace-domain.payara.app/orders/cancel/00234 
 
 are directed to application.
 
-Requests to https://namespace-domain.payara.app/orders/place will be handled by the application handling the root namespace.
+Requests to \https://namespace-domain.payara.app/orders/place will be handled by the application handling the root namespace.
 
-Other applications within this namespace can reach the handler for /place of this application by accessing http://applicationName/orders/place.
+Other applications within this namespace can reach the handler for /place of this application by accessing \http://applicationName/orders/place.
 
 [[database-configuration]]
 === Database Configuration 
@@ -164,7 +164,7 @@ image::image16.png[Application Description automatically generated,width=624,hei
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you can
 
-make use of the @DataSourceDefinition or define the data source within the _web.xml_ file. 
+make use of the @DataSourceDefinition:  
 
 [source,java]
 ----
@@ -178,9 +178,7 @@ make use of the @DataSourceDefinition or define the data source within the _w
 ) 
 ----
 
-  
-
-Or <data-source> element in _web.xml_ 
+Or define the <data-source> element in _web.xml_:
 
 [source,xml]
 ----
@@ -194,6 +192,8 @@ Or <data-source> element in _web.xml_ 
     <password>$\{MPCONFIG=ds_password}</password>  +
 </data-source> 
 ----
+
+combined with `MPCONFIG` Microprofile Config variables. These MicroProfile Config variables can be configured with the Payara Cloud GUI
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in Payara Cloud so the system can detect them as described above. Click ‘Add Configuration Key’ and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy. 
 
@@ -213,7 +213,7 @@ image::image18.png[A screenshot of a computer Description automatically generate
 
 You need to deploy the application to make it publicly available after you’ve configured it for the first time, or anytime you have changed the configuration of the application.
 
-From the application details screen, click … Applications Actions button to open the menu, and choose the Deploy Changes option.
+From the application details screen, click btn:[Applications Actions] button to open the menu, and choose the Deploy Changes option.
 
 image::image19.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=256]
 
@@ -221,13 +221,13 @@ If there are no errors, your application successfully deploys and the status of 
 
 image::image20.png[A screenshot of a computer Description automatically generated,width=624,height=307]
 
-From here, you can click on the Application URL to access your application.
+From here, you can click on the Application URL to access your application. There may be a delay whilst DNS propagation completes 
 
 [[make-changes-to-your-applications-configuration-and-redeploy]]
 == Make Changes to Your Application’s Configuration and Redeploy 
 
 * Start on the Application detail screen for the application you wish to change.
-* Click the ...Application Actions button.
+* Click the btn:[Application Actions] button.
 * Choose Change Configuration.
 * Make your changes on the configuration screen, click SAVE to create a revision of your application.
 
@@ -237,7 +237,7 @@ After saving your configuration changes, you’ll see the updated application de
 
 image::image21.png[Graphical user interface, application Description automatically generated,width=624,height=339]
 
-Your revised application is saved in the “Pending Changes” box. Click on the … Actions button within the Pending Changes box to open the menu of actions you can make on the revised application.
+Your revised application is saved in the “Pending Changes” box. Click on the btn:[Actions] button within the Pending Changes box to open the menu of actions you can make on the revised application.
 
 image::image22.png[Graphical user interface Description automatically generated,width=624,height=341]
 
@@ -254,7 +254,7 @@ image::image24.png[A screenshot of a computer Description automatically generate
 
 Payara Cloud offers an easy way to stop an application if you need to stop an application that is currently running in the cloud.
 
-Click on the application you want to stop from the Namespace Navigator sidebar and then open the …Application Actions drop down menu.
+Click on the application you want to stop from the Namespace Navigator sidebar and then open the btn:[Application Actions] drop down menu.
 
 image::image25.png[image,width=624,height=287]
 
@@ -267,6 +267,6 @@ When the process completes, you’ll see a success message and will be taken bac
 [[deploy-a-stopped-application]]
 *Deploy a Stopped Application*
 
-You can redeploy the same version of a stopped application in the Revisions menu of the Application Detail screen. Click on the … Revision Actions to open the drop down menu, and choose Deploy.
+You can redeploy the same version of a stopped application in the Revisions menu of the Application Detail screen. Click on the btn:[Revision Actions] to open the drop down menu, and choose Deploy.
 
 image::image28.png[Table Description automatically generated,width=624,height=231]

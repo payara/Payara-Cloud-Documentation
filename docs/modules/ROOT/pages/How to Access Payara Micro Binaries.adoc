@@ -7,9 +7,9 @@ As part of the Payara Cloud Premium subscription, you are entitled to: 
 * Full access to the Payara Customer support portal for raising support tickets for 2 users 
 * A single, shared Nexus repository account for your organisation 
 
-__Sonatype Nexus__ is a repository manager which we use to provide our Enterprise builds and private builds for Payara Micro. It also contains the binaries for our connectors (Cloud, Testing, Security, etc …), Docker Images, and IDE plugins which are tested with our Enterprise Edition software. The repository can also be used to store large files for your support tickets. 
+__Sonatype Nexus__ is a repository manager which we use to provide our Enterprise builds and private builds for Payara Micro. It also contains the binaries for our connectors (Cloud, Testing, Security, etc …), Docker Images, and IDE plugins which are tested with our Enterprise Edition software. The repository can also be used to store large files for your support tickets. (Note: Do not confuse _Cloud Connectors_ project with _Payara Cloud_ SaaS)
 
-By the time you receive this guide, accounts should have been created for you on these two key platforms. 
+Accounts will be created for you on these two key platforms shortly after subscribing to Payara Cloud Premium. 
 
 [[verify-your-customer-support-portal-access]]
 == Verify Your Customer Support Portal Access
@@ -23,7 +23,7 @@ If you would like to add/swap named contacts for your company, you may request t
 You should receive an email with your Nexus credentials, which contains a default password. 
 Since email notifications are an inherently insecure communication method, it is your responsibility to change the password immediately. 
 
-Use the generated password to log in to your account and change your password by clicking the profile option in the top-right corner of the user interface first, and then clicking on the __Change Password __button: 
+Use the generated password to log in to your account and change your password by clicking the profile option in the top-right corner of the user interface first, and then clicking on the btn:[Change Password] button: 
 
 image::image36.png[Graphical user interface, application Description automatically generated,width=668,height=207]
 
