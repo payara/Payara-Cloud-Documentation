@@ -95,7 +95,7 @@ Applications in the same namespace can communicate directly with each other, wit
 
 For each application, an additional DNS name is created based on the _appName_ property in the contextRoot panel of the configuration.
 
-When you have two applications deployed in the same namespace, let say _service-a_ and _service-b_, the code in _service-a_ can call an endpoint in the application _service-b_ by using the URL \http://service-b/%3ccontext-root%3e/path/to/endpoint[+++http://service-b/<context-root>/path/to/endpoint+++] when the appName of this service-b application is set to _service-b_. 
+When you have two applications deployed in the same namespace, let say _service-a_ and _service-b_, the code in _service-a_ can call an endpoint in the application _service-b_ by using the URL http://service-b/%3ccontext-root%3e/path/to/endpoint[+++http://service-b/<context-root>/path/to/endpoint+++] when the appName of this service-b application is set to _service-b_. 
 
 [[configure-your-application-for-deployment]]
 == Configure Your Application for Deployment
