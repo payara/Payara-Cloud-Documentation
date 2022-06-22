@@ -254,7 +254,7 @@ image::image24.png[A screenshot of a computer Description automatically generate
 
 Payara Cloud offers an easy way to stop an application if you need to stop an application that is currently running in the cloud.
 
-Click on the application you want to stop from the Namespace Navigator sidebar and then open the `Application Actions`` drop down menu.
+Click on the application you want to stop from the Namespace Navigator sidebar and then open the btn:[Application Actions] drop down menu.
 
 image::image25.png[image,width=624,height=287]
 
