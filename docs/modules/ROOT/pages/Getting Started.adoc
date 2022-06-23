@@ -79,9 +79,9 @@ image::image8.png[Graphical user interface, application Description automaticall
 
 You’ll get a dialog where you can select the WAR file that needs to be deployed. The _Deploy Immediately_ checkbox can be checked to deploy the application with default values. In most cases you will need a specific configuration (such as if your application connects to a database) and this checkbox should not be ticked.  
 
-* If Application Name is defined on the dialog, it is used as the application name in Payara Cloud.
-* If the WAR is built by Maven and the pom.xml is included within the archive (the default behavior for Maven war plugin) the artifactId is used as name.
-* The name of the uploaded file.
+* If Application Name is defined on the Payara Cloud UI dialog, it is used as the application name in Payara Cloud.
+* If the above is not set and the WAR is built by Maven and the pom.xml is included within the archive (the default behavior for Maven war plugin) the artifactId is used as name.
+* Finally, if the above 2 are not met, the name of the uploaded file is used as the application name.
 
 The application name is important as it is also the DNS name assigned to the container running your application and can be used to access the application directly from another application in the same namespace.
 
@@ -106,7 +106,7 @@ The unconfigured status means that the platform detected that a configuration is
 
 To configure your application for deployment, click Change Configuration.
 
-Configuration screen:
+=== Configuration screen
 
 Payara Cloud has support for three configuration areas, https://microprofile.io/[MicroProfile^] configuration parameters, context root, and a database connection for a JPA data source.  The configuration screen will only display the MicroProfile Configuration values for an application using microprofile.config.properties and will only show you the Database Configuration values if your application contains a persistence.xml file.
 
@@ -117,7 +117,7 @@ You’ll select your runtime size in the drop down box based on the amount of re
 image::image13.png[image,width=480,height=149]
 
 [[microprofile-configuration-values]]
-=== MicroProfile Configuration Values
+==== MicroProfile Configuration Values
 
 MicroProfile configuration is a preferred way to externalize the configuration parameters for your application. You can Inject them similar to a CDI or retrieve them programmatically. 
 
@@ -126,20 +126,20 @@ When you upload your application, Payara Cloud looks for the file _microprofile
 image::image14.png[image,width=480,height=108]
 
 [[context-root]]
-=== Context Root
+==== Context Root
 
 By default, the name of the WAR file is taken as the context root on which the application is made available.  Using the Application Configuration screen, this value can be changed. 
 
 image::image15.png[Table Description automatically generated with medium confidence,width=624,height=221]
 
 [[internet-accessible-paths]]
-=== Internet-Accessible Paths
+==== Internet-Accessible Paths
 
-While everything served under a specified context root path is accessible to other applications within the namespace, it is possible to restrict which sub-paths of the context root are accessible over the internet.
+While everything served under a specified context root path is accessible to other applications within the namespace, it is possible to restrict which sub-paths of the context root are accessible over the internet. By default all paths are available `/*`
 
-To set which sub-paths are accessible, enter space-separated patterns in the form of /prefix*. Sub-paths matching this prefix will be available through the domain name of the namespace, while other paths will only be accessible to other applications within the same namespace.
+To set which sub-paths are accessible, enter space-separated patterns in the form of `/prefix*`. Sub-paths matching this prefix will be available through the domain name of the namespace, while other paths will only be accessible to other applications within the same namespace.
 
-For example, let's assume Context Root of /orders and Internet-Accessible Paths /details/* /cancel/*.
+For example, let's assume Context Root of `/orders` and Internet-Accessible Paths `/details/*` `/cancel/*`.
 
 Then requests like 
 
@@ -153,12 +153,14 @@ are directed to application.
 
 Requests to \https://namespace-domain.payara.app/orders/place will be handled by the application handling the root namespace.
 
-Other applications within this namespace can reach the handler for /place of this application by accessing \http://applicationName/orders/place.
+Other applications within this namespace can reach the handler for `/place` of this application by accessing \http://applicationName/orders/place.
+
+Note that communications within a namespace are http only, as the traffic is limited to the namespace. HTTPS is available for inbound traffic into the namespace. 
 
 [[database-configuration]]
-=== Database Configuration 
+==== Database Configuration 
 
-When you upload your application, Payara Cloud looks for the _persistence.xml_ file. If detected, the necessary minimal configuration parameters for a database source for the reference JNDI name can be specified.  
+When you upload your application, Payara Cloud looks for the _persistence.xml_ file. If detected, the necessary minimal configuration parameters for a database source for the reference JNDI name can be specified.
 
 image::image16.png[Application Description automatically generated,width=624,height=242]
 
@@ -200,7 +202,7 @@ If you are using plain JDBC connections instead of the JPA functionality of Jaka
 image::image17.png[image,width=480,height=108]
 
 [[allowing-access-to-your-database-from-payara-cloud]]
-==== *Allowing Access to your Database from Payara Cloud*
+===== *Allowing Access to your Database from Payara Cloud*
 
 If your database access is restricted by IP address, the source IP of the cluster is <<TODO: Cluster IP address of production environment for each region>>. If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace. 
 
