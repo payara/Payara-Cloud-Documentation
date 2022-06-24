@@ -1,0 +1,13 @@
+* xref:user-guide.adoc[]
+** Command Reference
+*** xref:reference/pcl.adoc[]
+*** xref:reference/pcl-login.adoc[]
+*** xref:reference/pcl-list-namespaces.adoc[]
+*** xref:reference/pcl-create-namespace.adoc[]
+*** xref:reference/pcl-delete-namespace.adoc[]
+*** xref:reference/pcl-upload.adoc[]
+*** xref:reference/pcl-deploy.adoc[]
+*** xref:reference/pcl-list-applications.adoc[]
+*** xref:reference/pcl-stop.adoc[]
+*** xref:reference/pcl-start.adoc[]
+*** xref:reference/pcl-configure.adoc[]

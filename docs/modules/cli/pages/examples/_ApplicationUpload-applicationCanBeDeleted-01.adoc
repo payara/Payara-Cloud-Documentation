@@ -1,0 +1,5 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl -n _$namespace_ -a _$appName_ delete-application*
+
+----

@@ -1,0 +1,79 @@
+// tag::picocli-generated-full-manpage[]
+// tag::picocli-generated-man-section-header[]
+:doctype: manpage
+:revnumber: 
+:manmanual: Pcl Manual
+:mansource: 
+:man-linkstyle: pass:[blue R < >]
+= pcl-stop(1)
+
+// end::picocli-generated-man-section-header[]
+
+// tag::picocli-generated-man-section-name[]
+== Name
+
+pcl-stop - Stop an application
+
+// end::picocli-generated-man-section-name[]
+
+// tag::picocli-generated-man-section-synopsis[]
+== Synopsis
+
+*pcl stop* [*-hqV*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_]
+         [*-s*=_<subscriptionName>_]
+
+// end::picocli-generated-man-section-synopsis[]
+
+// tag::picocli-generated-man-section-description[]
+== Description
+
+Stop an application
+Deployed application can be stopped by means of this command.
+
+// end::picocli-generated-man-section-description[]
+
+// tag::picocli-generated-man-section-options[]
+== Options
+
+*-a*, *--application*=_<applicationName>_::
+  Name of application to manage. 
++
+Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
+
+*-h*, *--help*::
+  Show this help message and exit.
+
+*-n*, *--namespace*=_<namespaceName>_::
+  Name of namespace to manage.
++
+Required for all commands except `login`, `list-namespaces` and `create-namespace`.
+
+*-o*, *--output*=_<outputFormat>_::
+  Output format. Allowed values: TEXT, JSON.
+
+*-q*, *--quiet*::
+  Quiet output.
++
+Only result of operations will be displayed to `stdout`, or error message to `stderrr`.
+
+*-s*, *--subscription*=_<subscriptionName>_::
+  Name of subscription to use. Only necessary when account has access to multiple subscriptions.
+
+*-V*, *--version*::
+  Print version information and exit.
+
+// end::picocli-generated-man-section-options[]
+
+// tag::picocli-generated-man-section-arguments[]
+// end::picocli-generated-man-section-arguments[]
+
+// tag::picocli-generated-man-section-commands[]
+// end::picocli-generated-man-section-commands[]
+
+// tag::picocli-generated-man-section-exit-status[]
+// end::picocli-generated-man-section-exit-status[]
+
+// tag::picocli-generated-man-section-footer[]
+// end::picocli-generated-man-section-footer[]
+
+// end::picocli-generated-full-manpage[]

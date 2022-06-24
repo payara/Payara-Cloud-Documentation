@@ -1,0 +1,314 @@
+= Payara Cloud CLI User Guide
+:man-prefix: #
+:man-suffix: 1
+
+== Introduction
+
+`pcl` is command line utility for managing Payara Cloud namespaces and applications.
+It is distributed as executable jar file.
+It requires Java Runtime, version 8 or newer.
+
+=== Documentation Structure
+
+User Guide demonstrates the concept and usage of `pcl` mainly through examples.
+<<Command Reference>> then lists all options and sub-commands supported by the client.
+The content of reference is equivalent to output provided by option `--help`.
+
+=== Notation used
+
+Examples in this guide use the following convention:
+
+[listing,subs=+quotes]
+----
+*command input in bold, using $var for user-specific input*
+_stderr output in italics_
+stdout output
+----
+
+// === Getting started
+// downloading and instlaling pcl
+
+// === Help
+// === Output options
+== Logging in
+
+`pcl` uses OAuth Device Authentication flow to establish its identity to Payara Cloud.
+It will generate a confirmation code, which you use to log in to Payara Cloud web interface via browser.
+
+[listing,subs=+quotes]
+----
+*pcl login*
+_[INFO] In order to log in follow following link: https://login.payara.cloud/activate_
+_[INFO] Your confirmation code is KKMD-STTF_
+----
+
+The client will also open the browser for you if your environment permits it.
+In case you follow link manually you'll need to enter the confirmation code on first page:
+
+[.text-center]
+image:images/login-01-enter-code.png[width=320]
+
+After that a confirmation page is displayed:
+
+[.text-center]
+image:images/login-02-confirmation.png[width=320]
+
+WARNING: Only confirm this page if you knowingly initiated login flow via `pcl login`.
+Payara Cloud will never ask you to authenticate via this flow via any other channel or under any other circumstance, such as solving a support issue.
+
+If you are logging in for the first time the authentication service will ask you to authorize Payara Cloud CLI to perform application management tasks with your identity:
+
+[.text-center]
+image:images/login-03-authorize.png[width=320]
+
+After confirming this, the authentication process is completed and you may close the browser window:
+
+[.text-center]
+image:images/login-04-success.png[width=320]
+
+=== Managing tokens
+
+After login is complete the relevant token is stored in `$HOME/.payara/manage.payara.cloud`.
+The token does not have any expiration time, so you will not need to log in again for when using `pcl`.
+Tokens can be invalidated remotely via User Preferences screen in Payara Cloud Web UI.
+
+=== Non-interactive usage
+
+Login only works for interactive sessions.
+In order to be able to perform `pcl` commands in non-interactive environments such as CI `pcl login` offers option `--print-token`.
+
+[listing,subs=+quotes]
+----
+*pcl login --print-token*
+_[INFO] In order to log in follow following link: https://login.payara.cloud/activate_
+_[INFO] Your confirmation code is CVJF-XKGH_
+_[SUCCESS] Token for environment-based login:_
+PCL_AUTH_TOKEN=eyJyZWZyZXNoX3Rva2VuIjoiWktMTFVQaUVIeEZ3c2JfOGNXSzFILUdnaUR1OVlXZUdDR3h3TUVFUlVrM3VLIn0=
+----
+
+The output of the command is the environment to use in order to establish the identity in a script.
+
+In Github Actions the token can be used in following way:
+
+Set secret `PCL_AUTH_TOKEN` for the repository to `eyJyZWZyZXNoX3Rva2VuIjoiWktMTFVQaUVIeEZ3c2JfOGNXSzFILUdnaUR1OVlXZUdDR3h3TUVFUlVrM3VLIn0=`.
+
+In the workflow file refer to the secret like this:
+
+[listing,language=yaml]
+----
+    - name: Deploy new version
+      env:
+        PCL_AUTH_TOKEN: ${{ secrets.PCL_AUTH_TOKEN }}
+      run: pcl -n project-head -a main-app upload target/app.war --deploy
+----
+
+== Common options
+
+=== Obtaining help
+
+Option `--help` will provide with same content as <<Command Reference>> does, listing all available options and a short description of the command.
+
+include::examples/_Common-topLevelHelp-01.adoc[]
+
+To find out about specific commands put `--help` after the command:
+
+include::examples/_Common-commandHelp-01.adoc[]
+
+=== Determining version
+
+This prints helpful information to determine the version and environment the command runs in.
+
+include::examples/_Common-version-01.adoc[]
+
+=== Output options
+
+Option `-o json` can be used to force output to be JSON only, including error messages.
+Even though many commands return json in current version, it is possible that default console output will change in future versions.
+Output of `-o json` is planned to remain stable.
+Compare json output to those console outputs shown in <<Listing Namespaces>> and <<Creating a Namespace>> below:
+
+include::examples/_Namespaces-canBeListedAsJson-01.adoc[]
+
+include::examples/_Namespaces-cannotBeCreatedTwiceJson-01.adoc[]
+
+Option `-q` will suppress all progress and warning messages, puting just the output onto `stdout` or error messages to `stderr`.
+
+== Namespace Management
+
+Basic namespace operations are available via CLI.
+Other use cases, such as set up of custom domains or monitoring are only available via GUI.
+
+=== Listing Namespaces
+
+Use xref:{man-prefix}pcl-list-namespaces{man-suffix}[ list-namespaces] to see namespaces available to you:
+
+include::examples/_Namespaces-canBeListed-01.adoc[]
+
+For all other commands that operate on namespace, you must supply the value of name (e. g. `start-dev`) as option `-n`.
+
+=== Creating a Namespace
+
+Creating namespace with xref:{man-prefix}pcl-create-namespace{man-suffix}[create-namespace] takes exact same input as GUI -- project and stage the namespace should represent:
+
+include::examples/_Namespaces-canBeCreated-01.adoc[]
+
+Additionally, one can specify the provider and region namespace will be provisioned via option `--region`:
+
+|===
+| Region value | Provider | Region
+
+| `azure-westeurope` | Azure | West Europe (default)
+| `azure-eastus` | Azure | East US
+|===
+
+include::examples/_Namespaces-namespaceCanBeCreatedInOtherRegion-01.adoc[]
+
+Payara Cloud can extend to support more regions and providers.
+The value is therefore checked after submission.
+If an invalid value is provided valid values for region will be provided in a warning message:
+
+include::examples/_Namespaces-invalidRegionListsValidValues-01.adoc[]
+
+Project and stage need to be unique within your subscription.
+An error is reported when you attempt to create a namespace with same project/stage combination:
+
+include::examples/_Namespaces-cannotBeCreatedTwice-01.adoc[]
+
+=== Deleting a Namespace
+
+Namespace can be deleted by using xref:{man-prefix}pcl-delete-namespace{man-suffix}[delete-namespace] command:
+
+include::examples/_Namespaces-canBeDeleted-01.adoc[]
+
+Deleting the namespace permanently removes all applications and their configurations.
+Option `-y` is required to confirm this step, otherwise a warning is displayed:
+
+include::examples/_Namespaces-requiresConfirmationFlagForDeletion-01.adoc[]
+
+== Application Management
+
+CLI supports all usecases related to uploading a war file, configuring it and starting the revision.
+
+=== Uploading .war File
+
+A new application can be created within a namespace by uploading its binary artifact using the xref:{man-prefix}pcl-upload{man-suffix}[upload] command:
+
+include::examples/_ApplicationUpload-uploadNamesApplicationFromManifest-01.adoc[]
+
+Uploading an artifact starts an _inspection process_, which performs scanning of the .war file whilst identifying microprofile config properties, persistence units and datasources the application might require.
+
+The application name is determined from Maven metadata in `META-INF/maven` by default.
+Should you want to override that, provide option `-a`/`--application`:
+
+include::examples/_ApplicationUpload-specifyingNameOverridesApplication-01.adoc[]
+
+Status `PENDING` signifies that application has not been deployed yet.
+Deployment can be either performed by the  xref:{man-prefix}pcl-deploy{man-suffix}[deploy] command, or by providing option `--deploy` to the `upload` command.
+
+include::examples/_Deployment-deploymentStraightFromUploadStartsApp-01.adoc[]
+
+Here we see that inspection process is immediately followed by deployment process that starts up the application in target provisioning cluster.
+
+Uploading a new `.war` for an existing application doesn't immediately deploy it.
+The information that the newest state of the application is different from deployed state is represented by attribute `pendingChanges`, which is `true` in such case.
+
+include::examples/_Deployment-uploadingNewRevisionSignalsPendingChanges-01.adoc[]
+
+=== Deploying Application
+
+To deploy an application as a separate step (for example after configuring it) use the xref:{man-prefix}pcl-deploy{man-suffix}[ deploy] command:
+
+include::examples/_Deployment-deployingAfterPendingChangesMovesToRunningState-01.adoc[]
+
+Payara Cloud will keep retrying deployment for up to 10 minutes before it pronounces deployment failed.
+There are two switches to enable CLI terminate before the 10 minutes, in the scenario of deployment failure.
+
+Note that in either of these cases backend deployment is not cancelled.
+This is intentionally designed that way, because application deployment could be fail due to some external service not being available at startup.
+
+First option is to set client-side timeout for deployment with `--timeout`.
+Exit code in such case is 3.
+
+include::examples/_Deployment-shorterTimeoutIsAppliedOnClientSide-02.adoc[]
+
+Another option is to fail immediately after deployment problem is identified by using the option `--fail-early`.
+Exit code in such case is 2.
+
+include::examples/_Deployment-failEarlyFailsOnDeploymentProblem-03.adoc[]
+
+These both options are also available to other commands that might trigger deployment -- xref:{man-prefix}pcl-upload{man-suffix}[upload] and xref:{man-prefix}pcl-configure{man-suffix}[configure].
+
+=== Listing Applications
+
+In order to list applications within a namespace use command xref:{man-prefix}pcl-list-applications{man-suffix}[list-applications], that shows application names and their basic properties:
+
+include::examples/_Deployment-listApplicationsShowsState-04.adoc[]
+
+=== Stopping an Application
+
+A running application can be stopped with xref:{man-prefix}pcl-stop{man-suffix}[stop], providing the application name.
+
+include::examples/_Deployment-runningApplicationCanBeStopped-01.adoc[]
+
+A warning is displayed when application is in a state that doesn't permit stopping it:
+
+include::examples/_Deployment-stoppedApplicationCannotBeStopped-01.adoc[]
+
+=== Starting an Application
+
+A stopped application can be started again by using the xref:{man-prefix}pcl-start{man-suffix}[start] command.
+
+include::examples/_Deployment-stoppedApplicationCanBeStarted-01.adoc[]
+
+If the application is not stopped, the command fails.
+
+include::examples/_Deployment-runningApplicationCannotBeStarted-01.adoc[]
+
+=== Configuring an Application
+
+The most dynamic command of cli is xref:{man-prefix}pcl-configure{man-suffix}[configure].
+Available sub-commands of `configure` depend on specific application and the configuration options it provides.
+
+The configuration of an application consists of several partial configurations, that describe particular facets of that application.
+Semantics of partial configuration is represented by configuration kind, such as data source or context root configuration).
+Usually application has at most one partial configuration for each configuration kind, with only exception being data source, which has one configuration of kind `dataSource` for every data source identified.
+
+Available configuration kinds can be seen by invoking detailed help of `configure` command while also specifying the target application:
+
+include::examples/_Configuration-helpListsConfigurationKinds-02.adoc[]
+
+include::examples/_Configuration-detailedHelpListsFurtherOptions-01.adoc[]
+
+Recognized configuration parameters are keys that are known to exist for that particular configuration kind, and are reconfigured using syntax `<parameter>=<value>` after specifyig the configuration kind.
+
+When reconfiguration succeeds full configuration of the application as well as metadata about the keys is returned as result
+
+include::examples/_Configuration-applicationCanBeReconfigured-01.adoc[]
+
+Changes are not immediately deployed.
+Command xref:{man-prefix}pcl-deploy{man-suffix}[deploy] needs to be invoked to make them live.
+Alternatively option `--deploy` can be passed to `configure` to trigger deployment immediately after reconfiguring.
+In such case output of the `configure` command matches output of `deploy` command.
+
+include::examples/_Configuration-changesCanBeImmediatelyDeployed-02.adoc[]
+
+If provided parameter does not meet the syntax requirements or the entire configuration is not consistent the commands ends with a failure.
+
+include::examples/_Configuration-incorrectInputGivesReasonableErrorMesage-01.adoc[]
+
+Client will prevent to define configuration keys, that are not known.
+
+include::examples/_Configuration-unknownPropertyGivesErrorMessage-01.adoc[]
+
+But it is valid use case to add a new property for `microprofileConfig`, in which case option `--add` needs to be used.
+
+include::examples/_Configuration-propertyCanBeAdded-01.adoc[]
+
+Multiple configurations and their attributes can be set at same time:
+
+include::examples/_Configuration-multipleConfigurationsAndPropertiesCanBeSet-01.adoc[]
+
+A configuration key can be reset to its default value, or removed if it doesn't have default value and is not required.
+This can be achieved with option `--reset <key>`.
+
+include::examples/_Configuration-propertyCanBeResetToDefaultValue-01.adoc[]

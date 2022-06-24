@@ -1,0 +1,11 @@
+[listing,subs=+quotes]
+----
+*pcl list-namespaces*
+_[SUCCESS] Namespaces:_cli-clitest
+    name: cli-clitest
+    liveURI: https://cli-clitest-9966f58b.payara.app/
+start-dev
+    name: start-dev
+    liveURI: https://start-dev-d124472d.payara.app/
+
+----

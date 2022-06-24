@@ -1,0 +1,8 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl -V*
+pcl version: development-snapshot
+Java version: 11.0.12, Vendor: Azul Systems, Inc., Platform encoding: UTF-8
+OS: Windows 10, Version: 10.0, Arch: amd64
+
+----

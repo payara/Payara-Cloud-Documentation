@@ -1,0 +1,9 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl list-namespaces*
+_[SUCCESS] Namespaces:_
+start-dev
+    name: start-dev
+    liveURI: +++https:+++//start-dev-xxxxxxxx.payara.app/
+
+----

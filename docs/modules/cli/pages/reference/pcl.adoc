@@ -1,0 +1,117 @@
+// tag::picocli-generated-full-manpage[]
+// tag::picocli-generated-man-section-header[]
+:doctype: manpage
+:revnumber: pcl version  development-snapshot
+:manmanual: Pcl Manual
+:mansource: pcl version  development-snapshot
+:man-linkstyle: pass:[blue R < >]
+= pcl(1)
+
+// end::picocli-generated-man-section-header[]
+
+// tag::picocli-generated-man-section-name[]
+== Name
+
+pcl - Payara Cloud Command Line.
+
+// end::picocli-generated-man-section-name[]
+
+// tag::picocli-generated-man-section-synopsis[]
+== Synopsis
+
+*pcl* [*-hqV*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_]
+    [*-s*=_<subscriptionName>_] [COMMAND]
+
+// end::picocli-generated-man-section-synopsis[]
+
+// tag::picocli-generated-man-section-description[]
+== Description
+
+Payara Cloud Command Line Interface allows remote operations over Payara Cloud's namespaces and application via command line.
+In order to sign in, use the command `pcl login` interactively. This will allow the client to obtain credentials that are either stored in home directory or can be provided via environment variable `PCL_AUTH_TOKEN`. See `pcl login --help` for details.
+
+// end::picocli-generated-man-section-description[]
+
+// tag::picocli-generated-man-section-options[]
+== Options
+
+*-a*, *--application*=_<applicationName>_::
+  Name of application to manage. 
++
+Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
+
+*-h*, *--help*::
+  Show this help message and exit.
+
+*-n*, *--namespace*=_<namespaceName>_::
+  Name of namespace to manage.
++
+Required for all commands except `login`, `list-namespaces` and `create-namespace`.
+
+*-o*, *--output*=_<outputFormat>_::
+  Output format. Allowed values: TEXT, JSON.
+
+*-q*, *--quiet*::
+  Quiet output.
++
+Only result of operations will be displayed to `stdout`, or error message to `stderrr`.
+
+*-s*, *--subscription*=_<subscriptionName>_::
+  Name of subscription to use. Only necessary when account has access to multiple subscriptions.
+
+*-V*, *--version*::
+  Print version information and exit.
+
+// end::picocli-generated-man-section-options[]
+
+// tag::picocli-generated-man-section-arguments[]
+// end::picocli-generated-man-section-arguments[]
+
+// tag::picocli-generated-man-section-commands[]
+== Commands
+
+xref:pcl-login.adoc[*login*]::
+  Log in to Payara Cloud instance.
+
+xref:pcl-list-subscriptions.adoc[*list-subscriptions*]::
+  Get list of subscriptions available to user.
+
+xref:pcl-list-namespaces.adoc[*list-namespaces*]::
+  List namespaces available in a subscription.
+
+xref:pcl-list-applications.adoc[*list-applications*]::
+  List applications present in a namespace.
+
+xref:pcl-upload.adoc[*upload*]::
+  Upload application binary
+
+xref:pcl-deploy.adoc[*deploy*]::
+  Deploy an existing application.
+
+xref:pcl-start.adoc[*start*]::
+  Start an application
+
+xref:pcl-stop.adoc[*stop*]::
+  Stop an application
+
+xref:pcl-create-namespace.adoc[*create-namespace*]::
+  Create new namespace
+
+xref:pcl-delete-namespace.adoc[*delete-namespace*]::
+  Deletes a namespace.
+
+xref:pcl-delete-application.adoc[*delete-application*]::
+  Delete an application.
+
+xref:pcl-configure.adoc[*configure*]::
+  Change configuration of an application
+
+// end::picocli-generated-man-section-commands[]
+
+// tag::picocli-generated-man-section-exit-status[]
+// end::picocli-generated-man-section-exit-status[]
+
+// tag::picocli-generated-man-section-footer[]
+// end::picocli-generated-man-section-footer[]
+
+// end::picocli-generated-full-manpage[]

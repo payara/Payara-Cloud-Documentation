@@ -1,0 +1,6 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl deploy -n _$namespace_ -a _$appName_*
+_[FAILURE] Application is not in deployable state_
+
+----

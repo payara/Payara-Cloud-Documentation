@@ -1,0 +1,49 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl upload --help*
+Usage: pcl upload [-ehqV] [--deploy] [-a=<applicationName>]
+                  [-n=<namespaceName>] [-o=<outputFormat>]
+                  [-s=<subscriptionName>] [-t=<timeout>] <file>
+Upload application binary
+Use to either provide new binary for existing application by specifying option
++++`+++-a+++`+++ / +++`+++--application+++`+++, or to upload new application into a namespace.
+      <file>                Application archive file (.war) to be uploaded
+  -a, --application=<applicationName>
+                            Name of application to manage.
+                            Not required for commands listed by +++`+++-n+++`+++ option, as
+                              well as +++`+++list-applications+++`+++ and +++`+++upload+++`+++.
+      --deploy              Deploy application immediately.
+                            Application will be immediately deployed after
+                              upload if its default configuration is complete,
+                              i. e. all required option have default values.
+  -e, --fail-early          Fail command immediately after first deployment
+                              problem instead of waiting for timeout on client
+                              or backend side
+                            There are certain scenarios when deployment can
+                              succeed despite deployment problems reported.
+                            It is therefore not guaranteed that application
+                              deployment that failed with early warning will
+                              not start up later.
+  -h, --help                Show this help message and exit.
+  -n, --namespace=<namespaceName>
+                            Name of namespace to manage.
+                            Required for all commands except +++`+++login+++`+++,
+                              +++`+++list-namespaces+++`+++ and +++`+++create-namespace+++`+++.
+  -o, --output=<outputFormat>
+                            Output format. Allowed values: TEXT, JSON.
+  -q, --quiet               Quiet output.
+                            Only result of operations will be displayed to
+                              +++`+++stdout+++`+++, or error message to +++`+++stderrr+++`+++.
+  -s, --subscription=<subscriptionName>
+                            Name of subscription to use. Only necessary when
+                              account has access to multiple subscriptions.
+  -t, --timeout=<timeout>   Duration in seconds specifying how long to wait for
+                              deployment to complete
+                            This is client side timeout which doesn't affect
+                              deployment process in Payara Cloud. It is
+                              therefore not guaranteed that application
+                              deployment that failed due to this time out will
+                              not eventually start up later.
+  -V, --version             Print version information and exit.
+
+----
