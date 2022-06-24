@@ -1,0 +1,30 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl -n _$namespace_ -a _$appName_ configure --help*
+Usage: configure [-ehV] [--deploy] [-t=<timeout>] [<CONFIGURATION KIND>
+                 key=value...]...
+      --deploy              Deploy revision with updated configuration
+                              immediately
+  -e, --fail-early          Fail command immediately after first deployment
+                              problem instead of waiting for timeout on client
+                              or backend side
+                            There are certain scenarios when deployment can
+                              succeed despite deployment problems reported.
+                            It is therefore not guaranteed that application
+                              deployment that failed with early warning will
+                              not start up later.
+  -h, --help                Show this help message and exit.
+  -t, --timeout=<timeout>   Duration in seconds specifying how long to wait for
+                              deployment to complete
+                            This is client side timeout which doesn't affect
+                              deployment process in Payara Cloud. It is
+                              therefore not guaranteed that application
+                              deployment that failed due to this time out will
+                              not eventually start up later.
+  -V, --version             Print version information and exit.
+Configuration kinds:
+  microprofileConfig
+  appRuntime
+  contextRoot
+
+----

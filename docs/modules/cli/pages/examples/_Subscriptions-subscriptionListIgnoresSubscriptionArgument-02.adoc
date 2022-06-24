@@ -1,0 +1,7 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl list-subscriptions*
+_[SUCCESS] You have access to following subscriptions_
+2022-06-24-3d
+
+----

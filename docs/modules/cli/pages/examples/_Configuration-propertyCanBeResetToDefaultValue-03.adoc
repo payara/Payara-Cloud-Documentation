@@ -1,0 +1,5 @@
+[listing,subs=+quotes]
+----
+*pcl delete-namespace -n _$namespace_ -y*
+
+----

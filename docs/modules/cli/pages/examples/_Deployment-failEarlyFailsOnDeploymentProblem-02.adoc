@@ -1,0 +1,51 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl configure -n _$namespace_ -a _$appName_ contextRoot contextRoot=/2*
+_[SUCCESS] Revision reconfigured_
+
+{
+    "kind": {
+        "appRuntime": {
+            "fail-deploy.war": {
+                "values": {
+                    "runtimeSize": "QUARTER+++_+++CORE"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "runtimeSize",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        "contextRoot": {
+            "fail-deploy.war": {
+                "values": {
+                    "exposedPaths": "/+++*+++",
+                    "appName": "missing-injection-fail",
+                    "contextRoot": "/2"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "appName",
+                        "required": true,
+                        "default": "missing-injection-fail"
+                    },
+                    {
+                        "name": "contextRoot",
+                        "required": true,
+                        "default": "/missing-injection-fail"
+                    },
+                    {
+                        "name": "exposedPaths",
+                        "required": true,
+                        "default": "/+++*+++"
+                    }
+                ]
+            }
+        }
+    }
+}
+----

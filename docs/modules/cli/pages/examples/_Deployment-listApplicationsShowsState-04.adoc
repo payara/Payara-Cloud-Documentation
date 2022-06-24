@@ -1,0 +1,14 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl list-applications -n _$namespace_*
+_[SUCCESS] Applications:_
+game-demo
+    name: game-demo
+    applicationEndpoint: +++https:+++//cli-clitest-xxxxxxxx.payara.app/
+    status: RUNNING
+other-app
+    name: other-app
+    applicationEndpoint: +++https:+++//cli-clitest-xxxxxxxx.payara.app/other/
+    status: RUNNING
+
+----

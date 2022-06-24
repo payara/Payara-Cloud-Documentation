@@ -1,0 +1,45 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl --help*
+Payara Cloud Command Line.
+Usage: pcl [-hqV] [-a=<applicationName>] [-n=<namespaceName>]
+           [-o=<outputFormat>] [-s=<subscriptionName>] [COMMAND]
+Payara Cloud Command Line Interface allows remote operations over Payara
+Cloud's namespaces and application via command line.
+In order to sign in, use the command +++`+++pcl login+++`+++ interactively. This will allow
+the client to obtain credentials that are either stored in home directory or
+can be provided via environment variable +++`+++PCL+++_+++AUTH+++_+++TOKEN+++`+++. See +++`+++pcl login
+--help+++`+++ for details.
+  -a, --application=<applicationName>
+                  Name of application to manage.
+                  Not required for commands listed by +++`+++-n+++`+++ option, as well as
+                    +++`+++list-applications+++`+++ and +++`+++upload+++`+++.
+  -h, --help      Show this help message and exit.
+  -n, --namespace=<namespaceName>
+                  Name of namespace to manage.
+                  Required for all commands except +++`+++login+++`+++, +++`+++list-namespaces+++`+++
+                    and +++`+++create-namespace+++`+++.
+  -o, --output=<outputFormat>
+                  Output format. Allowed values: TEXT, JSON.
+  -q, --quiet     Quiet output.
+                  Only result of operations will be displayed to +++`+++stdout+++`+++, or
+                    error message to +++`+++stderrr+++`+++.
+  -s, --subscription=<subscriptionName>
+                  Name of subscription to use. Only necessary when account has
+                    access to multiple subscriptions.
+  -V, --version   Print version information and exit.
+Commands:
+  login               Log in to Payara Cloud instance.
+  list-subscriptions  Get list of subscriptions available to user.
+  list-namespaces     List namespaces available in a subscription.
+  list-applications   List applications present in a namespace.
+  upload              Upload application binary
+  deploy              Deploy an existing application.
+  start               Start an application
+  stop                Stop an application
+  create-namespace    Create new namespace
+  delete-namespace    Deletes a namespace.
+  delete-application  Delete an application.
+  configure           Change configuration of an application
+
+----

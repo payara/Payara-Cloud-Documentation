@@ -1,0 +1,95 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl -n _$namespace_ -a _$appName_ configure microprofileConfig --add new.app.config.property=value quiz.lockout=15*
+_[SUCCESS] Revision reconfigured_
+
+{
+    "kind": {
+        "microprofileConfig": {
+            "pass-deploy.war": {
+                "values": {
+                    "new.app.config.property": "value",
+                    "mp.jwt.verify.issuer": "fish.payara.demo",
+                    "quiz.lockout": "15",
+                    "mp.jwt.verify.publickey.location": "publickey.pem",
+                    "quiz.duration": "20",
+                    "maths.duration": "20"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "quiz.lockout",
+                        "required": false,
+                        "default": "1500"
+                    },
+                    {
+                        "name": "new.app.config.property",
+                        "required": false
+                    },
+                    {
+                        "name": "mp.jwt.verify.issuer",
+                        "required": false,
+                        "default": "fish.payara.demo"
+                    },
+                    {
+                        "name": "mp.jwt.verify.publickey.location",
+                        "required": false,
+                        "default": "publickey.pem"
+                    },
+                    {
+                        "name": "quiz.duration",
+                        "required": false,
+                        "default": "20"
+                    },
+                    {
+                        "name": "maths.duration",
+                        "required": false,
+                        "default": "20"
+                    }
+                ]
+            }
+        },
+        "appRuntime": {
+            "pass-deploy.war": {
+                "values": {
+                    "runtimeSize": "QUARTER+++_+++CORE"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "runtimeSize",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        "contextRoot": {
+            "pass-deploy.war": {
+                "values": {
+                    "exposedPaths": "/+++*+++",
+                    "appName": "game-demo",
+                    "contextRoot": "/"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "appName",
+                        "required": true,
+                        "default": "game-demo"
+                    },
+                    {
+                        "name": "contextRoot",
+                        "required": true,
+                        "default": "/"
+                    },
+                    {
+                        "name": "exposedPaths",
+                        "required": true,
+                        "default": "/+++*+++"
+                    }
+                ]
+            }
+        }
+    }
+}
+----

@@ -1,0 +1,90 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl -n _$namespace_ -a _$appName_ configure contextRoot contextRoot=/game*
+_[SUCCESS] Revision reconfigured_
+
+{
+    "kind": {
+        "microprofileConfig": {
+            "pass-deploy.war": {
+                "values": {
+                    "mp.jwt.verify.issuer": "fish.payara.demo",
+                    "quiz.lockout": "1500",
+                    "mp.jwt.verify.publickey.location": "publickey.pem",
+                    "quiz.duration": "20",
+                    "maths.duration": "20"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "quiz.lockout",
+                        "required": false,
+                        "default": "1500"
+                    },
+                    {
+                        "name": "mp.jwt.verify.issuer",
+                        "required": false,
+                        "default": "fish.payara.demo"
+                    },
+                    {
+                        "name": "mp.jwt.verify.publickey.location",
+                        "required": false,
+                        "default": "publickey.pem"
+                    },
+                    {
+                        "name": "quiz.duration",
+                        "required": false,
+                        "default": "20"
+                    },
+                    {
+                        "name": "maths.duration",
+                        "required": false,
+                        "default": "20"
+                    }
+                ]
+            }
+        },
+        "appRuntime": {
+            "pass-deploy.war": {
+                "values": {
+                    "runtimeSize": "QUARTER+++_+++CORE"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "runtimeSize",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        "contextRoot": {
+            "pass-deploy.war": {
+                "values": {
+                    "exposedPaths": "/+++*+++",
+                    "appName": "game-demo",
+                    "contextRoot": "/game"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "appName",
+                        "required": true,
+                        "default": "game-demo"
+                    },
+                    {
+                        "name": "contextRoot",
+                        "required": true,
+                        "default": "/"
+                    },
+                    {
+                        "name": "exposedPaths",
+                        "required": true,
+                        "default": "/+++*+++"
+                    }
+                ]
+            }
+        }
+    }
+}
+----

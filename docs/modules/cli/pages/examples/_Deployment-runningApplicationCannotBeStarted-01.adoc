@@ -1,0 +1,6 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl start -n _$namespace_ -a _$appName_*
+_[FAILURE] Application cannot be started_
+
+----

@@ -1,0 +1,51 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl -n _$namespace_ -a _$appName_ deploy --fail-early*
+_[UPDATE] State of deployment process is DEPLOYING_
+_[WARN] Exception during lifecycle processing_
+_[WARN] org.glassfish.deployment.common.DeploymentException: CDI deployment failure:WELD-001408: Unsatisfied dependencies for type String with qualifiers @Default_
+_[WARN]   at injection point [BackedAnnotatedField] @Inject cloud.payara.fail.injection.FailingServlet.notAvailable_
+_[WARN]   at cloud.payara.fail.injection.FailingServlet.notAvailable(FailingServlet.java:0)_
+_[WARN] WELD-001475: The following beans match by type, but none have matching qualifiers:_
+_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)],_
+_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)]_
+_[WARN]  -- WELD-001408: Unsatisfied dependencies for type String with qualifiers @Default_
+_[WARN]   at injection point [BackedAnnotatedField] @Inject cloud.payara.fail.injection.FailingServlet.notAvailable_
+_[WARN]   at cloud.payara.fail.injection.FailingServlet.notAvailable(FailingServlet.java:0)_
+_[WARN] WELD-001475: The following beans match by type, but none have matching qualifiers:_
+_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)],_
+_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)]_
+_[WARN] 	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)_
+_[WARN] 	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)_
+_[WARN] 	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)_
+_[WARN] 	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)_
+_[WARN] 	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)_
+_[WARN] 	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)_
+_[WARN] 	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)_
+_[WARN] 	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)_
+_[WARN] 	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)_
+_[WARN] 	at org.glassfish.weld.services.ExecutorServicesImpl.lambda$inContextClassloader$0(ExecutorServicesImpl.java:123)_
+_[WARN] 	at org.glassfish.weld.services.ExecutorServicesImpl.lambda$inContextClassloader$0(ExecutorServicesImpl.java:123)_
+_[WARN] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)_
+_[WARN] 	at org.glassfish.enterprise.concurrent.internal.ManagedFutureTask.run(ManagedFutureTask.java:143)_
+_[WARN] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)_
+_[WARN] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)_
+_[WARN] 	at java.base/java.lang.Thread.run(Thread.java:829)_
+_[WARN] 	at org.glassfish.enterprise.concurrent.ManagedThreadFactoryImpl$ManagedThread.run(ManagedThreadFactoryImpl.java:250)_
+_[WARN] Exception while loading the app_
+_[WARN] Exception while loading the app : CDI deployment failure:WELD-001408: Unsatisfied dependencies for type String with qualifiers_
+_[WARN]  @Default_
+_[WARN]   at injection point [BackedAnnotatedField] @Inject cloud.payara.fail.injection.FailingServlet.notAvailable_
+_[WARN]   at cloud.payara.fail.injection.FailingServlet.notAvailable(FailingServlet.java:0)_
+_[WARN] WELD-001475: The following beans match by type, but none have matching qualifiers:_
+_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)],_
+_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)]_
+_[WARN]  -- WELD-001408: Unsatisfied dependencies for type String with qualifiers @Default_
+_[WARN]   at injection point [BackedAnnotatedField] @Inject cloud.payara.fail.injection.FailingServlet.notAvailable_
+_[WARN]   at cloud.payara.fail.injection.FailingServlet.notAvailable(FailingServlet.java:0)_
+_[WARN] WELD-001475: The following beans match by type, but none have matching qualifiers:_
+_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)],_
+_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)]_
+_[FAILURE] Failing early due to reported deployment problem_
+
+----

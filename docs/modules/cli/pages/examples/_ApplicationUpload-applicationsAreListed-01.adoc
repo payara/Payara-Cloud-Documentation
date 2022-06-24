@@ -1,0 +1,10 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl list-applications -n _$namespace_*
+_[SUCCESS] Applications:_
+game-demo
+    name: game-demo
+pass-deploy
+    name: pass-deploy
+
+----
