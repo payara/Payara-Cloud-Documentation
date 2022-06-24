@@ -9,7 +9,7 @@ nav:
 asciidoc:
   attributes:
     currentVersion: '1.0'
-    experimental: true
+    experimental: ''
     manpage-src: ./reference/
     man-prefix: reference/
     man-suffix: .adoc
