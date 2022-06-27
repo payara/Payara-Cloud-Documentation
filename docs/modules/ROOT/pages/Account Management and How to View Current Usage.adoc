@@ -6,7 +6,7 @@ image:Account_management.png[image,width=624,height=202]
 
 Click on Billing Management.
 
-Click on Review or Edit Your Billing and Invoicing Details.
+Click on btn:[Review or Edit Your Billing and Invoicing Details] button.
 
 image:image30.png[image,width=624,height=202]
 
