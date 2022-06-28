@@ -19,14 +19,16 @@
 
 * xref:How to Use Custom Domains.adoc[How to Use Custom Domains]
 
-* xref:How to Access Payara Micro Binaries.adoc[How to Access Payara Micro Binaries]
-** xref:How to Access Payara Micro Binaries.adoc#verify-your-customer-support-portal-access[Verify Your Customer Support Portal Access]
-** xref:How to Access Payara Micro Binaries.adoc#download-payara-micro-enterprise[Download Payara Micro Enterprise]
+// Hidden at least during trial
 
-* xref:Pricing.adoc[Pricing]
-* xref:Account Management and How to View Current Usage.adoc[Account Management and How to View Current Usage]
+//* xref:How to Access Payara Micro Binaries.adoc[How to Access Payara Micro Binaries]
+//** xref:How to Access Payara Micro Binaries.adoc#verify-your-customer-support-portal-access[Verify Your Customer Support Portal Access]
+//** xref:How to Access Payara Micro Binaries.adoc#download-payara-micro-enterprise[Download Payara Micro Enterprise]
+
+//* xref:Pricing.adoc[Pricing]
+//* xref:Account Management and How to View Current Usage.adoc[Account Management and How to View Current Usage]
 
 * xref:Glossary.adoc[Glossary]
 
-* https://www.payara.fish/products/payara-cloud/#faq[Frequently Asked Questions]
+//* https://www.payara.fish/products/payara-cloud/#faq[Frequently Asked Questions]
 * https://www.youtube.com/playlist?list=PLFMhxiCgmMR-V2lVMRw3B7eV3gqvJshvh[Demo Videos]
