@@ -2,6 +2,8 @@
 :man-prefix: #
 :man-suffix: 1
 :imagesdir: images/
+:release-version: 1.0.0
+:release-repo: https://nexus.payara.fish/repository/payara-artifacts
 
 == Introduction
 
@@ -26,8 +28,46 @@ _stderr output in italics_
 stdout output
 ----
 
-// === Getting started
-// downloading and instlaling pcl
+== Getting started
+
+=== Command Line Client prerequisities
+
+Command Line Client is distributed as a zip package containing the client, shell wrappers for Windows and Unix-like systems and documentation package just like this one.
+
+The client itself is an executable `.jar` file, that requires at least Java 8 to be available on the system.
+
+=== Downloading the Commnand Line Client
+
+Client is distributed over Payara's Nexus Repository under following coordinates:
+
+[listing,subs=+attributes]
+```
+<dependency>
+  <groupId>fish.payara.cloud</groupId>
+  <artifactId>pcl</artifactId>
+  <version>{release-version}</version>
+</dependency>
+```
+
+.Maven Repository Settings
+[%collapsible]
+====
+[listing,subs=+attributes]
+----
+<repository>
+  <releases><enabled>true</enabled></releases>
+  <snapshots><enabled>false</enabled></snapshots>
+  <id>payara-artifacts</id>
+  <name>Payara Artifacts</name>
+  <url>{release-repo}/</url>
+</repository>
+----
+====
+
+==== Download links
+
+* xref:{release-repo}/fish/payara/cloud/pcl/{release-version}/pcl-{release-version}.zip[Full Distribution (.zip)]
+* xref:{release-repo}/fish/payara/cloud/pcl/{release-version}/pcl-{release-version}.jar[Executable JAR only (.jar)]
 
 // === Help
 // === Output options
