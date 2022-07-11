@@ -205,6 +205,19 @@ image::image17.png[image,width=480,height=108]
 ===== *Allowing Access to your Database from Payara Cloud*
 
 If your database access is restricted by IP address, the source IP of the cluster is <<TODO: Cluster IP address of production environment for each region>>. If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace. 
+If your database access is restricted by IP address, enable access to following IP adresses based on the region the namespace is located in:
+
+|===
+| Region | IP Address(es)
+
+| Azure, West Europe
+| 20.50.49.180
+
+| Azure, East US
+| 20.62.214.88
+|===
+
+If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace. 
 
 When you are happy with your configuration settings, click Save to return to the application details screen.
 
