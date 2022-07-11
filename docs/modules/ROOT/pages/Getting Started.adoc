@@ -6,8 +6,9 @@ Using the Payara Cloud environment requires a user account that is link
 [[register]]
 == Register 
 
-Subscribe to Payara Cloud at +++payara.cloud/#subscribe+++
+Subscribe to Payara Cloud at https://www.payara.fish/products/payara-cloud/#register[Payara Cloud Product Page].
 
+////
 image::image1.png[Graphical user interface, website Description automatically generated,width=709,height=498]
 
 After selecting your subscription (Basic, Standard, Premium), you’re taken to the Payara Cloud sign up page where you can create an account (Click ‘sign up’ where it says Don’t have an account?) or you can choose to continue creating an account with Google or GitHub.
@@ -35,7 +36,7 @@ After confirming you agree with the Terms & Conditions of your Payara Cloud acco
 NOTE: If you don’t complete the subscription sign up process in a timely manner, your session will timeout. Click the btn:[restart] button to resume the process. It will automatically set you up with a Basic subscription but you can upgrade it to Standard or Premium at any time.
 
 image::Session_expired.png[Graphical user interface, To protect your information, your session expired]
-
+////
 [[log-into-your-account]]
 == Log into Your Account 
 
