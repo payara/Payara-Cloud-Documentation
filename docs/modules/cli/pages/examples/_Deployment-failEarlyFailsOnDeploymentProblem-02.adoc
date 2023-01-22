@@ -8,12 +8,17 @@ _[SUCCESS] Revision reconfigured_
         "appRuntime": {
             "fail-deploy.war": {
                 "values": {
-                    "runtimeSize": "QUARTER+++_+++CORE"
+                    "runtimeSize": "QUARTER+++_+++CORE",
+                    "scalabilityType": "ROLLING+++_+++UPGRADE"
                 },
                 "complete": true,
                 "keys": [
                     {
                         "name": "runtimeSize",
+                        "required": false
+                    },
+                    {
+                        "name": "scalabilityType",
                         "required": false
                     }
                 ]
@@ -29,9 +34,8 @@ _[SUCCESS] Revision reconfigured_
                 "complete": true,
                 "keys": [
                     {
-                        "name": "appName",
-                        "required": true,
-                        "default": "missing-injection-fail"
+                        "name": "exposedPaths",
+                        "required": false
                     },
                     {
                         "name": "contextRoot",
@@ -39,9 +43,9 @@ _[SUCCESS] Revision reconfigured_
                         "default": "/missing-injection-fail"
                     },
                     {
-                        "name": "exposedPaths",
+                        "name": "appName",
                         "required": true,
-                        "default": "/+++*+++"
+                        "default": "missing-injection-fail"
                     }
                 ]
             }

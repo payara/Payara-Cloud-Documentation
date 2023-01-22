@@ -2,7 +2,7 @@
 :man-prefix: #
 :man-suffix: 1
 :imagesdir: images/
-:release-version: 1.0.0
+:release-version: 1.0.1
 :release-repo: https://nexus.payara.fish/repository/payara-artifacts
 
 == Introduction
