@@ -11,8 +11,8 @@ _[SUCCESS] Revision reconfigured_
                     "mp.jwt.verify.issuer": "fish.payara.demo",
                     "quiz.lockout": "12",
                     "mp.jwt.verify.publickey.location": "publickey.pem",
-                    "quiz.duration": "20",
-                    "maths.duration": "20"
+                    "maths.duration": "20",
+                    "quiz.duration": "20"
                 },
                 "complete": true,
                 "keys": [
@@ -32,12 +32,12 @@ _[SUCCESS] Revision reconfigured_
                         "default": "publickey.pem"
                     },
                     {
-                        "name": "quiz.duration",
+                        "name": "maths.duration",
                         "required": false,
                         "default": "20"
                     },
                     {
-                        "name": "maths.duration",
+                        "name": "quiz.duration",
                         "required": false,
                         "default": "20"
                     }
@@ -47,12 +47,17 @@ _[SUCCESS] Revision reconfigured_
         "appRuntime": {
             "pass-deploy.war": {
                 "values": {
-                    "runtimeSize": "QUARTER+++_+++CORE"
+                    "runtimeSize": "QUARTER+++_+++CORE",
+                    "scalabilityType": "ROLLING+++_+++UPGRADE"
                 },
                 "complete": true,
                 "keys": [
                     {
                         "name": "runtimeSize",
+                        "required": false
+                    },
+                    {
+                        "name": "scalabilityType",
                         "required": false
                     }
                 ]
@@ -61,16 +66,14 @@ _[SUCCESS] Revision reconfigured_
         "contextRoot": {
             "pass-deploy.war": {
                 "values": {
-                    "exposedPaths": "/+++*+++",
                     "appName": "game-demo",
-                    "contextRoot": "/"
+                    "contextRoot": "/cr"
                 },
                 "complete": true,
                 "keys": [
                     {
-                        "name": "appName",
-                        "required": true,
-                        "default": "game-demo"
+                        "name": "exposedPaths",
+                        "required": false
                     },
                     {
                         "name": "contextRoot",
@@ -78,9 +81,9 @@ _[SUCCESS] Revision reconfigured_
                         "default": "/"
                     },
                     {
-                        "name": "exposedPaths",
+                        "name": "appName",
                         "required": true,
-                        "default": "/+++*+++"
+                        "default": "game-demo"
                     }
                 ]
             }

@@ -1,6 +1,0 @@
-[listing,subs="+macros,+quotes"]
-----
-*pcl list-namespaces*
-_[FAILURE] Multiple links of type +++https:+++//api.payara.cloud/entity/subscription matched the selection criteria_
-
-----

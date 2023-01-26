@@ -1,11 +1,93 @@
-[listing,subs=+quotes]
+[listing,subs="+macros,+quotes"]
 ----
-*pcl list-namespaces*
-_[SUCCESS] Namespaces:_cli-clitest
-    name: cli-clitest
-    liveURI: https://cli-clitest-9966f58b.payara.app/
-start-dev
-    name: start-dev
-    liveURI: https://start-dev-d124472d.payara.app/
+*pcl -n _$namespace_ -a _$appName_ configure contextRoot --reset "contextRoot"*
+_[SUCCESS] Revision reconfigured_
 
+{
+    "kind": {
+        "microprofileConfig": {
+            "pass-deploy.war": {
+                "values": {
+                    "mp.jwt.verify.issuer": "fish.payara.demo",
+                    "quiz.lockout": "12",
+                    "mp.jwt.verify.publickey.location": "publickey.pem",
+                    "maths.duration": "20",
+                    "quiz.duration": "20"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "quiz.lockout",
+                        "required": false,
+                        "default": "1500"
+                    },
+                    {
+                        "name": "mp.jwt.verify.issuer",
+                        "required": false,
+                        "default": "fish.payara.demo"
+                    },
+                    {
+                        "name": "mp.jwt.verify.publickey.location",
+                        "required": false,
+                        "default": "publickey.pem"
+                    },
+                    {
+                        "name": "maths.duration",
+                        "required": false,
+                        "default": "20"
+                    },
+                    {
+                        "name": "quiz.duration",
+                        "required": false,
+                        "default": "20"
+                    }
+                ]
+            }
+        },
+        "appRuntime": {
+            "pass-deploy.war": {
+                "values": {
+                    "runtimeSize": "QUARTER+++_+++CORE",
+                    "scalabilityType": "ROLLING+++_+++UPGRADE"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "runtimeSize",
+                        "required": false
+                    },
+                    {
+                        "name": "scalabilityType",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        "contextRoot": {
+            "pass-deploy.war": {
+                "values": {
+                    "appName": "game-demo",
+                    "contextRoot": "/"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "exposedPaths",
+                        "required": false
+                    },
+                    {
+                        "name": "contextRoot",
+                        "required": true,
+                        "default": "/"
+                    },
+                    {
+                        "name": "appName",
+                        "required": true,
+                        "default": "game-demo"
+                    }
+                ]
+            }
+        }
+    }
+}
 ----
