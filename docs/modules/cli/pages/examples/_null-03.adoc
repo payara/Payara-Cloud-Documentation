@@ -1,0 +1,6 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl list-namespaces*
+_[FAILURE] Credentials are invalid. Please login again_
+
+----
