@@ -1,0 +1,9 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl list-namespaces*
+_[SUCCESS] Namespaces:_
+cli-clitest
+    name: cli-clitest
+    liveURI: +++https:+++//cli-clitest-857ca81f.mock-provisioner.java/
+
+----

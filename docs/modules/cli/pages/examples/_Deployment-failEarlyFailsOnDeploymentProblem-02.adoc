@@ -9,7 +9,8 @@ _[SUCCESS] Revision reconfigured_
             "fail-deploy.war": {
                 "values": {
                     "runtimeSize": "QUARTER+++_+++CORE",
-                    "scalabilityType": "ROLLING+++_+++UPGRADE"
+                    "scalabilityType": "ROLLING+++_+++UPGRADE",
+                    "rollOverTime": "MODERATE"
                 },
                 "complete": true,
                 "keys": [
@@ -19,6 +20,10 @@ _[SUCCESS] Revision reconfigured_
                     },
                     {
                         "name": "scalabilityType",
+                        "required": false
+                    },
+                    {
+                        "name": "rollOverTime",
                         "required": false
                     }
                 ]
