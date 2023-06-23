@@ -1,6 +1,6 @@
 = Payara Cloud Documentation
 
-Payara Cloud is an all-in-one serverless platform and PaaS solution for Jakarta EE (Java EE) and MicroProfile applications. It makes deployment in a cloud environment easier by simplifying cloud infrastructure management and eliminating the need for application servers and Kubernetes knowledge.
+Payara Cloud is an all-in-one platform as a service (PaaS) solution for automatically deploying Jakarta EE (formerly Java EE) and MicroProfile applications. It makes deployment in a cloud environment easier by simplifying cloud infrastructure provisioning and eliminating the need for the manual management of application servers, docker and Kubernetes.
 
 Instead of dealing with low-level components like Docker and Kubernetes yourself, the UI allows you to graphically define the configuration parameters and the application which needs to be deployed.
 
