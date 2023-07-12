@@ -1,0 +1,129 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl -n _$namespace_ -a _$appName_ configure appRuntime scalabilityType=HORIZONTAL+++_+++SCALING --add numberOfReplicas=4*
+_[SUCCESS] Revision reconfigured_
+
+{
+    "kind": {
+        "appRuntime": {
+            "petclinic.war": {
+                "values": {
+                    "numberOfReplicas": "4",
+                    "runtimeSize": "QUARTER+++_+++CORE",
+                    "runtimeType": "PAYARA6+++_+++JDK11",
+                    "dataGridMode": "ENABLED",
+                    "scalabilityType": "HORIZONTAL+++_+++SCALING"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "dataGridMode",
+                        "required": false
+                    },
+                    {
+                        "name": "numberOfReplicas",
+                        "required": false
+                    },
+                    {
+                        "name": "runtimeSize",
+                        "required": false
+                    },
+                    {
+                        "name": "runtimeType",
+                        "required": false
+                    },
+                    {
+                        "name": "scalabilityType",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        "contextRoot": {
+            "petclinic.war": {
+                "values": {
+                    "exposedPaths": "/+++*+++",
+                    "appName": "petclinic-jakartaee",
+                    "contextRoot": "/game"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "exposedPaths",
+                        "required": false
+                    },
+                    {
+                        "name": "contextRoot",
+                        "required": true,
+                        "default": "/petclinic-jakartaee"
+                    },
+                    {
+                        "name": "appName",
+                        "required": true,
+                        "default": "petclinic-jakartaee"
+                    }
+                ]
+            }
+        },
+        "dataSource": {
+            "java:comp/DefaultDataSource": {
+                "values": {
+                    "datasourceClass": "org.h2.jdbcx.JdbcDataSource",
+                    "steadyPoolSize": "1",
+                    "maxWaitTime": "30000",
+                    "jdbcUrl": "<default>",
+                    "maxPoolSize": "10",
+                    "resourceType": "javax.sql.DataSource",
+                    "poolName": "java+++_+++comp+++_+++DefaultDataSource"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "steadyPoolSize",
+                        "required": true,
+                        "default": "1"
+                    },
+                    {
+                        "name": "maxPoolSize",
+                        "required": true,
+                        "default": "10"
+                    },
+                    {
+                        "name": "maxWaitTime",
+                        "required": true,
+                        "default": "30000"
+                    },
+                    {
+                        "name": "jdbcUrl",
+                        "required": true,
+                        "default": "<default>"
+                    },
+                    {
+                        "name": "datasourceClass",
+                        "required": true,
+                        "default": "org.h2.jdbcx.JdbcDataSource"
+                    },
+                    {
+                        "name": "resourceType",
+                        "required": true,
+                        "default": "javax.sql.DataSource"
+                    },
+                    {
+                        "name": "user",
+                        "required": false
+                    },
+                    {
+                        "name": "password",
+                        "required": false
+                    },
+                    {
+                        "name": "poolName",
+                        "required": true,
+                        "default": "java+++_+++comp+++_+++DefaultDataSource"
+                    }
+                ]
+            }
+        }
+    }
+}
+----

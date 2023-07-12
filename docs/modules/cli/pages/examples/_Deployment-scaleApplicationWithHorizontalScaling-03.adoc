@@ -1,0 +1,19 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl deploy -n _$namespace_ -a _$appName_*
+_[UPDATE] State of deployment process is DEPLOYING [0/2]_
+_[UPDATE] State of deployment process is DEPLOYING [1/3]_
+_[UPDATE] State of deployment process is DEPLOYING [2/4]_
+_[UPDATE] State of deployment process is DEPLOYED [4/4]_
+_[SUCCESS] Deployment completed_
+
+{
+    "name": "petclinic-jakartaee",
+    "applicationEndpoint": "+++https:+++//start.zeromagic.io/game/",
+    "pendingChanges": false,
+    "status": "RUNNING",
+    "horizontalScaling": true,
+    "numberOfReplicas": 4,
+    "liveRuntimeSize": "QUARTER+++_+++CORE"
+}
+----
