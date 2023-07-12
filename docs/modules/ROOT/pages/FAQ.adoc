@@ -1,0 +1,53 @@
+= Payara Cloud FAQ
+
+
+== What is Payara Cloud?
+Payara Cloud is a cloud-native deployment platform that provides a fully managed environment for deploying and running your Jakarta EE/MicroProfile applications. It is built on top of Payara Enterprise and offers a range of features and services for deploying, scaling, and managing your applications in the cloud.
+
+== What are the key features of Payara Cloud?
+Payara Cloud offers several key features, including automatic scaling, high availability, monitoring and metrics, security, centralized logging, seamless integration with other cloud services, and a user-friendly web-based management console.
+
+== What programming languages/frameworks does Payara Cloud support?
+Payara Cloud is designed to run Jakarta EE Web Profile applications written mostly in Java.
+
+== Can I deploy my existing Java EE applications on Payara Cloud?
+Yes, you can deploy your existing Java EE Web Profile applications on Payara Cloud without any modifications. Payara Cloud provides full compatibility with Java EE (8) and Jakarta EE (10) standards, ensuring that your applications run seamlessly.
+
+== Can I run multiple applications?
+Yes, within Payara Cloud you can deploy multiple applications within the same namespace and, you can create multiple Namespaces to host several applications.
+
+== Does Payara Cloud also host Database instances?
+At the moment, you should maintain a database installation yourself, in the cloud or on-premise. You can configure your database instances within your application using the standard Jakarta EE database connections constructs. These will be automatically picked and displayed on your Payara Cloud monitoring console for easy editing.
+
+== How does automatic scaling work in Payara Cloud?
+Payara Cloud can automatically scale your applications based on predefined rules or metrics such as CPU utilization, memory usage, or incoming request rates. It dynamically adjusts the number of instances running your application to match the demand, ensuring optimal performance and resource utilization.
+
+== Can I integrate Payara Cloud with other cloud services?
+Yes, Payara Cloud provides seamless integration with other cloud services and platforms. You can easily connect your applications to databases, storage services, message queues, and more, offered by various cloud providers.
+
+== Is Payara Cloud secure?
+Yes, Payara Cloud prioritizes security and provides a secure environment for your applications. It includes features like network isolation, encryption, secure access controls, and automated security updates to protect your applications and data. Your applications deploy in separate containers to isolate them from the actions of other applications. They only have partial internet exposure, which allows only applications in the same namespace to access them via private endpoints. Payara Cloud also generates SSL certificates for your applications.
+
+== Can I have multiple users on my Payara Cloud account?
+At the moment, multiple users would need to access the environment using the same username and password. Fine grained access control is on the roadmap and will be released in the near future.
+
+== How does Payara Cloud handle high availability?
+Payara Cloud ensures high availability by automatically distributing your application instances across multiple availability zones. In the event of a failure, it can quickly recover your application on another healthy instance, minimizing downtime.
+
+== Can I monitor and manage my applications in Payara Cloud?
+Yes, Payara Cloud provides comprehensive monitoring and management capabilities. It offers built-in metrics and monitoring dashboards, allowing you to track the performance and health of your applications. Additionally, you can use the web-based management console to configure and manage various aspects of your applications.
+
+== Is there downtime when I upgrade my application?
+No. Your current running version will be available until the new one is done deploying, which will take the place of the last running one. There is the possibility of a negligible downtime during the layover from the old to the new version. All uploaded and undeployed application versions will still be available for easy rollback at any point in time.
+
+== How do I pick the appropriate runtime size for my application?
+The runtime size specifies the amount of resources to allocate for this instance and count against the included vCPU of your subscription. The following CPU has been reserved:
+
+** Small –  0.25 vCPU
+** Medium – 0.5 vCPU
+** Large – 1 vCPU
+** XL (available in Standard and Premium subscriptions only)  – 2 vCPU
+
+== How do I get started with Payara Cloud?
+To get started with Payara Cloud, you can visit the Payara Cloud website and sign up for an account. Once you have an account, you can deploy your applications using the provided tools and documentation. Payara Cloud offers a free trial period, allowing you to explore its features and capabilities.
+
