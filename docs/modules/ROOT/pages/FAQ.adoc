@@ -48,6 +48,18 @@ The runtime size specifies the amount of resources to allocate for this instance
 ** Large – 1 vCPU
 ** XL (available in Standard and Premium subscriptions only)  – 2 vCPU
 
+== What is a namespace?
+A namespace in Payara Cloud is container for the isolation/grouping of resources. A Subscription can have multiple namespaces. A namespace can have multiple applications. Each deployed application in a given name space will be accessible as a context path on the namespace.
+
+== I just created a namespace and deployed an app, but it's showing as 404
+Yes this is expected behaviour. When you create a namespace and deploy an app for the first time, the full URL to the app is a fully functional domain that will need to propagate. This generally takes anywhere between 5 - 20 mins.
+
+== I have uploaded a new app version, what next?
+Once your new app binary is successfully uploaded, its status will show as configured on the dashboard. You can then click the hamburger menu to either configure it or deploy it.
+
+== Why is the previous version of my application showing as (Deployed)
+The previous versions of your app will be undeployed once a new version is deployed. The status (Deployed) refers to them not being the currently active, deployed version.
+
 == How do I get started with Payara Cloud?
-To get started with Payara Cloud, you can visit the Payara Cloud website and sign up for an account. Once you have an account, you can deploy your applications using the provided tools and documentation. Payara Cloud offers a free trial period, allowing you to explore its features and capabilities.
+You can get a 14-day free trial of Payara Cloud by creating an account at https://payara.cloud. For security reasons, you will be required to have a payment method on file. This will however, not be charged until your trial is over. 
 
