@@ -84,7 +84,9 @@ You’ll get a dialog where you can select the WAR file that needs to be depl
 * If the above is not set and the WAR is built by Maven and the pom.xml is included within the archive (the default behavior for Maven war plugin) the artifactId is used as name.
 * Finally, if the above 2 are not met, the name of the uploaded file is used as the application name.
 
-The application name is important as it is also the DNS name assigned to the container running your application and can be used to access the application directly from another application in the same namespace. The Runtime Type will select Payara 5, JDK 11 if application is of Jakarta EE 8 or less version and Payara 6, JDK 11 if application is of Jakarta EE 9 or higher version.
+The application name is important as it is also the DNS name assigned to the container running your application and can be used to access the application directly from another application in the same namespace.
+
+The Runtime Type allows option btn:[Payara 5, JDK 11] for application making use of Jakarta EE 8 API and btn:[Payara 6, JDK 11] for applications making use of Jakarta EE 10.
 
 image::image9.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=370]
 
@@ -115,7 +117,7 @@ If your application connects to a datasource you’ll first provide the JDBC URL
 
 You’ll select your runtime size in the drop down box based on the amount of resources you need to allocate for this instance. The resources count against the included CPU of your subscription.
 
-You can change your runtime type to Payara 6, JDK 11 to use Payara 6 enterprise if application is of Jakarta EE 9 or higher version. The default runtime type is Payara 5, JDK 11 to use Payara 5 enterprise if application is of Jakarta EE 8 or less version.
+The Runtime Type provides two options for different application scenarios. For applications utilizing the Jakarta EE 8 API, the recommended choice is btn:[Payara 5, JDK 11]. On the other hand, for applications built on the Jakarta EE 10 platform, it is advisable to select btn:[Payara 6, JDK 11].
 
 image::image13.png[image,width=480,height=149]
 
@@ -173,13 +175,13 @@ make use of the @DataSourceDefinition:  
 
 [source,java]
 ----
-@DataSourceDefinition(name="java:global/jdbc/cloud-postgres",  +
-        className="org.postgresql.ds.PGSimpleDataSource",  +
-        serverName = "$\{MPCONFIG=ds_servername}",  +
-        portNumber = 5432,  +
-        databaseName = "$\{MPCONFIG=ds_databasename}",  +
-        user="$\{MPCONFIG=ds_username}",  +
-        password="$\{MPCONFIG=ds_password}"  +
+@DataSourceDefinition(name="java:global/jdbc/cloud-postgres",  
+        className="org.postgresql.ds.PGSimpleDataSource",  
+        serverName = "$\{MPCONFIG=ds_servername}",  
+        portNumber = 5432,  
+        databaseName = "$\{MPCONFIG=ds_databasename}",  
+        user="$\{MPCONFIG=ds_username}",  
+        password="$\{MPCONFIG=ds_password}"  
 ) 
 ----
 
@@ -187,14 +189,14 @@ Or define the <data-source> element in _web.xml_:
 
 [source,xml]
 ----
-<data-source>  +
-    <name>java:global/jdbc/cloud-mysql</name>  +
-    <class-name>com.mysql.jdbc.jdbc2.optional.MysqlDataSource</class-name>  +
-    <server-name>$\{MPCONFIG=ds_servername}</server-name>  +
-    <port-number>3306</port-number>  +
-    <database-name>$\{MPCONFIG=ds_databasename}</database-name>  +
-    <user>$\{MPCONFIG=ds_username}</user>  +
-    <password>$\{MPCONFIG=ds_password}</password>  +
+<data-source>  
+    <name>java:global/jdbc/cloud-mysql</name>  
+    <class-name>com.mysql.jdbc.jdbc2.optional.MysqlDataSource</class-name>  
+    <server-name>${MPCONFIG=ds_servername}</server-name>  
+    <port-number>3306</port-number>  
+    <database-name>${MPCONFIG=ds_databasename}</database-name>  
+    <user>${MPCONFIG=ds_username}</user>  
+    <password>${MPCONFIG=ds_password}</password>  
 </data-source> 
 ----
 
@@ -207,7 +209,7 @@ image::image17.png[image,width=480,height=108]
 [[allowing-access-to-your-database-from-payara-cloud]]
 ===== *Allowing Access to your Database from Payara Cloud*
 
-If your database access is restricted by IP address, the source IP of the cluster is <<TODO: Cluster IP address of production environment for each region>>. If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace. 
+If your database access is restricted by IP address, the source IP of the cluster is <<Cluster IP address of production environment for each region>>. If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace. 
 If your database access is restricted by IP address, enable access to following IP adresses based on the region the namespace is located in:
 
 |===
