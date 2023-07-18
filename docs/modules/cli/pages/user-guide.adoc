@@ -353,3 +353,11 @@ A configuration key can be reset to its default value, or removed if it doesn't 
 This can be achieved with option `--reset <key>`.
 
 include::examples/_Configuration-propertyCanBeResetToDefaultValue-01.adoc[]
+
+To enable horizontal scaling, add a new property for `appRuntime` to your configuration. Set the value of the `scalabilityType` parameter to `HORIZONTAL_SCALING` and specify the desired number of replicas.
+
+include::examples/_Deployment-scaleApplicationWithHorizontalScaling-01.adoc[]
+
+Logs can be seen in console with deployment progress.
+
+include::examples/_Deployment-scaleApplicationWithHorizontalScaling-03.adoc[]
