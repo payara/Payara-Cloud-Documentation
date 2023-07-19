@@ -209,7 +209,7 @@ image::image17.png[image,width=480,height=108]
 [[allowing-access-to-your-database-from-payara-cloud]]
 ===== *Allowing Access to your Database from Payara Cloud*
 
-If your database access is restricted by IP address, the source IP of the cluster. If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace. 
+If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace. 
 If your database access is restricted by IP address, enable access to following IP adresses based on the region the namespace is located in:
 
 |===
