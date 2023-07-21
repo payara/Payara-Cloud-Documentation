@@ -31,4 +31,4 @@
 * xref:Glossary.adoc[Glossary]
 
 //* https://www.payara.fish/products/payara-cloud/#faq[Frequently Asked Questions]
-* https://www.youtube.com/playlist?list=PLFMhxiCgmMR-V2lVMRw3B7eV3gqvJshvh[Demo Videos]
+* https://www.youtube.com/playlist?list=PLFMhxiCgmMR9S2uEiIogs6yp3MmDNsUKY[Demo Videos]
