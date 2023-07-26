@@ -41,5 +41,6 @@ Commands:
   delete-namespace    Deletes a namespace.
   delete-application  Delete an application.
   configure           Change configuration of an application
+  scale               Scale an application
 
 ----

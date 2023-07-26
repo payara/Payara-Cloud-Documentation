@@ -11,3 +11,4 @@
 *** xref:reference/pcl-stop.adoc[]
 *** xref:reference/pcl-start.adoc[]
 *** xref:reference/pcl-configure.adoc[]
+*** xref:reference/pcl-scale.adoc[]
