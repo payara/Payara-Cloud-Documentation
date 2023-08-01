@@ -294,7 +294,7 @@ image::image28.png[Table Description automatically generated,width=624,height=23
 [[cloud-trial]]
 == Cloud Trial
 
-Payara Cloud offers 15days free trial.
+Payara Cloud offers 15 days free trial.
 
 [[signup-free-trial]]
 *Sign Up Free Trial*
