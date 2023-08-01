@@ -290,3 +290,69 @@ When the process completes, you’ll see a success message and will be taken bac
 You can redeploy the same version of a stopped application in the Revisions menu of the Application Detail screen. Click on the btn:[Revision Actions] to open the drop down menu, and choose Deploy.
 
 image::image28.png[Table Description automatically generated,width=624,height=231]
+
+[[cloud-trial]]
+== Cloud Trial
+
+Payara Cloud offers 15days free trial.
+
+[[signup-free-trial]]
+*Sign Up Free Trial*
+
+Create an account https://login.payara.cloud/u/signup?state=hKFo2SA4VHA4U2Y2NDlDRmFOdXF5N21lQ0xKa3kzejNhYURkZ6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGNzUUsyOWFMZ2FHZE04X1E0ZEMwTlZyT0xPMGlUT0Njo2NpZNkgMmVySm1yMHlzNnpEWW1HdGxaSTgwdUE0elNyd05kYnY[here].
+
+Choose the Free Trial option and the Plan you would like your subscription to transition to, if you choose to continue after the 15 day trial is over. If you choose not to continue using Payara Cloud, you will have the opportunity to quickly and easily cancel (see below). 
+
+image::cloud-trial-image1.png[image,width=724,height=387]
+
+Click ‘Continue to Invoicing’. 
+
+Check that all details are correct here. 
+
+image::cloud-trial-image2.png[image,width=624,height=287]
+
+Fill in the Invoicing Details. You will need your Company address and Tax ID.
+
+image::cloud-trial-image3.png[image,width=624,height=287]
+
+Click ‘Continue to Payment Details’.  
+
+Add Payment Details.
+
+image::cloud-trial-image4.png[image,width=624,height=287]
+
+Click ‘Confirm Payment Details’ 
+
+Check your details, agree to the Terms and Conditions and click btn:[Subscribe]
+
+image::cloud-trial-image5.png[image,width=624,height=287]
+
+You have begun your Payara Cloud Free Trial. 
+
+
+[[cancel-free-trial]]
+*Cancel Free Trial*
+
+When your 15 free trial days are up, if you wish to stop using Payara Cloud, you must cancel.
+
+Click your email address in the right corner of the Payara Cloud main page. 
+
+Select btn:[Billing Management] from the drop-down menu.
+
+image::cloud-trial-image6.png[image,width=624,height=287]
+
+On this page, click btn:[Subscription Actions] and here you will find the btn:[Cancel Subscription] option. Click this.
+
+image::cloud-trial-image7.png[image,width=624,height=287]
+
+You will then find the option to btn:[Cancel Plan].
+
+image::cloud-trial-image8.png[image,width=624,height=287]
+
+Click btn:[Cancel Plan].
+
+On the below page, also click btn:[Cancel Plan].
+
+image::cloud-trial-image9.png[image,width=624,height=287]
+
+You will now have your plan cancelled, but your account will still exist, with the option to review! 

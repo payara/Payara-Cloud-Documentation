@@ -12,6 +12,9 @@
 ** xref:Getting Started.adoc#make-changes-to-your-applications-configuration-and-redeploy[Make Changes to Your Application's Configuration and Redeploy]
 ** xref:Getting Started.adoc#how-to-stop-an-application[How to Stop an Application]
 *** xref:Getting Started.adoc#deploy-a-stopped-application[Deploy a Stopped Application]
+** xref:Getting Started.adoc#cloud-trial[Cloud Trial]
+*** xref:Getting Started.adoc#signup-free-trial[Sign Up Free Trial]
+*** xref:Getting Started.adoc#cancel-free-trial[Cancel Free Trial]
 
 * xref:Logging.adoc[Logging]
 ** xref:Logging.adoc#heap-dumps[Heap Dumps]
