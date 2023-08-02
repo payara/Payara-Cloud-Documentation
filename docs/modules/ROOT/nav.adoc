@@ -31,6 +31,8 @@
 //* xref:Pricing.adoc[Pricing]
 //* xref:Account Management and How to View Current Usage.adoc[Account Management and How to View Current Usage]
 
+* xref:FAQ.adoc[Frequently Asked Questions]
+
 * xref:Glossary.adoc[Glossary]
 
 //* https://www.payara.fish/products/payara-cloud/#faq[Frequently Asked Questions]

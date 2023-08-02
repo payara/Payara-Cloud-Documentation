@@ -61,5 +61,5 @@ Once your new app binary is successfully uploaded, its status will show as confi
 The previous versions of your app will be undeployed once a new version is deployed. The status (Deployed) refers to them not being the currently active, deployed version.
 
 == How do I get started with Payara Cloud?
-You can get a 14-day free trial of Payara Cloud by creating an account at https://payara.cloud. For security reasons, you will be required to have a payment method on file. This will however, not be charged until your trial is over. 
+You can get a 15-day free trial of Payara Cloud by creating an account at https://payara.cloud. For security reasons, you will be required to have a payment method on file. This will however, not be charged until your trial is over. 
 
