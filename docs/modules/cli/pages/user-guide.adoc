@@ -361,3 +361,7 @@ include::examples/_Deployment-scaleApplicationWithHorizontalScaling-01.adoc[]
 Logs can be seen in console with deployment progress.
 
 include::examples/_Deployment-scaleApplicationWithHorizontalScaling-03.adoc[]
+
+If the application is configured for horizontal scaling, you can scale it directly by specifying the desired number of instances.
+
+include::examples/_Deployment-scaleApplication-01.adoc[]
