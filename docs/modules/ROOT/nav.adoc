@@ -1,5 +1,8 @@
 * xref:Getting Started.adoc[Getting Started]
 ** xref:Getting Started.adoc#register[Register]
+** xref:Getting Started.adoc#cloud-trial[Cloud Trial]
+*** xref:Getting Started.adoc#signup-free-trial[Sign Up Free Trial]
+*** xref:Getting Started.adoc#cancel-free-trial[Cancel Free Trial]
 ** xref:Getting Started.adoc#log-into-your-account[Log into Your Account]
 ** xref:Getting Started.adoc#create-a-namespace[Create a Namespace]
 ** xref:Getting Started.adoc#upload-an-application[Upload an Application]
