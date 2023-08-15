@@ -1,0 +1,50 @@
+[[application-clustering-configurations]]
+= Application clustering configurations
+
+ - Click on 'Edit configuration' in the top right corner of the application home page
+
+image::./clustering/application_home_page.png[image,width=724,height=387]
+
+- Application can be scaled by three options
+ * *Rollover upgrade:* With this option, new version of application is deployed and old one is terminated after new version reports ready state
+ * *Singleton:* At most one instance of application is running. Old revision is terminated before deployment of new one starts
+ * *Horizontal scaling:* Deploy multiple instances of an application
+
+== Following options are common for all three scaling types
+
+- Runtime size: The runtime size specifies the amount of resources to allocate for this instance and count against the included vCPU of your subscription. The resource allocation is as follows:
+
+image::./clustering/Runtime size.png[image, width=724,height=387]
+
+- Runtime type: Runtime environment for the deployed application
+
+image::./clustering/Runtime type.png[image, width=724,height=387]
+
+== Following options can be select for Rollover upgrade
+
+image::./clustering/Rollover time.png[image, width=724,height=387]
+
+    - Rollover time:
+        * *Moderate:* Add 90 second timeout before shutdown sequence is initiated
+        * *Minimal:* The instance immediately shuts down as soon as new instance reached ready state
+
+
+== Following options can be select for Horizontal scaling
+
+ - Number of Replicas: The number of replicas to be created for the application. Values can be set from 2 to 8
+
+image::./clustering/Number of replicas.png[image, width=724,height=387]
+
+ - Data Grid Model: With this option Data grid option can be enabled or disabled
+
+image::./clustering/Data grid.png[image, width=724,height=387]
+
+ Modify scaling option
+
+  - when application is running on Horizontal scaling mode, application home page will display "Adjust scale" button
+
+image::./clustering/Adjus scale.png[image, width=724,height=387]
+
+  -  "Adjust scale" will display dialog where number of instance can be defined. Click Apply to save changes
+
+image::./clustering/Adjust scale dialog.png[image, width=724,height=387]
