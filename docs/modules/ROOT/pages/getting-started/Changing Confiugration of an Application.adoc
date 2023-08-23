@@ -1,0 +1,24 @@
+== Make Changes to Your Application’s Configuration and Redeploy
+
+* Start on the Application detail screen for the application you wish to change.
+* Click the btn:[Application Actions] button.
+* Choose btn:[Edit Configuration]
+* Make your changes on the configuration screen, click btn:[Save] to create a revision of your application.
+
+
+
+After saving your configuration changes, you’ll see the updated application details screen with a new revision number, and the revision history. Your latest revision will show configured – but not deployed. (The previously deployed revision of your application is still live until you deploy the changes).
+
+image::image21.png[Graphical user interface, application Description automatically generated,width=624,height=339]
+
+Your revised application is saved in the “Pending Changes” box. Click on the btn:[Actions] button within the Pending Changes box to open the menu of actions you can make on the revised application.
+
+image::image22.png[Graphical user interface Description automatically generated,width=624,height=341]
+
+To make your revision live, click Deploy Changes. You should get a message indicating a successful deployment of the revised application. (Note the revision number has been added to the application name).
+
+image::image23.png[image,width=685,height=189]
+
+On the application details screen, you’ll see the changes are no longer pending and the revision is Live.
+
+image::image24.png[A screenshot of a computer Description automatically generated,width=624,height=344]

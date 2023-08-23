@@ -1,0 +1,126 @@
+== Configure Your Application for Deployment
+
+Click on the btn:[Application Actions] button to access all actions related to the application.
+
+The unconfigured status means that the platform detected that a configuration is required before you can deploy your application. The Deploy action is also not available when the status is unconfigured. When the application uses a database (found a persistence.xml file, not when using @DataSourceDefinition) the status is automatically unconfigured until the configuration is made.
+
+To configure your application for deployment, click Change Configuration.
+
+=== Configuration screen
+
+Payara Cloud has support for three configuration areas, MicroProfile Config properties, context root, and a database connections for a JPA data sources.  The configuration screen will only display the MicroProfile Configuration values for an application using microprofile.config.properties and will only show you the Database Configuration values if your application contains a persistence.xml file.
+
+If your application connects to a datasource you’ll first provide the JDBC URL, datasource class, and the username and password used to authenticate your connection to the database server.
+
+You’ll select your runtime size in the drop down box based on the amount of resources you need to allocate for this instance. The resources count against the included CPU of your subscription.
+
+The Runtime Type provides two options for different application scenarios. For applications utilizing the Jakarta EE 8 API, the recommended choice is btn:[Payara 5, JDK 11]. On the other hand, for applications built on the Jakarta EE 10 platform, it is advisable to select btn:[Payara 6, JDK 11].
+
+image::image13.png[image,width=480,height=149]
+
+[[microprofile-configuration-values]]
+==== MicroProfile Configuration Values
+
+MicroProfile configuration is a preferred way to externalize the configuration parameters for your application. You can Inject them similar to a CDI or retrieve them programmatically.
+
+When you upload your application, Payara Cloud looks for the file _microprofile-config.properties_ to see if there are configuration parameters defined in the application. Your default parameters are read and displayed here, and you can override them or add new configuration keys. The Add Configuration Key is useful when reading MP configuration values programmatically or when the values don’t have a default – and thus not present in _microprofile-config.properties_.
+
+image::image14.png[image,width=480,height=108]
+
+[[context-root]]
+==== Context Root
+
+By default, the name of the WAR file is taken as the context root on which the application is made available.  Using the Application Configuration screen, this value can be changed.
+
+image::image15.png[Table Description automatically generated with medium confidence,width=624,height=221]
+
+[[internet-accessible-paths]]
+==== Internet-Accessible Paths
+
+While everything served under a specified context root path is accessible to other applications within the namespace, it is possible to restrict which sub-paths of the context root are accessible over the internet. By default all paths are available `/*`
+
+To set which sub-paths are accessible, enter space-separated patterns in the form of `/prefix*`. Sub-paths matching this prefix will be available through the domain name of the namespace, while other paths will only be accessible to other applications within the same namespace.
+
+For example, let's assume Context Root of `/orders` and Internet-Accessible Paths `/details/*` `/cancel/*`.
+
+Then requests like
+
+\https://namespace-domain.payara.app/orders/details/000234
+
+or
+
+\https://namespace-domain.payara.app/orders/cancel/00234
+
+are directed to application.
+
+Requests to \https://namespace-domain.payara.app/orders/place will be handled by the application handling the root namespace.
+
+Other applications within this namespace can reach the handler for `/place` of this application by accessing \http://applicationName/orders/place.
+
+Note that communications within a namespace are http only, as the traffic is limited to the namespace. HTTPS is available for inbound traffic into the namespace.
+
+[[database-configuration]]
+==== Database Configuration
+
+When you upload your application, Payara Cloud looks for the _persistence.xml_ file. If detected, the necessary minimal configuration parameters for a database source for the reference JNDI name can be specified.
+
+image::image16.png[Application Description automatically generated,width=624,height=242]
+
+If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you can
+
+make use of the @DataSourceDefinition:
+
+[source,java]
+----
+@DataSourceDefinition(name="java:global/jdbc/cloud-postgres",
+        className="org.postgresql.ds.PGSimpleDataSource",
+        serverName = "${MPCONFIG=ds_servername}",
+        portNumber = 5432,
+        databaseName = "${MPCONFIG=ds_databasename}",
+        user="${MPCONFIG=ds_username}",
+        password="${MPCONFIG=ds_password}"
+)
+----
+
+Or define the <data-source> element in _web.xml_:
+
+[source,xml]
+----
+<data-source>
+    <name>java:global/jdbc/cloud-mysql</name>
+    <class-name>com.mysql.jdbc.jdbc2.optional.MysqlDataSource</class-name>
+    <server-name>${MPCONFIG=ds_servername}</server-name>
+    <port-number>3306</port-number>
+    <database-name>${MPCONFIG=ds_databasename}</database-name>
+    <user>${MPCONFIG=ds_username}</user>
+    <password>${MPCONFIG=ds_password}</password>
+</data-source>
+----
+
+combined with `MPCONFIG` Microprofile Config variables. These MicroProfile Config variables can be configured with the Payara Cloud GUI
+
+If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in Payara Cloud so the system can detect them as described above. Click ‘Add Configuration Key’ and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy.
+
+image::image17.png[image,width=480,height=108]
+
+[[allowing-access-to-your-database-from-payara-cloud]]
+===== *Allowing Access to your Database from Payara Cloud*
+
+If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace.
+If your database access is restricted by IP address, enable access to following IP adresses based on the region the namespace is located in:
+
+|===
+| Region | IP Address(es)
+
+| Azure, West Europe
+| 20.50.49.180
+
+| Azure, East US
+| 20.62.214.88
+|===
+
+If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace.
+
+When you are happy with your configuration settings, click Save to return to the application details screen.
+
+image::image18.png[A screenshot of a computer Description automatically generated,width=624,height=320]

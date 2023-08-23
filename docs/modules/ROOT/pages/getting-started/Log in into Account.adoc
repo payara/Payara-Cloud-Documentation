@@ -1,0 +1,17 @@
+== Log into Your Account
+
+If you create an account but do not finish the subscription process, it is possible to log in as an existing subscriber, but you will be presented with a “No Subscriptions Available” screen until you enter your payment details and set up your subscription.
+
+image::No_subscriptions.png[Graphical user interface, no active subscriptions]
+
+After completing the sign up process entirely, you can log in at https://payara.cloud.
+
+image::image5.png[Graphical user interface, text Description automatically generated,width=672,height=361]
+
+When you log into your account you are taken directly to the Namespaces screen. A starter namespace is provided for you the first time you log into Payara Cloud. You can use the starter namespace to test the functionality of Payara Cloud, or you can delete it and create your own namespace.
+
+Attempting to click on the URL at this time will display an error message. You must first upload an application and give the DNS time to propagate before you can access the application at the URL.
+
+If you land on your Billing Management screen on your account instead then you can select btn:[Use Cloud] and it will redirect to the Application Management Page.
+
+//TODO: Add Image of Billing Management Screen
