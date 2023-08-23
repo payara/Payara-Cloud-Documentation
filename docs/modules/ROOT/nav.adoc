@@ -1,27 +1,45 @@
+// Getting Started
 * xref:Getting Started.adoc[Getting Started]
-** xref:Getting Started.adoc#register[Register]
-** xref:Getting Started.adoc#cloud-trial[Cloud Trial]
-*** xref:Getting Started.adoc#signup-free-trial[Sign Up Free Trial]
-*** xref:Getting Started.adoc#cancel-free-trial[Cancel Free Trial]
-** xref:Getting Started.adoc#log-into-your-account[Log into Your Account]
-** xref:Getting Started.adoc#create-a-namespace[Create a Namespace]
-** xref:Getting Started.adoc#upload-an-application[Upload an Application]
-** xref:Getting Started.adoc#configure-your-application-for-deployment[Configure Your Application for Deployment]
-*** xref:Getting Started.adoc#microprofile-configuration-values[MicroProfile Configuration Values]
-*** xref:Getting Started.adoc#context-root[Context Root]
-*** xref:Getting Started.adoc#internet-accessible-paths[Internet Accessible Paths]
-*** xref:Getting Started.adoc#database-configuration[Database Configuration]
-** xref:Getting Started.adoc#deploy-application[Deploy Application]
-** xref:Getting Started.adoc#make-changes-to-your-applications-configuration-and-redeploy[Make Changes to Your Application's Configuration and Redeploy]
-** xref:Getting Started.adoc#how-to-stop-an-application[How to Stop an Application]
-*** xref:Getting Started.adoc#deploy-a-stopped-application[Deploy a Stopped Application]
-** xref:Clustering.adoc#application-clustering-configurations[Clustering]
+// ** Cloud Trial
+** xref:getting-started/cloud-trial/Signup Payara Cloud.adoc[Signing up]
+** xref:getting-started/Log in into Account.adoc[Log into Your Account]
+// Deploying Application
+** xref:getting-started/Deploying an Application.adoc/[Deploying an Application]
+*** xref:getting-started/Deploying an Application.adoc#create-a-namespace[Create a Namespace]
+*** xref:getting-started/Deploying an Application.adoc#upload-an-application[Upload an Application]
+*** xref:getting-started/Deploying an Application.adoc#review-configuration[Review Configuration]
+*** xref:getting-started/Deploying an Application.adoc#deploy-application[Deploy Application]
+*** xref:getting-started/Deploying an Application.adoc#stop-application[Stop Application]
+*** xref:getting-started/Deploying an Application.adoc#delete-application[Delete Application]
+** xref:getting-started/Changing Confiugration of an Application.adoc[Changing Configuration of an Application]
+** xref:getting-started/cloud-trial/Cancel Payara Cloud.adoc[Cancelling a Subscription]
+//
+// ** xref:Getting Started.adoc#configure-your-application-for-deployment[Configure Your Application.adoc for Deployment]
+// *** xref:Getting Started.adoc#microprofile-configuration-values[MicroProfile Configuration Values]
+// *** xref:Getting Started.adoc#context-root[Context Root]
+// *** xref:Getting Started.adoc#internet-accessible-paths[Internet Accessible Paths]
+// *** xref:Getting Started.adoc#database-configuration[Database Configuration]
+// ** xref:Getting Started.adoc#deploy-application[Deploy Application]
+// *** xref:Getting Started.adoc#deploy-a-stopped-application[Deploy a Stopped Application]
+// ** xref:Clustering.adoc#application-clustering-configurations[Clustering]
 
-* xref:Logging.adoc[Logging]
-** xref:Logging.adoc#heap-dumps[Heap Dumps]
-** xref:Logging.adoc#thread-dumps[Thread Dumps]
+// Demo Videos
+* https://www.youtube.com/playlist?list=PLFMhxiCgmMR9S2uEiIogs6yp3MmDNsUKY[Demo Videos]
 
-* xref:How to Use Custom Domains.adoc[How to Use Custom Domains]
+// How-to-Guides
+* How-to Guides
+** xref:how-to-guides/Configure Application.adoc[Configure Application]
+** xref:how-to-guides/Logging.adoc[How to Diagnose a Running Application]
+*** xref:how-to-guides/Logging.adoc#heap-dumps[Heap Dumps]
+*** xref:how-to-guides/Logging.adoc#thread-dumps[Thread Dumps]
+** xref:how-to-guides/How to Use Custom Domains.adoc[How to Use Custom Domains]
+** xref:FAQ.adoc[Frequently Asked Questions]
+
+// Reference
+* Reference
+** xref:Billing Management.adoc[Billing Management]
+** xref:Application Management.adoc[Application Management]
+** xref:Glossary.adoc[Glossary]
 
 // Hidden at least during trial
 
@@ -32,9 +50,6 @@
 //* xref:Pricing.adoc[Pricing]
 //* xref:Account Management and How to View Current Usage.adoc[Account Management and How to View Current Usage]
 
-* xref:FAQ.adoc[Frequently Asked Questions]
 
-* xref:Glossary.adoc[Glossary]
 
 //* https://www.payara.fish/products/payara-cloud/#faq[Frequently Asked Questions]
-* https://www.youtube.com/playlist?list=PLFMhxiCgmMR9S2uEiIogs6yp3MmDNsUKY[Demo Videos]
