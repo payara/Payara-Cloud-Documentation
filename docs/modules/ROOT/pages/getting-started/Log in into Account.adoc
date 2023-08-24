@@ -1,6 +1,6 @@
 == Log into Your Account
 
-If you create an account but do not finish the subscription process, it is possible to log in as an existing subscriber, but you will be presented with a “No Subscriptions Available” screen until you enter your payment details and set up your subscription.
+In the scenario where you create an account but do not complete the subscription process, you can still log in as an existing subscriber. However, upon logging in, you will encounter a "No Subscriptions Available" screen until you provide your payment details and finalize the subscription setup.
 
 image::No_subscriptions.png[Graphical user interface, no active subscriptions]
 
