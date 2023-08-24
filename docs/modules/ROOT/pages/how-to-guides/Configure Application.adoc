@@ -28,14 +28,14 @@ When you upload your application, Payara Cloud looks for the file _microprofile-
 image::image14.png[image,width=480,height=108]
 
 [[context-root]]
-==== Context Root
+== Context Root
 
 By default, the name of the WAR file is taken as the context root on which the application is made available.  Using the Application Configuration screen, this value can be changed.
 
 image::image15.png[Table Description automatically generated with medium confidence,width=624,height=221]
 
 [[internet-accessible-paths]]
-==== Internet-Accessible Paths
+=== Internet-Accessible Paths
 
 While everything served under a specified context root path is accessible to other applications within the namespace, it is possible to restrict which sub-paths of the context root are accessible over the internet. By default all paths are available `/*`
 
@@ -60,11 +60,13 @@ Other applications within this namespace can reach the handler for `/place` of t
 Note that communications within a namespace are http only, as the traffic is limited to the namespace. HTTPS is available for inbound traffic into the namespace.
 
 [[database-configuration]]
-==== Database Configuration
+== Database Configuration
 
 When you upload your application, Payara Cloud looks for the _persistence.xml_ file. If detected, the necessary minimal configuration parameters for a database source for the reference JNDI name can be specified.
 
 image::image16.png[Application Description automatically generated,width=624,height=242]
+
+=== Databases without JPA
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you can
 
@@ -104,7 +106,7 @@ If you are using plain JDBC connections instead of the JPA functionality of Jaka
 image::image17.png[image,width=480,height=108]
 
 [[allowing-access-to-your-database-from-payara-cloud]]
-===== *Allowing Access to your Database from Payara Cloud*
+=== *Allowing Access to your Database from Payara Cloud*
 
 If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace.
 If your database access is restricted by IP address, enable access to following IP adresses based on the region the namespace is located in:

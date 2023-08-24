@@ -2,26 +2,26 @@
 
 == Cancelling a Subscription
 
-When your 15 free trial days are up, if you wish to stop using Payara Cloud, you must cancel.
+Once the 15-day free trial period concludes, if you decide to discontinue using Payara Cloud, it's necessary to initiate a cancellation.
 
-Click your email address in the right corner of the Payara Cloud main page.
+Click on your email address located in the upper right corner of the Payara Cloud main page.
 
-Select btn:[Billing Management] from the drop-down menu.
+From the dropdown menu, choose btn:[Billing Management].
 
 image::cloud-trial-image6.png[image,width=624,height=287]
 
-On this page, click btn:[Subscription Actions] and here you will find the btn:[Cancel Subscription] option. Click this.
+On this page, navigate to btn:[Subscription Actions], where you will find the option for btn:[Cancel Subscription]. Click on this option.
 
 image::cloud-trial-image7.png[image,width=624,height=287]
 
-You will then find the option to btn:[Cancel Plan].
+Following that, you will encounter the choice to btn:[Cancel Plan].
 
 image::cloud-trial-image8.png[image,width=624,height=287]
 
 Click btn:[Cancel Plan].
 
-On the below page, also click btn:[Cancel Plan].
+On the subsequent page, confirm the cancellation by clicking btn:[Cancel Plan].
 
 image::cloud-trial-image9.png[image,width=624,height=287]
 
-You will now have your plan cancelled, but your account will still exist, with the option to review!
+By completing these steps, your plan will be successfully cancelled. However, your account will persist, giving you the option to review your information.
