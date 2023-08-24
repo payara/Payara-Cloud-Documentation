@@ -33,13 +33,13 @@
 *** xref:how-to-guides/Logging.adoc#heap-dumps[Heap Dumps]
 *** xref:how-to-guides/Logging.adoc#thread-dumps[Thread Dumps]
 ** xref:how-to-guides/How to Use Custom Domains.adoc[How to Use Custom Domains]
-** xref:FAQ.adoc[Frequently Asked Questions]
+** xref:how-to-guides/FAQ.adoc[Frequently Asked Questions]
 
 // Reference
 * Reference
-** xref:Billing Management.adoc[Billing Management]
-** xref:Application Management.adoc[Application Management]
-** xref:Glossary.adoc[Glossary]
+** xref:reference/Billing Management.adoc[Billing Management]
+** xref:reference/Application Management.adoc[Application Management]
+** xref:reference/Glossary.adoc[Glossary]
 
 // Hidden at least during trial
 
