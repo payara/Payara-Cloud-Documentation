@@ -15,7 +15,7 @@ Your revised application is saved in the “Pending Changes” box. Click on the
 
 image::image22.png[Graphical user interface Description automatically generated,width=624,height=341]
 
-To make your revision live, click Deploy Changes. You should get a message indicating a successful deployment of the revised application. (Note the revision number has been added to the application name).
+To make your revision live, click btn:[Deploy Changes]. You should get a message indicating a successful deployment of the revised application. (Note the revision number has been added to the application name).
 
 image::image23.png[image,width=685,height=189]
 

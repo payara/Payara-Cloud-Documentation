@@ -7,42 +7,44 @@ A _Namespace_ is a group of related applications in the Payara Cloud environme
 
 Click btn:[Create New Namespace] button.
 
-Your namespace project name must be unique from other project names within your subscription. The name is also used as the subdomain name of the URL that gives you access to the deployed application. To ensure the project name is also unique from all other project names within the Payara Cloud environment, a random value is added to the name you specify.
+The project name for your namespace must be distinct from other project names present within your subscription. This name is also utilized as the subdomain within the URL, granting access to your deployed application. To ensure absolute uniqueness among all project names within the Payara Cloud ecosystem, an additional random value is appended to the name you provide.
 
-Use the stage field to indicate the phase of your application. For example, the stage is often called _QA,_ _test,_ or _production_, but you can specify any value that suits your needs.  
+Employ the "stage" field to specify the current "phase" of your application. Commonly, this stage is referred to as "_QA_," "_test_," or "_production_," although you have the flexibility to designate any value that aligns with your requirements.
 
 image::image6.png[Graphical user interface, application Description automatically generated,width=504,height=435]
 
-After entering the project name, stage, and choosing your cloud region, click btn:[Create namespace] button. The namespace is created and you are taken to the namespace details screen where you can begin adding applications to your namespace.
+Once you have entered the project name, chosen the stage, and selected your preferred cloud region, proceed to click the btn:[Create namespace] button. This action will initiate the creation of the namespace, and you will be directed to the namespace details screen. Here, you can initiate the process of adding applications to your newly created namespace.
 
-Each time you login into Payara Cloud you will see a list of all the namespaces that are linked to your subscription.
+Whenever you log in to Payara Cloud, a comprehensive list of all namespaces associated with your subscription will be displayed.
 
-For each namespace, the name is a link to the namespace details. You can also see the project, stage, and domain. If you have deployed applications to the namespace, the last column of the namespace table contains a link to the URL of the application that is deployed on the root. If no context route is defined or you haven’t yet uploaded any applications within the namespace, you will receive an error message when clicking on that link. 
+Each namespace is represented with its name as a hyperlink leading to the namespace details. Additionally, the project, stage, and domain information are also visible. In cases where applications have been deployed within the namespace, the last column of the namespace table features a link directing to the URL of the application deployed at the root. However, if there's no context route defined or no applications have been uploaded within the namespace, clicking on that link will result in an error message.
 
 
 [[upload-an-application]]
 == Upload an Application
 
-You upload an application from the *Namespace Details Screen* by clicking on the btn:[Upload Application] button.
+To upload an application from the *Namespace Details Screen*, simply click on the btn:[Upload Application] button.
 
 image::image8.png[Graphical user interface, application Description automatically generated,width=624,height=257]
 
-You’ll get a dialog where you can select the WAR file that needs to be deployed. The _Deploy Immediately_ checkbox can be checked to deploy the application with default values. In most cases you will need a specific configuration (such as if your application connects to a database) and this checkbox should not be ticked.  
+A dialog box will appear, allowing you to choose the WAR file that requires deployment. To deploy the application with default values, you can mark the _Deploy Immediately_ checkbox. However, in many instances, you'll require a tailored configuration (such as for applications connecting to a database), and in such cases, it's advisable not to check this checkbox.
 
-* If Application Name is defined on the Payara Cloud UI dialog, it is used as the application name in Payara Cloud.
-* If the above is not set and the WAR is built by Maven and the pom.xml is included within the archive (the default behavior for Maven war plugin) the artifactId is used as name.
-* Finally, if the above 2 are not met, the name of the uploaded file is used as the application name.
+* If an Application Name is specified within the Payara Cloud UI dialog, it will be employed as the application name within Payara Cloud.
 
-The application name is important as it is also the DNS name assigned to the container running your application and can be used to access the application directly from another application in the same namespace.
+* In cases where the aforementioned step is not taken and the WAR file is constructed using Maven, and the `pom.xml` is contained within the archive (which is the default action of the Maven war plugin), the `artifactId` is taken as the name.
+
+* As a last resort, if neither of the two previous conditions is satisfied, the name of the uploaded file itself becomes the application name.
+
+The significance of the application name lies in its dual role as the DNS name designated to the container hosting your application. This name not only enables direct access to the application from within the same namespace but can also be used for interaction between applications within that namespace.
 
 
 image::image9.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=370]
 
 After the WAR has uploaded, you’re presented with that application’s detail screen where you can configure your application and deploy it to the cloud.
 
-You can have multiple applications deployed within the same namespace. Applications within a namespace can easily communicate with each other using an appropriate DNS name.
+Within a single namespace, you have the capability to deploy multiple applications. These applications can seamlessly interact with one another by utilizing suitable DNS names.
 
-Applications in the same namespace can communicate directly with each other, without the need to send a request that needs to be resolved by the router. 
+Applications sharing the same namespace have the ability to establish direct communication between each other, eliminating the necessity of sending requests that would otherwise require resolution by the router.
 
 For each application, an additional DNS name is created based on the _appName_ property in the contextRoot panel of the configuration.
 
@@ -51,13 +53,13 @@ When you have two applications deployed in the same namespace, let say _serv
 [[review-configuration]]
 == Review Configuration
 
-Payara Cloud has support for three configuration areas, MicroProfile Config properties, context root, and a database connections for a JPA data sources.  The configuration screen will only display the MicroProfile Configuration values for an application using microprofile.config.properties and will only show you the Database Configuration values if your application contains a persistence.xml file.
+Payara Cloud extends support to three distinct configuration aspects: MicroProfile Config properties, context root, and database connections for JPA data sources. When accessing the configuration screen, you'll exclusively encounter MicroProfile Configuration values if your application employs the microprofile.config.properties approach. Similarly, Database Configuration values will be visible solely when your application incorporates a persistence.xml file.
 
 If your application connects to a datasource you’ll first provide the JDBC URL, datasource class, and the username and password used to authenticate your connection to the database server.
 
-You’ll select your runtime size in the drop down box based on the amount of resources you need to allocate for this instance. The resources count against the included CPU of your subscription.
+In the dropdown menu, you will choose your runtime size according to the resources you intend to allocate for this instance. These resources will be deducted from the allocated CPU included within your subscription.
 
-The Runtime Type provides two options for different application scenarios. For applications utilizing the Jakarta EE 8 API, the recommended choice is Payara 5, JDK 11. On the other hand, for applications built on the Jakarta EE 10 platform, it is advisable to select Payara 6, JDK 11.
+The Runtime Type presents a range of four distinct options, each catering to specific application scenarios. If your applications utilize the Jakarta EE 8 API, the suggested choices encompass Payara 5 with JDK 11 and Payara 5 with JDK 17. Conversely, if your applications are built upon the Jakarta EE 10 platform, it is recommended to consider Payara 6 with JDK 11 and Payara 6 with JDK 17.
 
 After uploading an application war file, you can View Configurations by clicking on the btn:[Action] and then click on  btn:[Edit Configurations] button.
 
@@ -67,7 +69,7 @@ image::image38.png[Graphical user interface, application, Teams Description auto
 == Deploy Application
 
 
-You need to deploy the application to make it publicly available after you’ve configured it for the first time, or anytime you have changed the configuration of the application.
+In order to make your application accessible to the public following its initial configuration or any subsequent configuration changes, deployment is necessary.
 
 From the application details screen, click btn:[Applications Actions] button to open the menu, and choose the Deploy Changes option.
 
@@ -97,7 +99,7 @@ image::image26.png[image,width=624,height=287]
 
 You will be presented with the ‘stop application wait screen’ while Payara Cloud stops your application.
 
-When the process completes, you’ll see a success message and will be taken back to the Application Detail screen. You’ll see the status of your application is STOPPED and the application is no longer accessible online.
+Once the process concludes, a success message will appear, and you will be redirected to the Application Detail screen. At this point, your application's status will be displayed as STOPPED, resulting in its unavailability online.
 
 image::image27.png[image,width=624,height=287]
 
