@@ -21,8 +21,10 @@ Your application has been deployed, but navigating to the provided URL results i
 
 === Troubleshooting Steps
 1. **Wait**: DNS propagation can take up to 48 hours (depending on your location). You may need to wait before the changes propagate across all DNS servers.
-2. **Check DNS Configuration**: Verify that your DNS settings are correctly configured in the Payara Cloud Dashboard.
+2. **Check DNS Configuration**: Verify that your DNS settings are correctly configured in your domain provider's dashboard. Please refer to xref:how-to-guides/How to Use Custom Domains.adoc[How to Use Custom Domains] to confirm you have entered the right settings for the domain.
 3. **Use DNS Propagation Check Tools**: Utilize online tools (eg. https://dnschecker.org) to check the status of DNS propagation globally.
+4. **Check Router**: If DNS has successfully propageted (confirmed through suggested tool above for instance), then your router DNS resolver cache may need flushing. You can use tools such as `ipconfig` or `flushdns` on Unix and Windos system respectively.
+
 
 [[application-not-accessible-on-custom-domain]]
 == Custom Domain May Still Not Have Fully Propagated
@@ -39,35 +41,25 @@ You've configured a custom domain, but navigating to it doesn't resolve to your 
 == SSL Certificate Not Fully Provisioned
 
 === Symptoms
-You've enabled SSL, but browsers show that your site is not secure.
+Browsers show that your Payara app site with custom domain is not secure.
 
 === Troubleshooting Steps
-1. **Wait**: SSL certificate provisioning can take some time. It is advisable to wait for a little while.
-2. **Check SSL Status**: Verify the status of the SSL certificate in your Payara Cloud Dashboard.
-3. **Inspect Logs**: If the SSL certificate fails to provision after a reasonable amount of time, check logs for errors related to SSL provisioning.
-
+1. **Wait**: SSL certificate provisioning is done automatically by Payara Cloud for every deployed application. This also done for custom domains that you attach to your application. There might be some minor delays between when you setup your custom domain and when the SSL provider used by Payara Cloud (LetsEncrypt) resolves/processes the SSL request. The availability of SSL for you app could also be impacted by DNS resolution and propagation delays.
+2. **Check SSL Status**: You can use online tools such as https://crt.sh to check if LetsEncrypt is done generating SSL certificate for your custom domain.
 
 
 [[insufficient-resources]]
 == Insufficient Resources
 
 === Symptoms
-Your application fails to start, or you receive errors related to resource limits.
+Your application is not running/performing as you expect.
 
 === Troubleshooting Steps
-1. **Check Quotas**: Verify if you've hit your resource quotas for CPU, memory, or storage in your Payara Cloud Dashboard.
+1. **Check Application Configuration**: Verify if your application has enough resources to run optimally. Some applications are resource intensive, for such, you should check the applicaiton runtime size to confirm you have chosen the right runtime size. Please note that the available runtime sizes is dependent upon your current subscription tier.
 2. **Scale Resources**: If needed, adjust the allocated resources for your application.
 3. **Review Logs**: Look for any messages about resource shortages in the logs.
 
-[[conflicting-ports]]
-== Conflicting Ports
 
-=== Symptoms
-The application doesn't start, and you see errors related to port allocation.
-
-=== Troubleshooting Steps
-1. **Check Configuration**: Verify that your application is configured to use ports that are available and not already in use by another application.
-2. **Review Logs**: Look for errors related to port conflicts in the logs.
 
 [[timeout-errors]]
 == Timeout Errors
@@ -76,8 +68,7 @@ The application doesn't start, and you see errors related to port allocation.
 The application takes too long to start, resulting in a timeout error.
 
 === Troubleshooting Steps
-1. **Check Logs**: Review logs for any long-running processes or hang-ups during startup.
-2. **Adjust Timeout Settings**: Increase the timeout settings if your application requires more time to start.
+1. **Check Application**: Check if your application has any startup task that could be slowing down its startup process. Check if any external services being called at application startup are all up and available.
 
 [[wrong-java-jakarta-runtime]]
 == Incompatible Runtime Environment
@@ -86,8 +77,8 @@ The application takes too long to start, resulting in a timeout error.
 Your application fails to run and logs indicate incompatible Java/Jakarta EE versions or missing dependencies.
 
 === Troubleshooting Steps
-1. **Check Runtime Version**: Make sure that your application is compatible with the Java (supported versions are 11, 17) andj Jakarta EE (supported versions are , 10) versions running in Payara Cloud.
-2. **Review Dependencies**: Ensure all required dependencies are included in your deployment package.
+1. **Check Runtime Version**: Make sure that your application is compatible with the Java (supported versions are 11, 17) andj Jakarta EE (supported versions are 8 and 10) versions running in Payara Cloud, and that this requirement matches the configured Runtime Type of the application.
+2. **Review Dependencies**: Ensure all required dependencies are included in your deployment package and they are also compatible with selected Runtime Type. For example, an included library may be compiled for Java 17 whereas your application was compiled on Java 11.
 
 [[database-not-connecting]]
 == Database Connection Issues
@@ -100,21 +91,13 @@ Your application cannot connect to the database, resulting in application errors
 2. **Check Network Rules**: Ensure that Payara Cloud has access to your database, especially if it's hosted outside of Azure.
 3. **Review Logs**: Inspect logs for database-related errors or warnings.
 
-[[deployment-script-errors]]
-== Deployment Script Errors
 
-=== Symptoms
-Automated deployment fails due to script errors.
-
-=== Troubleshooting Steps
-1. **Review Scripts**: Check your deployment scripts for any errors or misconfigurations.
-2. **Check Exit Codes**: Look at the exit codes in the logs to identify which part of the script failed.
 
 
 
 == General Troubleshooting Tips
 
 1. **Review Logs**: Payara Cloud provides extensive logging. Always make it a point to check the logs for any abnormalities or error messages.
-2. **Contact Support**: If all else fails, it may be beneficial to contact Payara support for more specialized assistance.
+2.  **Obtain heap dumps or thread dumps**: In order to diagnose what your application is doing having either of these tools might help.
 
 By following these troubleshooting steps, you should be able to resolve most common issues related to application deployment on Payara Cloud.
