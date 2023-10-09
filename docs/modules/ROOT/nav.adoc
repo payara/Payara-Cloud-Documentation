@@ -36,12 +36,6 @@
 ** xref:how-to-guides/Troubleshooting.adoc[Troubleshooting Tips]
 ** xref:how-to-guides/FAQ.adoc[Frequently Asked Questions]
 
-// Reference
-* Reference
-** xref:reference/Billing Management.adoc[Billing Management]
-** xref:reference/Application Management.adoc[Application Management]
-** xref:reference/Glossary.adoc[Glossary]
-
 // Hidden at least during trial
 
 //* xref:How to Access Payara Micro Binaries.adoc[How to Access Payara Micro Binaries]

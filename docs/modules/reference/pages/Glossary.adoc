@@ -1,0 +1,15 @@
+= Glossary
+
+Deploy:: The act of starting your uploaded and configured application
+
+DNS:: Domain Name System
+
+Namespace:: an isolation/grouping of resources.
+A Subscription can have multiple namespaces.
+A namespace can have multiple applications.
+
+Stage:: The stage your application is at. Such as Development, Test, Pre-production and production.
+Sometimes known as environment.
+
+Subscription:: Billing unit of Payara cloud
+
