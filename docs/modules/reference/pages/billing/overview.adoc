@@ -1,9 +1,16 @@
 = Billing Management
 
-The billing management section of Payara cloud allows you to control billing aspects of your subscription, access of users to it as well as your user preferences.
+The billing management section of Payara Cloud allows you to control billing aspects of your subscription, access of users to it as well as your user preferences.
 
 .Billing Management screen.
-image::billing_subscription_account-management.png[Screenshot of Billing Management Screen]
+image::billing_subscription_account-management.svg[Screenshot of Billing Management Screen,100%, opts=interactive]
+
+.Main Navigation Elements
+[checklist]
+* ❶ User Menu
+* ❷ Subscriptions
+* ❸ Subscription Management
+* ❹ Manage Applications
 
 == User Menu
 
