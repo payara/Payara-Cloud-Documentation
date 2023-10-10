@@ -27,23 +27,15 @@
             width="1200"
             height="900"
             preserveAspectRatio="xMinYMin"
-            xlink:href="billing_subscription_account-management.png"
+            xlink:href="signup.png"
     />
-    <a href="#_user_menu" class="callout" transform="translate(950,38)">
+    <a href="#_user_menu" class="callout" transform="translate(472,608)">
         <use xlink:href="#callout"/>
         <text>1</text>
     </a>
-    <a href="#_subscriptions" class="callout" transform="translate(196,132)">
+    <a href="#_user_menu" class="callout" transform="translate(472,692)">
         <use xlink:href="#callout"/>
         <text>2</text>
-    </a>
-    <a href="#_subscription_management" class="callout" transform="translate(196,176)">
-        <use xlink:href="#callout-left"/>
-        <text>3</text>
-    </a>
-    <a href="#_use_cloud" class="callout" transform="translate(196,335)">
-        <use xlink:href="#callout-left"/>
-        <text>4</text>
     </a>
     <script>
         document.querySelectorAll("a.callout").forEach(function(el) {

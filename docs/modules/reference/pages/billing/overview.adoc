@@ -3,7 +3,7 @@
 The billing management section of Payara Cloud allows you to control billing aspects of your subscription, access of users to it as well as your user preferences.
 
 .Billing Management screen.
-image::billing_subscription_account-management.svg[Screenshot of Billing Management Screen,100%, opts=interactive]
+image::billing/subscription/account-management.svg[Screenshot of Billing Management Screen,100%, opts=interactive]
 
 .Main Navigation Elements
 [checklist]
@@ -49,7 +49,7 @@ Manage Billing::
 * View invoices
 * Cancel plan
 
-Manage Users::
+link:subscription/user-subscription.html[Manage Users]::
 * Invite users to subscription
 * Manage roles of users
 * Remove users

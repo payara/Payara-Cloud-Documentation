@@ -1,5 +1,6 @@
 // Reference
 * Reference
 ** xref:billing/overview.adoc[Billing Management]
+*** xref:billing/subscription/user-subscription.adoc[Manage Users]
 ** xref:manage/overview.adoc[Application Management]
 ** xref:Glossary.adoc[Glossary]
