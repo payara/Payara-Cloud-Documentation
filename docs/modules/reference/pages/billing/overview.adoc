@@ -1,8 +1,8 @@
 = Billing Management
 
-The billing management section of Payara Cloud allows you to control billing aspects of your subscription, access of users to it as well as your user preferences.
+The Billing Management section in Payara Cloud provides a centralized interface to manage the billing aspects of your subscription, control user access, and adjust user preferences.
 
-.Billing Management screen.
+.Billing Management Screen
 image::billing/subscription/account-management.svg[Screenshot of Billing Management Screen,100%, opts=interactive]
 
 .Main Navigation Elements
@@ -14,44 +14,43 @@ image::billing/subscription/account-management.svg[Screenshot of Billing Managem
 
 == User Menu
 
-The menu with your user's avatar in top right corner allows you to access the menu for current user.
+The user menu, located in the top right corner with your avatar, provides a dropdown menu for the current user.
 
 User Preferences::
-This allows to change User Preferences.
+Allows modification of user preferences.
 
 == Subscriptions
 
-A subscription is billing unit of Payara Cloud.
-As a user you might have only single subscription, or have access to multiple subscriptions with varying roles per subscription.
+A subscription represents a billing unit within Payara Cloud.
+As a user, you may have a single subscription or access to multiple subscriptions, each with varying roles.
 
-If you're not yet a Payara Cloud user, you need to xref:ROOT:getting-started/Signup Payara Cloud.adoc[sign up] first.
+If you are not yet a Payara Cloud user, you need to xref:ROOT:getting-started/Signup Payara Cloud.adoc[sign up] first.
 
-Once you expand menu on the left side of screen and expand menu btn:[Subscriptions] following options are presented:
+Once you expand the menu on the left side of the screen and select btn:[Subscriptions], the following options are presented:
 
 View All Subscriptions::
-Choose current subscription.
+Select a current subscription.
 
 Create New Subscription::
-Signup for additional subscription.
+Sign up for an additional subscription.
 
 == Subscription Management
 
-For current subscription following actions can be performed.
-Availability of actions might be limited by your role in the subscription.
+For the current subscription, the following actions can be performed. Note that the availability of actions may be dictated by your role within the subscription.
 
 Overview::
 * Edit subscription name
-* See current usage
-* Set usage alerts.
+* View current usage
+* Set usage alerts
 
 Manage Billing::
-* Update payment and billing data
+* Update payment and billing information
 * View invoices
 * Cancel plan
 
 link:subscription/user-subscription.html[Manage Users]::
 * Invite users to subscription
-* Manage roles of users
+* Manage user roles
 * Remove users
 
 
