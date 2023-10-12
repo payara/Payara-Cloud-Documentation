@@ -29,6 +29,7 @@
 // How-to-Guides
 * How-to Guides
 ** xref:how-to-guides/Configure Application.adoc[Configure Application]
+** xref:how-to-guides/managing-users.adoc[]
 ** xref:how-to-guides/Logging.adoc[How to Diagnose a Running Application]
 *** xref:how-to-guides/Logging.adoc#heap-dumps[Heap Dumps]
 *** xref:how-to-guides/Logging.adoc#thread-dumps[Thread Dumps]

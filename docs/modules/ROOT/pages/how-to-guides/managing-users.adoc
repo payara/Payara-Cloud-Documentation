@@ -1,0 +1,60 @@
+= How to Manage Users
+
+The main billing unit in Payara Cloud is a subscription.
+When you sign up a new subscription is created for you, and you get separate invoice for every subscription.
+Subsequently, you can invite multiple users into your subscription.
+Conversely, a user can be a member in more than one.
+
+The detailed steps of managing users are described in Reference Guide xref:reference:billing/subscription/user-subscription.adoc[], this document aims at describing the usual constellations.
+
+== Roles in Payara Cloud
+
+We recognize, that with any infrastructure product there are two main administration roles.
+Someone who uses the infrastructure and someone who's paying for the infrastructure.
+Both of them need to have sufficient access to relevant parts of user interface, and thus Payara Cloud defines these two roles:
+
+An *Administrator* have full authority for using the infrastructure. Specifically that means that they can perform any operation regarding namespaces and applications.
+
+A *Billing Manager* have full authority regarding costs and payments.
+They can update the invoicing data and payment methods.
+They can also cancel a subscription or start an additional one, utilizing the already present payment methods.
+But by default they do not have any access to the infrastructure, as it is usually not their job to look after it.
+
+If it is, a user can also have combined role *Billing Manager with Administrative privilege*, which is the role the user that signs up gets.
+
+A user with restricted access is referred to as *Member*.
+They don't have access to billing data and they cannot perform namespace operations.
+More fine-grained access control is planned for later version.
+
+Both Administrator and Billing Manager may invite additional users to subscription and assign roles to them.
+However, only a Billing Manager can grant or revoke Billing Manager roles.
+
+== Scenario 1: Small team
+
+If you are a small team with large amount of trust then you may choose to give everyone role Billing Manager with Administrative privilege.
+
+If giving the permission to start new subscription to every member of the team is not desirable, then majority of the team should be Administrators with some -- ideally at least two -- members being Billing Manager with Administrative privilege.
+
+== Scenario 2: Separate procurement
+
+In larger companies a procurement or finance department might want to have access to invoices and to manage payment methods.
+At the same time, they might not be involved into actual usage of the product by managing namespaces and applications.
+
+In such case the preferred approach is to invite responsible procurement users into the subscription as Billing Managers to subscription.
+It is also recommended to set procurement email as the invoicing email in btn:[Manage Billing] > btn:[Update Invoice Information].
+
+After that the initial user may change their role to Administrator, and leave management of all the finance aspects to invited Billing Managers.
+
+Note, that after changing your role to Administrator, you can no longer change it back to Billing Manager, as that right is only reserved to Billing Managers.
+The dialog will prevent you from removing or demoting last Billing Manager though.
+
+== Scenario 3: Protecting namespaces
+
+Namespace operations have significant impact on your operation: removing custom domain mapping could make all if applications in the namespace inaccessible, deleting a namespace is destructive and irreversible action.
+
+Should you wish to leave namespace-level operations to smaller group of users, assign the role Member to the rest of the team.
+
+Members still can perform all the actions on application level.
+More fine-grained control for these is planned for later releases.
+
+
