@@ -39,7 +39,7 @@ In such scenarios, the advisable approach is to invite responsible procurement p
 
 Subsequently, the initial user may transition their role to Administrator, entrusting all financial management to the invited Billing Managers.
 
-Note that post transitioning the initial user role to Administrator, reverting back to Billing Manager will not longer be possible as this right is exclusively reserved for Billing Managers. However, the dialog will prevent the removal or demotion of the last Billing Manager.
+Note that post transitioning the initial user role to Administrator, reverting back to Billing Manager will no longer be possible as this right is exclusively reserved for Billing Managers. However, the dialog will prevent the removal or demotion of the last Billing Manager.
 
 == Scenario 3: Protecting namespaces
 
