@@ -21,18 +21,28 @@ image::image34-new.png[Graphical user interface, application Description automat
 
 Type in the domain name you would like to use to access your application in the Custom Domain Name field.
 
+.Screen to add custom domain to Payara Cloud
 image::image35-new.png[Graphical user interface, application Description automatically generated,width=624,height=284]
 
 Click btn:[Set Custom Domain]
 
 You are then presented with the Custom Domain screen and the information to set up the DNS record:
 
+.Screen showing DNS info for setting up added custom domain
 image::image36-new.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=282]
 
 Copy the value in the Set up CNAME DNS Record value field and enter it into the CNAME of the DNS system you are using.
 
-Assuming you are using Cloudflare as your domain host, you can create a new CNAME record in your domain dashboard as shown below.
+Assuming you are using Cloudflare as your domain host, you can create a new CNAME record in your domain dashboard as follows.
 
+.Cloudflare domain record creation screen
+image::image37-new.png[Cloudflare dns update view, width=624,height=282]
 
+* ❶ Set record type to CNAME
+* ❷ Set @ for root domain eg myAmazingBrand.com.
+* ❸ Enter the DNS record value compied from the custom domain screen in Payara Cloud
+* ❹ Save
+
+Now go back to the custom domain setup screen in Payara Cloud and click
 
 After setting up the CNAME value, click on the btn:[Check DNS] button of this screen to ensure it was set up correctly. If the set up was successful, you can then use the custom domain you set up to access your application. _Note that it can take some time for changes in the DNS system to propagate_.
