@@ -1,16 +1,20 @@
 = Manage Users
 
-Payara Cloud enables you to have multiple users accessing your subscription. To facilitate this, you invite users to your subscription via email. Upon receiving the invitation, they can register for a new Payara Cloud account or use their existing one to access the subscription.
+Payara Cloud enables you to have multiple users accessing your subscription.
+To facilitate this, you invite users to your subscription via email.
+Upon receiving the invitation, they can register for a new Payara Cloud account or use their existing one to access the subscription.
 
 == Roles
 
 In Payara Cloud, users can have different roles, each with its own set of permissions:
 
 Billing Manager::
-Users with this role have access to all billing and payment information related to the subscription. They can also invite new users to the subscription and modify their roles, though they may not have permissions to deploy applications to Payara Cloud.
+Users with this role have access to all billing and payment information related to the subscription.
+They can also invite new users to the subscription and modify their roles, though they may not have permissions to deploy applications to Payara Cloud.
 
 Administrator::
-Administrators possess full permissions to deploy and configure applications on Payara Cloud. They can also invite new users to the subscription and modify their roles.
+Administrators possess full permissions to deploy and configure applications on Payara Cloud.
+They can also invite new users to the subscription and modify their roles.
 
 Billing Manager with Administrative Privileges::
 This role combines the privileges of both the Billing Manager and Administrator roles, providing all available permissions. When you sign up for Payara Cloud, this is the default role assigned to your subscription.
@@ -19,7 +23,8 @@ Member::
 Members have limited access to the subscription's applications; specifically, they cannot create, delete, or modify namespaces.
 
 === Role Requirements
-A subscription must always have at least one user in the Billing Manager role and one in the Administrator role. This requirement can also be satisfied by a single user with the Billing Manager with Administrative Privileges role.
+A subscription must always have at least one user in the Billing Manager role and one in the Administrator role.
+This requirement can also be satisfied by a single user with the Billing Manager with Administrative Privileges role.
 
 == Manage Subscription Users Screen
 
@@ -110,4 +115,5 @@ Confirmation is required to complete the removal:
 
 image::billing/subscription/user-subscription/remove.png[Screenshot of Remove User screen]
 
-Upon confirmation, the user will be removed from the subscription, and their access will be revoked. They will need to be re-invited to regain access to the subscription.
+Upon confirmation, the user will be removed from the subscription, and their access will be revoked.
+They will need to be re-invited to regain access to the subscription.

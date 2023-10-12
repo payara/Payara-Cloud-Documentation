@@ -1,5 +1,5 @@
 = Glossary
-Active User:::: A user who has activated access to a Payara Cloud subscription.
+Active User:: A user who has activated access to a Payara Cloud subscription.
 
 Administrator:: A user granted full administrative access to the applications within a subscription.
 
