@@ -1,29 +1,38 @@
 = How to Use Custom Domains
 
-Payara Cloud customers with the Standard or Premium level subscriptions have the option of creating custom domains for end users to access their applications.
+Payara Cloud offers customers on the Standard or Premium subscription tiers the ability to associate custom domains to namespaces. This feature enhances the accessibility of your applications deployed to such namespaces for end users, by providing a personalized and easily recognizable URL.
 
-Payara Cloud defines a URL to applications when you upload them to your namespace. By default, the url is a combination of your namespace name and application name to ensure it is unique. It might look something like this: \https://guide-docu-6696a94c.payara.app/demo
+Upon uploading your applications to a specific namespace in Payara Cloud, a default URL is generated. This URL is a unique concatenation of your namespace and application names, forming a link resembling: \https://guide-docu-6696a94c.payara.app/demo (Note: This is a fabricated URL for illustration purposes).
 
-(not a real URL).
+However, such auto-generated URLs may not be user-friendly or brand-aligned, which is where the custom domain feature comes into play. By utilizing this feature, you can modify the default URL to a more brand-centric and user-friendly format such as \https://yourAmazingBrand.com/app1, \https://yourAmazingBrand.com/app2, and so on, making it significantly easier for end users to access your deployed applications.
 
-You probably don’t want to give a URL that looks like that to your end users to access your application. With Payara Cloud’s custom domain option, you can customize the url so it is something like \https://your.brand.com/demo instead.
-
+== Add A Custom Domain
 Click on the namespace containing your application from the Namespace Navigator. In the btn:[Namespace Actions] drop down menu, click btn:[Custom Domain]
 
-image::image33.png[A screenshot of a computer Description automatically generated,width=624,height=290]
+.Namespace menu to add new domain
 
-Click btn:[Add Custom Domain]
+image::image33-new.png[A screenshot of a computer Description automatically generated,width=624,height=290]
+
+Click btn:[Add Custom Domain] in the ensuing screen.
+
+.Button to click to add new domain
+image::image34-new.png[Graphical user interface, application Description automatically generated,width=624,height=284]
+
 
 Type in the domain name you would like to use to access your application in the Custom Domain Name field.
 
-image::image34.png[Graphical user interface, application Description automatically generated,width=624,height=284]
+image::image35-new.png[Graphical user interface, application Description automatically generated,width=624,height=284]
 
 Click btn:[Set Custom Domain]
 
 You are then presented with the Custom Domain screen and the information to set up the DNS record:
 
-image::image35.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=282]
+image::image36-new.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=282]
 
 Copy the value in the Set up CNAME DNS Record value field and enter it into the CNAME of the DNS system you are using.
+
+Assuming you are using Cloudflare as your domain host, you can create a new CNAME record in your domain dashboard as shown below.
+
+
 
 After setting up the CNAME value, click on the btn:[Check DNS] button of this screen to ensure it was set up correctly. If the set up was successful, you can then use the custom domain you set up to access your application. _Note that it can take some time for changes in the DNS system to propagate_.
