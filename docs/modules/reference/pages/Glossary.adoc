@@ -1,0 +1,25 @@
+= Glossary
+Active User:: A user who has activated access to a Payara Cloud subscription.
+
+Administrator:: A user granted full administrative access to the applications within a subscription.
+
+Billing Manager:: A user granted full access to the billing and payment data of a subscription.
+
+Deploy:: The act of launching your uploaded and configured application.
+
+DNS (Domain Name System):: A hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network.
+
+Member:: A user with limited access to a Payara Cloud subscription.
+
+Namespace:: A grouping or isolation of resources within a Payara Cloud subscription. A subscription can have multiple namespaces, and each namespace can host multiple applications.
+
+Inactive User:: A user whose access to a Payara Cloud subscription has been temporarily deactivated.
+
+Invitation:: An email sent to a user to grant access to an existing Payara Cloud subscription.
+
+Pending User:: A user who has received an invitation but has not yet accepted it.
+
+Stage:: The phase your application is in, such as Development, Testing, Pre-production, or Production. Also referred to as the environment.
+
+Subscription:: The billing unit of Payara Cloud, encompassing a defined set of resources and access levels.
+
