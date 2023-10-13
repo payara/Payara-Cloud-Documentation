@@ -1,0 +1,57 @@
+= Billing Management
+
+The Billing Management section in Payara Cloud provides a centralized interface to manage the billing aspects of your subscription, control user access, and adjust user preferences.
+
+.Billing Management Screen
+image::billing/subscription/account-management.svg[Screenshot of Billing Management Screen,100%, opts=interactive]
+
+.Main Navigation Elements
+[checklist]
+* ❶ User Menu
+* ❷ Subscriptions
+* ❸ Subscription Management
+* ❹ Manage Applications
+
+== User Menu
+
+The user menu, located in the top right corner with your avatar, provides a dropdown menu for the current user.
+
+User Preferences::
+Allows modification of user preferences.
+
+== Subscriptions
+
+A subscription represents a billing unit within Payara Cloud.
+As a user, you may have a single subscription or access to multiple subscriptions, each with varying roles.
+
+If you are not yet a Payara Cloud user, you need to xref:ROOT:getting-started/Signup Payara Cloud.adoc[sign up] first.
+
+Once you expand the menu on the left side of the screen and select btn:[Subscriptions], the following options are presented:
+
+View All Subscriptions::
+Select a current subscription.
+
+Create New Subscription::
+Sign up for an additional subscription.
+
+== Subscription Management
+
+For the current subscription, the following actions can be performed. Note that the availability of actions may be dictated by your role within the subscription.
+
+Overview::
+* Edit subscription name
+* View current usage
+* Set usage alerts
+
+Manage Billing::
+* Update payment and billing information
+* View invoices
+* Cancel plan
+
+link:subscription/user-subscription.html[Manage Users]::
+* Invite users to subscription
+* Manage user roles
+* Remove users
+
+
+

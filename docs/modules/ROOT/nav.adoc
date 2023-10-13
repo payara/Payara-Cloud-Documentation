@@ -29,18 +29,13 @@
 // How-to-Guides
 * How-to Guides
 ** xref:how-to-guides/Configure Application.adoc[Configure Application]
+** xref:how-to-guides/managing-users.adoc[]
 ** xref:how-to-guides/Logging.adoc[How to Diagnose a Running Application]
 *** xref:how-to-guides/Logging.adoc#heap-dumps[Heap Dumps]
 *** xref:how-to-guides/Logging.adoc#thread-dumps[Thread Dumps]
 ** xref:how-to-guides/How to Use Custom Domains.adoc[How to Use Custom Domains]
 ** xref:how-to-guides/Troubleshooting.adoc[Troubleshooting Tips]
 ** xref:how-to-guides/FAQ.adoc[Frequently Asked Questions]
-
-// Reference
-* Reference
-** xref:reference/Billing Management.adoc[Billing Management]
-** xref:reference/Application Management.adoc[Application Management]
-** xref:reference/Glossary.adoc[Glossary]
 
 // Hidden at least during trial
 

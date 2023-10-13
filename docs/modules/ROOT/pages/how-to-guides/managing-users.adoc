@@ -1,0 +1,62 @@
+= How to Manage Users
+
+The primary billing unit within Payara Cloud is a subscription.
+Upon signing up, a new subscription is generated for you, with a separate invoice issued for each subscription.
+You have the flexibility to invite multiple users to your subscription, and conversely, a user can be a member of more than one subscription.
+
+The detailed steps of managing users are described in Reference Guide xref:reference:billing/subscription/user-subscription.adoc[].
+This document aims to outline the typical configurations.
+
+== Roles in Payara Cloud
+
+It's acknowledged that within any infrastructure product, there are two principal administrative roles: one who utilizes the infrastructure and another who covers the costs for the infrastructure.
+Both roles require adequate access to pertinent sections of the user interface, hence Payara Cloud delineates these roles as follows:
+
+An *Administrator* possesses full authority over the infrastructure utilization, specifically entailing any operation concerning namespaces and applications.
+
+A *Billing Manager* holds comprehensive authority regarding financial matters such as costs and payments.
+They can modify invoicing data, update payment methods, cancel a subscription, or initiate an additional one, leveraging the existing payment methods.
+However, by default, they lack access to the infrastructure as it's generally not within their purview.
+
+If necessary, a user can assume a combined role as *Billing Manager with Administrative* privilege, which is the default role assigned to a user upon sign-up.
+
+
+A user with restricted access is referred to as *Member*.
+They are barred from accessing billing data and performing namespace operations.
+More fine-grained access control is slated for future versions.
+
+Both Administrators and Billing Managers have the capacity to invite additional users to the subscription and allocate roles to them.
+However, only a Billing Manager can confer or rescind Billing Manager roles.
+
+== Role Scenarios
+As different companies will have different requirements, the follow scenarios give general suggestions on how the permissions can be configured for different organisations.
+
+===  Scenario 1: Small team
+
+For a small team with a high level of trust, you may opt to assign everyone the role of Billing Manager with Administrative privilege.
+
+If it's undesirable for every team member to have the authority to initiate new subscriptions, then the bulk of the team should be Administrators, with a select few -- ideally at least two -- assuming the role of Billing Manager with Administrative privilege.
+
+
+
+===  Scenario 2: Separate procurement
+
+In larger organisations, a procurement or finance department may require access to invoices and management of payment methods, while remaining uninvolved in the actual product usage concerning namespace and application management.
+
+In such scenarios, the advisable approach is to invite responsible procurement personnel to the subscription as Billing Managers.
+It's also recommended to set a procurement email as the invoicing email via btn:[Manage Billing] > btn:[Update Invoice Information].
+
+Subsequently, the initial user may transition their role to Administrator, entrusting all financial management to the invited Billing Managers.
+
+Note that post transitioning the initial user role to Administrator, reverting back to Billing Manager will no longer be possible as this right is exclusively reserved for Billing Managers.
+However, the dialog will prevent the removal or demotion of the last Billing Manager.
+
+=== Scenario 3: Protecting namespaces
+
+Operations at the namespace level significantly impact your operation: for instance, removing custom domain mapping could render all applications within the namespace inaccessible, while deleting a namespace is a destructive and irreversible action.
+
+Should you prefer to restrict namespace-level operations to a smaller group of users, assign the role of Member to the remainder of the team.
+
+Members retain the ability to execute all actions at the application level, with more fine-grained control set for future releases.
+
+

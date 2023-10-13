@@ -1,10 +1,11 @@
 name: docs
 title: Payara Cloud
 version: master
-display_version: 'August 2023'
+display_version: 'October 2023'
 start_page: ROOT:Overview.adoc
 nav:
   - modules/ROOT/nav.adoc
+  - modules/reference/nav.adoc
   - modules/cli/nav.adoc
 asciidoc:
   attributes:
