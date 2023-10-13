@@ -2,47 +2,68 @@
 
 Payara Cloud offers customers on the Standard or Premium subscription tiers the ability to associate custom domains to namespaces. This feature enhances the accessibility of your applications deployed to such namespaces for end users, by providing a personalized and easily recognizable URL.
 
-Upon uploading your applications to a specific namespace in Payara Cloud, a default URL is generated. This URL is a unique concatenation of your namespace and application names, forming a link resembling: \https://guide-docu-6696a94c.payara.app/demo (Note: This is a fabricated URL for illustration purposes).
+When applications are uploaded to a specific namespace in Payara Cloud, a default URL is created. This URL is formed by concatenating your namespace and application names, resulting in a link like: \https://guide-docu-6696a94c.payara.app/demo (Note: This is a fabricated URL for illustration purposes).
 
-However, such auto-generated URLs may not be user-friendly or brand-aligned, which is where the custom domain feature comes into play. By utilizing this feature, you can modify the default URL to a more brand-centric and user-friendly format such as \https://yourAmazingBrand.com/app1, \https://yourAmazingBrand.com/app2, and so on, making it significantly easier for end users to access your deployed applications.
+However, these auto-generated URLs may not always align with your brand or be user-friendly, which is why the custom domain feature is valuable. It allows you to transform the default URL into a more brand-centric and user-friendly format such as \https://myapp.yourAmazingBrand.com/app1, \https://myapp.yourAmazingBrand.com/app2, and so on, simplifying the way end users access your deployed applications.
+
+NOTE: The custom domain feature currently supports only sub-domains. Therefore, you'll need to map the Payara Cloud namespace URL to a sub-domain via your DNS management console. For instance, you can map the namespace URL \https://guide-docu-6696a94c.payara.app to myapp.myAmazingBrand.com, not to myAmazingBrand.com.
 
 == Add A Custom Domain
-Click on the namespace containing your application from the Namespace Navigator. In the btn:[Namespace Actions] drop down menu, click btn:[Custom Domain]
+Select the namespace containing your application from the Namespace Navigator. In the btn:[Namespace Actions] drop down menu, click btn:[Custom Domain]
 
 .Namespace menu to add new domain
 
-image::image33-new.png[A screenshot of a computer Description automatically generated,width=624,height=290]
+image::image33-new.png[A screenshot displaying the menu to add a new domain,width=624,height=290]
 
-Click btn:[Add Custom Domain] in the ensuing screen.
+On the next screen, click btn:[Add Custom Domain].
 
-.Button to click to add new domain
-image::image34-new.png[Graphical user interface, application Description automatically generated,width=624,height=284]
+.Button to click for adding a new domain
+image::image34-new.png[Interface to add new domain,width=624,height=284]
 
 
-Type in the domain name you would like to use to access your application in the Custom Domain Name field.
+Enter the domain name you'd prefer to use for accessing your application in the Custom Domain Name field.
 
-.Screen to add custom domain to Payara Cloud
-image::image35-new.png[Graphical user interface, application Description automatically generated,width=624,height=284]
+.Custom domain addition screen on Payara Cloud
+image::image35-new.png[Interface for entering custom domain name,width=624,height=284]
 
 Click btn:[Set Custom Domain]
 
-You are then presented with the Custom Domain screen and the information to set up the DNS record:
+You'll now see the Custom Domain screen along with the information needed for setting up the DNS record.
 
-.Screen showing DNS info for setting up added custom domain
-image::image36-new.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=282]
 
-Copy the value in the Set up CNAME DNS Record value field and enter it into the CNAME of the DNS system you are using.
+.DNS information screen for custom domain setup
+image::image36-new.png[Interface displaying DNS info for custom domain setup,width=624,height=282]
 
-Assuming you are using Cloudflare as your domain host, you can create a new CNAME record in your domain dashboard as follows.
+For instance, if using Cloudflare as your domain host, create a new CNAME record in your domain dashboard as shown.
 
-.Cloudflare domain record creation screen
+
+.Cloudflare domain record creation interface
 image::image37-new.png[Cloudflare dns update view, width=624,height=282]
 
 * ❶ Set record type to CNAME
-* ❷ Set @ for root domain eg myAmazingBrand.com.
-* ❸ Enter the DNS record value compied from the custom domain screen in Payara Cloud
+* ❷ Enter myapp for the sub-domain you used in Payara Cloud.
+* ❸ Paste the DNS record value copied from Payara Cloud's custom domain screen
 * ❹ Save
 
-Now go back to the custom domain setup screen in Payara Cloud and click
+Return to the custom domain setup screen in Payara Cloud.
 
-After setting up the CNAME value, click on the btn:[Check DNS] button of this screen to ensure it was set up correctly. If the set up was successful, you can then use the custom domain you set up to access your application. _Note that it can take some time for changes in the DNS system to propagate_.
+.Screen displaying DNS info for custom domain setup
+image::image38-new.png[Interface showing DNS info for custom domain setup,width=624,height=282]
+
+Click btn:[Check DNS]
+
+Your namespace should now be linked to the configured domain.
+
+.Fully configured custom domain post DNS propagation
+image::image39-new.png[Interface displaying fully setup custom domain,width=624,height=282]
+
+NOTE: DNS propagation duration may vary based on your domain name provider, taking anywhere from a few minutes to 48 hours. Check DNS propagation using online tools such as https://dnschecker.org/
+
+With the custom domain configured, all applications deployed to the namespace can be accessed as sub-paths of the set domain. For instance, an application deployed to the context path myapp1 would be accessible via the URL \https://myapp.jakarta101.com/myapp1.
+
+You can always edit or remove configured domains for namespaces on the Custom Domain page.
+
+.Custom domain page showing addtional operations
+image::image40-new.png[Interface displaying fully setup custom domain,width=624,height=282]
+
+
