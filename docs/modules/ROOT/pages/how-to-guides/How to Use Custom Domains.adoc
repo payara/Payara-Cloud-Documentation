@@ -61,9 +61,10 @@ NOTE: DNS propagation duration may vary based on your domain name provider, taki
 
 With the custom domain configured, all applications deployed to the namespace can be accessed as sub-paths of the set domain. For instance, an application deployed to the context path myapp1 would be accessible via the URL \https://myapp.jakarta101.com/myapp1.
 
+== Edit/Remove Custom Domain
 You can always edit or remove configured domains for namespaces on the Custom Domain page.
 
-.Custom domain page showing addtional operations
+.Custom domain page showing additional operations
 image::image40-new.png[Interface displaying fully setup custom domain,width=624,height=282]
 
 
