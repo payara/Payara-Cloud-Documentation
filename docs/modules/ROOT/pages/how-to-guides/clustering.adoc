@@ -1,0 +1,96 @@
+= How to Scale Applications
+
+Payara Cloud offers three different ways of running applications that we refer to as Scalability Types.
+These are:
+
+Rolling Upgrade::
+This is the default scalability type offering so-called blue-green deployments.
+When new revision of application is deployed, the old one is kept running until the new one is ready to take over.
+
+Singleton::
+Running multiple instances of application can make it susceptible to race conditions, especially when they do any kind of queue processing or task scheduling.
+This scalability type ensures that at most  one instance of application is running at any given time.
+
+Horizontally Scaled::
+This scalability type is used when application is stateless and can be scaled across multiple equal instances.
+
+In addition to that we specify the size of single instance.
+This is done by specifying the amount of CPU cores.
+The more cores, the more memory (roughly 2GB per vCPU) is allocated to the instance.
+Premium and Standard plans allow up to 4 vCPU per instance, Basic plan only up to 2 vCPU.
+Horizontally scaled applications need to have at least 2 CPUs allocated per instance.
+
+== Setting Scalability type
+
+The settings related to scaling is done in section Runtime Type of application's configuration.
+
+image::clustering/app-runtime.png[]
+
+Just below that is the Runtime Size, that specifies the baseline for the resources assigned to each instance.
+Scalability types can have some additional options to choose from.
+
+=== Rolling upgrade
+
+Mechanics of Rolling upgrade is as follows:
+
+. New container is started and its application is deployed.
+. After its health endpoint reports success, the old version of application is marked from termination, and removed from load balancing endpoints.
+. This is where parameter *Rollover Time* comes to play.
+If its value is _Moderate_, the application stays running for another 60 seconds to finish any outstanding request, and also to give loadbalancer time to reconcile the settings.
+If Rollover Time is set to _Minimal_, the application terminates immediately.
+This may cause some requests to drop.
+
+=== Singleton
+
+Singleton has no additional parameters and works as follows:
+
+. Old instance of application is terminated.
+. New container is started and the application is deployed.
+
+This results in short unavailability of the application.
+
+=== Horizontal scaling
+
+Horizontal scaling is driven by parameter *Number of Replicas* which specified how many instances of the application are supposed to be running.
+
+Horizontal scaling is usually deployed for performance reasons.
+Before considering horizontal scaling it is important that single node performs reasonably.
+Because of that the minimal *Runtime Size* of a horizontally scaled application needs to be at least 2 vCPU cores.
+
+Then a new revision of horizontally scaled application is deployed in these steps:
+
+. If there are more replicas running that requested, the extra replicas are stopped.
+. A new instance is spun up.
+. One of the old instances is removed from load balancing and is given 60 seconds to reconcile.
+. Step 2 is repeated until all of the instances are replaced.
+
+== Additional functionalities of Horizontal Scaling
+
+=== Data Grid
+
+Horizontally scaled application can take advantage of all https://docs.payara.fish/enterprise/docs/Technical%20Documentation/Payara%20Server%20Documentation/Server%20Configuration%20And%20Management/Domain%20Data%20Grid%20And%20Hazelcast/Overview.html[Data Grid functionalities] of Payara.
+All instances of application will form a Data Grid cluster.
+This functionality needs to be explicitly enabled by setting parameter *Data Grid* to _Enabled_.
+
+HTTP Session replication can be also enabled by placing tag `<distributable/>` in application's web descriptor.
+More details are described in https://blog.payara.fish/session-replication-in-payara-server-with-hazelcast[our blog] article about session replication.
+
+=== Sticky Sessions
+
+Even when session is replicated, it is often the most performant option when client keeps sending request to same backend instance.
+This is often referred to as "Sticky Sessions", and implemented via special cookie on load balancer level.
+
+This behavior is automatically enabled for horizontally scaled applications and cannot be turned off.
+
+=== Adjusting Number of Instances
+
+Redeploying changes will always cause all of the instances to be eventually replaced.
+If the required operation is just to change number of instances that currently run, it is possible the achieve that via operation btn:[Adjust Scale].
+
+image::clustering/Adjust scale.png[]
+
+This brings up simple dialog to specify requested target number of instances:
+
+image::clustering/Adjust scale dialog.png[]
+
+This action will just either stop of some the instances -- if target number is lower than current -- or spin some new ones to match the requirement.
