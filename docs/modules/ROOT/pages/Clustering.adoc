@@ -43,7 +43,7 @@ image::./clustering/Data grid.png[image, width=724,height=387]
 
   - when application is running on Horizontal scaling mode, application home page will display "Adjust scale" button
 
-image::./clustering/Adjus scale.png[image, width=724,height=387]
+image::./clustering/Adjust scale.png[image, width=724,height=387]
 
   -  "Adjust scale" will display dialog where number of instance can be defined. Click Apply to save changes
 
