@@ -40,6 +40,7 @@ For instance, if using Cloudflare as your domain host, create a new CNAME record
 .Cloudflare domain record creation interface
 image::image37-new.png[Cloudflare dns update view, width=624,height=282]
 
+[checklist]
 * ❶ Set record type to CNAME
 * ❷ Enter myapp for the sub-domain you used in Payara Cloud.
 * ❸ Paste the DNS record value copied from Payara Cloud's custom domain screen
