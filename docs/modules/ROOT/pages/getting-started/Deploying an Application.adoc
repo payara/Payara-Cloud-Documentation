@@ -53,13 +53,27 @@ When you have two applications deployed in the same namespace, let say _serv
 [[review-configuration]]
 == Review Configuration
 
-Payara Cloud extends support to three distinct configuration aspects: MicroProfile Config properties, context root, and database connections for JPA data sources. When accessing the configuration screen, you'll exclusively encounter MicroProfile Configuration values if your application employs the microprofile.config.properties approach. Similarly, Database Configuration values will be visible solely when your application incorporates a persistence.xml file.
+Payara Cloud extends support to three distinct configuration aspects: MicroProfile Config properties, context root, and database connections for JPA data sources. When accessing the configuration screen, you'll exclusively encounter MicroProfile Configuration values if your application employs the microprofile-config.properties approach. Similarly, Database Configuration values will be visible  when your application incorporates a persistence.xml file.
 
 If your application connects to a datasource you’ll first provide the JDBC URL, datasource class, and the username and password used to authenticate your connection to the database server.
 
 In the dropdown menu, you will choose your runtime size according to the resources you intend to allocate for this instance. These resources will be deducted from the allocated CPU included within your subscription.
 
-The Runtime Type presents a range of four distinct options, each catering to specific application scenarios. If your applications utilize the Jakarta EE 8 API, the suggested choices encompass Payara 5 with JDK 11 and Payara 5 with JDK 17. Conversely, if your applications are built upon the Jakarta EE 10 platform, it is recommended to consider Payara 6 with JDK 11 and Payara 6 with JDK 17.
+=== Runtime Type
+
+The Runtime Type presents a range of six distinct options, each catering to specific application scenarios. The different permutations of Jakarta EE, Payara and JDK versions currently supported are summarized in the table below.
+
+[cols="1,1,1", options="header"]
+|===
+| Jakarta EE Version | Payara Version | JDK
+|  8 |  5 |  11 /17/ 21
+|  10 |  6 |  11 /17/ 21
+|===
+
+.Runtime Types
+image::image-37-runtime-type.png[]
+
+As an example, if your application is developed on Jakarta EE 8 and compiled for JDK 17, then you can pick the option for Jakarta EE 8 (Payara 5, JDK17). And if your application is developed with Jakarta EE 10 and compiled for JDK 21, then you should select Jakarta EE 10 (Payara6, JDK 21) option
 
 After uploading an application war file, you can View Configurations by clicking on the btn:[Action] and then click on  btn:[Edit Configurations] button.
 
