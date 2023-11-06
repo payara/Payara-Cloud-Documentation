@@ -1,124 +1,124 @@
-= Deploying An Application
+= Deploying An Application on Payara Cloud
 
 [[create-a-namespace]]
-== Create a Namespace
+== Establishing a Namespace
 
-A _Namespace_ is a group of related applications in the Payara Cloud environment. This namespace is characterized by a project name and a stage.
+In Payara Cloud, a _Namespace_ is a home to a group of related applications.
+It’s characterized by a unique project name and a stage representing the current phase of your application.
 
-Click btn:[Create New Namespace] button.
+To create a namespace, click btn:[Create New Namespace].
 
-The project name for your namespace must be distinct from other project names present within your subscription. This name is also utilized as the subdomain within the URL, granting access to your deployed application. To ensure absolute uniqueness among all project names within the Payara Cloud ecosystem, an additional random value is appended to the name you provide.
+.Namespace creation dialog
+image::image6.png[Creating a new namespace,width=504,height=435]
 
-Employ the "stage" field to specify the current "phase" of your application. Commonly, this stage is referred to as "_QA_," "_test_," or "_production_," although you have the flexibility to designate any value that aligns with your requirements.
+Ensure the project name is distinct, as it forms part of the URL for your deployed application.
+The "stage" field allows you to tag the current phase of your application, commonly denoted as "_QA_", "_test_", or "_production_".
 
-image::image6.png[Graphical user interface, application Description automatically generated,width=504,height=435]
-
-Once you have entered the project name, chosen the stage, and selected your preferred cloud region, proceed to click the btn:[Create namespace] button. This action will initiate the creation of the namespace, and you will be directed to the namespace details screen. Here, you can initiate the process of adding applications to your newly created namespace.
-
-Whenever you log in to Payara Cloud, a comprehensive list of all namespaces associated with your subscription will be displayed.
-
-Each namespace is represented with its name as a hyperlink leading to the namespace details. Additionally, the project, stage, and domain information are also visible. In cases where applications have been deployed within the namespace, the last column of the namespace table features a link directing to the URL of the application deployed at the root. However, if there's no context route defined or no applications have been uploaded within the namespace, clicking on that link will result in an error message.
-
+Upon clicking btn:[Create namespace], you’ll be directed to the namespace details screen to begin adding applications to your new namespace.
 
 [[upload-an-application]]
-== Upload an Application
+== Uploading an Application
 
-To upload an application from the *Namespace Details Screen*, simply click on the btn:[Upload Application] button.
+Uploading an application is straightforward. From the *Namespace Details Screen*, click btn:[Upload Application].
 
-image::image8.png[Graphical user interface, application Description automatically generated,width=624,height=257]
+.Namespace home screen
+image::image8.png[Uploading an application,width=624,height=257]
 
-A dialog box will appear, allowing you to choose the WAR file that requires deployment. To deploy the application with default values, you can mark the _Deploy Immediately_ checkbox. However, in many instances, you'll require a tailored configuration (such as for applications connecting to a database), and in such cases, it's advisable not to check this checkbox.
+A dialog box will appear, prompting you to choose the WAR file for deployment.
+If your application doesn’t require any special configuration, simply mark the _Deploy Immediately_ checkbox.
 
-* If an Application Name is specified within the Payara Cloud UI dialog, it will be employed as the application name within Payara Cloud.
+The application name is crucial as it also serves as the DNS name for the container hosting your application.
+This name is either specified in the Payara Cloud UI dialog, derived from the `artifactId` in the `pom.xml` file if your WAR file is Maven-built, or taken from the uploaded file name.
 
-* In cases where the aforementioned step is not taken and the WAR file is constructed using Maven, and the `pom.xml` is contained within the archive (which is the default action of the Maven war plugin), the `artifactId` is taken as the name.
+.Application upload dialog
+image::image9.png[Application details post-upload,width=624,height=370]
 
-* As a last resort, if neither of the two previous conditions is satisfied, the name of the uploaded file itself becomes the application name.
-
-The significance of the application name lies in its dual role as the DNS name designated to the container hosting your application. This name not only enables direct access to the application from within the same namespace but can also be used for interaction between applications within that namespace.
-
-
-image::image9.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=370]
-
-After the WAR has uploaded, you’re presented with that application’s detail screen where you can configure your application and deploy it to the cloud.
-
-Within a single namespace, you have the capability to deploy multiple applications. These applications can seamlessly interact with one another by utilizing suitable DNS names.
-
-Applications sharing the same namespace have the ability to establish direct communication between each other, eliminating the necessity of sending requests that would otherwise require resolution by the router.
-
-For each application, an additional DNS name is created based on the _appName_ property in the contextRoot panel of the configuration.
-
-When you have two applications deployed in the same namespace, let say _service-a_ and _service-b_, the code in _service-a_ can call an endpoint in the application _service-b_ by using the URL http://service-b/%3ccontext-root%3e/path/to/endpoint[+++http://service-b/<context-root>/path/to/endpoint+++] when the appName of this service-b application is set to _service-b_. 
+Once the WAR file is uploaded, you’ll be navigated to the application’s detail screen for configuration before deploying it to the cloud.
 
 [[review-configuration]]
-== Review Configuration
+== Reviewing Configuration
 
-Payara Cloud extends support to three distinct configuration aspects: MicroProfile Config properties, context root, and database connections for JPA data sources. When accessing the configuration screen, you'll exclusively encounter MicroProfile Configuration values if your application employs the microprofile.config.properties approach. Similarly, Database Configuration values will be visible solely when your application incorporates a persistence.xml file.
+Configurations in Payara Cloud cover three main areas: MicroProfile Config properties, context root, and database connections for JPA data sources.
 
-If your application connects to a datasource you’ll first provide the JDBC URL, datasource class, and the username and password used to authenticate your connection to the database server.
+If your application uses the MicroProfile Config API and has the microprofile-config.properties file, all properties declared in that file will be available on the UI.
 
-In the dropdown menu, you will choose your runtime size according to the resources you intend to allocate for this instance. These resources will be deducted from the allocated CPU included within your subscription.
+If your application bundles a persistence.xml file, then the datasource definition as declared through @Datasource annotation or in the web.xml will also be available for editing.
 
-The Runtime Type presents a range of four distinct options, each catering to specific application scenarios. If your applications utilize the Jakarta EE 8 API, the suggested choices encompass Payara 5 with JDK 11 and Payara 5 with JDK 17. Conversely, if your applications are built upon the Jakarta EE 10 platform, it is recommended to consider Payara 6 with JDK 11 and Payara 6 with JDK 17.
 
-After uploading an application war file, you can View Configurations by clicking on the btn:[Action] and then click on  btn:[Edit Configurations] button.
 
-image::image38.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=370]
+=== Runtime Type
+
+Choose a runtime type based on your application's Jakarta EE, Payara, and JDK versions. The table below summarizes the supported versions:
+
+[cols="1,1,1", options="header"]
+|===
+| Jakarta EE Version | Payara Version | JDK
+|  8 |  5 |  11 /17/ 21
+|  10 |  6 |  11 /17/ 21
+|===
+
+As an example, if your application is developed on Jakarta EE 8 and compiled for JDK 17, then you can pick the option for Jakarta EE 8 (Payara 5, JDK17).
+And if your application is developed with Jakarta EE 10 and compiled for JDK 21, then you should select Jakarta EE 10 (Payara6, JDK 21) option
+
+NOTE: Payara Cloud by default will assign a runtime based on referenced Jakarta EE classes and target JDK version for the compiled classes.
+
+.Runtime Types
+image::image-37-runtime-type.png[Choosing a runtime type]
+
+Post-upload, you can view or edit configurations by clicking btn:[Action], then btn:[Edit Configurations].
+
+.Configuration edit screen
+image::image38.png[Editing configurations,width=624,height=370]
 
 [[deploy-application]]
-== Deploy Application
+== Deploying the Application
 
+Once configured, it’s time to deploy your application to make it publicly accessible.
 
-In order to make your application accessible to the public following its initial configuration or any subsequent configuration changes, deployment is necessary.
+Navigate to the application details screen, click btn:[Applications Actions], and choose the Deploy Changes option.
 
-From the application details screen, click btn:[Applications Actions] button to open the menu, and choose the Deploy Changes option.
+.Application deployment menu
+image::image19.png[Deploying the application,width=624,height=256]
 
-image::image19.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=256]
+A successful deployment updates the application's status on your screen.
 
-If there are no errors, your application successfully deploys and the status of the application will update on your application detail screen.
+.Application deployed screen
+image::image20.png[Successful deployment,width=624,height=307]
 
-image::image20.png[A screenshot of a computer Description automatically generated,width=624,height=307]
-
-From here, you can click on the Application URL to access your application. There may be a delay whilst DNS propagation completes.
-
+You can now access your application via the provided Application URL.
+There might be a some delay due to DNS propagation.
 
 [[stop-application]]
-== Stop Application
+== Stopping an Application
 
-Payara Cloud offers an easy way to stop an application if you need to stop an application that is currently running in the cloud.
+Stopping a running application in Payara Cloud is simple.
 
-Click on the application you want to stop from the Namespace Navigator sidebar and then open the btn:[Application Actions] drop down menu.
+Select the application you wish to stop from the Namespace Navigator sidebar, open the btn:[Application Actions] drop-down menu and choose btn:[Stop Application].
 
-image::image25.png[image,width=624,height=287]
+.Stop application menu option
+image::image25.png[Stopping an application,width=624,height=287]
 
-Choose btn:[Stop Application] from the drop down menu.
+Confirm your action on the prompt that appears.
 
-You will get confirmation prompt click on btn:[Stop] button to confirm.
-
-image::image26.png[image,width=624,height=287]
-
-You will be presented with the ‘stop application wait screen’ while Payara Cloud stops your application.
-
-Once the process concludes, a success message will appear, and you will be redirected to the Application Detail screen. At this point, your application's status will be displayed as STOPPED, resulting in its unavailability online.
-
-image::image27.png[image,width=624,height=287]
+.Stop application confirm dialog
+image::image26.png[Stopping application confirmation,width=624,height=287]
 
 [[delete-application]]
-== Delete Application
+== Removing an Application
 
-Payara Cloud offers an easy way to delete an application if you need to remove an application that is currently running in the cloud.
+Similarly, to delete an application, select the application you want to remove, open the btn:[Application Actions] drop down menu, and choose btn:[Delete Application].
 
-Click on the application you want to remove from the Namespace Navigator sidebar and then open the btn:[Application Actions] drop down menu.
+.Application deletion menu
+image::image39.png[Deleting an application,width=624,height=287]
 
-image::image39.png[image,width=624,height=287]
+You’ll receive a confirmation prompt, type the name of the application you want to delete and click btn:[Delete] to confirm.
 
-You will get confirmation prompt, type the name of application you want to delete and then click on btn:[Delete] button to confirm.
+.Application deletion confirmation
+image::image40.png[Deleting application confirmation,width=624,height=287]
 
-image::image40.png[image,width=624,height=287]
+Upon successful deletion, a confirmation message is displayed, and you’re redirected back to the Namespace Detail screen, where the application will no longer be listed.
 
-When the process completes, you’ll see a success message and will be taken back to the Namespace Detail screen. You’ll see the application is no longer listed in the table of applications.
-
-image::image41.png[image,width=624,height=287]
+.Deleted application page
+image::image41.png[Successful deletion,width=624,height=287]
 
 [[create-a-team]]
-
