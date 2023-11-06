@@ -60,6 +60,8 @@ Choose a runtime type based on your application's Jakarta EE, Payara, and JDK ve
 As an example, if your application is developed on Jakarta EE 8 and compiled for JDK 17, then you can pick the option for Jakarta EE 8 (Payara 5, JDK17).
 And if your application is developed with Jakarta EE 10 and compiled for JDK 21, then you should select Jakarta EE 10 (Payara6, JDK 21) option
 
+NOTE: Payara Cloud by default will assign a runtime based on referenced Jakarta EE classes and target JDK version for the compiled classes.
+
 .Runtime Types
 image::image-37-runtime-type.png[Choosing a runtime type]
 
