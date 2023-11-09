@@ -1,5 +1,4 @@
-
-== Sign Up Payara Cloud
+= Sign Up To Payara Cloud
 
 Payara Cloud offers 15 days free trial.
 

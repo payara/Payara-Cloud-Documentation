@@ -1,0 +1,75 @@
+= Registering and Logging In
+
+Payara Cloud supports three ways of authenticating users:
+
+. Email and Password
+. GitHub Account
+. Google Account
+
+== Email and Password
+
+When accessing Billing Management console of Payara Cloud you are greeted with a registration screen like this:
+
+.Payara Cloud Signup Screen
+image::billing/subscription/user-subscription/signup.svg[Screenshot of signup screen,100%,opts=interactive]
+
+This login method is the only one that distinguishes between new signup and login.
+If you already have an account use the "Already have an account? btn:[Log in]" ❶ button.
+
+If you do have an account and try to register again you will get an error message:
+
+> Something went wrong, please try again later
+
+=== Resetting Password
+
+If you forgot your password it is possible to reset it by clicking btn:[Forgot password?] on the Log In screen:
+
+.Log In Screen with option to reset password
+image::billing/signup/login-screen.png[]
+
+On the next screen you can enter your username or email address:
+
+.Password Reset Screen
+image::billing/signup/pw-reset-01.png[]
+
+Clicking btn:[Continue] will send email to the matching user:
+
+.Password Reset Confirmation
+image::billing/signup/pw-reset-02.png[]
+
+The email looks like this:
+
+.Password Reset Email
+image::billing/signup/pw-reset-03.png[]
+
+Ultimately the link will take you to password reset page:
+
+.Password Reset Page
+image::billing/signup/pw-reset-04.png[]
+
+NOTE: Legitimate password reset feature is hosted on domain login.payara.cloud.
+
+== GitHub Account
+
+Selecting the GitHub login method will redirect you to GitHub login page:
+
+.GitHub Login Prompt
+image::billing/signup/github-01.png[Github Login Page]
+
+When logging in for the first time you will be asked to authorise Payara Cloud to access your GitHub account:
+
+.GitHub Authorization Prompt
+image::billing/signup/github-02.png[Github Authorisation Page]
+
+== Google Account
+
+Similar to GitHub login method, selecting Google login method will redirect you to Google login page:
+
+.Google Login Prompt
+image::billing/signup/google-01.png[]
+
+
+
+
+
+

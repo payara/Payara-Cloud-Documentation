@@ -1,6 +1,15 @@
 // Reference
 * Reference
-** xref:billing/overview.adoc[Billing Management]
-*** xref:billing/subscription/user-subscription.adoc[Manage Users]
-** xref:manage/overview.adoc[Application Management]
-** xref:Glossary.adoc[Glossary]
+** xref:billing/overview.adoc[]
+*** xref:billing/signup/overview.adoc[]
+**** xref:billing/signup/login.adoc[]
+// TODO: Signup screen
+// TODO: Start additional subscriptions
+// TODO: Manage subscriptions
+//**** xref:billing/signup/additional.adoc[]
+// TODO: Subscription Overview
+*** xref:billing/subscription/user-subscription.adoc[]
+// TODO: Manage Billing (Stripe Portal)
+// TODO: Usage Alerts
+** xref:manage/overview.adoc[]
+** xref:Glossary.adoc[]

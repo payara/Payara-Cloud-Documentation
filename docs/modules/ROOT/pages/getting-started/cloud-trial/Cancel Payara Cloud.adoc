@@ -1,6 +1,4 @@
-
-
-== Cancelling a Subscription
+:= Cancelling a Subscription
 
 Once the 15-day free trial period concludes, if you decide to discontinue using Payara Cloud, it's necessary to initiate a cancellation.
 
