@@ -1,6 +1,6 @@
 = Registering and Logging In
 
-Payara Cloud supports three ways of authenticating users:
+Payara Cloud streamlines user authentication with three convenient options:
 
 . Email and Password
 . GitHub Account
@@ -8,15 +8,15 @@ Payara Cloud supports three ways of authenticating users:
 
 == Email and Password
 
-When accessing Billing Management console of Payara Cloud you are greeted with a registration screen like this:
+Upon visiting the Payara Cloud Billing Management console, you're greeted with a registration screen:
 
 .Payara Cloud Signup Screen
 image::billing/subscription/user-subscription/signup.svg[Screenshot of signup screen,100%,opts=interactive]
 
-This login method is the only one that distinguishes between new signup and login.
-If you already have an account use the "Already have an account? btn:[Log in]" ❶ button.
+This method differentiates between new signups and existing account logins.
+If you're already a member, simply click on "Already have an account? btn:[Log in]" ❶ button.
 
-If you do have an account and try to register again you will get an error message:
+Should you attempt to register an existing account, an error message will appear:
 
 > Something went wrong, please try again later
 
@@ -27,12 +27,12 @@ If you forgot your password it is possible to reset it by clicking btn:[Forgot p
 .Log In Screen with option to reset password
 image::billing/signup/login-screen.png[]
 
-On the next screen you can enter your username or email address:
+Enter your username or email address on the subsequent screen:
 
 .Password Reset Screen
 image::billing/signup/pw-reset-01.png[]
 
-Clicking btn:[Continue] will send email to the matching user:
+After clicking btn:[Continue],  an email will be sent to the corresponding user:
 
 .Password Reset Confirmation
 image::billing/signup/pw-reset-02.png[]
@@ -42,12 +42,13 @@ The email looks like this:
 .Password Reset Email
 image::billing/signup/pw-reset-03.png[]
 
-Ultimately the link will take you to password reset page:
+This email guides you to the password reset page:
 
 .Password Reset Page
 image::billing/signup/pw-reset-04.png[]
 
-NOTE: Legitimate password reset feature is hosted on domain login.payara.cloud.
+NOTE: The legitimate password reset feature operates exclusively on the domain login.payara.cloud.
+Confirm you are on that page before entering your new password.
 
 == GitHub Account
 
@@ -56,14 +57,14 @@ Selecting the GitHub login method will redirect you to GitHub login page:
 .GitHub Login Prompt
 image::billing/signup/github-01.png[Github Login Page]
 
-When logging in for the first time you will be asked to authorise Payara Cloud to access your GitHub account:
+For first-time logins, GitHub will request authorization for Payara Cloud to access your account:
 
 .GitHub Authorization Prompt
 image::billing/signup/github-02.png[Github Authorisation Page]
 
 == Google Account
 
-Similar to GitHub login method, selecting Google login method will redirect you to Google login page:
+Opting for the Google login method similarly redirects you to the Google login page:
 
 .Google Login Prompt
 image::billing/signup/google-01.png[]
