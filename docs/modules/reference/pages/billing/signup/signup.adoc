@@ -2,69 +2,71 @@
 
 == Selecting a Plan
 
-Payara Cloud offers a range of plans to suit your needs.
-The plans are based on the number of xref:billing/signup/overview.adoc#_consumption_measurement[prepaid cpu time per month], maximum instance size and additional feature such as custom domain support.
+Choose from a variety of Payara Cloud plans tailored to your needs.
+Each plan offers a specific amount of xref:billing/signup/overview.adoc#_consumption_measurement[prepaid CPU time per month], a maximum instance size, and additional features like custom domain support.
 
-In first step of Signup you choose one of the plans.
 
 .Plan selection
 image::billing/signup/cloud-trial-image1.png[alt="Plan selection dialog"]
 
-After plan is selected and you click btn:[Continue to invoicing] a summary of your selected plan is shown above the invoicing details form.
-You can return to plan selection by clicking btn:[Change Subscription].
+The first step of the Signup process is to select a plan.
+After making your selection and clicking btn:[Continue to Invoicing], a summary of your chosen plan appears above the invoicing details form.
+To change your plan, click btn:[Change Subscription].
 
 image::billing/signup/cloud-trial-image2.png[alt="Confirmation of selecting plan"]
 
 === Trial Plan
 
-Even though Payara Cloud Trial is free you still need to choose which plan you intend to upgrade to once the trial is over.
-You can cancel your trial plan before your trial ends, and you will not be charged.
+For the Payara Cloud Trial, select the plan you intend to upgrade to post-trial.
+You can cancel before the trial's end without charge.
 
-Trial plan is limited to using at most 4 vCPU cores at once.
+The trial plan limits usage to a maximum of 4 vCPU cores.
 
 == Invoicing Details
 
-In the next step you need to provide your invoicing details:
+Next, fill in your invoicing details:
 
 .Invoicing details
 image::billing/signup/cloud-trial-image3.png[alt="Invoicing details form"]
 
 Contact Name and Email::
-These are contact details that are used by our payment processor to  send notifications and invoices.
-It is prefilled with your account's email, change it if your company prefers to have invoices set to other address.
+Enter the contact details for receiving notifications and invoices.
+It defaults to your account's email; modify if needed for different invoicing.
 
 Company Name, Address, City, Zip Code, Country::
-These are invoicing details that we'll put on the invoice.
+Provide your company's invoicing information for the invoice.
 
 Tax ID Type, Tax ID::
-If your company is registered for VAT, you can provide your VAT ID here.
-Our payment provider verifies validity of the VAT ID per given ID Type.
-Tax type automatically updated based on selected country.
+If VAT-registered, enter your VAT ID.
+Our payment processor will validate it according to the given ID Type.
+Tax type updates based on the selected country.
 
-After the data are filled in, move on to payment method selection by clicking btn:[Continue to payment].
+Click btn:[Continue to payment] after filling in the details.
 
 === EU VAT Requirements
 
-You must provide a valid VAT ID if your company is based in EU.
-The identifier is validated directly against the EU VIES database.
+EU-based companies must submit a valid VAT ID, verified against the EU VIES database.
 
 == Payment method
 
-As last step you authorize your payment method so that your Payara Cloud invoices can be automatically settled.
-After clicking btn:[Confirm payment details] you might be redirected to your bank's authorization page to confirm the payment intent.
+Finally, authorize a payment method for automated invoice settlement.
+Clicking btn:[Confirm payment details] might redirect you to your bank for payment authorization.
 
-Your card is first charged at the end of trial period and then at the beginning of each billing period.
+Your card is charged at the trial's end and then at each billing period's start.
 
 .Payment method dialog
 image::billing/signup/cloud-trial-image4.png[]
 
 == Confirmation
 
-As a last step you need to agree to Payara Cloud's Terms and Conditions and optionally sign up for product updates via e-mail.
+Agree to Payara Cloud's Terms and Conditions.
+You can also choose to opt in for product updates via email to complete the process.
 
 .Confirmation
 image::billing/signup/cloud-trial-image5.png[]
 
 == Provisioning
 
-Next you're redirected to Payara Cloud Application Management console. It can take up to few minutes for your account to be provisioned. Welcome To Payara Cloud!
+You'll then be directed to the Payara Cloud Application Management console.
+Account provisioning may take a few minutes.
+Welcome to Payara Cloud!
