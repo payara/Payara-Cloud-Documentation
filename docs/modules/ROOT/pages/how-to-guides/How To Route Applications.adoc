@@ -1,4 +1,4 @@
-= Inter-App Communication
+= Application Communication
 
 Payara Cloud designates a distinct domain under payara.app for each namespace, like  \https://staging-118842.payara.app.
 In this namespace, apps are deployed at specific xref:how-to-guides/Configure Application.adoc#internet-accessible-paths[paths]. For instance, an app named foo will be deployed at \https://staging-118842.payara.app/foo.

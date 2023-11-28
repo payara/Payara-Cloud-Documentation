@@ -34,6 +34,7 @@
 *** xref:how-to-guides/Logging.adoc#heap-dumps[Heap Dumps]
 *** xref:how-to-guides/Logging.adoc#thread-dumps[Thread Dumps]
 ** xref:how-to-guides/How to Use Custom Domains.adoc[How to Use Custom Domains]
+** xref:how-to-guides/How To Route Applications.adoc[Application Communication]
 ** xref:how-to-guides/clustering.adoc[]
 ** xref:how-to-guides/Troubleshooting.adoc[Troubleshooting Tips]
 ** xref:how-to-guides/FAQ.adoc[Frequently Asked Questions]
