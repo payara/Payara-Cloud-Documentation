@@ -24,14 +24,14 @@ Allows modification of user preferences.
 A subscription represents a billing unit within Payara Cloud.
 As a user, you may have a single subscription or access to multiple subscriptions, each with varying roles.
 
-If you are not yet a Payara Cloud user, you need to xref:ROOT:getting-started/Signup Payara Cloud.adoc[sign up] first.
+If you are not yet a Payara Cloud user, you need to xref:ROOT:getting-started/cloud-trial/Signup Payara Cloud.adoc[sign up] first.
 
 Once you expand the menu on the left side of the screen and select btn:[Subscriptions], the following options are presented:
 
 View All Subscriptions::
 Select a current subscription.
 
-Create New Subscription::
+link:signup/additional[Create New Subscription]::
 Sign up for an additional subscription.
 
 == Subscription Management
