@@ -1,0 +1,85 @@
+= Application Communication
+
+Payara Cloud designates a distinct domain under payara.app for each namespace, like  \https://staging-118842.payara.app.
+In this namespace, apps are deployed at specific xref:how-to-guides/Configure Application.adoc#internet-accessible-paths[paths]. For instance, an app named foo will be deployed at \https://staging-118842.payara.app/foo.
+
+Apps within the same namespace can interact using the URL format \http://deployedAppName/contextRoot/someEndpoint.
+
+== Custom Domain Linking
+
+You can link xref:how-to-guides/How to Use Custom Domains.adoc[custom domains] to a namespace. For example, myApp.foocompany.com can point to \https://staging-118842.payara.app. Once linked, foo app becomes accessible at \https://myApp.foocompany.com/foo.
+
+== Context Root Definition
+
+By default, the app's context root is either the application name or a path specified in glassfish-web.xml.
+Apps can also designate a sub-path for external exposure, like app-context-root/public, keeping other paths like app-context-root/api internal.
+
+== Setting up Communication Between Applications
+
+Assume `bar` and `bazz` are deployed to the same namespace on Payara Cloud, with `bar` exposing a REST endpoint api/finance that `bazz` consumes. The following sections illustrate their communication setup.
+
+=== Deploying `bar` and `bazz`
+
+Deploy both apps to a namespace, say \https://staging-118842.payara.app, making them accessible at https://staging-118842.payara.app/`bar` and https://staging-118842.payara.app/`bazz`.
+
+If a custom domain myApp.foocompany.com is configured, the apps are available at \https://myApp.foocompany.com/bar and \https://myApp.foocompany.com/bazz respectively.
+
+=== Accessing Endpoint in `bazz`
+
+`bazz` can access `bars` /api/finance endpoint at the internal address http://`bar`/`bar`/api/finance. This address utilizes the app name and context root for in-namespace routing.
+
+Below is a code snippet demonstrating a call from `bar` to `bazz`'s api/finance endpoint:
+
+
+
+[source,java]
+----
+public class FinanceApiClient {
+
+    public  void doSomeFinance() {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://`bar`/`bar`/api/finance"))
+                .GET()
+                .build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() == 200) {
+               //Do custom work with the response
+            }
+
+    }
+}
+----
+
+=== Use MicroProfile Config For Utmost Flexibility
+
+Employ MicroProfile Config properties to specify the endpoints, allowing different server URLs during development and production. With this setup, xref:docs:ROOT:getting-started/Deploying an Application.adoc#review-configuration[app deployment configuration] on Payara Cloud can override these properties.
+
+Here’s how the above snippet can be adapted to use MicroProfile Config properties:
+
+[source,java]
+----
+public class FinanceApiClient {
+
+    @Inject
+    @ConfigProperty(name="`bar`.finance.endpoint")
+    String resourceUrl;
+
+    public  void doSomeFinance() {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(resourceUrl))
+                .GET()
+                .build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() == 200) {
+               //Do custom work with the response
+            }
+
+    }
+}
+----
+
+With this setup, different URLs can be passed dynamically without redeploying the app. Modify this property anytime on the Payara Cloud dashboard to suit your needs.
+
+
