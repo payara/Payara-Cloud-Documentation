@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 1102 796"
+     width="1200" height="900"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns="http://www.w3.org/2000/svg"
+     preserveAspectRatio="xMinYMin">
+    <defs>
+        <g id="callout-right" fill="#f0981b" stroke="#f0981b">
+            <circle cx="0" cy="-7" r="12"/>
+            <path stroke-width="2" d="m 0,-7 h 24"/>
+        </g>
+        <g id="callout"><use href="#callout-right"/></g>
+        <g id="callout-left" >
+            <use href="#callout-right" transform="rotate(180,0,-7)"/>
+        </g>
+        <style type="text/css">
+            .callout text {
+            fill: black;
+            font-size: 20px;
+            font-family: sans-serif;
+            font-weight: bold;
+            text-anchor: middle;
+            }
+        </style>
+    </defs>
+    <image
+            width="1102"
+            height="796"
+            preserveAspectRatio="xMinYMin"
+            xlink:href="overview.png"
+    />
+    <a href="#_user_menu" class="callout" transform="translate(870,32)">
+        <use xlink:href="#callout"/>
+        <text>1</text>
+    </a>
+    <a href="#_subscription_selection" class="callout" transform="translate(174,118)">
+        <use xlink:href="#callout"/>
+        <text>2</text>
+    </a>
+    <a href="#_namespace_list" class="callout" transform="translate(174,216)">
+        <use xlink:href="#callout"/>
+        <text>3</text>
+    </a>
+    <a href="#_application_list" class="callout" transform="translate(196,260)">
+        <use xlink:href="#callout-left"/>
+        <text>4</text>
+    </a>
+    <a href="#" class="callout" transform="translate(440,132)">
+        <use xlink:href="#callout-left"/>
+        <text>5</text>
+    </a>
+    <a href="#_feedback" class="callout" transform="translate(950,786)">
+        <use xlink:href="#callout"/>
+        <text>6</text>
+    </a>
+    <script>
+        document.querySelectorAll("a.callout").forEach(function(el) {
+            el.addEventListener("click", function(event) {
+              window.parent.location.hash=this.getAttribute("href");
+            });
+        });
+    </script>
+</svg>

@@ -1,1 +1,80 @@
 = Application Management
+
+Application Management part of Payara Cloud is where you manage your applications - configure them, deploy them, group them in namespaces.
+
+== Concepts
+
+Within your subscription, which serves as a billing unit, you can create multiple namespaces.
+Each namespace is a logical grouping of applications.
+
+All the applications get deployed on single Payara Cloud cluster, but they are isolated from each other.
+They also share single domain they are deployed on, and from the internet they are accessible via distinct sub-paths.
+
+The namespace has two parts:
+
+* Project - describing the purpose of applications
+* Stage - describing the deployment stage of the project, such as "dev", "testing", "production"
+
+
+== Accessing Application Management
+
+You can access application management by clicking btn:[Log In] button on link:https://payara.cloud[Payara Cloud] homepage, or accessing https://manage.payara.cloud directly.
+
+Consult xref:billing/signup/login.adoc[] for detailed walk through of login procedure.
+
+== Namespace List
+
+.Application Management main screen
+image::manage/overview.svg[Application Management Screen,100%, opts=interactive]
+
+.Main Navigation Elements
+[checklist]
+* ❶ User Menu and Notifications contains information related to your account and activities
+* ❷ Subscription selection allows you to switch between subscriptions
+* ❸ Namespace List allows you to navigate to a namespace
+* ❹ Application List allows you to navigate to particular application in a namespace
+* ❺ Top information area contains summary and main action related to screen you're visiting
+* ❻ Feedback submission allows you to give us feedback about your expreience with Payara Cloud
+
+== Top Information Area
+=== User Menu
+
+The user menu, located in the top right corner with your avatar, provides a basic profile functions:
+
+* Navigate to xref:billing/overview.adoc[]
+* Manage your User Preferences
+* Logout
+
+=== Notifications
+
+Notification button indicates any notifications about deployment you performed, or announcements related to any of clusters your applications are deployed to.
+Notifications only display information about the subscription you're currently viewing.
+
+== Sidebar
+=== Subscription Selection
+
+Clicking the subscription name will navigate you to xref:manage/namespace/list.adoc[Namespace List screen] -- the one you see in the screenshot above.
+
+In case you have multiple subscriptions, you can switch between them using the dropdown menu here:
+
+* Extending the menu show item "Other subscription", which leads to xref:manage/subscription/list.adoc[subscription list screen].
+* Extending the menu further allows to directly switch to another subscription
+
+=== Namespace List
+
+Next section of the sidebar is the list of namespaces in the subscription.
+Clicking on the title will take you to xref:reference:manage/namespace/detail.adoc[namespace detail screen].
+
+=== Application List
+
+Should you expand the namespace, you will see the list of applications in the namespace and can navigate directly to xref:manage/app/detail.adoc[application detail screen].
+
+== Feedback
+
+The feedback button allows you to submit feedback about your experience with Payara Cloud.
+
+image::manage/issue-collector.jpg[]
+
+Please fill in your email so we can contact you if we need more information about your feedback.
+Also consider checking the checkbox "Include data about your current environment".
+This will help us understanding the context of which subscription or which error message you are seeing.

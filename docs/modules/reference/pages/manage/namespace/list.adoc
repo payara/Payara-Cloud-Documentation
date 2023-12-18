@@ -1,0 +1,21 @@
+= Namespaces
+// https://manage.payara.cloud/application/8744ddec-d70d-45ef-8aa8-0f6f6f7bafff/
+
+The Namespace List screen provides overview about all namespaces in your subscription.
+
+.Namespace List screen
+image::manage/overview.png[]
+
+Clicking the name of the namespace will bring you to xref:manage/namespace/detail.adoc[Namespace Detail Screen], whereas clicking on the Domain url brings you to application hosted at root context of that namespace.
+
+== Creating Namespace
+
+Clicking btn:[Create New Namespace] will bring up dialog to create a namespace:
+
+.Create Namespace dialog
+image::manage/namespace/create.png[]
+
+Provide Project and Stage components of namespace name, and select the cloud region where the namespace will be created. Clicking btn:[Create] will create the namespace.
+
+Project and Stage need to be unique within subscription.
+It is not possible to change Cloud Region after namespace is created.
