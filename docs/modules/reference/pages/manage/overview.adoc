@@ -1,26 +1,26 @@
 = Application Management
 
-Application Management part of Payara Cloud is where you manage your applications - configure them, deploy them, group them in namespaces.
+Application Management within Payara Cloud is your control center for managing applications. Here, you can configure, deploy, and group applications into namespaces.
 
 == Concepts
 
-Within your subscription, which serves as a billing unit, you can create multiple namespaces.
-Each namespace is a logical grouping of applications.
+In Payara Cloud, your subscription acts as a billing unit and allows you to create multiple namespaces.
+A namespace is essentially a logical grouping of applications.
 
-All the applications get deployed on single Payara Cloud cluster, but they are isolated from each other.
-They also share single domain they are deployed on, and from the internet they are accessible via distinct sub-paths.
+Although all applications within a subscription are deployed on a single Payara Cloud cluster, they remain isolated from each other.
+These applications share a single domain but are distinguishable on the internet through unique sub-paths.
 
-The namespace has two parts:
+A namespace comprises two elements:
 
-* Project - describing the purpose of applications
-* Stage - describing the deployment stage of the project, such as "dev", "testing", "production"
+* Project - Defines the purpose of the applications
+* Stage - Indicates the deployment phase of the project, such as "dev", "testing", or "production"
 
 
 == Accessing Application Management
 
-You can access application management by clicking btn:[Log In] button on link:https://payara.cloud[Payara Cloud] homepage, or accessing https://manage.payara.cloud directly.
+To access the Application Management area, click the btn:[Log In] button on the link:https://payara.cloud[Payara Cloud] homepage or visit https://manage.payara.cloud directly.
 
-Consult xref:billing/signup/login.adoc[] for detailed walk through of login procedure.
+For a step-by-step login guide, see xref:billing/signup/login.adoc[].
 
 == Namespace List
 
@@ -29,25 +29,21 @@ image::manage/overview.svg[Application Management Screen,100%, opts=interactive]
 
 .Main Navigation Elements
 [checklist]
-* ❶ User Menu and Notifications contains information related to your account and activities
-* ❷ Subscription selection allows you to switch between subscriptions
-* ❸ Namespace List allows you to navigate to a namespace
-* ❹ Application List allows you to navigate to particular application in a namespace
-* ❺ Top information area contains summary and main action related to screen you're visiting
-* ❻ Feedback submission allows you to give us feedback about your expreience with Payara Cloud
+* ❶ Access your account information and recent activity notifications
+* ❷ Switch between different subscriptions
+* ❸ Navigate to specific namespaces
+* ❹ Access individual applications within a namespace
+* ❺ View summaries and main actions related to the current screen
+* ❻ Share your experience with Payara Cloud
 
 == Top Information Area
 === User Menu
 
-The user menu, located in the top right corner with your avatar, provides a basic profile functions:
-
-* Navigate to xref:billing/overview.adoc[]
-* Manage your User Preferences
-* Logout
+The user menu in the top-right corner lets you access your profile, manage user preferences and xref:billing/overview.adoc[billing], and log out.
 
 === Notifications
 
-Notification button indicates any notifications about deployment you performed, or announcements related to any of clusters your applications are deployed to.
+The notification button alerts you to deployment updates or announcements related to your clusters.
 Notifications only display information about the subscription you're currently viewing.
 
 == Sidebar
@@ -75,6 +71,6 @@ The feedback button allows you to submit feedback about your experience with Pay
 
 image::manage/issue-collector.jpg[]
 
-Please fill in your email so we can contact you if we need more information about your feedback.
-Also consider checking the checkbox "Include data about your current environment".
-This will help us understanding the context of which subscription or which error message you are seeing.
+Your feedback is valuable to us.
+Click the feedback button to share your Payara Cloud experience.
+Please include your email for follow-up and consider sharing data about your current environment for context.
