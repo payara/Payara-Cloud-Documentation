@@ -1,0 +1,5 @@
+= Uploading Applications
+// https://manage.payara.cloud/application/8744ddec-d70d-45ef-8aa8-0f6f6f7bafff/n/start:dev:ed5cb015/upload/
+// upload dialog
+// inspection screen
+// payara-cloud.properties
