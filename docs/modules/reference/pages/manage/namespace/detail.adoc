@@ -3,3 +3,25 @@
 
 // overview
 // describe / link to all possible actions
+
+The Namespace page shows all the details about a given Namespace.
+
+.Namespace detail page
+image::manage/namespace/namespace-1-overview.png[Namespace Detail Screen,100%, opts=interactive]
+
+.Main Navigation Elements
+[checklist]
+* ❶ Number of applications created in the Namespace
+* ❷ Region in which Namespace is hosted
+* ❸ The root url of the Namespace. All deployed applications in this Namespace will be available as sub-paths under this domain
+* ❹ Namespace menu actions. Possible actions under this menu are new application creation, log search and deletion of the Namespace
+* ❺ Aggregate Namespace stats in graphs
+* ❻ List of applications created under this Namespace. This table shows the application name, status (Configured, Running, Stopped) and URL
+* ❼ The internet accessible URL of a deployed application. This URL is relative to the base URL of the Namespace (see ❸)
+* ❽ Button to create and upload new application to the Namespace
+* ❾ Namespace navigator showing a list of all available Namespaces
+
+
+
+
+
