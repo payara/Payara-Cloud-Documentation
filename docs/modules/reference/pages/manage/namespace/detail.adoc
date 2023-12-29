@@ -4,24 +4,25 @@
 // overview
 // describe / link to all possible actions
 
-The Namespace page shows all the details about a given Namespace.
+The Namespace details page is your central hub for managing a specific Namespace within Payara Cloud.
 
 .Namespace detail page
 image::manage/namespace/namespace-1-overview.png[Namespace Detail Screen,100%, opts=interactive]
 
-.Main Navigation Elements
+.Navigation and Features
 [checklist]
-* ❶ Number of applications created in the Namespace
-* ❷ Region in which Namespace is hosted
-* ❸ The root url of the Namespace. All deployed applications in this Namespace will be available as sub-paths under this domain
-* ❹ Namespace menu actions. Possible actions under this menu are new application creation, log search and deletion of the Namespace
-* ❺ Aggregate Namespace stats in graphs
-* ❻ List of applications created under this Namespace. This table shows the application name, status (Configured, Running, Stopped) and URL
-* ❼ The internet accessible URL of a deployed application. This URL is relative to the base URL of the Namespace (see ❸)
-* ❽ Button to create and upload new application to the Namespace
-* ❾ Namespace navigator showing a list of all available Namespaces
+* ❶ *Applications Count*: Displays the total number of applications within this Namespace
+* ❷ *Hosting Region*: Indicates the geographic location where the Namespace is hosted
+* ❸ *Root URL*: The base URL for the Namespace; all applications deployed within will be accessible as sub-paths
+* ❹ *Namespace Actions*: A menu for essential actions like creating new applications, searching logs, or deleting the Namespace
+* ❺ *Namespace Statistics*: Visual graphs depicting aggregated Namespace statistics
+* ❻ *Applications List*: An overview of applications, including names, statuses (Configured, Running, Stopped), and URLs
+* ❼ *Application Access URL*: The internet-accessible endpoint for each application, appended to the base Namespace URL
+* ❽ *New Application Button*: Initiates the creation and uploading process for a new application to the Namespace
+* ❾ *Namespace Selector*: A dropdown to navigate between different Namespaces easily
 
 
-
+From this page, you can efficiently perform a range of tasks from deploying new applications to monitoring the health and status of existing ones.
+The layout ensures that you have quick access to all necessary information and functionalities to manage your Namespaces effectively.
 
 
