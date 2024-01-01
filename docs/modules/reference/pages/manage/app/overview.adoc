@@ -1,5 +1,18 @@
 = Applications
 
+Applications in Payara Cloud are deployed in Namespaces.
+To access an application, navigate to the Namespace in which it is deployed.
+
+
+.Namespace with application list
+image::manage/application/applications-1-namespace-detail-page.png[Namespace Detail Screen,100%, opts=interactive]
+
+
+Each Namespace has a list of applications associated with it.
+To navigate to an application, click on the application name.
+
+
+
 == Application States
 
 == Application Revisions
