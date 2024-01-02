@@ -1,10 +1,15 @@
-= Applications
+= Accessing Applications in Payara Cloud
 
-Applications in Payara Cloud are deployed in Namespaces.
-To access an application, navigate to the Namespace in which it is deployed.
-Each Namespace has a list of applications associated with it.
-To navigate to an application, click on the application name.
+Payara Cloud organizes applications within distinct Namespaces.
+Follow these steps to interact with your applications:
 
+*Locate the Namespace*: First, identify the Namespace where your application is deployed.
+This can be done by navigating to the Namespace list section.
+
+.Namespace list
+image::manage/application/application-4-namespace-list.png[]
+
+*View Applications*: Each Namespace presents a list of its associated applications.
 
 .Namespace with application list
 image::manage/application/applications-1-namespace-detail-page.png[Namespace Detail Screen,100%, opts=interactive]
@@ -13,15 +18,22 @@ image::manage/application/applications-1-namespace-detail-page.png[Namespace Det
 [checklist]
 * ❶ Namespace name in which application is deployed
 * ❷ Base URL of the Namespace
-* ❸ List of applications in the Namespace
+* ❸ Table of applications in the Namespace
 * ❹ Application name
-* ❺ Application status. An application can have any of the status CONFIGURED, DEPLOYED, (CONFIGURED) at any point in time
+* ❺ Application status. An application can have any of the status PENDING, CONFIGURED, DEPLOYED at any point in time
 * ❻ Internet accessible URL of the deployed application
 * ❼ Button to create and upload new application to this Namespace
 
-The Applications table shows an overview of all applications created in this Namespace.
-A deployed application can be accessed by clicking the "Live URL" of the application.
-To navigate to a specific application, click the name of the application to open the xref:manage/app/detail.adoc[application detail page].
+The Applications table provides a comprehensive overview of all applications within the current Namespace.
+To open a specific application, click on its name.
+This action will direct you to the xref:manage/app/detail.adoc[application detail page].
+Additionally, you can access a deployed application directly by clicking on its "Live URL."
+
+
+
+
+
+
 
 
 
