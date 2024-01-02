@@ -2,21 +2,31 @@
 
 Applications in Payara Cloud are deployed in Namespaces.
 To access an application, navigate to the Namespace in which it is deployed.
+Each Namespace has a list of applications associated with it.
+To navigate to an application, click on the application name.
 
 
 .Namespace with application list
 image::manage/application/applications-1-namespace-detail-page.png[Namespace Detail Screen,100%, opts=interactive]
 
+.Namespace homepage
+[checklist]
+* ❶ Namespace name in which application is deployed
+* ❷ Base URL of the Namespace
+* ❸ List of applications in the Namespace
+* ❹ Application name
+* ❺ Application status. An application can have any of the status CONFIGURED, DEPLOYED, (CONFIGURED) at any point in time
+* ❻ Internet accessible URL of the deployed application
+* ❼ Button to create and upload new application to this Namespace
 
-Each Namespace has a list of applications associated with it.
-To navigate to an application, click on the application name.
+The Applications table shows an overview of all applications created in this Namespace.
+A deployed application can be accessed by clicking the "Live URL" of the application.
+To navigate to a specific application, click the name of the application to open the xref:manage/app/detail.adoc[application detail page].
 
 
 
-== Application States
 
-== Application Revisions
 
-== Starting, Stopping and Scaling Application
+
 
 

@@ -1,1 +1,48 @@
 = Managing Applications
+
+The application detail page shows all information about a given application.
+
+.Application detail page
+image::manage/application/applications-2-detail.png[]
+
+.Detail Application Page
+[checklist]
+* ❶ The name of the application currently being viewed
+* ❷ The state of the application. RUNNING means the application is successfully deployed and can be accessed on the internet through its URL
+* ❸ The runtime size xref:docs::how-to-guides/clustering.adoc[configured] for this application
+* ❹ The internet accessible URL for this application. This will only resolve to the application if it is in the RUNNING state. Otherwise a 502 page is shown
+* ❺ Application management menu for with links to start and edit application configuration, upload in deployment artefact (.war file), search application logs and delete the application
+* ❻ Graphical application metrics
+* ❼ Button to view more graphical application metrics
+* ❽ Application management menu, same as ❺
+* ❾ Button to stop or start configured application
+* ❿ Application revisions table showing revision number, uploaded, configured and deployed dates and times, application status and revision actions menu to view or edit a revision
+
+
+
+
+== Application States
+
+Applications in Payara Cloud can be in different states at any point in time.
+
+=== PENDING
+A newly uploaded application will be in the PENDING state.
+
+.Newly uploaded application in pending state
+image::manage/application/application-3-newly-uploaded-pending.png[]
+
+.PENDING application state
+[checklist]
+* ❶ Application name
+* ❷ PENDING state
+* ❸ Deployed application URL. As the application has not been deployed, there is no URL, yet
+* ❹ Menu to edit, deploy or upload new application artefact (.war file), search logs and delete application
+* ❺ Same menu as in ❹
+* ❻ Revision table menu to view, edit or deploy the application
+
+
+
+
+== Application Revisions
+
+== Starting, Stopping and Scaling Application
