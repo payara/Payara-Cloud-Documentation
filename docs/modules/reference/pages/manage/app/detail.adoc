@@ -22,77 +22,75 @@ image::manage/application/applications-2-detail.png[]
 
 == Understanding Application States
 
-Applications in Payara Cloud can exist in various states at different times.
+Applications hosted on Payara Cloud can be in various states throughout their lifecycle.
 
-=== PENDING
-When an application is newly uploaded, it enters the PENDING state.
+=== PENDING State
+An application first enters the PENDING state when it is uploaded but not yet deployed.
 
 .Newly uploaded application in pending state
 image::manage/application/application-3-newly-uploaded-pending.png[]
 
-.PENDING application state
+.Details of PENDING State:
 [checklist]
-* ❶ Application Name: The name of the current application
-* ❷ PENDING State: Indicates the application is awaiting deployment
-* ❸ Deployed Application URL: As the application is not yet deployed, this field is empty
-* ❹ Management Menu: Options to edit, deploy, upload new application artifact (.war file), search logs, and delete the application
-* ❺ Duplicate Management Menu: The same as in ❹
-* ❻ Revision Table Menu: Actions to view, edit, or deploy the application. Not the revision table has no date stamp for 'Deployed At' as the application has not been deployed yet.
+* ❶ Application Name: Displays the current application's name
+* ❷ PENDING State: Shows that the application is ready for deployment
+* ❸ Deployed Application URL: This field remains blank as the application is yet to be deployed
+* ❹ Management Menu: Provides options to edit, deploy, upload a new .war file, access logs, and delete the application
+* ❺ Duplicate Management Menu: Identical ❹
+* ❻ Revision Table Menu: Offers options to view, edit, or deploy the application. The 'Deployed At' date is absent since the application hasn't been deployed
 
 
-=== RUNNING
-A running application is one that has been successfully deployed and accessible via its URL.
+=== RUNNING State
+An application is in the RUNNING state when it has been successfully deployed and is accessible online.
 
 .Running application
 image::manage/application/application-6-running-state.png[]
 
-.RUNNING application state
-* ❶ Application Name: The name of the current application
-* ❷ RUNNING State: Indicates application is successfully deployed
-* ❸ Application URL: Internet accessible URL of the application. Accessing this URL should resolve to the application
+.Details of RUNNING State
+[checklist]
+* ❶ Application Name: The current application's name
+* ❷ RUNNING State: Indicates the application is active and deployed
+* ❸ Application URL: The URL through which the deployed application is accessible
 
-=== STOPPED
-A stopped application is one that was previously deployed and running but has been manually stopped.
+=== STOPPED State
+A STOPPED application is one that was previously running but has been manually halted.
 
 .Application in stopped state
 image::manage/application/application-5-stopped-status.png[]
 
-.STOPPED application state
+.Details of STOPPED State
 [checklist]
-* ❶ Application Name: The name of the current application
-* ❷ STOPPED State: Indicates the application is not running/deployed
-* ❸ Application URL: STOPPED application that will resolve to 502 when accessed
-* ❹ Deployed time stamp: Time stamp showing when application was last deployed
-* ❺ Button to start application again. A successfully started application goes to RUNNING state
+* ❶ Application Name: The current application's name
+* ❷ STOPPED State: Shows that the application is currently not active
+* ❸ Application URL:  URL of the stopped application, which leads to a 502 error when accessed
+* ❹ Deployed time stamp: Indicates the last deployment time of the application
+* ❺ Start Application Button: Used to restart the application, transitioning it back to the RUNNING state
 
 
 
 
 
-== Application Revisions: Tracking and Managing Changes
-Over time, an application in Payara Cloud will have different revisions.
-An application revision in Payara Cloud refers to each distinct binary upload.
-For every new application binary artefact uploaded, a new revision is created for the application.
+== Application Revisions: Managing and Tracking Changes
+Over its lifetime, an application in Payara Cloud undergoes several revisions, each representing a unique binary upload.
 
-Each revision will be shown in the Revisions table, with uploaded, configured and deployed timestamps, along with the status of each one.
 
 .Application revisions table
 image::manage/application/application-7-applicaiton-revisions.png[]
 
-.Application Revisions
+.Application Revisions Details
 [checklist]
-* ❶ Application Name: The name of the current application
-* ❷ Revisions Table: Table of all application revisions
-* ❸ Revision Number: The number of revision
-* ❹ Uploaded Date: Date this revision row was uploaded/created
-* ❺ Configured Date: Date the uploaded binary was configured
-* ❻ Deployed Date: Date the current revision was deployed
-* ❼ Revision Status: Status of the current revision
-* ❽ Actions: Revision menu for carrying out the actions of viewing, editing or deploying revisions
+* ❶ Application Name: Name of the application under review
+* ❷ Revisions Table: Lists all revisions of the application
+* ❸ Revision Number: Identifies the sequence number of each revision
+* ❹ Uploaded Date: The date when the revision was uploaded/created
+* ❺ Configured Date: The date when the uploaded binary was configured
+* ❻ Deployed Date: The deployment date of the current revision
+* ❼ Revision Status: The current status of the revision
+* ❽ Actions: Menu for viewing, editing, or deploying revisions
 
-The revisions table allows you to roll back to different uploaded versions at any point in time.
-Each revision encapsulates the status of your binary artefact at the time of upload.
-This allows rolling back to different versions as and when the need arises.
+The revisions table is a critical tool for managing your application.
+It allows for rolling back to previous versions as needed, providing a history of the binary artifact's status at the time of each upload.
+This feature ensures flexibility in version control and deployment strategies.
 
 
 
