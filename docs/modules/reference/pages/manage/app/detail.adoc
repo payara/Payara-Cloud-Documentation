@@ -32,16 +32,69 @@ image::manage/application/application-3-newly-uploaded-pending.png[]
 
 .PENDING application state
 [checklist]
-* ❶ Application Name: The name of the application
+* ❶ Application Name: The name of the current application
 * ❷ PENDING State: Indicates the application is awaiting deployment
 * ❸ Deployed Application URL: As the application is not yet deployed, this field is empty
 * ❹ Management Menu: Options to edit, deploy, upload new application artifact (.war file), search logs, and delete the application
 * ❺ Duplicate Management Menu: The same as in ❹
-* ❻ Revision Table Menu: Actions to view, edit, or deploy the application
+* ❻ Revision Table Menu: Actions to view, edit, or deploy the application. Not the revision table has no date stamp for 'Deployed At' as the application has not been deployed yet.
+
+
+=== RUNNING
+A running application is one that has been successfully deployed and accessible via its URL.
+
+.Running application
+image::manage/application/application-6-running-state.png[]
+
+.RUNNING application state
+* ❶ Application Name: The name of the current application
+* ❷ RUNNING State: Indicates application is successfully deployed
+* ❸ Application URL: Internet accessible URL of the application. Accessing this URL should resolve to the application
+
+=== STOPPED
+A stopped application is one that was previously deployed and running but has been manually stopped.
+
+.Application in stopped state
+image::manage/application/application-5-stopped-status.png[]
+
+.STOPPED application state
+[checklist]
+* ❶ Application Name: The name of the current application
+* ❷ STOPPED State: Indicates the application is not running/deployed
+* ❸ Application URL: STOPPED application that will resolve to 502 when accessed
+* ❹ Deployed time stamp: Time stamp showing when application was last deployed
+* ❺ Button to start application again. A successfully started application goes to RUNNING state
+
 
 
 
 
 == Application Revisions: Tracking and Managing Changes
+Over time, an application in Payara Cloud will have different revisions.
+An application revision in Payara Cloud refers to each distinct binary upload.
+For every new application binary artefact uploaded, a new revision is created for the application.
+
+Each revision will be shown in the Revisions table, with uploaded, configured and deployed timestamps, along with the status of each one.
+
+.Application revisions table
+image::manage/application/application-7-applicaiton-revisions.png[]
+
+.Application Revisions
+[checklist]
+* ❶ Application Name: The name of the current application
+* ❷ Revisions Table: Table of all application revisions
+* ❸ Revision Number: The number of revision
+* ❹ Uploaded Date: Date this revision row was uploaded/created
+* ❺ Configured Date: Date the uploaded binary was configured
+* ❻ Deployed Date: Date the current revision was deployed
+* ❼ Revision Status: Status of the current revision
+* ❽ Actions: Revision menu for carrying out the actions of viewing, editing or deploying revisions
+
+The revisions table allows you to roll back to different uploaded versions at any point in time.
+Each revision encapsulates the status of your binary artefact at the time of upload.
+This allows rolling back to different versions as and when the need arises.
+
+
+
 
 == Starting, Stopping, and Scaling Applications: A Guide
