@@ -9,7 +9,7 @@ This can be done by navigating to the Namespace list section.
 .Namespace list
 image::manage/application/application-4-namespace-list.png[]
 
-*View Applications*: Each Namespace presents a list of its associated applications.
+*View Applications*: Each Namespace represents a list of its associated applications.
 
 .Namespace with application list
 image::manage/application/applications-1-namespace-detail-page.png[Namespace Detail Screen,100%, opts=interactive]
@@ -20,7 +20,7 @@ image::manage/application/applications-1-namespace-detail-page.png[Namespace Det
 * ❷ Base URL of the Namespace
 * ❸ Table of applications in the Namespace
 * ❹ Application name
-* ❺ Application status. An application can have any of the status PENDING, CONFIGURED, DEPLOYED at any point in time
+* ❺ Application status. An application can have PENDING, CONFIGURED or DEPLOYED status at any point in time
 * ❻ Internet accessible URL of the deployed application
 * ❼ Button to create and upload new application to this Namespace
 

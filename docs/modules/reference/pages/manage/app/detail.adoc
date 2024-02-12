@@ -8,7 +8,7 @@ image::manage/application/applications-2-detail.png[]
 .Detail Application Page
 [checklist]
 * ❶ Application Name: Displays the name of the application you are currently viewing
-* ❷ Application State: Indicates whether the application is RUNNING (successfully deployed and accessible online).
+* ❷ Application State: Indicates whether the application is RUNNING.
 * ❸ Runtime Size: Shows the xref:docs::how-to-guides/clustering.adoc[configured] runtime size for this application
 * ❹ Accessible URL: The internet URL for the application. Note: This URL resolves to the application only if it is in the RUNNING state; otherwise, a 502 error page appears
 * ❺ Application Management Menu: Includes options to start, edit application configuration, upload a deployment artifact (.war file), search application logs, and delete the application
@@ -16,7 +16,7 @@ image::manage/application/applications-2-detail.png[]
 * ❼ More Metrics: Button to view extended graphical application metrics
 * ❽ Second Application Management Menu: Same functions as in ❺
 * ❾ Start/Stop Button: Toggle to start or stop a configured application
-* ❿ Application Revisions Table: Displays revision number, upload, configuration, deployment dates and times, application status, and a menu for revision actions (view/edit)
+* ❿ Application Revisions Table: Displays revision number, upload, configuration, application status, and a menu for revision actions (view/edit)
 
 
 
@@ -84,14 +84,14 @@ image::manage/application/application-7-applicaiton-revisions.png[]
 * ❶ Application Name: Name of the application under review
 * ❷ Revisions Table: Lists all revisions of the application
 * ❸ Revision Number: Identifies the sequence number of each revision
-* ❹ Uploaded Date: The date when the revision was uploaded/created
+* ❹ Uploaded Date: Revision uploaded/created date
 * ❺ Configured Date: The date when the uploaded binary was configured
 * ❻ Deployed Date: The deployment date of the current revision
 * ❼ Revision Status: The current status of the revision
 * ❽ Actions: Menu for viewing, editing, or deploying revisions
 
 The revisions table is a critical tool for managing your application.
-It allows for rolling back to previous versions as needed, providing a history of the binary artifact's status at the time of each upload.
+It allows to roll back to previous versions as needed. It provides history of the binary artifact's status at the time of each upload
 This feature ensures flexibility in version control and deployment strategies.
 
 
@@ -108,7 +108,7 @@ image::manage/application/application-8-starting-stopped-application.png[]
 
 [checklist]
 * ❶ Application Actions Menu: Start an application from the application action menu
-* ❷ Start Application Button: Start stopped application button
+* ❷ Start Application Button: To start the application
 
 Starting a stopped application through any of the above options transitions the application back to the <<_running_state>>
 

@@ -8,7 +8,7 @@ The Context Root configuration can be found on the main configuration page.
 image::manage/application/application-13-context-root.png[]
 
 [checklist]
-* ❶ The Context Root: This is the endpoint on which your deployed, running application can be accessed by. It is relative to the Namespace domain name.
+* ❶ The Context Root: This is the endpoint on which your running application can be accessed. It is relative to the Namespace domain name.
 * ❷ Internet Accessible Paths: This can be used to restrict which sub-paths of your application's context root can be accessed over the internet.
 
 
@@ -20,7 +20,7 @@ Internal Access: By default, the application can be accessed by other applicatio
 
 === Example
 Root Domain Access: If your application is the primary one in the namespace, and you want it to handle requests at the domain root, use the value /.
-In that case, the application will be accessibled directly on the namespace domain \https://namespace-domain.payara.app
+In that case, the application will be accessible directly on the namespace domain \https://namespace-domain.payara.app
 Subpath Access: For the application to respond to requests at a specific subpath, like \https://namespace-domain.payara.app/api/, set the value to /api.
 This makes your application accessible at that subpath within the domain.
 
