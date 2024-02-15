@@ -1,0 +1,144 @@
+= How To Manage Access Levels
+
+Working with Payara Cloud certaintly involves multiple users accessing the management interface for various reasons.
+The concept of roles in Payara Cloud allows for defining appropriate permissions for every role, and then fine-tuning them on namespace level.
+This guide serves to describe what the roles are and how to apply them in usual scenarios.
+
+== Concepts
+=== Roles In Payara Cloud
+
+Payara Cloud defines following Roles:
+
+|===
+| Role | Purpose
+
+| Billing Manager
+| Can access financial data, payment methods or cancel subscription.
+Can also manage users' roles, but cannot manage applications.
+
+| Administrator
+| Has full access to Payara Cloud Applications and configuration of namespaces.
+Can manage users' roles as well as fine-grained namespace-scoped roles.
+
+| Billing Manager with Administrative Privilege
+| Permissions of both Billing Manager and Administrator.
+
+| Manager
+| Has full access to existing Payara Cloud’s namespaces, can upload new and delete existing applications.
+
+| Operator
+| Can reconfigure and diagnose deployed applications but cannot delete them. Also cannot access restricted (sensitive) configuration properties.
+
+| Viewer
+| Has read only access to deployed applications
+
+| Guest
+| Doesn’t have access to Payara Cloud. You may want to override this role on per-namespace basis to only allow access to specific namespaces to a user.
+|===
+
+On the top ranks we make distinction between Billing Manager and Administrator.
+Typical example of "pure" Billing Manager would be a member of finance department, who holds payment credentials and would be interested in invoices.
+Administrator, on the other hand, is a technical person who is responsible for managing the applications and namespaces.
+While both of these roles are capable of managing users' roles, only Administrator has power managing namespace-scoped roles.
+
+Administrators also controls the namespaces.
+Only they can create new namespaces, manage roles within them, set up custom domains or delete namespaces.
+
+The rest of the roles define more strict permissions on what can be done with applications within a namespace:
+
+* Manager can make all changes to applications.
+Person having that role would be an application developer or person managing deployments within that namespace.
+* Operator is someone overseeing the deployed applications.
+Can therefore diagnose and reconfigure them, but cannot modify the binary or delete an application.
+Operator also doesn't have access to secrets -- specific configuration properties that are marked as sensitive by a Manager.
+* Viewer can only see application's metrics and logs.
+Typical example of a Viewer would be a developer that shouldn't be changing production deployment.
+* Guest would be probably better called Stranger.
+Guest have no permission within the namespace at all.
+The role makes sense in combination with namespace scope, and can be used to either restrict access to specific namespaces or to only allow access to a specific namespace for a user.
+
+=== Scopes of Roles
+
+There are three scopes of roles in Payara Cloud:
+
+Subscription Role::
+This is the default role assigned to the user unless overridden in other scopes.
+
+Namespace Default User Role::
+A namespace can optionally define Default User Role, which is then assigned to every user that doesn't have particular role assigned in that namespace.
+
+User's Role::
+The most specific role assigned to particular user in single namespace.
+
+The property of scopes that might be bit unintuitive at first is than Namespace Default User Role overrides Subscription Role, even if Subscription Role would be more permissive.
+This means that if you have a user with Operator role in Subscription, but you set up a namespace with Default User Role of Viewer, the user will have Viewer role in that namespace.
+The purpose of this design is to be able to define namespaces with more strict permissions than the default.
+
+The scopes apply only to non-Administrator roles, their subscription role cannot be overriden.
+
+== Typical Usage Scenarios
+
+Let's walk through some typical scenarios of managing permissions, from the most loose to the most strict.
+
+=== Everybody's the Boss
+
+When your team and company is small, there's probably no strict separation of roles.
+In such case making everyone Billing Manager with Administrative Privilage would be the easiest way to go.
+
+=== Not Everyone Pays the Bill
+
+Being a Billing Manager means, that you can also access invoices, see and change payment methods or cancel the subscription.
+If there is limited number of people who should have access to these, you would make them Billing Managers with Administrative Privilege, and the rest of team would be Administrators.
+
+=== You Pay the Bill, But Don't Delete Our Applications
+
+If you have a person responsible for payments, but managing applications and deployments is not within their role, make them a Billing Manager.
+They would have no access to application management or namespace permissions at all.
+
+=== Did You Just Deploy to Production?
+
+The moment you have workload serving customers and larger team, you might want to make the process of deployment to particular namespaces more strict.
+
+That will mean not giving out Administrator roles anymore, because namespace overrides only work for non-Administrator roles.
+
+A usual team member would then be a Manager.
+Then there would be few Administrators who can create namespaces and manage roles within them.
+
+In production namespace, you would define Namespace Default User role of Viewer.
+This way only Administrators can deploy to production, and the rest of the team can only see the metrics and logs.
+If there is non-administrator user to pass this responsibility to they can be assigned Manager role in the namespace.
+
+=== Can You Restart Production at Midnight, please?
+
+If there is person responsible for monitoring and first-line response to incidents then Namespace Default User role of Operator would be appropriate for them.
+This gives enough permissions to diagnose and reconfigure the application without the risk of deleting it or accessing sensitive configuration properties.
+
+In addition to configuration properties Heap Dumps are also considered sensitive.
+Operator can acquire them, but they only can be downloaded by a Manager afterward.
+
+=== What's Happening There?
+
+In case a developer needs access to production system, but should not be able to change anything, you would assign them Viewer role in the production namespace.
+In addition to logs and basic metrics, they would be able to see the configuration of the application sans the sensitive properties, but not change it.
+They can also acquire dumps, but only Managers can download them.
+
+=== Don't Touch This.
+
+To completely restrict access to a namespace, you would assign Guest as Namespace Default User role.
+Then only users with user roles in that namespace (and Administrators) would be able to access it.
+
+=== Stay in Your Lane.
+
+The most strict scenario would be explicitly controlling what non-administrator users can do.
+They would have Subscription Role set to Guest.
+
+On development namespace, you would assign Default Namespace Role of Manager.
+You could trim down access to specific users by assigning them Operator role in that namespace if necessary.
+
+On QA namespace, the Default Namespace Role could be Operator or Viewer.
+Only Administrators would be able to deploy there, or some users would get Manager role.
+
+Similar access control would be performed on production.
+
+Less strict variant would be assigning Viewer subscription role to everyone.
+
