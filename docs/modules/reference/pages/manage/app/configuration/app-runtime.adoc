@@ -1,1 +1,12 @@
 = Application Runtime and Scaling
+
+You can select the scaling method and runtime size of your Payara Cloud application on the application configuration dashboard
+
+.Application scaling and runtime size options
+image::manage/application/application-17-runtime-size.png[]
+
+[checklist]
+* ❶ Scalability Type: There are three scalability types you can choose from for your application.
+* ❷ Runtime Size: The runtime or "CPU size" that powers your application.
+* ❸ Runtime Type: The underlying combination of Java and Jakarta EE versions that your application is developed against.
+* ❹ Rollover Time: The rollover time for new uploaded application versions to replace the currently deployed version.
