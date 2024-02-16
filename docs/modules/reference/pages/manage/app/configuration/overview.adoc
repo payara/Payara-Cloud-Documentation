@@ -1,1 +1,22 @@
 = Configuration of Applications
+
+Payara Cloud allows you to configure different aspects of your application.
+The application configuration page can be accessed through the main Application Actions menu.
+
+.Accessing the application config page
+image::manage/application/application-12-config-menu.png[]
+
+[checklist]
+* ❶ Menu Edit Configuration: This is the main menu item to access the application configuration page
+* ❷ Revisions Menu: The application revision menu also has an Edit Configuration menu item that takes you to the application configuration page
+* ❸ Revision Menu: The revision menu of each application version also has an Edit Configuration menu item that takes you to the application configuration page
+
+You can configure
+
+* The context root
+* Edit any MicroProfile Config values in your application
+* Set how Payara Cloud scales your application
+* And application runtime
+
+Each of these configurations allow you to fine tune your application right on the application dashboard.
+

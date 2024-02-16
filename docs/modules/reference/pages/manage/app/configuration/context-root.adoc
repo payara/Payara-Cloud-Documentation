@@ -1,1 +1,43 @@
-= Network Mapping
+= Context Root
+
+The context root configuration of an application determines the path at which the application is accessible relative to its Namespace when deployed.
+
+The Context Root configuration can be found on the main configuration page.
+
+.Context Root configuration
+image::manage/application/application-13-context-root.png[]
+
+[checklist]
+* ❶ The Context Root: This is the endpoint on which your running application can be accessed. It is relative to the Namespace domain name.
+* ❷ Internet Accessible Paths: This can be used to restrict which sub-paths of your application's context root can be accessed over the internet.
+
+
+== Context Root
+Define the application's accessibility path within the namespace's domain by entering a path segment starting with "/".
+This path becomes the context path for the deployed application.
+
+Internal Access: By default, the application can be accessed by other applications within the same namespace using the URL \http://applicationName/contextRoot/.
+
+=== Example
+Root Domain Access: If your application is the primary one in the namespace, and you want it to handle requests at the domain root, use the value /.
+In that case, the application will be accessible directly on the namespace domain \https://namespace-domain.payara.app
+Subpath Access: For the application to respond to requests at a specific subpath, like \https://namespace-domain.payara.app/api/, set the value to /api.
+This makes your application accessible at that subpath within the domain.
+
+== Internet Accessible Paths
+To ensure controlled access to various parts of your application, you can specify which sub-paths of your application's context root are open to the internet and which remain private within your namespace.
+
+Here’s how to manage access:
+
+Publicly Accessible Sub-Paths: Use space-separated patterns, formatted as /prefix*, to designate sub-paths that should be accessible from the internet.
+Only the sub-paths that match these specified patterns will be accessible via your namespace's domain name.
+Internally Accessible Paths: Sub-paths not matching the specified patterns will remain accessible only to applications within the same namespace, ensuring internal communication or functionalities remain private.
+
+=== Example
+Assuming your application has a context root of /orders, and you've designated /details/* and /cancel/* as internet-accessible paths.
+In this case, URLs such as \https://namespace-domain.payara.app/orders/details/000234 or \https://namespace-domain.payara.app/orders/cancel/00234 will be routed to your application, making these services available to users over the internet.
+
+Conversely, a request to \https://namespace-domain.payara.app/orders/place will be directed to the application that manages the root namespace because /place is not listed as an internet-accessible path.
+
+For internal access, other applications within the namespace can reach the /place handler of this application through http://applicationName/orders/place, allowing for secure, namespace-contained communication between applications.
+

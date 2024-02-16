@@ -1,1 +1,27 @@
 = MicroProfile Config
+
+Payara Cloud provides an intuitive dashboard for managing MicroProfile Config properties used in your application.
+
+You can add, update and remove MicroProfile Config properties set in your application on the MicroProfile Config panel on the application configuration dashboard.
+
+.MicroProfile Config settings
+image::manage/application/application-14-mp-config.png[]
+
+[checklist]
+* ❶ Restrict Fields: This option allows you to mark fields as restricted for confidentiality. Values of restricted fields will be represented as * characters
+* ❷ Add Config Property: Clicking this button opens up the form to add a new MicroProfile Config property for your application
+
+== Restricting Fields
+You can restrict MicroProfile Config properties by clicking the Restricted Fields link on the MicroProfile Config panel.
+Clicking that button brings up the restrict fields option as shown below.
+
+.Restrict fields option
+image::manage/application/application-15-restrict-fields.png[]
+
+You can select any number of fields to set as restricted. Clicking save, the restricted fields will be rendered as follows.
+
+.Restricted config fields
+image::manage/application/application-16-restrected-fields.png[]
+
+
+
