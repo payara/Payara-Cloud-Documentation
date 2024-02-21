@@ -34,7 +34,6 @@ image::manage/namespace/namespace-2-create.png[]
 * ❹ Click to btn:[Create Namespace] the namespace
 
 
-.Note Namespace Creation
 [NOTE]
 Project and Stage combination need to be unique within a subscription.
 It is not possible to change Cloud Region after a namespace is created.
