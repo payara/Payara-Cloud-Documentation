@@ -115,10 +115,10 @@ If your database access is restricted by IP address, enable access to following 
 | Region | IP Address(es)
 
 | Azure, West Europe
-| 20.50.49.180
+| 20.101.201.13
 
 | Azure, East US
-| 20.62.214.88
+| 40.76.131.181
 |===
 
 If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace.
