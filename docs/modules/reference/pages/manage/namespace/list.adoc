@@ -4,18 +4,38 @@
 The Namespace List screen provides overview about all namespaces in your subscription.
 
 .Namespace List screen
-image::manage/overview.png[]
+image::manage/namespace/namespace-1-list-page.png[]
 
-Clicking the name of the namespace will bring you to xref:manage/namespace/detail.adoc[Namespace Detail Screen], whereas clicking on the Domain url brings you to application hosted at root context of that namespace.
+.Namespace List
+[checklist]
+* ❶ Main Namespaces Table
+* ❷ Button to create a new Namespace
+* ❸ Name of Namespace
+* ❹ Project linked to the Namespace
+* ❺ Stage  (e.g. dev, preprod, prod)
+* ❻ Domain name of the Namespace.
+* ❼ Cloud region of the Namespace
+
+Click on the name of the namespace to navigate to xref:manage/namespace/detail.adoc[Namespace Detail Screen].
+Clicking on the Domain url takes you to the application hosted at root context of that namespace, or a 404 page if no application is hosted at the root context of the namespace.
 
 == Creating Namespace
 
-Clicking btn:[Create New Namespace] will bring up dialog to create a namespace:
+Click on btn:[Create New Namespace] to bring up the new namespace dialog:
 
 .Create Namespace dialog
-image::manage/namespace/create.png[]
+image::manage/namespace/namespace-2-create.png[]
 
-Provide Project and Stage components of namespace name, and select the cloud region where the namespace will be created. Clicking btn:[Create] will create the namespace.
+.Create New Namespace
+.Namespace List
+[checklist]
+* ❶ Project the namespace will host (e.g. prototype)
+* ❷ The development stage or environment this namespace will host (e.g. dev or QA)
+* ❸ The cloud region to host the namespace in.
+* ❹ Click to btn:[Create Namespace] the namespace
 
-Project and Stage need to be unique within subscription.
-It is not possible to change Cloud Region after namespace is created.
+
+.Note Namespace Creation
+[NOTE]
+Project and Stage combination need to be unique within a subscription.
+It is not possible to change Cloud Region after a namespace is created.

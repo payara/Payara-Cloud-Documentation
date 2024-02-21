@@ -22,7 +22,7 @@ image::manage/namespace/namespace-1-overview.png[Namespace Detail Screen,100%, o
 * ❾ *Namespace Selector*: A dropdown to navigate between different Namespaces easily
 
 
-From this page, you can efficiently perform a range of tasks from deploying new applications to monitoring the health and status of existing ones.
+From this page, you can perform a range of tasks from deploying new applications to monitoring the health and status of existing ones.
 The layout ensures that you have quick access to all necessary information and functionalities to manage your Namespaces effectively.
 
 
