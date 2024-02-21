@@ -26,7 +26,6 @@ Click on btn:[Create New Namespace] to bring up the new namespace dialog:
 .Create Namespace dialog
 image::manage/namespace/namespace-2-create.png[]
 
-.Create New Namespace
 .Namespace List
 [checklist]
 * ❶ Project the namespace will host (e.g. prototype)
