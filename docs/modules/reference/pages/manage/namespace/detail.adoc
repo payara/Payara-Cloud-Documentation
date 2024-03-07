@@ -13,7 +13,7 @@ image::manage/namespace/namespace-1-overview.png[Namespace Detail Screen,100%, o
 [checklist]
 * ❶ *Applications Count*: Displays the total number of applications within this Namespace
 * ❷ *Hosting Region*: Indicates the geographic location where the Namespace is hosted
-* ❸ *Root URL*: The base URL for the Namespace; all applications deployed within will be accessible as sub-paths
+* ❸ *Root URL*: The base URL for the Namespace; all applications deployed within the namespace will be accessible as sub-paths
 * ❹ *Namespace Actions*: A menu for essential actions like creating new xref:docs::how-to-guides/Configure Application.adoc[applications], xref:docs::how-to-guides/Logging.adoc[searching logs], or deleting the Namespace
 * ❺ *Namespace Statistics*: Visual graphs depicting aggregated Namespace statistics
 * ❻ *Applications List*: An overview of applications, including names, statuses (Configured, Running, Stopped), and URLs

@@ -13,7 +13,7 @@ image::manage/namespace/namespace-1-list-page.png[]
 * ❸ Name of Namespace
 * ❹ Project linked to the Namespace
 * ❺ Stage  (e.g. dev, preprod, prod)
-* ❻ Domain name of the Namespace.
+* ❻ Domain name of the Namespace
 * ❼ Cloud region of the Namespace
 
 Click on the name of the namespace to navigate to xref:manage/namespace/detail.adoc[Namespace Detail Screen].
@@ -28,9 +28,9 @@ image::manage/namespace/namespace-2-create.png[]
 
 .Namespace List
 [checklist]
-* ❶ Project the namespace will host (e.g. prototype)
+* ❶ Name of the project that the namespace will host (e.g. prototype)
 * ❷ The development stage or environment this namespace will host (e.g. dev or QA)
-* ❸ The cloud region to host the namespace in.
+* ❸ The cloud region to host the namespace in
 * ❹ Click to btn:[Create Namespace] the namespace
 
 
