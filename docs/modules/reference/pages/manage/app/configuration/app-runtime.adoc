@@ -10,3 +10,52 @@ image::manage/application/application-17-runtime-size.png[]
 * ❷ Runtime Size: The runtime or "CPU size" that powers your application.
 * ❸ Runtime Type: The underlying combination of Java and Jakarta EE versions that your application is developed against.
 * ❹ Rollover Time: The rollover time for new uploaded application versions to replace the currently deployed version.
+
+== Scalability Types
+There are three stability types in Payara Cloud. These are Rolling Upgrade, Singleton and Horizontal Scaling.
+
+.Application Scalability Types
+image::manage/application/application-18-scalability.png[]
+
+=== Rolling Upgrade
+This is the default scaling type. A new application version is deployed and the prior one is terminated when the newly deployed version reports its readiness.
+Payara Cloud determines the readiness of an application by calling the MicroProfile Health endpoint if one is bundled with the application.
+If not then the default health endpoint of the underlying Payara Micro instance is called.
+Rolling upgrade scalability type can be configured through the Rollover Time.
+
+.Rollover Time configuration options
+[%autowidth]
+|===
+|Setting |Description
+
+|Minimal
+|Prior application version is shutdown immediately new one reports its readiness
+
+|Moderate
+|Prior application version is shutdown after a 90-second timeout _after_ the new version reports its readiness
+
+
+|===
+
+=== Singleton
+The singleton scalability type allows only one running instance of the application.
+The current running instance is terminated before a new version is deployed.
+
+NOTE: Depending on the speed of your deployment, there may be a brief moment when your application is not accessible as the new version gets deployed.
+
+=== Horizontal Scaling
+
+.Horizontal Scaling
+image::manage/application/application-19-horizontal-scaling.png[]
+
+[checklist]
+* ❶ Number of replicas: Between 2 and 8 replicas can be configured
+* ❷ Domain Data Grid: Enable or disable Payara Domain Data Grid
+
+Horizontal scaling allows for configuring up to 8 application replicas.
+Payara Cloud will create and destroy the replicas as needed based on application load.
+You can also enable Data Grid Mode to take advantage of https://www.payara.fish/products/features-catalog/domain-data-grid/[Payara Data Grid] for the application.
+
+
+
+
