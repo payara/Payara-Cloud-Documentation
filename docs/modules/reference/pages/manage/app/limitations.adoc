@@ -5,21 +5,39 @@ As a cloud deployment runtime, Payara Cloud has the following limitations.
 
 == Standalone Service
 Payara Cloud focuses exclusively on running your Jakarta EE applications.
-You'll need to source and integrate other essential services, such as databases, message queues, or caching mechanisms, from external providers.
+You'll need to source and integrate other essential services, such as databases or message queues,from external providers.
 Payara Cloud allows full outbound connectivity for implementing such services.
 
 == Jakarta EE Specific
 Payara Cloud is specifically tailored for Jakarta EE applications.
 If your project relies on other Java frameworks like Spring, Quarkus, or Micronaut, you'll need to consider alternative deployment solutions.
 
+
+== File System Access
+
+No writing outside  /tmp.
+No reading outside of current working dir (/opt/payara).
+
+== Storage
+Local storage is limited to 1GB, inclusive of the size of your WAR file.
+
+
+== Network Access
+
+Requests to the same namespace and the external network are allowed.
+Other internal requests are blocked.
+
+== Java Version
+Payara Cloud supports Java 11, 17 and 21.
+Older Java versions are not supported.
+
+
+== Runtime Stability
+Applications may be restarted during runtime due to node reallocation.
+
 == Limited Customization
 While Payara Cloud simplifies deployment, it offers less granular control compared to self-managing Payara Server instances on virtual machines or containers.
 You may have fewer options to fine-tune the runtime environment or install specific extensions.
-
-== Evolving Features
-Payara Cloud is under active development.
-This means features and supported technologies are subject to change.
-Make sure to stay updated on Payara Cloud's roadmap and release notes.
 
 === Important Considerations
 
@@ -27,5 +45,3 @@ Make sure to stay updated on Payara Cloud's roadmap and release notes.
 
 . Project Nature: Is your project built strictly on Jakarta EE standards?
 . Customization Needs: How much control do you require over the runtime environment?
-. Integrations: What external services does your application rely on, and how easily can they be integrated with Payara Cloud?
-. Budget: Does Payara Cloud's pricing align with your project's financial constraints?
