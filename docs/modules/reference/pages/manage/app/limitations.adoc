@@ -29,11 +29,13 @@ Other internal requests are blocked.
 
 == Java Version
 Payara Cloud supports Java 11, 17 and 21.
+Payara Cloud only supports LTS Java versions.
 Older Java versions are not supported.
 
 
 == Runtime Stability
-Applications may be restarted during runtime due to node reallocation.
+Applications may be restarted due to node reallocation (immediate SIGTERM for Singletons, 60-second grace period for horizontal scaling, rolling upgrade via SIGTERM).
+Please refer to the xref:manage/app/configuration/app-runtime.adoc[scalability doc] for more details about terminations.
 
 == Limited Customization
 While Payara Cloud simplifies deployment, it offers less granular control compared to self-managing Payara Server instances on virtual machines or containers.
