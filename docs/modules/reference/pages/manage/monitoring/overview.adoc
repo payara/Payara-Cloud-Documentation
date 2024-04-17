@@ -1,1 +1,17 @@
 = Monitoring
+
+Payara Cloud provides three core ways to monitor your deployed applications.
+
+== Charts
+Each namespace provides aggregated graphical representation of resource utilization of all deployed applications within the namespace.
+The xref:manage/monitoring/charts.adoc[charts page] has all the details about charts in Payara Cloud.
+
+== Logs
+Payara Cloud provides an easy-to-use interface for searching through logs of deployed applications.
+You can search by different terms, specifying the inclusion or exclusion of some terms, and search by date ranges.
+The xref:ROOT:how-to-guides/Logging.adoc[logs page] has all the details about searching through logs in Payara Cloud.
+
+== Dumps
+Payara Cloud allows you to request heap and thread dumps of your application for debugging.
+You can request for either from the application menu. The  xref:ROOT:how-to-guides/Logging.adoc#heap-dumps[heap] and  xref:ROOT:how-to-guides/Logging.adoc#heap-dumps[thread] dumps section of the logging page has usage information.
+
