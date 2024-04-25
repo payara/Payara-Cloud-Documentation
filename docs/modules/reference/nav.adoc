@@ -14,7 +14,7 @@
 *** xref:manage/namespace/list.adoc[]
 **** xref:manage/namespace/detail.adoc[]
 **** xref:manage/namespace/custom-domain.adoc[]
-**** xref:manage/namespace/access-control.adoc[]
+// **** xref:manage/namespace/access-control.adoc[]
 *** xref:manage/app/overview.adoc[]
 **** xref:manage/app/upload.adoc[]
 **** xref:manage/app/limitations.adoc[]
