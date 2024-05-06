@@ -63,7 +63,8 @@ And if your application is developed with Jakarta EE 10 and compiled for JDK 21,
 NOTE: Payara Cloud by default will assign a runtime based on referenced Jakarta EE classes and target JDK version for the compiled classes.
 
 .Runtime Types
-image::image-37-runtime-type.png[Choosing a runtime type]
+image::image-37-runtime-type1.png[Choosing a runtime type]
+image::image-37-runtime-type2.png[Choosing a runtime type]
 
 Post-upload, you can view or edit configurations by clicking btn:[Action], then btn:[Edit Configurations].
 

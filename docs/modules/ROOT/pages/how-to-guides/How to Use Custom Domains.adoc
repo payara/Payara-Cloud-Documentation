@@ -13,7 +13,7 @@ Select the namespace containing your application from the Namespace Navigator. I
 
 .Namespace menu to add new domain
 
-image::image33-new.png[A screenshot displaying the menu to add a new domain,width=624,height=290]
+image::image33.png[A screenshot displaying the menu to add a new domain,width=624,height=290]
 
 On the next screen, click btn:[Add Custom Domain].
 
