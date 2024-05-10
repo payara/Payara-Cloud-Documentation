@@ -5,11 +5,11 @@ Payara Cloud includes application logging. To make use of this feature, your app
 == Accessing Logs
 To view or search the logs, go to the application you wish to view and click on the btn:[Application Actions] button to open the drop down menu.
 
-image::image25.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=287]
+image::image25.png[Graphical user interface, application, Teams Description automatically generated,width=624,height=287, link="{imagesdir}/image25.png", window="_blank"]
 
 Click on the btn:[Search logs] option.
 
-image::image31.png[Graphical user interface, website Description automatically generated,width=624,height=322]
+image::image31.png[Graphical user interface, website Description automatically generated,width=624,height=322, link="{imagesdir}/image31.png", window="_blank"]
 
 From the Search Logs screen, you can enter search queries and restrict your search to specific dates and times using the options in the search box.
 
@@ -44,7 +44,7 @@ When the Heap dump is ready, it starts downloading a file containing the Heap du
 
 The file appears at the bottom of the diagnostic exports table. It can be downloaded again from this location during the next 7 days.
 
-image::image32.png[image,width=480,height=66]
+image::image32.png[image,width=480,height=66, link="{imagesdir}/image32.png", window="_blank"]
 
 [[thread-dumps]]
 == Thread Dumps

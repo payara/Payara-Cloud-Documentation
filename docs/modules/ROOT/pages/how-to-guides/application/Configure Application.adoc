@@ -125,4 +125,4 @@ If you’d like to provision a database for the best possible performance, it is
 
 When you are happy with your configuration settings, click Save to return to the application details screen.
 
-image::image18.png[A screenshot of a computer Description automatically generated,width=624,height=320]
+image::image18.png[A screenshot of a computer Description automatically generated,width=624,height=320, link="{imagesdir}/image18.png", window="_blank"]

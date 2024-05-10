@@ -6,7 +6,7 @@ image::No_subscriptions.png[Graphical user interface, no active subscriptions]
 
 After completing the sign up process entirely, you can log in at https://payara.cloud.
 
-image::image5.png[Graphical user interface, text Description automatically generated,width=672,height=361]
+image::image5.png[Graphical user interface, text Description automatically generated,width=672,height=361, link="{imagesdir}/image5.png", window="_blank"]
 
 When you log into your account you are taken directly to the Namespaces screen. A starter namespace is provided for you the first time you log into Payara Cloud. You can use the starter namespace to test the functionality of Payara Cloud, or you can delete it and create your own namespace.
 

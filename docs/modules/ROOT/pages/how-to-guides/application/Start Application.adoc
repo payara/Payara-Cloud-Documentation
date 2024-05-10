@@ -1,0 +1,9 @@
+== How to Start your deployed application
+
+There are two ways to start your application if it is stopped as mentioned in below figure
+
+1) From `Application Actions` menu from top right of screen
+
+2) From `Application control` panel in Application overview page
+
+image::how-to-guides/application/Start Application.png[link="{imagesdir}/how-to-guides/application/Start Application.png", window="_blank"]
