@@ -1,4 +1,4 @@
-= How to Access Payara Micro Enterprise Binaries for Local Development
+s= How to Access Payara Micro Enterprise Binaries for Local Development
 
 Payara Cloud customers with a Premium subscription have access to Payara Micro Enterprise binaries to test their applications locally on the same environment they will use when they deploy to the cloud.
 

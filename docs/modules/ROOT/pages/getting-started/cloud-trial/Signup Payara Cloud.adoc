@@ -6,13 +6,13 @@ Create an account https://billing.payara.cloud/signup/plans[here].
 
 Choose the Free Trial option and the Plan you would like your subscription to transition to, if you choose to continue after the 15 day trial is over. If you choose not to continue using Payara Cloud, you will have the opportunity to quickly and easily xref:getting-started/cloud-trial/Cancel Payara Cloud.adoc[Cancel Subscription].
 
-image::cloud-trial-image1.png[image,width=724,height=387]
+image::cloud-trial-image1.png[image,width=724,height=387, link="{imagesdir}/cloud-trial-image1.png", window="_blank"]
 
 Click btn:[Continue to Invoicing].
 
 Please ensure that all the provided details are accurate and correct on this page.
 
-image::cloud-trial-image2.png[image,width=624,height=287]
+image::cloud-trial-image2.png[image,width=624,height=287, link="{imagesdir}/cloud-trial-image2.png", window="_blank"]
 
 Complete the Invoicing Details by providing your Company address and Tax ID.
 
@@ -22,12 +22,12 @@ Click btn:[Continue to Payment Details]
 
 Provide your payment information; rest assured that your card won't be billed during the trial period, but only once it concludes.
 
-image::cloud-trial-image4.png[image,width=624,height=287]
+image::cloud-trial-image4.png[image,width=624,height=287, link="{imagesdir}/cloud-trial-image4.png", window="_blank"]
 
 Click btn:[Confirm Payment Details]
 
 Review your information, consent to the Terms and Conditions, and select the btn:[Subscribe] button.
 
-image::cloud-trial-image5.png[image,width=624,height=287]
+image::cloud-trial-image5.png[image,width=624,height=287, link="{imagesdir}/cloud-trial-image5.png", window="_blank"]
 
 Your Payara Cloud Free Trial has been initiated.

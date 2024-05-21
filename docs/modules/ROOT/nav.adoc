@@ -4,13 +4,7 @@
 ** xref:getting-started/cloud-trial/Signup Payara Cloud.adoc[Signing up]
 ** xref:getting-started/Log in into Account.adoc[Log into Your Account]
 // Deploying Application
-** xref:getting-started/Deploying an Application.adoc/[Deploying an Application]
-*** xref:getting-started/Deploying an Application.adoc#create-a-namespace[Create a Namespace]
-*** xref:getting-started/Deploying an Application.adoc#upload-an-application[Upload an Application]
-*** xref:getting-started/Deploying an Application.adoc#review-configuration[Review Configuration]
-*** xref:getting-started/Deploying an Application.adoc#deploy-application[Deploy Application]
-*** xref:getting-started/Deploying an Application.adoc#stop-application[Stop Application]
-*** xref:getting-started/Deploying an Application.adoc#delete-application[Delete Application]
+** xref:getting-started/Deploying an Application.adoc[Deploying an Application]
 ** xref:getting-started/Changing Confiugration of an Application.adoc[Changing Configuration of an Application]
 ** xref:getting-started/cloud-trial/Cancel Payara Cloud.adoc[Cancelling a Subscription]
 //
@@ -28,11 +22,26 @@
 
 // How-to-Guides
 * How-to Guides
-** xref:how-to-guides/Configure Application.adoc[Configure Application]
+** xref:how-to-guides/application/Application Management.adoc[Application Management]
+*** xref:how-to-guides/application/Deploying an Application.adoc[Deploying an Application]
+**** xref:how-to-guides/application/Deploying an Application.adoc#create-a-namespace[Create a Namespace]
+**** xref:how-to-guides/application/Deploying an Application.adoc#upload-an-application[Upload an Application]
+**** xref:how-to-guides/application/Deploying an Application.adoc#review-configuration[Review Configuration]
+**** xref:how-to-guides/application/Deploying an Application.adoc#deploy-application[Deploy Application]
+**** xref:how-to-guides/application/Deploying an Application.adoc#stop-application[Stop Application]
+**** xref:how-to-guides/application/Deploying an Application.adoc#delete-application[Delete Application]
+*** xref:how-to-guides/application/List Applications.adoc[List Applications]
+*** xref:how-to-guides/application/Configure Application.adoc[Configure Application]
+*** xref:how-to-guides/application/Start Application.adoc[Start Application]
+*** xref:how-to-guides/application/Logging.adoc[How to Diagnose a Running Application]
+**** xref:how-to-guides/application/Logging.adoc#heap-dumps[Heap Dumps]
+**** xref:how-to-guides/application/Logging.adoc#thread-dumps[Thread Dumps]
+
+
 ** xref:how-to-guides/managing-users.adoc[]
-** xref:how-to-guides/Logging.adoc[How to Diagnose a Running Application]
-*** xref:how-to-guides/Logging.adoc#heap-dumps[Heap Dumps]
-*** xref:how-to-guides/Logging.adoc#thread-dumps[Thread Dumps]
+** xref:how-to-guides/application/Logging.adoc[How to Diagnose a Running Application]
+*** xref:how-to-guides/application/Logging.adoc#heap-dumps[Heap Dumps]
+*** xref:how-to-guides/application/Logging.adoc#thread-dumps[Thread Dumps]
 ** xref:how-to-guides/How to Use Custom Domains.adoc[How to Use Custom Domains]
 ** xref:how-to-guides/How To Route Applications.adoc[Application Communication]
 ** xref:how-to-guides/clustering.adoc[]

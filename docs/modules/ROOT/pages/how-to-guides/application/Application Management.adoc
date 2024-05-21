@@ -1,0 +1,3 @@
+= Application Management Overview
+
+Please refer to xref:reference:manage/app/detail.adoc[Navigating the Application Detail Page] in How-to-guides for deploying application on Payara Cloud
