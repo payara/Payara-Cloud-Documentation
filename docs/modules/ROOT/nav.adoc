@@ -36,19 +36,14 @@
 *** xref:how-to-guides/application/Logging.adoc[How to Diagnose a Running Application]
 **** xref:how-to-guides/application/Logging.adoc#heap-dumps[Heap Dumps]
 **** xref:how-to-guides/application/Logging.adoc#thread-dumps[Thread Dumps]
+*** xref:how-to-guides/How to Use Custom Domains.adoc[How to Use Custom Domains]
+*** xref:how-to-guides/How To Route Applications.adoc[Application Communication]
+*** xref:how-to-guides/clustering.adoc[]
+*** xref:how-to-guides/Troubleshooting.adoc[Troubleshooting Tips]
+*** xref:how-to-guides/FAQ.adoc[Frequently Asked Questions]
 
-
-** xref:how-to-guides/managing-users.adoc[]
-** xref:how-to-guides/application/Logging.adoc[How to Diagnose a Running Application]
-*** xref:how-to-guides/application/Logging.adoc#heap-dumps[Heap Dumps]
-*** xref:how-to-guides/application/Logging.adoc#thread-dumps[Thread Dumps]
-** xref:how-to-guides/How to Use Custom Domains.adoc[How to Use Custom Domains]
-** xref:how-to-guides/How To Route Applications.adoc[Application Communication]
-** xref:how-to-guides/clustering.adoc[]
-** xref:how-to-guides/access-control.adoc[]
-** xref:how-to-guides/Troubleshooting.adoc[Troubleshooting Tips]
-** xref:how-to-guides/FAQ.adoc[Frequently Asked Questions]
-
+// Billing Management
+** xref:how-to-guides/Billing/Billing Management.adoc[Billing Management]
 // Hidden at least during trial
 
 //* xref:How to Access Payara Micro Binaries.adoc[How to Access Payara Micro Binaries]

@@ -4,7 +4,7 @@ The primary billing unit within Payara Cloud is a subscription.
 Upon signing up, a new subscription is generated for you, with a separate invoice issued for each subscription.
 You have the flexibility to invite multiple users to your subscription, and conversely, a user can be a member of more than one subscription.
 
-The detailed steps of managing users are described in Reference Guide xref:reference:billing/subscription/user-subscription.adoc[].
+The detailed steps of managing users are described in Reference Guide xref:billing/subscription/user-subscription.adoc[].
 This document aims to outline the typical configurations.
 
 == Roles in Payara Cloud
@@ -21,9 +21,19 @@ However, by default, they lack access to the infrastructure as it's generally no
 If necessary, a user can assume a combined role as *Billing Manager with Administrative* privilege, which is the default role assigned to a user upon sign-up.
 
 
-A user with restricted access is referred to as *Member*.
+A user with restricted access is referred to as *Manager*.
 They are barred from accessing billing data and performing namespace operations.
-More fine-grained access control is slated for future versions.
+They are restricted to configure access to other users but able to access all operations of application.
+
+A user with limited access to application operations is referred as *Operator*.
+
+A user who can only perform read only operations in applicatin is referred as *Viewer*
+
+A user with No access to the application is referred as *No Access* role. Purpose of this role is to provide access to very specific operations or namespace as user is supposed to have. This user can login to Cloud application, can see namespace overview page but not able to click and access to any content within Namespace. This user needs to ask administrator to gain any specific access
+
+accesses to application operations for each role are define here: xref:billing/subscription/user-subscription.adoc#_permission_for_application_management_operations_for_all_roles_are_defined_as_per_below_chart[Permission for Application Management operations for all Roles are defined as per below chart]
+
+accesses to Namespace operations for each role are define here: xref:billing/subscription/user-subscription.adoc#_permission_for_application_management_namespace_operations_for_all_roles_are_defined_as_per_below_chart_[Permission for Namespace operations for all Roles are defined as per below chart]
 
 Both Administrators and Billing Managers have the capacity to invite additional users to the subscription and allocate roles to them.
 However, only a Billing Manager can confer or rescind Billing Manager roles.
