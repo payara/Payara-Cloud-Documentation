@@ -28,7 +28,7 @@ Payara Cloud categorizes users into distinct roles, each with a set of permissio
 | Viewer
 | Only views deployed applications without modification rights.
 
-| Guest
+| No Access
 | Does not have permission to use Payara Cloud by default.
 This can be overridden by granting specific namespace access
 |===
@@ -100,13 +100,13 @@ They can also acquire dumps, but only Managers can download them.
 
 === No Access
 
-To completely restrict access to a namespace, you would assign Guest as Namespace Default User role.
+To completely restrict access to a namespace, you would assign No Access as Namespace Default User role.
 Then only users with user roles in that namespace (and Administrators) would be able to access it.
 
 === Siloed Operations
 
 The most strict scenario would be explicitly controlling what non-administrator users can do.
-They would have Subscription Role set to Guest.
+They would have Subscription Role set to No Access.
 
 On development namespace, you would assign Default Namespace Role of Manager.
 You could trim down access to specific users by assigning them Operator role in that namespace if necessary.
