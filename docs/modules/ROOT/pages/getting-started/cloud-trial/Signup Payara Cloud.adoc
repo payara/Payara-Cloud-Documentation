@@ -1,7 +1,7 @@
 = Sign Up To Payara Cloud
 
-Payara Cloud offers a 15-day free, no commitment trial that you can peruse to assess the service.
-To get started with the free trial, head over to the https://login.payara.cloud/u/signup[signup page] and fill in the signup form.
+Payara Cloud offers a 15-day free trial to explore the service without commitment.
+To get started, head over to the https://login.payara.cloud/u/signup[signup page] and fill in the signup form.
 
 .Signup Form
 image::new-signup-1.png[Payara Cloud Signup Form, text Description automatically generated,width=672,height=361, link="{imagesdir}/new-signup-1.png", window="_blank"]
@@ -16,12 +16,12 @@ image::new-signup-1.png[Payara Cloud Signup Form, text Description automatically
 * ❻ Or your GitHub Account
 
 
-NOTE: It's important to enter a valid email because all communications about your use of the service will be delivered to that mail address.
+NOTE: Ensure you use a valid email address for important account notifications.
 
-After clicking Continue, an account confirmation email will be sent to the email address you enter in the signup form.
+After clicking Continue, an account confirmation email will be sent to the email address you entered in the signup form.
 
 Click the btn:[Verify Your Account] button in the email to successfully verify your email.
-You can now proceed to https://login.payara.cloud/u/login[log into] your newly created Payara Cloud account.
+You can now proceed to https://login.payara.cloud/u/login[log into] your new Payara Cloud account.
 
 
 == Create A Subscription
@@ -46,8 +46,8 @@ On the ensuing invoicing tab, set the name of the primary contact for the accoun
 .Subscription creation confirmation
 image::new-signup5.png[Payara Cloud Subscription Confirmation, text Description automatically generated,width=672,height=361, link="{imagesdir}/new-signup5.png", window="_blank"]
 
-On the Confirmation tab, tick the T&C checkbox after reading the linked terms.
-Optionally tick the marketing communication box if you would like to receive promotional information about Payara Cloud.
+On the Confirmation tab, review and accept the Terms & Conditions.
+Optionally, opt in for marketing communications.
 Click the btn:[Subscribe] button to create your subscription.
 You will be redirected to your Application Management Page that shows a default xref:docs:reference:manage/namespace/list.adoc[Namespace] you can start using immediately.
 
@@ -55,9 +55,10 @@ You will be redirected to your Application Management Page that shows a default 
 
 image::new-signup-6.png[Payara Cloud Default Namespace, text Description automatically generated,width=672,height=361, link="{imagesdir}/new-signup-6.png", window="_blank"]
 
-Your newly created `start-dev` Namespace is ready to use. Read more about application management in your newly created namespace in the reference docs xref:docs:reference:manage/app/overview.adoc[here].
+Your free trial starts now. You won't be charged until the trial ends, and you choose a paid subscription.
+Your newly created `start-dev` Namespace is ready to use.
+Learn more about managing applications within your namespace in the xref:docs:reference:manage/app/overview.adoc[reference docs].
 
-NOTE: You will NOT be charged for your use of Payara Cloud during your free trial. Account billing starts after your trial period ends and your opt into a paid subscription tier.
 
 
 
