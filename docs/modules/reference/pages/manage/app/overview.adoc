@@ -1,4 +1,4 @@
-= Accessing Applications in Payara Cloud
+= Applications
 
 Payara Cloud organizes applications within distinct Namespaces.
 Follow these steps to interact with your applications:
