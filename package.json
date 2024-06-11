@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "npm run watch & npm run serve",
-    "serve": "http-server build/html -c-1 -p 5000",
+    "serve": "http-server build/html -c-1 -p 5001",
     "watch": "nodemon --watch docs -e adoc --exec antora local-playbook.yml"
   },
   "devDependencies": {

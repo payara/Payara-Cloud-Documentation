@@ -1,0 +1,45 @@
+= Stripe Portal
+
+Payara Cloud accepts both credit and debit card payments. We use Stripe as our trusted payment processor to ensure secure transactions. Billing Manager can access to Stripe Portal
+
+    * Billing Manager with Administrator role is able to interact with Stripe data, see invoices, change billing data, see usage and invite users
+    * Billing Manager without Administrator role is able to see invoices, see usage and invite users
+
+
+== Stripe Portal Access
+
+Strip portal can be accessed using `Manage Billing`  link in Billing Management application
+
+image::reference:billing/subscription/billing/strip-portal-access.png[link="{imagesdir}/billing/subscription/billing/strip-portal-access.png", window="_blank"]
+
+
+== Stripe Portal Overview
+
+image::reference:billing/subscription/billing/01-stripe-overview.png[link="{imagesdir}/billing/subscription/billing/01-stripe-overview.png", window="_blank"]
+
+== Stripe portal Add payment method
+
+image::reference:billing/subscription/billing/05-add-payment-method.png[link="{imagesdir}/billing/subscription/billing/05-add-payment-method.png", window="_blank"]
+
+
+== Stripe portal invoice and receipt
+
+image::reference:billing/subscription/billing/07-invoice-and-receipt.png[link="{imagesdir}/billing/subscription/billing/07-invoice-and-receipt.png", window="_blank"]
+
+=== Stripe portal update Billing information
+
+image::reference:billing/subscription/billing/06-update-billing-information.png[link="{imagesdir}/billing/subscription/billing/06-update-billing-information.png", window="_blank"]
+
+== Stripe portal cancel plan
+
+image::reference:billing/subscription/billing/02-cancel.png[link="{imagesdir}/billing/subscription/billing/02-cancel.png", window="_blank"]
+
+
+== Stripe portal cancelled plan
+
+image::reference:billing/subscription/billing/03-canceled.png[link="{imagesdir}/billing/subscription/billing/03-canceled.png", window="_blank"]
+
+
+== Stripe portal renew plan
+
+image::reference:billing/subscription/billing/04-renew.png[link="{imagesdir}/billing/subscription/billing/04-renew.png", window="_blank"]
