@@ -38,7 +38,7 @@ image::new-signup-3.png[Payara Cloud New Subscription Page, text Description aut
 
 On the subscription creation page, leave the default selection on the free trial and click on the btn:[Continue To Invoicing] button.
 
-.Invoicing Tab
+.Customer Details Tab
 image::new-signup-4.png[Payara Cloud Invoicing Info, text Description automatically generated,width=672,height=361, link="{imagesdir}/new-signup-4.png", window="_blank"]
 
 On the ensuing invoicing tab, set the name of the primary contact for the account and click the btn:[Continue To Confirmation] button.
