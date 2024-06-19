@@ -7,6 +7,7 @@ nav:
   - modules/ROOT/nav.adoc
   - modules/reference/nav.adoc
   - modules/cli/nav.adoc
+  - modules/maven-plugin/nav.adoc
 asciidoc:
   attributes:
     experimental: ''
