@@ -2,25 +2,32 @@
 
 == Selecting a Plan
 
-Choose from a variety of Payara Cloud plans tailored to your needs.
+To use Payara Cloud, you will need to sign up for a subscription.
+A Payara Cloud subscription plan represents the billable unit for your usage of the Payara Cloud service.
+
+You can choose from a variety of available Payara Cloud plans tailored to your needs.
 Each plan offers a specific amount of xref:billing/signup/overview.adoc#_consumption_measurement[prepaid CPU time per month], a maximum instance size, and additional features like custom domain support.
 
 
-.Plan selection
-image::billing/signup/cloud-trial-image1.png[alt="Plan selection dialog"]
+=== Trial Plan
 
-The first step of the Signup process is to select a plan.
+If you are new, you can start with the xref:docs:ROOT:getting-started/cloud-trial/Signup Payara Cloud.adoc[Payara Cloud Trial].
+
+The trial plan limits usage to a maximum of 4 vCPU cores.
+
+
+
+=== After Free Trial
+After your free trial ends, you must select a subscription plan to continue using the service
+
+.Payara Cloud Subscription Plans
+image::billing/signup/billing-plan-1.png[alt="Payara Cloud Plans]
+
 After making your selection and clicking btn:[Continue to Invoicing], a summary of your chosen plan appears above the invoicing details form.
 To change your plan, click btn:[Change Subscription].
 
-image::billing/signup/cloud-trial-image2.png[alt="Confirmation of selecting plan"]
 
-=== Trial Plan
 
-For the Payara Cloud Trial, select the plan you intend to upgrade to post-trial.
-You can cancel before the trial's end without charge.
-
-The trial plan limits usage to a maximum of 4 vCPU cores.
 
 == Invoicing Details
 
@@ -37,15 +44,12 @@ Company Name, Address, City, Zip Code, Country::
 Provide your company's invoicing information for the invoice.
 
 Tax ID Type, Tax ID::
-If VAT-registered, enter your VAT ID.
+Optionally, if VAT-registered, enter your VAT ID.
 Our payment processor will validate it according to the given ID Type.
 Tax type updates based on the selected country.
 
 Click btn:[Continue to payment] after filling in the details.
 
-=== EU VAT Requirements
-
-EU-based companies must submit a valid VAT ID, verified against the EU VIES database.
 
 == Payment method
 
@@ -70,3 +74,19 @@ image::billing/signup/cloud-trial-image5.png[]
 You'll then be directed to the Payara Cloud Application Management console.
 Account provisioning may take a few minutes.
 Welcome to Payara Cloud!
+
+
+== Manage Subscriptions
+
+To see and manage your existing subscriptions, click on the Billing Management menu in the left vertical menu bar.
+Through the Billing Management menu, you can xref:docs:reference:billing/subscription/user-subscription.adoc[manage users] in your subscription, view a list of your active subscriptions and xref:docs:reference:billing/signup/additional.adoc[create new subscriptions].
+
+
+.Manage Subscription
+image::billing/signup/billing-plan-2.png[alt="Payara Cloud Plans]
+
+.Subscription Management Menu
+[checklist]
+* ❶ Click to Manage Users.
+* ❷ Click to create a new subscription
+* ❸ Click to go back to application management

@@ -20,9 +20,9 @@ Assume `bar` and `bazz` are deployed to the same namespace on Payara Cloud, with
 
 === Deploying `bar` and `bazz`
 
-Deploy both apps to a namespace, say \https://staging-118842.payara.app, making them accessible at https://staging-118842.payara.app/`bar` and https://staging-118842.payara.app/`bazz`.
+Deploy both apps to a namespace, say \https://staging-118842.payara.app, making them accessible at \https://staging-118842.payara.app/`bar` and \https://staging-118842.payara.app/`bazz`.
 
-If a custom domain myApp.foocompany.com is configured, the apps are available at \https://myApp.foocompany.com/bar and \https://myApp.foocompany.com/bazz respectively.
+If a custom domain foocompany.com is configured, the apps are available at \https://foocompany.com/bar and \https://foocompany.com/bazz respectively.
 
 === Accessing Endpoint in `bazz`
 
@@ -39,7 +39,7 @@ public class FinanceApiClient {
     public  void doSomeFinance() {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://`bar`/`bar`/api/finance"))
+                .uri(URI.create("http://bar/bar/api/finance"))
                 .GET()
                 .build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
