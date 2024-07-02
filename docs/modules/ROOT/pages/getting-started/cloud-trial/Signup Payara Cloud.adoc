@@ -26,7 +26,7 @@ You can now proceed to https://login.payara.cloud/u/login[log into] your new Pay
 
 == Create A Subscription
 To use Payara Cloud for the first time after logging into your account, you must create a subscription.
-A Payara Cloud subscription represents the billable unit for your usage of the Payara Cloud service.
+A Payara Cloud subscription plan represents the billable unit for your usage of the Payara Cloud service.
 
 .Blank subscription page
 image::new-signup-2.png[Payara Cloud Empty Subscription Page, text Description automatically generated,width=672,height=361, link="{imagesdir}/new-signup-1.png", window="_blank"]
