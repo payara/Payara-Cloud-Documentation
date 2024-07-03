@@ -3,7 +3,7 @@
 ** xref:billing/overview.adoc[]
 *** xref:billing/signup/overview.adoc[]
 **** xref:billing/signup/login.adoc[]
-**** xref:billing/signup/subscription.adoc[]
+**** xref:billing/signup/subscription.adoc[Subscription Management]
 **** xref:billing/signup/additional.adoc[]
 // TODO: Manage subscriptions
 // TODO: Subscription Overview
