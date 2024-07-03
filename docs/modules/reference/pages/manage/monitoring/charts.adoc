@@ -3,7 +3,7 @@
 Payara Cloud helps you gain insights into the performance of you application through the use of metric charts.
 These are line charts that show log entries, HTTP requests and memory and CPU activities on the dashboard for your monitoring convenience
 
-There two categories of metric charts - Namespace level charts and Application level charts.
+There are two categories of metric charts - Namespace level charts and Application level charts.
 
 == Namespace Level Charts
 Namespace level charts are charts at the Namesapce level that show an aggregated view of log entry, HTTP requests and memory/CPU usage activities.

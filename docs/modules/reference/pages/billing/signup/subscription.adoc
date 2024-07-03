@@ -21,7 +21,7 @@ The trial plan limits usage to a maximum of 4 vCPU cores.
 After your free trial ends, you must select a subscription plan to continue using the service
 
 .Payara Cloud Subscription Plans
-image::billing/signup/billing-plan-1.png[alt="Payara Cloud Plans]
+image::billing/signup/billing-plan-1.png[alt="Payara Cloud Plans", window="_blank", link="{imagesdir}/billing/signup/billing-plan-1.png"]
 
 After making your selection and clicking btn:[Continue to Invoicing], a summary of your chosen plan appears above the invoicing details form.
 To change your plan, click btn:[Change Subscription].
@@ -34,7 +34,7 @@ To change your plan, click btn:[Change Subscription].
 Next, fill in your invoicing details:
 
 .Invoicing details
-image::billing/signup/cloud-trial-image3.png[alt="Invoicing details form"]
+image::billing/signup/cloud-trial-image3.png[alt="Invoicing details form", window="_blank", link="{imagesdir}/billing/signup/cloud-trial-image3.png"]
 
 Contact Name and Email::
 Enter the contact details for receiving notifications and invoices.
@@ -59,7 +59,7 @@ Clicking btn:[Confirm payment details] might redirect you to your bank for payme
 Your card is charged at the trial's end and then at each billing period's start.
 
 .Payment method dialog
-image::billing/signup/cloud-trial-image4.png[]
+image::billing/signup/cloud-trial-image4.png[alt="Payment Method Dialog", window="_blank", link="{imagesdir}/billing/signup/cloud-trial-image4.png"]
 
 == Confirmation
 
@@ -67,7 +67,7 @@ Agree to Payara Cloud's Terms and Conditions.
 You can also choose to opt in for product updates via email to complete the process.
 
 .Confirmation
-image::billing/signup/cloud-trial-image5.png[]
+image::billing/signup/cloud-trial-image5.png[alt="Plan Confirmation", window="_blank", link="{imagesdir}/billing/signup/cloud-trial-image5.png"]
 
 == Provisioning
 
@@ -83,7 +83,7 @@ Through the Billing Management menu, you can xref:docs:reference:billing/subscri
 
 
 .Manage Subscription
-image::billing/signup/billing-plan-2.png[alt="Payara Cloud Plans]
+image::billing/signup/billing-plan-2.png[alt="Payara Cloud Plans", window="_blank", link="{imagesdir}/billing/signup/billing-plan-2.png"]
 
 .Subscription Management Menu
 [checklist]
@@ -108,12 +108,12 @@ To have better visibility and control over your usage of Payara Cloud, you can s
 To create a usage alert, click on the btn:[Create New Alert] button on a given subscription.
 
 .New Usage Alert Button
-image::billing/signup/billing-plan-3.png[alt="New Usage Alert Button]
+image::billing/signup/billing-plan-3.png[alt="New Usage Alert Button", window="_blank", link="{imagesdir}/billing/signup/billing-plan-3.png"]
 
 This will open the new alert form.
 
 .New Alert Form
-image::billing/signup/billing-plan-4.png[alt="New Usage Alert Form]
+image::billing/signup/billing-plan-4.png[alt="New Usage Alert Form", window="_blank", link="{imagesdir}/billing/signup/billing-plan-4.png"]
 .New Usage Alert Form
 [checklist]
 * ❶ Enter a label for the alert, for example Prod Usage
