@@ -90,3 +90,41 @@ image::billing/signup/billing-plan-2.png[alt="Payara Cloud Plans]
 * ❶ Click to Manage Users.
 * ❷ Click to create a new subscription
 * ❸ Click to go back to application management
+
+
+=== Edit Subscription Name
+
+You can edit the name of a subscription by clicking on it.
+
+
+
+=== View Current Usage
+You can view your current resource usage for a given subscription by clicking on the subscription name from the subscription list.
+
+
+=== Set Usage Alerts
+To have better visibility and control over your usage of Payara Cloud, you can set usage alerts for your subscriptions.
+
+To create a usage alert, click on the btn:[Create New Alert] button on a given subscription.
+
+.New Usage Alert Button
+image::billing/signup/billing-plan-3.png[alt="New Usage Alert Button]
+
+This will open the new alert form.
+
+.New Alert Form
+image::billing/signup/billing-plan-4.png[alt="New Usage Alert Form]
+.New Usage Alert Form
+[checklist]
+* ❶ Enter a label for the alert, for example Prod Usage
+* ❷ A threshold above which the alert should be trigger
+* ❸ click to save the alert
+
+With the alert in place, any usage above the set threshold will trigger an email to be sent to the email address of the Billing Manager of the subscription.
+
+
+
+
+
+
+
