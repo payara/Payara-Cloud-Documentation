@@ -18,7 +18,7 @@ image::billing/subscription/account-management-subscriptionsopen.svg[opts=intera
 The next step involves choosing how to proceed with the payment details:
 
 * To start a new subscription with new payment details, click btn:[Create New Subscription with New Payment Details].
-This will redirect you to the link:subscription-plan.adoc[Signup page], where you’ll be prompted to enter new company details and authorize a new payment method.
+This will redirect you to the link:subscription.adoc[Signup page], where you’ll be prompted to enter new company details and authorize a new payment method.
 
 * If you wish to use existing payment details, select btn:[Use These Details] next to the desired Payment Details.
 Only the payment details of subscriptions where you are a Billing Manager will be listed.
