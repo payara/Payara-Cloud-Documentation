@@ -81,12 +81,12 @@ The client will also open the browser for you if your environment permits it.
 In case you follow link manually you'll need to enter the confirmation code on first page:
 
 [.text-center]
-image:login-01-enter-code.png[width=320]
+image:login-01-enter-code.png[width=320, window="_blank", link="{imagesdir}/login-01-enter-code.png"]
 
 After that a confirmation page is displayed:
 
 [.text-center]
-image:login-02-confirmation.png[width=320]
+image:login-02-confirmation.png[width=320, window="_blank", link="{imagesdir}/login-02-confirmation.png"]
 
 WARNING: Only confirm this page if you knowingly initiated login flow via `pcl login` or `payara-cloud-maven-plugin`.
 Payara Cloud will never ask you to authenticate via this flow via any other channel or under any other circumstance, such as solving a support issue.
@@ -94,12 +94,12 @@ Payara Cloud will never ask you to authenticate via this flow via any other chan
 If you are logging in for the first time the authentication service will ask you to authorize Payara Cloud CLI to perform application management tasks with your identity:
 
 [.text-center]
-image:login-03-authorize.png[width=320]
+image:login-03-authorize.png[width=320, window="_blank", link="{imagesdir}/login-03-authorize.png"]
 
 After confirming this, the authentication process is completed and you may close the browser window:
 
 [.text-center]
-image:login-04-success.png[width=320]
+image:login-04-success.png[width=320, window="_blank", link="{imagesdir}/login-04-success.png"]
 
 ==== Managing tokens
 

@@ -25,7 +25,7 @@ Since email notifications are an inherently insecure communication metho
 
 Use the generated password to log in to your account and change your password by clicking the profile option in the top-right corner of the user interface first, and then clicking on the btn:[Change Password] button: 
 
-image::image36.png[Graphical user interface, application Description automatically generated,width=668,height=207]
+image::image36.png[Graphical user interface, application Description automatically generated,width=668,height=207,window="_blank", link="{imagesdir}/image36.png"]
 
 If there is something wrong with access to either of these, please send an email to 
 
@@ -42,7 +42,7 @@ https://nexus.payara.fish/ 
 
 Within Nexus, there should be five repositories visible, as shown below: 
 
-image::image37.png[Graphical user interface Description automatically generated,width=693,height=192]
+image::image37.png[Graphical user interface Description automatically generated,width=693,height=192,window="_blank", link="{imagesdir}/image37.png"]
 
 Here is a summary of each repository’s purpose: 
 

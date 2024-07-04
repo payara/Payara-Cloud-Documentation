@@ -25,7 +25,7 @@ NOTE:  Horizontally scaled applications require a minimum allocation of 2 CPUs p
 
 Navigate to the Runtime Type section within the application's configuration to adjust the scalability settings.
 
-image::clustering/app-runtime.png[]
+image::clustering/app-runtime.png[window="_blank", link="{imagesdir}/clustering/app-runtime.png"]
 
 Immediately below, you’ll find the Runtime Size setting, which establishes the resource baseline for each instance.
 
@@ -84,10 +84,10 @@ This feature is auto-enabled for horizontally scaled applications and cannot be 
 Any redeployment will eventually replace all instances.
 However, if you merely wish to modify the number of running instances, utilize the btn:[Adjust Scale] operation.
 
-image::clustering/Adjust scale.png[]
+image::clustering/Adjust scale.png[window="_blank", link="{imagesdir}/clustering/Adjust scale.png"]
 
 Clicking this button will present a dialog box where you can specify the desired number of instances:
 
-image::clustering/Adjust scale dialog.png[]
+image::clustering/Adjust scale dialog.png[window="_blank", link="{imagesdir}/clustering/Adjust scale dialog.png"]
 
 This action either halts some instances—if the target number is lower than the current—or initiates new ones to meet the specified requirement.
