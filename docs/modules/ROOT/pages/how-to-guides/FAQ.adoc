@@ -34,6 +34,11 @@ At the moment, multiple users would need to access the environment using the sam
 == How does Payara Cloud handle high availability?
 Payara Cloud ensures high availability by automatically distributing your application instances across multiple availability zones. In the event of a failure, it can quickly recover your application on another healthy instance, minimizing downtime.
 
+== Where Does Payara Cloud Host Its Data?
+Payara Cloud currently runs on Microsoft Azure EU region. That is where both the implementation and user data like your application binaries are stored.
+Payara Cloud tenant data in the third-party auth provider we use is also stored in the EU region of their data center.
+
+
 == Can I monitor and manage my applications in Payara Cloud?
 Yes, Payara Cloud provides comprehensive monitoring and management capabilities. It offers built-in metrics and monitoring dashboards, allowing you to track the performance and health of your applications. Additionally, you can use the web-based management console to configure and manage various aspects of your applications.
 
