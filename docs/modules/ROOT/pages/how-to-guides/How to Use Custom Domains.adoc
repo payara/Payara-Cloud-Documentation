@@ -14,18 +14,18 @@ Select the namespace containing your application from the Namespace Navigator. I
 
 .Namespace menu to add new domain
 
-image::image33.png[A screenshot displaying the menu to add a new domain,width=624,height=290]
+image::image33.png[A screenshot displaying the menu to add a new domain,width=624,height=290,window="_blank", link="{imagesdir}/image33.png"]
 
 On the next screen, click btn:[Add Custom Domain].
 
 .Button to click for adding a new domain
-image::image34-new.png[Interface to add new domain,width=624,height=284]
+image::image34-new.png[Interface to add new domain,width=624,height=284,window="_blank", link="{imagesdir}/image34-new.png"]
 
 
 Enter the domain name you'd prefer to use for accessing your application in the Custom Domain Name field.
 
 .Custom domain addition screen on Payara Cloud
-image::image35-new.png[Interface for entering custom domain name,width=624,height=284]
+image::image35-new.png[Interface for entering custom domain name,width=624,height=284,window="_blank", link="{imagesdir}/image35-new.png"]
 
 Click btn:[Set Custom Domain]
 
@@ -33,7 +33,7 @@ You'll now see the Custom Domain screen along with the information needed for se
 
 
 .DNS information screen for custom domain setup
-image::image36-new.png[Interface displaying DNS info for custom domain setup,width=624,height=282]
+image::image36-new.png[Interface displaying DNS info for custom domain setup,width=624,height=282,window="_blank", link="{imagesdir}/image36-new.png"]
 
 [NOTE]
 The top-level domain name feature requires the domain registrar to support CNAME at the zone apex.
@@ -58,14 +58,14 @@ image::image37-new.png[Cloudflare dns update view, width=624,height=282]
 Return to the custom domain setup screen in Payara Cloud.
 
 .Screen displaying DNS info for custom domain setup
-image::image38-new.png[Interface showing DNS info for custom domain setup,width=624,height=282]
+image::image38-new.png[Interface showing DNS info for custom domain setup,width=624,height=282,window="_blank", link="{imagesdir}/image38-new.png"]
 
 Click btn:[Check DNS]
 
 Your namespace should now be linked to the configured domain.
 
 .Fully configured custom domain post DNS propagation
-image::image39-new.png[Interface displaying fully setup custom domain,width=624,height=282]
+image::image39-new.png[Interface displaying fully setup custom domain,width=624,height=282,window="_blank", link="{imagesdir}/image39-new.png"]
 
 NOTE: DNS propagation duration may vary based on your domain name provider, taking anywhere from a few minutes to 48 hours. Check DNS propagation using online tools such as https://dnschecker.org/
 
@@ -76,6 +76,6 @@ For instance, an application deployed to the context path myapp1 would be access
 You can always edit or remove configured domains for namespaces on the Custom Domain page.
 
 .Custom domain page showing additional operations
-image::image40-new.png[Interface displaying fully setup custom domain,width=624,height=282]
+image::image40-new.png[Interface displaying fully setup custom domain,width=624,height=282,window="_blank", link="{imagesdir}/image40-new.png"]
 
 
