@@ -4,7 +4,7 @@
 The Namespace List screen provides overview about all namespaces in your subscription.
 
 .Namespace List screen
-image::manage/namespace/namespace-1-list-page.png[]
+image::manage/namespace/namespace-1-list-page.png[window="_blank", link="{imagesdir}/manage/namespace/namespace-1-list-page.png"]
 
 .Namespace List
 [checklist]
@@ -24,7 +24,7 @@ Clicking on the Domain url takes you to the application hosted at root context o
 Click on btn:[Create New Namespace] to bring up the new namespace dialog:
 
 .Create Namespace dialog
-image::manage/namespace/namespace-2-create.png[]
+image::manage/namespace/namespace-2-create.png[window="_blank", link="{imagesdir}/manage/namespace/namespace-2-create.png"]
 
 .Namespace List
 [checklist]

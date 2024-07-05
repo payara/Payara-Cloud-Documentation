@@ -5,7 +5,7 @@ Payara Cloud  looks for a persistence.xml file that uses the Jakarta EE https://
 If detected, it makes the necessary minimal configuration parameters for the default datasource available on the UI.
 
 .Default Datasource Configuration
-image::manage/application/application-18-default-datasource.png[]
+image::manage/application/application-18-default-datasource.png[window="_blank", link="{imagesdir}/manage/application/application-18-default-datasource.png"]
 
 == Configuring Datasources
 

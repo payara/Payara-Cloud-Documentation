@@ -5,7 +5,7 @@ The context root configuration of an application determines the path at which th
 The Context Root configuration can be found on the main configuration page.
 
 .Context Root configuration
-image::manage/application/application-13-context-root.png[]
+image::manage/application/application-13-context-root.png[window="_blank", link="{imagesdir}/manage/application/application-13-context-root.png"]
 
 [checklist]
 * ❶ The Context Root: This is the endpoint on which your running application can be accessed. It is relative to the Namespace domain name.

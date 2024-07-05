@@ -35,7 +35,8 @@ At the moment, multiple users would need to access the environment using the sam
 Payara Cloud ensures high availability by automatically distributing your application instances across multiple availability zones. In the event of a failure, it can quickly recover your application on another healthy instance, minimizing downtime.
 
 == Where Does Payara Cloud Host Its Data?
-Your Payara Cloud data, including application binaries and user information, is hosted within Microsoft Azure's EU region.
+Your Payara Cloud data, including application binaries and user information, is by default hosted within Microsoft Azure's EU region.
+You can also opt to store your application data in Azure's US region when creating a namespace.
 This also extends to the data we store with our third-party authentication provider.
 
 

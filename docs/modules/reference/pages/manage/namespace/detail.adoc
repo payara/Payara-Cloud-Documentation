@@ -7,7 +7,7 @@
 The Namespace details page is your central hub for managing a specific Namespace within Payara Cloud.
 
 .Namespace detail page
-image::manage/namespace/namespace-1-overview.png[Namespace Detail Screen,100%, opts=interactive]
+image::manage/namespace/namespace-1-overview.png[Namespace Detail Screen,100%, opts=interactive, window="_blank", link="{imagesdir}/manage/namespace/namespace-1-overview.png"]
 
 .Navigation and Features
 [checklist]

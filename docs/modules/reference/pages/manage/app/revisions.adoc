@@ -5,7 +5,7 @@ A revision represents an immutable snapshot of your uploaded application's binar
 This allows for tracking changes and potential rollbacks.
 
 .Application revisions table
-image::manage/application/application-7-applicaiton-revisions.png[]
+image::manage/application/application-7-applicaiton-revisions.png[window="_blank", link="{imagesdir}/manage/application/application-7-applicaiton-revisions.png"]
 
 .Application Revisions Details
 [checklist]
@@ -27,7 +27,7 @@ For instance, you might have one version of your application designed to connect
 You have the option to revert to any previous version using the "Revision Actions" menu available for each version.
 
 .Application Revision Actions Menu
-image::manage/application/application-rev-1.png[]
+image::manage/application/application-rev-1.png[window="_blank", link="{imagesdir}/manage/application/application-rev-1.png"]
 
 [checklist]
 * ❶ View Configuration: Click display the current settings for the application in a read-only format.

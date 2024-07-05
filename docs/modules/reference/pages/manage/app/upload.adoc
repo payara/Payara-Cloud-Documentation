@@ -4,7 +4,7 @@ Applications can be uploaded within Namespace
 Multiple applications can be uploaded to the same Namespace.
 
 .Options to upload new application in a Namespace
-image::manage/application/application-9-upload-namespace.png[]
+image::manage/application/application-9-upload-namespace.png[window="_blank", link="{imagesdir}/manage/application/application-9-upload-namespace.png"]
 
 [checklist]
 * ❶ Namespace: The Namespace within which the application will be uploaded
@@ -14,7 +14,7 @@ image::manage/application/application-9-upload-namespace.png[]
 Clicking either of the new application upload options above brings up the following upload diaglog.
 
 .New application upload popup dialog
-image::manage/application/application-10-upload.png[]
+image::manage/application/application-10-upload.png[window="_blank", link="{imagesdir}/manage/application/application-10-upload.png"]
 
 [checklist]
 * ❶ Binary Upload Button: Click to bring up the file upload dialog to pick an application binary (.WAR file).
@@ -32,7 +32,7 @@ A directly deployed application transitions to the xref:manage/app/detail.adoc#_
 A pending application can be deployed by clicking the 'Deploy Changes' menu option from the Application Actions drop-down menu
 
 .Deploying an uploaded application
-image::manage/application/application-11-deploy.png[]
+image::manage/application/application-11-deploy.png[window="_blank", link="{imagesdir}/manage/application/application-11-deploy.png"]
 
 [checklist]
 * ❶ Deploy Changes: Deploy the uploaded application, transitioning it to the  xref:manage/app/detail.adoc#_running_state[Running State]
