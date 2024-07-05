@@ -1,4 +1,4 @@
-= Stripe Portal
+= Manage Billing
 
 Payara Cloud accepts both credit and debit card payments. We use Stripe as our trusted payment processor to ensure secure transactions. Billing Manager can access to Stripe Portal
 
@@ -8,9 +8,9 @@ Payara Cloud accepts both credit and debit card payments. We use Stripe as our t
 
 == Stripe Portal Access
 
-Strip portal can be accessed using `Manage Billing`  link in Billing Management application
+Stripe portal can be accessed using `Manage Billing`  link in Billing Management application
 
-image::reference:billing/subscription/billing/strip-portal-access.png[link="{imagesdir}/billing/subscription/billing/strip-portal-access.png", window="_blank"]
+image::reference:billing/subscription/billing/stripe-portal-access.png[link="{imagesdir}/billing/subscription/billing/stripe-portal-access.png", window="_blank"]
 
 
 == Stripe Portal Overview
