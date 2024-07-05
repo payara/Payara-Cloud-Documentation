@@ -9,7 +9,7 @@ There are two categories of metric charts - Namespace level charts and Applicati
 Namespace level charts are charts at the Namesapce level that show an aggregated view of log entry, HTTP requests and memory/CPU usage activities.
 
 .Namespace level charts
-image::manage/application/application-21-charts.png[]
+image::manage/application/application-21-charts.png[window="_blank", link="{imagesdir}/manage/application/application-21-charts.png"]
 
 The namespace level charts show an aggregate of metrics from all applications within the namespace.
 
@@ -18,4 +18,4 @@ The namespace level charts show an aggregate of metrics from all applications wi
 Application level charts are charts that only show metrics for the current application being viewed.
 
 .Application Level Charts
-image::manage/application/application-22-application-charts.png[]
+image::manage/application/application-22-application-charts.png[window="_blank", link="{imagesdir}/manage/application/application-22-application-charts.png"]

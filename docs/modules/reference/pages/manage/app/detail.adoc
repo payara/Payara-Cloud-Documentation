@@ -3,7 +3,7 @@
 The application detail page shows all relevant information about a specific application.
 
 .Application detail page
-image::manage/application/applications-2-detail.png[]
+image::manage/application/applications-2-detail.png[window="_blank", link="{imagesdir}/manage/application/applications-2-detail.png"]
 
 .Detail Application Page
 [checklist]
@@ -29,7 +29,7 @@ Applications hosted on Payara Cloud can be in various states throughout their li
 An application first enters the PENDING state when it is uploaded but not yet deployed.
 
 .Newly uploaded application in pending state
-image::manage/application/application-3-newly-uploaded-pending.png[]
+image::manage/application/application-3-newly-uploaded-pending.png[window="_blank", link="{imagesdir}/manage/application/application-3-newly-uploaded-pending.png"]
 
 .Details of PENDING State:
 [checklist]
@@ -45,7 +45,7 @@ image::manage/application/application-3-newly-uploaded-pending.png[]
 An application is in the RUNNING state when it has been successfully deployed and is accessible online.
 
 .Running application
-image::manage/application/application-6-running-state.png[]
+image::manage/application/application-6-running-state.png[window="_blank", link="{imagesdir}/manage/application/application-6-running-state.png"]
 
 .Details of RUNNING State
 [checklist]
@@ -58,7 +58,7 @@ image::manage/application/application-6-running-state.png[]
 A STOPPED application is one that was previously running but has been manually halted.
 
 .Application in stopped state
-image::manage/application/application-5-stopped-status.png[]
+image::manage/application/application-5-stopped-status.png[window="_blank", link="{imagesdir}/manage/application/application-5-stopped-status.png"]
 
 .Details of STOPPED State
 [checklist]
@@ -77,7 +77,7 @@ Over its lifetime, an application in Payara Cloud undergoes several revisions, e
 
 
 .Application revisions table
-image::manage/application/application-7-applicaiton-revisions.png[]
+image::manage/application/application-7-applicaiton-revisions.png[window="_blank", link="{imagesdir}/manage/application/application-7-applicaiton-revisions.png"]
 
 .Application Revisions Details
 [checklist]
@@ -102,7 +102,7 @@ This feature ensures flexibility in version control and deployment strategies.
 You can start an application in a <<_stopped_state>> by using any of the available options.
 
 .Starting a stopped application
-image::manage/application/application-8-starting-stopped-application.png[]
+image::manage/application/application-8-starting-stopped-application.png[window="_blank", link="{imagesdir}/manage/application/application-8-starting-stopped-application.png"]
 
 .Options to start a stopped application
 

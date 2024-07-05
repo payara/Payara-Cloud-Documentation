@@ -7,12 +7,12 @@ Follow these steps to interact with your applications:
 This can be done by navigating to the Namespace list section.
 
 .Namespace list
-image::manage/application/application-4-namespace-list.png[]
+image::manage/application/application-4-namespace-list.png[window="_blank", link="{imagesdir}/manage/application/application-4-namespace-list.png"]
 
 *View Applications*: Each Namespace represents a list of its associated applications.
 
 .Namespace with application list
-image::manage/application/applications-1-namespace-detail-page.png[Namespace Detail Screen,100%, opts=interactive]
+image::manage/application/applications-1-namespace-detail-page.png[Namespace Detail Screen,100%, opts=interactive, window="_blank", link="{imagesdir}/manage/application/applications-1-namespace-detail-page.png"]
 
 .Namespace homepage
 [checklist]

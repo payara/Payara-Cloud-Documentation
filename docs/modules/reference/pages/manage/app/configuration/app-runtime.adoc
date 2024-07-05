@@ -3,7 +3,7 @@
 You can select the scaling method and runtime size of your Payara Cloud application on the application configuration dashboard
 
 .Application scaling and runtime size options
-image::manage/application/application-17-runtime-size.png[]
+image::manage/application/application-17-runtime-size.png[window="_blank", link="{imagesdir}/manage/application/application-17-runtime-size.png"]
 
 [checklist]
 * ❶ Scalability Type: There are three scalability types you can choose from for your application.
@@ -15,7 +15,7 @@ image::manage/application/application-17-runtime-size.png[]
 There are three stability types in Payara Cloud. These are Rolling Upgrade, Singleton and Horizontal Scaling.
 
 .Application Scalability Types
-image::manage/application/application-18-scalability.png[]
+image::manage/application/application-18-scalability.png[window="_blank", link="{imagesdir}/manage/application/application-18-scalability.png"]
 
 === Rolling Upgrade
 This is the default scaling type. A new application version is deployed and the prior one is terminated when the newly deployed version reports its readiness.
@@ -46,7 +46,7 @@ NOTE: Depending on the speed of your deployment, there may be a brief moment whe
 === Horizontal Scaling
 
 .Horizontal Scaling
-image::manage/application/application-19-horizontal-scaling.png[]
+image::manage/application/application-19-horizontal-scaling.png[window="_blank", link="{imagesdir}/manage/application/application-19-horizontal-scaling.png"]
 
 [checklist]
 * ❶ Number of replicas: Between 2 and 8 replicas can be configured

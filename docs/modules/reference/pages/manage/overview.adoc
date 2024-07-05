@@ -25,7 +25,7 @@ For a step-by-step login guide, see xref:billing/signup/login.adoc[].
 == Namespace List
 
 .Application Management main screen
-image::manage/overview.svg[Application Management Screen,100%, opts=interactive]
+image::manage/overview.svg[Application Management Screen,100%, opts=interactive,window="_blank", link="{imagesdir}/manage/overview.svg"]
 
 .Main Navigation Elements
 [checklist]
@@ -69,7 +69,7 @@ Should you expand the namespace, you will see the list of applications in the na
 
 The feedback button allows you to submit feedback about your experience with Payara Cloud.
 
-image::manage/issue-collector.jpg[]
+image::manage/issue-collector.jpg[window="_blank", link="{imagesdir}/manage/issue-collector.jpg"]
 
 Your feedback is valuable to us.
 Click the feedback button to share your Payara Cloud experience.

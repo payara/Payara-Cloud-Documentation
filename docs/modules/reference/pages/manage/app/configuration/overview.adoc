@@ -4,7 +4,7 @@ Payara Cloud allows you to configure different aspects of your application.
 The application configuration page can be accessed through the main Application Actions menu.
 
 .Accessing the application config page
-image::manage/application/application-12-config-menu.png[]
+image::manage/application/application-12-config-menu.png[window="_blank", link="{imagesdir}/manage/application/application-12-config-menu.png"]
 
 [checklist]
 * ❶ Menu Edit Configuration: This is the main menu item to access the application configuration page
