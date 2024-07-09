@@ -41,9 +41,9 @@
 *** xref:how-to-guides/clustering.adoc[]
 *** xref:how-to-guides/Troubleshooting.adoc[Troubleshooting Tips]
 *** xref:how-to-guides/FAQ.adoc[Frequently Asked Questions]
-
 // Billing Management
 ** xref:how-to-guides/Billing/Billing Management.adoc[Billing Management]
+
 // Hidden at least during trial
 
 //* xref:How to Access Payara Micro Binaries.adoc[How to Access Payara Micro Binaries]

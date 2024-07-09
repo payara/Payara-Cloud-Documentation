@@ -38,12 +38,11 @@ Sign up for an additional subscription.
 
 For the current subscription, the following actions can be performed. Note that the availability of actions may be dictated by your role within the subscription.
 
-Overview::
+link:../billing/signup/subscription.html#_manage_subscriptions[Manage Subscription]::
 * Edit subscription name
-* View current usage
 * Set usage alerts
 
-Manage Billing::
+link:subscription/manage-billing-stripe.html[Manage Billing]::
 * Update payment and billing information
 * View invoices
 * Cancel plan
