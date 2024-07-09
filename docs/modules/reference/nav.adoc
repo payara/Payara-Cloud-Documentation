@@ -1,18 +1,5 @@
 // Reference
 * Reference
-** xref:billing/overview.adoc[]
-*** xref:billing/signup/overview.adoc[]
-**** xref:billing/signup/login.adoc[]
-**** xref:billing/signup/subscription.adoc[Subscription Management]
-**** xref:billing/signup/additional.adoc[]
-// TODO: Manage subscriptions
-// TODO: Subscription Overview
-*** xref:billing/subscription/user-subscription.adoc[]
-*** xref:billing/subscription/stripe-portal.adoc[]
-
-// TODO: Usage Alerts
-
-// Application management
 ** xref:manage/overview.adoc[]
 *** xref:manage/namespace/list.adoc[]
 **** xref:manage/namespace/detail.adoc[]
@@ -26,6 +13,13 @@
 ***** xref:manage/app/configuration/context-root.adoc[]
 ***** xref:manage/app/configuration/microprofile-config.adoc[]
 ***** xref:manage/app/configuration/data-source.adoc[]
+** xref:billing/overview.adoc[]
+*** xref:billing/signup/overview.adoc[]
+**** xref:billing/signup/login.adoc[]
+**** xref:billing/signup/subscription.adoc[Subscription Management]
+**** xref:billing/signup/additional.adoc[]
+*** xref:billing/subscription/user-subscription.adoc[]
+*** xref:billing/subscription/manage-billing-stripe.adoc[]
 *** xref:reference:manage/Roles and Permissions/managing-users.adoc[Manage Users and Access Levels]
 **** xref:reference:manage/Roles and Permissions/managing-users.adoc[How to Manager Users]
 **** xref:reference:manage/Roles and Permissions/access-control.adoc[][How to Manage Access Levels]

@@ -94,12 +94,21 @@ image::billing/signup/billing-plan-2.png[alt="Payara Cloud Plans", window="_blan
 
 === Edit Subscription Name
 
-You can edit the name of a subscription by clicking on it.
+- Click on "Subscription Actions" button on top right
+    1. Click "Edit Subscription"
+    2. Edit the name as required and click Save
 
+image::billing/subscription/user-subscription/edit-subscription1.png[link="{imagesdir}/billing/subscription/user-subscription/edit-subscription1.png", window="_blank"]
+
+image::billing/subscription/user-subscription/edit-subscription2.png[link="{imagesdir}/billing/subscription/user-subscription/edit-subscription2.png", window="_blank"]
 
 
 === View Current Usage
-You can view your current resource usage for a given subscription by clicking on the subscription name from the subscription list.
+Current and Projected usages are displayed on home page of selected subscription
+
+image::billing/subscription/billing/view-usage.png[link="{imagesdir}/billing/subscription/billing/view-usage.png", window="_blank"]
+
+All information related to Billing can be found at xref:billing/subscription/manage-billing-stripe.adoc[Stripe Portal]
 
 
 === Set Usage Alerts
