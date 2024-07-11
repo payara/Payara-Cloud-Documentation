@@ -18,6 +18,7 @@
 **** xref:billing/signup/login.adoc[]
 **** xref:billing/signup/subscription.adoc[Subscription Management]
 **** xref:billing/signup/additional.adoc[]
+**** xref:billing/subscription/user-preference.adoc[User Preferences]
 *** xref:billing/subscription/user-subscription.adoc[]
 *** xref:billing/subscription/manage-billing-stripe.adoc[]
 *** xref:reference:manage/Roles and Permissions/managing-users.adoc[Manage Users and Access Levels]
