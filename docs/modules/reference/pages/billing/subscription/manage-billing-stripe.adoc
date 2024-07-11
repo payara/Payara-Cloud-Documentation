@@ -24,6 +24,12 @@ image::reference:billing/subscription/billing/05-add-payment-method.png[link="{i
 
 == Stripe portal invoice and receipt
 
+Stripe portal overview page shows invoices history at bottom of the page
+
+image::reference:billing/subscription/billing/invoice-history.png[link="{imagesdir}/billing/subscription/billing/invoice-history.png", window="_blank"]
+
+Clicking on any invoice from history list will show details of the invoice
+
 image::reference:billing/subscription/billing/07-invoice-and-receipt.png[link="{imagesdir}/billing/subscription/billing/07-invoice-and-receipt.png", window="_blank"]
 
 === Stripe portal update Billing information
