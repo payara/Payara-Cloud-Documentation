@@ -19,7 +19,7 @@ The user menu, located in the top right corner with your avatar, provides a drop
 User Preferences::
 Allows modification of user preferences.
 
-== Subscriptions1
+== Subscriptions
 
 A subscription represents a billing unit within Payara Cloud.
 As a user, you may have a single subscription or access to multiple subscriptions, each with varying roles.
