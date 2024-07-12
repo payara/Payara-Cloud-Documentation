@@ -48,13 +48,13 @@ Example:
 |${project.artifactId}
 |Name of the application.
 
-|subscriptionId
+|subscriptionName
 |First available subscription
-|ID of the subscription to use. Defaults to the first available subscription if not specified.
+|Name of the subscription to use. Defaults to the first available subscription if not specified.
 
-|namespaceId
+|namespaceName
 |First available namespace
-|ID of the namespace to use. Defaults to the first available namespace if not specified.
+|Name of the namespace to use. Defaults to the first available namespace if not specified.
 
 |interactive
 |true
@@ -132,8 +132,8 @@ Example:
     <configuration>
         <applicationPath>${project.build.directory}/${project.build.finalName}.war</applicationPath>
         <applicationName>myApp</applicationName>
-        <subscriptionId>subscriptionName</subscriptionId>
-        <namespaceId>namespaceName</namespaceId>
+        <subscriptionName>mySubscriptionName</subscriptionName>
+        <namespaceName>myNamespaceName</namespaceName>
     </configuration>
 </plugin>
 
@@ -153,13 +153,13 @@ Example:
 |${project.artifactId}
 |Name of the application.
 
-|subscriptionId
+|subscriptionName
 |First available subscription
-|ID of the subscription to use. Defaults to the first available subscription if not specified.
+|Name of the subscription to use. Defaults to the first available subscription if not specified.
 
-|namespaceId
+|namespaceName
 |First available namespace
-|ID of the namespace to use. Defaults to the first available namespace if not specified.
+|Name of the namespace to use. Defaults to the first available namespace if not specified.
 
 |interactive
 |true
@@ -193,8 +193,8 @@ Example:
     </executions>
     <configuration>
         <applicationName>myApp</applicationName>
-        <subscriptionId>subscriptionName</subscriptionId>
-        <namespaceId>namespaceName</namespaceId>
+        <subscriptionName>mySubscriptionName</subscriptionName>
+        <namespaceName>myNamespaceName</namespaceName>
     </configuration>
 </plugin>
 
@@ -209,13 +209,13 @@ Example:
 |${project.artifactId}
 |Name of the application.
 
-|subscriptionId
+|subscriptionName
 |First available subscription
-|ID of the subscription to use. Defaults to the first available subscription if not specified.
+|Name of the subscription to use. Defaults to the first available subscription if not specified.
 
-|namespaceId
+|namespaceName
 |First available namespace
-|ID of the namespace to use. Defaults to the first available namespace if not specified.
+|Name of the namespace to use. Defaults to the first available namespace if not specified.
 
 |interactive
 |true
@@ -250,8 +250,8 @@ Example:
     </executions>
     <configuration>
         <applicationName>myApp</applicationName>
-        <subscriptionId>subscriptionName</subscriptionId>
-        <namespaceId>namespaceName</namespaceId>
+        <subscriptionName>mySubscriptionName</subscriptionName>
+        <namespaceName>myNamespaceName</namespaceName>
     </configuration>
 </plugin>
 
@@ -266,13 +266,13 @@ Example:
 |${project.artifactId}
 |Name of the application.
 
-|subscriptionId
+|subscriptionName
 |First available subscription
-|ID of the subscription to use. Defaults to the first available subscription if not specified.
+|Name of the subscription to use. Defaults to the first available subscription if not specified.
 
-|namespaceId
+|namespaceName
 |First available namespace
-|ID of the namespace to use. Defaults to the first available namespace if not specified.
+|Name of the namespace to use. Defaults to the first available namespace if not specified.
 
 |interactive
 |true
@@ -306,8 +306,8 @@ Example:
     </executions>
     <configuration>
         <applicationName>myApp</applicationName>
-        <subscriptionId>subscriptionName</subscriptionId>
-        <namespaceId>namespaceName</namespaceId>
+        <subscriptionName>mySubscriptionName</subscriptionName>
+        <namespaceName>myNamespaceName</namespaceName>
     </configuration>
 </plugin>
 
@@ -322,13 +322,13 @@ Example:
 |${project.artifactId}
 |Name of the application.
 
-|subscriptionId
+|subscriptionName
 |First available subscription
-|ID of the subscription to use. Defaults to the first available subscription if not specified.
+|Name of the subscription to use. Defaults to the first available subscription if not specified.
 
-|namespaceId
+|namespaceName
 |First available namespace
-|ID of the namespace to use. Defaults to the first available namespace if not specified.
+|Name of the namespace to use. Defaults to the first available namespace if not specified.
 
 |interactive
 |true
@@ -338,7 +338,6 @@ Example:
 |false
 |Skips the execution of the goal.
 |===
-
 
 
 [[dev-goal]]
@@ -368,8 +367,8 @@ Example:
         <liveReload>true</liveReload>
         <browser>chrome</browser>
         <applicationName>myApp</applicationName>
-        <subscriptionId>subscriptionName</subscriptionId>
-        <namespaceId>namespaceName</namespaceId>
+        <subscriptionName>mySubscriptionName</subscriptionName>
+        <namespaceName>myNamespaceName</namespaceName>
     </configuration>
 </plugin>
 
@@ -401,13 +400,13 @@ Example:
 |${project.artifactId}
 |Name of the application.
 
-|subscriptionId
+|subscriptionName
 |First available subscription
-|ID of the subscription to use. Defaults to the first available subscription if not specified.
+|Name of the subscription to use. Defaults to the first available subscription if not specified.
 
-|namespaceId
+|namespaceName
 |First available namespace
-|ID of the namespace to use. Defaults to the first available namespace if not specified.
+|Name of the namespace to use. Defaults to the first available namespace if not specified.
 
 |interactive
 |true
@@ -416,4 +415,143 @@ Example:
 |skip
 |false
 |Skips the execution of the goal.
+|===
+
+
+[[list-subscriptions]]
+=== list-subscriptions
+
+Aim:: This goal lists all available subscriptions in Payara Cloud.
+
+Usage:: `mvn payara-cloud:list-subscriptions`
+
+Example::
+----
+<plugin>
+    <groupId>fish.payara.maven.plugins</groupId>
+    <artifactId>payara-cloud-maven-plugin</artifactId>
+    <version>${payara.cloud.maven.plugin.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>list-subscriptions</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+----
+
+.Configuration tags
+[cols="2,1,7",options="header"]
+|===
+| Element
+| Default
+| Notes
+
+| interactive
+| true
+| If set to true, enables interactive mode.
+
+| skip
+| false
+| Skips the execution of the goal.
+|===
+
+
+[[list-namespaces]]
+=== list-namespaces
+
+Aim:: This goal lists all available namespaces in Payara Cloud.
+
+Usage:: `mvn payara-cloud:list-namespaces`
+
+Example::
+----
+<plugin>
+    <groupId>fish.payara.maven.plugins</groupId>
+    <artifactId>payara-cloud-maven-plugin</artifactId>
+    <version>${payara.cloud.maven.plugin.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>list-namespaces</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <subscriptionName>mySubscriptionName</subscriptionName>
+    </configuration>
+</plugin>
+----
+
+.Configuration tags
+[cols="2,1,7",options="header"]
+|===
+| Element
+| Default
+| Notes
+
+| subscriptionName
+| First available subscription
+| Name of the subscription to use. Defaults to the first available subscription if not specified.
+
+| interactive
+| true
+| If set to true, enables interactive mode.
+
+| skip
+| false
+| Skips the execution of the goal.
+|===
+
+
+[[list-applications]]
+=== list-applications
+
+Aim:: This goal lists all deployed applications in Payara Cloud.
+
+Usage:: `mvn payara-cloud:list-applications`
+
+Example::
+----
+<plugin>
+    <groupId>fish.payara.maven.plugins</groupId>
+    <artifactId>payara-cloud-maven-plugin</artifactId>
+    <version>${payara.cloud.maven.plugin.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>list-applications</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <subscriptionName>mySubscriptionName</subscriptionName>
+        <namespaceName>myNamespaceName</namespaceName>
+    </configuration>
+</plugin>
+----
+
+.Configuration tags
+[cols="2,1,7",options="header"]
+|===
+| Element
+| Default
+| Notes
+
+| subscriptionName
+| First available subscription
+| Name of the subscription to use. Defaults to the first available subscription if not specified.
+
+| namespaceName
+| First available namespace
+| Name of the namespace to use. Defaults to the first available namespace if not specified.
+
+| interactive
+| true
+| If set to true, enables interactive mode.
+
+| skip
+| false
+| Skips the execution of the goal.
 |===
