@@ -1,0 +1,82 @@
+= Payara IntelliJ IDEA Plugin User Guide
+:man-prefix: #
+:man-suffix: 1
+:imagesdir: images/
+
+== Introduction
+
+The Payara Ultimate Tools plugin enables integration of Payara Cloud and Platform with IntelliJ IDEA Ultimate Edition. The Payara Tools plugin is available in the https://plugins.jetbrains.com/plugin/15114-payara-platform-tools[JetBrains Plugins Marketplace].
+
+If you are developing an application on IntelliJ IDEA Community Edition, you should install the Payara Community Tools plugin, which enables integration of Payara Cloud and Payara Micro with IntelliJ IDEA Community Edition. The Payara Community Tools Plugin is also available in the https://plugins.jetbrains.com/plugin/15445-payara-micro-community-tools[JetBrains Plugins Marketplace].
+
+IMPORTANT: If you are using IntelliJ IDEA Ultimate, you should only install the `Payara Platform Tools` plugin. This plugin supports both Payara Server and Payara Micro.
+
+[[installing-plugin]]
+== Installing the Payara IntelliJ Plugin
+
+1. From the main menu, select *File > Settings > Plugins*.
+2. In the Plugins dialog, switch to the Marketplace tab.
+3. In the dialog that opens, search for *Payara*.
+4. Click the *Install* button.
+5. Click *OK* to apply the changes, and restart IntelliJ IDEA if prompted.
+
+[.text-center]
+image:install-plugin.png[window="_blank", link="{imagesdir}/install-plugin.png"]
+
+[[run-cloud-project]]
+== Deploying an Application to Payara Cloud from IntelliJ
+
+==== Create configuration
+
+To deploy a Jakarta EE application to Payara Cloud from IntelliJ, you need to first configure Payara Cloud as a run configuration.
+
+In the *Run/Debug Configurations* dialog, select the *Payara Cloud* node:
+
+[.text-center]
+image:create-configuration.png[window="_blank", link="{imagesdir}/create-configuration.png"]
+
+Select the Maven goal `dev` or `deploy` and Select the Payara Cloud `subscription name` and `namespace name` in the configuration.
+
+[.text-center]
+image:save-configuration.png[window="_blank", link="{imagesdir}/save-configuration.png"]
+
+==== Authorize the Payara Tools
+
+If authentication is not yet done, it will redirect you to the login page for authentication.
+
+The plugin will also open the browser for you if your environment permits it.
+
+[.text-center]
+image:login-02-confirmation.png[width=320, window="_blank", link="{imagesdir}/login-02-confirmation.png"]
+
+WARNING: Only confirm this page if you knowingly initiated login flow via `pcl login`, `payara-cloud-maven-plugin` or `Payara IDE plugins`.
+Payara Cloud will never ask you to authenticate via this flow via any other channel or under any other circumstance, such as solving a support issue.
+
+If you are logging in for the first time the authentication service will ask you to authorize Payara Cloud CLI to perform application management tasks with your identity:
+
+[.text-center]
+image:login-03-authorize.png[width=320, window="_blank", link="{imagesdir}/login-03-authorize.png"]
+
+After confirming this, the authentication process is completed and you may close the browser window:
+
+[.text-center]
+image:login-04-success.png[width=320, window="_blank", link="{imagesdir}/login-04-success.png"]
+
+==== Managing tokens
+
+After login is complete the relevant token is stored in `$HOME/.payara/manage.payara.cloud`.
+The token does not have any expiration time, so you will not need to log in again for when using the Payara Cloud Tools.
+Tokens can be invalidated remotely via User Preferences screen in Payara Cloud Web UI.
+
+==== Deploying the application
+
+To deploy the Jakarta EE application to Payara Cloud, just click *Run*.
+
+[.text-center]
+image:run-configuration.png[window="_blank", link="{imagesdir}/run-configuration.png"]
+
+
+You can view the Payara Cloud log in the *Run* window.
+
+[.text-center]
+image:deploy-application.png[window="_blank", link="{imagesdir}/deploy-application.png"]

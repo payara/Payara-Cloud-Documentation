@@ -8,6 +8,7 @@ nav:
   - modules/reference/nav.adoc
   - modules/cli/nav.adoc
   - modules/maven-plugin/nav.adoc
+  - modules/intellij-idea-plugin/nav.adoc
 asciidoc:
   attributes:
     experimental: ''
