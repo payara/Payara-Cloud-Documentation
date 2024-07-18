@@ -5,11 +5,11 @@
 
 == Introduction
 
-The Payara Ultimate Tools plugin enables integration of Payara Cloud and Platform with IntelliJ IDEA Ultimate Edition. The Payara Tools plugin is available in the https://plugins.jetbrains.com/plugin/15114-payara-platform-tools[JetBrains Plugins Marketplace].
+The Payara IntelliJ Ultimate Tools plugin enables integration of Payara Cloud and Platform with IntelliJ IDEA Ultimate Edition. The Payara IntelliJ Ultimate Tools plugin is available in the https://plugins.jetbrains.com/plugin/15114-payara-platform-tools[JetBrains Plugins Marketplace].
 
-If you are developing an application on IntelliJ IDEA Community Edition, you should install the Payara Community Tools plugin, which enables integration of Payara Cloud and Payara Micro with IntelliJ IDEA Community Edition. The Payara Community Tools Plugin is also available in the https://plugins.jetbrains.com/plugin/15445-payara-micro-community-tools[JetBrains Plugins Marketplace].
+If you are developing an application on IntelliJ IDEA Community Edition, you should install the Payara IntelliJ Community Tools plugin, which enables integration of Payara Cloud and Payara Micro with IntelliJ IDEA Community Edition. The Payara IntelliJ Community Tools Plugin is also available in the https://plugins.jetbrains.com/plugin/15445-payara-micro-community-tools[JetBrains Plugins Marketplace].
 
-IMPORTANT: If you are using IntelliJ IDEA Ultimate, you should only install the `Payara Platform Tools` plugin. This plugin supports both Payara Server and Payara Micro.
+IMPORTANT: If you are using IntelliJ IDEA Ultimate, you should only install the `Payara IntelliJ Ultimate Tools` plugin. This plugin supports both Payara Server and Payara Micro.
 
 [[installing-plugin]]
 == Installing the Payara IntelliJ Plugin
