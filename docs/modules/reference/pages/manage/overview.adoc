@@ -25,7 +25,7 @@ For a step-by-step login guide, see xref:billing/signup/login.adoc[].
 == Namespace List
 
 .Application Management main screen
-image::manage/overview.svg[Application Management Screen,100%, opts=interactive,window="_blank", link="{imagesdir}/manage/overview.svg"]
+image::manage/overview.png[Application Management Screen, opts=interactive,window="_blank", link="{imagesdir}/manage/overview.png"]
 
 .Main Navigation Elements
 [checklist]
