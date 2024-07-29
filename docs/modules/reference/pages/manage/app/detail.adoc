@@ -65,8 +65,8 @@ image::manage/application/application-5-stopped-status.png[window="_blank", link
 * ❶ Application Name: The current application's name
 * ❷ STOPPED State: Shows that the application is currently not active
 * ❸ Application URL:  URL of the stopped application, which leads to a 502 error when accessed
-* ❹ Deployed time stamp: Indicates the last deployment time of the application
-* ❺ Start Application Button: Used to restart the application, transitioning it back to the RUNNING state
+* ❹ Start Application Button: Used to restart the application, transitioning it back to the RUNNING state
+* ❺ Deployed time stamp: Indicates the last deployment time of the application
 
 
 
@@ -77,7 +77,7 @@ Over its lifetime, an application in Payara Cloud undergoes several revisions, e
 
 
 .Application revisions table
-image::manage/application/application-7-applicaiton-revisions.png[window="_blank", link="{imagesdir}/manage/application/application-7-applicaiton-revisions.png"]
+image::manage/application/application-7-application-revisions.png[window="_blank", link="{imagesdir}/manage/application/application-7-application-revisions.png"]
 
 .Application Revisions Details
 [checklist]
