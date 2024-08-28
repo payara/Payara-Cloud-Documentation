@@ -1,0 +1,17 @@
+= Getting Started with Payara Cloud
+
+== Signing Up and Creating a Subscription
+
+. *Free Trial*: Payara Cloud offers a 15-day free trial. Begin by visiting the https://payara.cloud/signup[signup page] and completing the signup form. You'll need to provide a username, email address, and a secure password.
+. *Account Verification*: After signing up, check your email for an account confirmation message. Click the verification link within the email to activate your account.
+. *Creating a Subscription*: Log in to your Payara Cloud account. If this is your first time, you'll be prompted to create a subscription. The free trial is the default selection. Proceed by clicking the "Continue to Invoicing" button.
+. *Invoicing Details*: Provide the necessary invoicing information, including the primary contact name and any relevant company details. Click "Continue to Confirmation."
+. *Confirmation and Subscription*: Review and accept the Terms & Conditions. You can also opt in for marketing communications. Finally, click the "Subscribe" button to create your subscription. You'll be redirected to the Application Management Page, where you can start using Payara Cloud immediately.
+
+== Deploying Your First Application
+. Make sure you have a Jakarta EE application in WAR format ready to deploy. If you need a demo, check out the https://github.com/Jakarta-EE-Petclinic/petclinic-jakartaee[Jakarta EE 10 version of Pet Clinic].
+. Access the Namespace: Log in to your Payara Cloud account. You'll be directed to the Namespaces screen. A default namespace called "start-dev" is pre-created for you.
+. Upload Your Application: From the Namespace Details Screen, click "Upload Application." Select your WAR file and, if your application doesn't require special configuration, check the "Deploy Immediately" checkbox.
+. Configure (If Needed): If your application needs specific configurations, you'll be taken to the application's detail screen after uploading. Here, you can adjust settings related to MicroProfile Config properties, context root, and database connections.
+. Deploy: Once configured, deploy your application by navigating to the application details screen, clicking "Applications Actions," and choosing "Deploy Changes."
+. Access Your Application: After successful deployment, you can access your application using the provided Application URL. Note that there might be a slight delay due to DNS propagation.
