@@ -1,0 +1,25 @@
+= Introduction to Payara Cloud
+
+Payara Cloud is a cloud-based (Payara-Server as a Service) platform that simplifies the deployment and management of Jakarta EE and MicroProfile web applications.
+It eliminates the need for manual setup and configuration of servers and infrastructure, allowing developers to focus on building and delivering their applications.
+
+== Key Features:
+* Automatic deployment and scaling
+* High availability
+* Monitoring and metrics
+* Security
+* Centralized logging
+* Straightforward integration with other cloud services
+* User-friendly web interface
+
+== Conceptual Framework
+
+Payara Cloud uses the concepts of namespaces and applications.
+
+* A namespace is a logical grouping of related applications, providing isolation and organization.
+* Applications are the individual deployable units within a namespace.
+* Subscriptions define the resources and access levels available to users.
+* Access management controls user permissions based on roles.
+
+Payara Cloud's architecture relies on containerization and orchestration to deploy, manage and scale applications in the cloud.
+It supports a variety of deployment scenarios and offers flexibility in configuring and customizing the runtime environment.

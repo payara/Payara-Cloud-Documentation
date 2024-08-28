@@ -1,25 +1,57 @@
 = Glossary
-Active User:: A user who has activated access to a Payara Cloud subscription.
 
-Administrator:: A user granted full administrative access to the applications within a subscription.
+Active User:: A user who has successfully activated their access to a Payara Cloud subscription.
 
-Billing Manager:: A user granted full access to the billing and payment data of a subscription.
+Administrator:: A user with comprehensive administrative privileges, including the ability to deploy, configure, and manage applications, as well as control user access and roles within a subscription.
+The administrator also has the unique ability to manage namespace-specific roles and perform critical namespace-level operations, such as creating new namespaces, setting up custom domains, and deleting namespaces.
 
-Deploy:: The act of launching your uploaded and configured application.
+Billing Manager:: A user responsible for managing the financial aspects of a subscription, such as viewing invoices, updating payment information, and overseeing billing-related tasks.
+The Billing Manager can also invite new users to the subscription and modify their roles, except for granting or revoking Billing Manager roles.
 
-DNS (Domain Name System):: A hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network.
+Billing Manager with Administrative Privileges:: A special role that combines the permissions of both the Billing Manager and Administrator, granting full access to both the financial and technical aspects of a Payara Cloud subscription.
 
-Member:: A user with limited access to a Payara Cloud subscription.
+CLI Token:: A unique token used to authenticate and authorize access to the Payara Cloud Command Line Interface (CLI) for managing namespaces and applications from a terminal or command prompt.
 
-Namespace:: A grouping or isolation of resources within a Payara Cloud subscription. A subscription can have multiple namespaces, and each namespace can host multiple applications.
+Deploy:: The process of launching an uploaded and configured application, making it accessible and operational within the Payara Cloud environment.
 
-Inactive User:: A user whose access to a Payara Cloud subscription has been temporarily deactivated.
+DNS (Domain Name System):: A hierarchical and decentralized naming system that translates human-readable domain names (e.g., \https://www.example.com) into machine-readable IP addresses, enabling users to access websites and services over the internet.
+In the context of Payara Cloud, DNS is important for associating custom domains with namespaces and ensuring the accessibility of deployed applications.
 
-Invitation:: An email sent to a user to grant access to an existing Payara Cloud subscription.
+Heap Dump:: A snapshot of the Java Virtual Machine's (JVM) memory at a specific point in time, capturing information about objects, their sizes, and references.
+Heap dumps are important for debugging memory-related issues, such as memory leaks and inefficient object usage, in Payara Cloud applications.
 
-Pending User:: A user who has received an invitation but has not yet accepted it.
+Inactive User:: A user whose access to a Payara Cloud subscription has been temporarily deactivated or suspended.
 
-Stage:: The phase your application is in, such as Development, Testing, Pre-production, or Production. Also referred to as the environment.
+Invitation:: An email sent to a user, granting them access to an existing Payara Cloud subscription.
+The invitation contains a unique link that the recipient can follow to activate their access and join the subscription.
 
-Subscription:: The billing unit of Payara Cloud, encompassing a defined set of resources and access levels.
+Manager:: A user role with full access to existing Payara Cloud namespaces.
+Managers can upload new applications, delete existing ones, and perform various application management tasks, but they cannot access billing data or perform namespace-level operations.
 
+Member:: A user with limited access to a Payara Cloud subscription, typically restricted from performing certain administrative or billing-related tasks.
+
+Namespace:: A logical grouping or container within a Payara Cloud subscription that isolates and organizes related applications, providing a distinct environment for application deployment and management.
+Each namespace has its own unique domain and allows applications to be deployed at specific sub-paths within that domain.
+
+Operator:: A user role focused on application reconfiguration and diagnostics.
+Operators can analyze and adjust application settings but cannot delete applications or access sensitive configuration properties.
+
+Pending User:: A user who has received an invitation to a Payara Cloud subscription but has not yet accepted or activated their access.
+
+Runtime Size:: The allocation of resources, primarily CPU and memory, assigned to an application instance in Payara Cloud.
+The available runtime sizes depend on the subscription tier and impact the application's performance and resource utilization.
+
+Runtime Type:: The combination of Java and Jakarta EE versions that an application is developed against and requires for execution in Payara Cloud.
+Selecting the correct runtime type ensures compatibility and optimal performance.
+
+Stage:: The specific phase or environment in which an application is deployed, such as development, testing, pre-production, or production.
+Stages help organize and manage applications based on their development lifecycle.
+
+Subscription:: The fundamental billing unit in Payara Cloud, representing a defined set of resources and access levels granted to users within the platform.
+Each subscription has its own invoice and billing period, allowing for separate billing for different projects or departments.
+
+Thread Dump:: A snapshot of all the threads running within the JVM at a specific moment, capturing their states, stack traces, and other relevant information.
+Thread dumps are helpful for debugging performance issues, deadlocks, and other thread-related problems in Payara Cloud applications.
+
+Viewer:: A user role with read-only access to deployed applications.
+Viewers can monitor application metrics, view logs, and access configuration details (excluding sensitive properties) but cannot make any modifications.
