@@ -1,8 +1,0 @@
-= Subscription List
-
-In case you have access to multiple subscription selecting btn:[Other subscriptions] in sidebar menu will show you a list of all subscriptions you have access to:
-
-.Subscription List
-image::manage/subscription/list.png[window="_blank", link="{imagesdir}/manage/subscription/list.png"]
-
-In case your subscription have been suspended due to payment issues you will see a warning message advising you to visit xref:billing/overview.adoc[].

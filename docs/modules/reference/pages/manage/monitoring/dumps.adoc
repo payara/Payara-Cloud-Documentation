@@ -1,1 +1,0 @@
-= Heap Dumps and Thread Dumps
