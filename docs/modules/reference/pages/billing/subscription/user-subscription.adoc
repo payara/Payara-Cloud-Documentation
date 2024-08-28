@@ -37,6 +37,10 @@ Does not have access to Payara Cloud. You may want to override this role on per-
  * Viewer
  * No access
 
+== Permission in a Subscription for Application Management operations for below defined roles
+
+image::manage/application/subscription management permissions.png[link="{imagesdir}/manage/application/subscription management permissions.png", window="_blank"]
+
 == Permission for Application Management operations for all Roles are defined as per below chart
 
 image::manage/application/application management permissions.png[link="{imagesdir}/manage/application/application management permissions.png", window="_blank"]
