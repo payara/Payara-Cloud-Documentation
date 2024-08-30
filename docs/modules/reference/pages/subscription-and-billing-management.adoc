@@ -1,0 +1,42 @@
+= Subscription and Billing Management
+
+In Payara Cloud, a subscription serves as the fundamental billing unit, encompassing the resources and access levels you've selected for your cloud deployment needs.
+It acts as the focal point for billing, consolidating all application usage across various namespaces into a single, easy-to-understand invoice.
+The subscription model simplifies the billing process, providing a clear and aggregated view of your Payara Cloud usage and costs.
+
+== Choosing a Subscription Plan
+
+Payara Cloud offers three subscription plans tailored to different needs, each with its own set of features and resource allocations. The available plans are:
+
+* *Basic*: Provides essential features for deploying and managing applications.
+* *Standard*: Offers additional features like custom domain support and increased resource limits.
+* *Premium*: Includes all the features of the Standard plan, plus access to Payara Micro Enterprise binaries for local development and expedited support from the Payara team.
+
+The specific resource allocations and pricing for each plan can be found on the Payara Cloud website or by contacting the Payara sales team.
+
+== Managing Subscriptions
+
+You can view and manage your existing subscriptions through the Billing Management section in Payara Cloud.
+There, you can perform various actions, including:
+
+* *Viewing Subscription Details*: Access information about your current subscription plan, resource usage, and billing details.
+* *Upgrading or Downgrading*: Change your subscription plan to a higher or lower tier based on your evolving needs.
+* *Cancelling Subscription*: Terminate your subscription if you no longer require Payara Cloud services.
+
+== Billing and Invoicing
+
+Payara Cloud operates on a 30-day billing cycle.
+Invoices are issued at the beginning of each billing period.
+You can view and download your invoices from the Billing Management section.
+
+Invoices include:
+
+* *Fixed Monthly Fee*: Charged in advance for the upcoming billing period, based on the chosen subscription plan
+* *Variable Fee*: Covers any usage that exceeds your plan's prepaid volume in the previous billing period.
+* *Consumption Measurement*: Billing is primarily based on vCPU-minutes, with each plan offering a certain amount of prepaid vCPU-minutes per month.
+
+=== Payment Methods
+Payara Cloud accepts both credit and debit card payments.
+
+
+Payara Cloud's subscription and billing management system offers transparency and flexibility, allowing you to tailor your cloud deployment costs to your specific requirements and usage patterns.
