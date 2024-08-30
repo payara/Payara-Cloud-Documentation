@@ -30,6 +30,7 @@
 ** xref:getting-started.adoc[Getting Started With Payara Cloud]
 ** xref:application-management.adoc[Application Management]
 ** xref:subscription-and-billing-management.adoc[Subscription and Billing Management]
+** xref:access-management.adoc[Access Management]
 
 // *** xref:manage/monitoring/overview.adoc[]
 // **** xref:manage/monitoring/logs.adoc[]
