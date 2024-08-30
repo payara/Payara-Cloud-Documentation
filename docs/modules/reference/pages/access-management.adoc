@@ -1,0 +1,49 @@
+= Understanding Roles and Permissions
+
+Payara Cloud uses a role-based access control system, where each role is associated with a specific set of permissions.
+This ensures that users have the appropriate level of access to manage and interact with the Payara Cloud environment based on their responsibilities.
+The available roles are:
+
+* Billing Manager: This role is focused on the financial aspects of the subscription. Billing Managers can view invoices, manage payment methods, and control user access to the subscription. However, they do not have permissions to manage applications or namespaces.
+* Administrator: Administrators have full control over the technical aspects of the subscription. They can deploy and configure applications, create and manage namespaces, and also manage user roles and permissions.
+* Billing Manager with Administrative Privileges: This role combines the capabilities of both the Billing Manager and Administrator roles. Users with this role have complete access to both the financial and technical aspects of the subscription.
+* Manager: Managers have full access to existing namespaces within the subscription. They can upload new applications, delete existing ones, and manage application configurations. However, they cannot create or delete namespaces or perform billing-related tasks.
+* Operator: Operators have a more focused role, primarily responsible for reconfiguring and diagnosing deployed applications. They can make changes to application settings but cannot delete applications or access sensitive configuration properties.
+* Viewer: The Viewer role provides read-only access to deployed applications. Viewers can view application details, logs, and metrics but cannot make any changes to the applications or their configurations.
+* No Access: By default, this role grants no access to any part of the Payara Cloud environment. However, it can be customized on a per-namespace basis to allow specific, limited access to certain namespaces.
+
+== Managing User Access
+
+Payara Cloud provides a streamlined process for managing user access and permissions within your subscription:
+
+* Inviting Users: To grant access to your Payara Cloud subscription, you need to invite users via email. The invitation will include a link that allows them to either create a new Payara Cloud account or use an existing one to join the subscription.
+* Assigning Roles: When inviting a user, you'll need to assign them an appropriate role based on their responsibilities and the level of access they require. It's important to note that the Billing Manager role can only be assigned or removed by another Billing Manager.
+* Managing User Roles: You can modify a user's role at any time through the user management interface. The new role will take effect the next time the user logs in.
+* Enabling/Disabling Users: You can temporarily deactivate a user's access by making them inactive. This effectively removes their permissions without completely removing them from the subscription. You can reactivate them later if needed.
+* Removing Users: If you need to permanently remove a user from your subscription, you can do so through the "Remove User" option. This action is irreversible, and the user will need to be re-invited to regain access.
+
+== Role Scopes
+
+
+Payara Cloud offers flexibility in assigning roles at different levels or scopes, providing granular control over user access:
+
+* Subscription Role: This is the default role assigned to a user for the entire subscription. It defines their baseline permissions unless overridden at other levels.
+* Namespace Default User Role: This role overrides the Subscription Role within a specific namespace. It allows you to set different default permissions for different namespaces, catering to varying access needs across different projects or environments.
+* User's Role: This is the most specific role assigned to a particular user within a single namespace. It provides the finest level of access control, allowing you to tailor permissions for individual users within specific namespaces.
+
+It's important to understand that role scopes only apply to roles other than Administrator. Administrators have inherent full access to all namespaces and applications within the subscription, and their subscription role cannot be changed.
+
+
+== Role Permissions in Practice
+The tables below show the specific actions that each role can perform within the context of application and namespace management in Payara Cloud.
+These tables provide a clear overview of the access control mechanisms and how different roles interact with the Payara Cloud environment.
+
+.Application management permissions
+image::manage/application/application-management-permissions.png[link="{imagesdir}/manage/application/application-management-permissions.png", window="_blank"]
+
+Namespace Management Permissions
+
+.Namespace management permissions
+image::manage/application/application-namespace-permissions.png[link="{imagesdir}/manage/application/application-namespace-permissions.png", window="_blank"]
+
+These tables show the granular access control that Payara Cloud provides, ensuring that users have the necessary permissions to perform their tasks while maintaining the security and integrity of your cloud environment.
