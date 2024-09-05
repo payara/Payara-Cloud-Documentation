@@ -1,0 +1,44 @@
+= Applications
+
+Payara Cloud organizes applications within distinct Namespaces.
+Follow these steps to interact with your applications:
+
+*Locate the Namespace*: First, identify the Namespace where your application is deployed.
+This can be done by navigating to the Namespace list section.
+
+.Namespace list
+image::how-to-guides/application/application-4-namespace-list.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-4-namespace-list.png"]
+
+*View Applications*: Each Namespace represents a list of its associated applications.
+
+.Namespace with application list
+image::how-to-guides/application/applications-1-namespace-detail-page.png[Namespace Detail Screen,100%, opts=interactive, window="_blank", link="{imagesdir}/how-to-guides/application/applications-1-namespace-detail-page.png"]
+
+.Namespace homepage
+[checklist]
+* ❶ Namespace name in which application is deployed
+* ❷ Base URL of the Namespace
+* ❸ Table of applications in the Namespace
+* ❹ Application name
+* ❺ Application status. An application can have PENDING, CONFIGURED or DEPLOYED status at any point in time
+* ❻ Internet accessible URL of the deployed application
+* ❼ Button to create and upload new application to this Namespace
+
+The Applications table provides a comprehensive overview of all applications within the current Namespace.
+To open a specific application, click on its name.
+This action will direct you to the xref:how-to-guides/application/detail.adoc[application detail page].
+Additionally, you can access a deployed application directly by clicking on its "Live URL."
+
+
+
+
+
+
+
+
+
+
+
+
+
+

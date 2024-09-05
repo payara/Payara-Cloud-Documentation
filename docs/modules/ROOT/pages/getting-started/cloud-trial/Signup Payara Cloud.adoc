@@ -49,7 +49,7 @@ image::new-signup5.png[Payara Cloud Subscription Confirmation, text Description 
 On the Confirmation tab, review and accept the Terms & Conditions.
 Optionally, opt in for marketing communications.
 Click the btn:[Subscribe] button to create your subscription.
-You will be redirected to your Application Management Page that shows a default xref:docs:reference:manage/namespace/list.adoc[Namespace] you can start using immediately.
+You will be redirected to your Application Management Page that shows a default xref:how-to-guides/namespace/list.adoc[Namespace] you can start using immediately.
 
 .Default Application Management Page
 
@@ -57,7 +57,7 @@ image::new-signup-6.png[Payara Cloud Default Namespace, text Description automat
 
 Your free trial starts now. You won't be charged until the trial ends, and you choose a paid subscription.
 Your newly created `start-dev` Namespace is ready to use.
-Learn more about managing applications within your namespace in the xref:docs:reference:manage/app/overview.adoc[reference docs].
+Learn more about managing applications within your namespace in the xref:how-to-guides/application/overview.adoc[reference docs].
 
 
 

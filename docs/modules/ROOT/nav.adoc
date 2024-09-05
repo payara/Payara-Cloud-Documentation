@@ -22,7 +22,6 @@
 
 // How-to-Guides
 * How-to Guides
-** xref:how-to-guides/application/Application Management.adoc[Application Management]
 *** xref:how-to-guides/application/Deploying an Application.adoc[Deploying an Application]
 **** xref:how-to-guides/application/Deploying an Application.adoc#create-a-namespace[Create a Namespace]
 **** xref:how-to-guides/application/Deploying an Application.adoc#upload-an-application[Upload an Application]
@@ -42,7 +41,7 @@
 *** xref:how-to-guides/Troubleshooting.adoc[Troubleshooting Tips]
 // *** xref:how-to-guides/FAQ.adoc[Frequently Asked Questions]
 // Billing Management
-** xref:how-to-guides/Billing/Billing Management.adoc[Billing Management]
+** xref:how-to-guides/billing/Billing Management.adoc[Billing Management]
 
 // Hidden at least during trial
 
