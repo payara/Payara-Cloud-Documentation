@@ -1,0 +1,59 @@
+=  Initiating an Additional Subscription
+
+All users of Payara Cloud have the ability to initiate additional subscriptions, provided they have access to the necessary payment information.
+Billing Managers can start a new subscription using existing payment data, while other users must input new payment information.
+
+This feature enhances cost management transparency since each subscription has its own invoice and billing period.
+This allows for separate invoicing for different projects or departments.
+
+== How to Access the Subscription Dialog
+
+To create a new subscription, click on the btn:[ Create New Subscription] ❷ button found on the left-hand side menu under btn:[Subscription Management] ❶:
+
+.Subscriptions menu
+image::how-to-guides/application/billing/subscription/account-management-subscriptionsopen.png[opts=interactive, width=100%, window="_blank", link="{imagesdir}/how-to-guides/application/billing/subscription/account-management-subscriptionsopen.png"]
+
+[#_payment_detail_selection]
+== Selecting Payment Details
+
+The next step involves choosing how to proceed with the payment details:
+
+* To start a new subscription with new payment details, click btn:[Create New Subscription with New Payment Details].
+This will redirect you to the link:subscription.adoc[Signup page], where you’ll be prompted to enter new company details and authorize a new payment method.
+
+* If you wish to use existing payment details, select btn:[Use These Details] next to the desired Payment Details.
+Only the payment details of subscriptions where you are a Billing Manager will be listed.
+
+.Payment Detail Selection screen
+image::how-to-guides/application/billing/additional-1.png[window="_blank", link="{imagesdir}/how-to-guides/application/billing/additional-1.png"]
+
+== Signing Up with Existing Payment Details
+
+Selecting a plan is the first step, similar to the regular signup process.
+Note that usually, you are not eligible for a trial subscription for an additional plan, as Payara Cloud allows only one trial per user.
+
+.Plan Selection for new subscription
+image::how-to-guides/application/billing/additional-2.png[window="_blank", link="{imagesdir}/how-to-guides/application/billing/additional-2.png"]
+
+
+Clicking btn:[Continue to Invoicing]  will display the payment details for confirmation:
+
+.Invoicing and Payment confirmation
+image::how-to-guides/application/billing/additional-3.png[window="_blank", link="{imagesdir}/how-to-guides/application/billing/additional-3.png"]
+
+If these are not the correct details, clicking btn:[Use New Invoicing Payment Details] will prompt a confirmation dialog:
+
+.Use New Payment Details confirmation
+image::how-to-guides/application/billing/additional-4.png[, window="_blank", link="{imagesdir}/how-to-guides/application/billing/additional-4.png"]
+
+Selecting btn:[I wish to use new details] will initiate the signup process, as if you selected btn:[Create New Subscription with New Payment Details] in the <<_payment_detail_selection>> section.
+
+However, if the listed payment details are correct, proceed to the final step by clicking btn:[Continue to Confirmation].
+
+.Signup confirmation
+image::how-to-guides/application/billing/additional-5.png[, window="_blank", link="{imagesdir}/how-to-guides/application/billing/additional-5.png"]
+
+As in the standard signup process, you will need to confirm the recurring payment and the terms of service.
+You also have the option to subscribe to Payara Cloud product updates via a newsletter.
+
+Clicking btn:[Subscribe] will begin the provisioning process for your new subscription, which should complete in under a minute.

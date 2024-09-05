@@ -1,0 +1,47 @@
+= Managing Subscriptions in Payara Cloud
+
+Payara Cloud uses subscriptions as the primary billing unit.
+All application usage across various namespaces gets consolidated into a single invoice, simplifying the billing process.
+
+A single Billing Manager can oversee multiple subscriptions.
+These subscriptions can be associated with different companies and utilize various payment methods.
+
+== Starting New Subscription
+
+=== Free Trial
+
+For new users, the best way to begin is with our free trial.
+A detailed guide to get you started is available here: xref:docs:ROOT:getting-started/cloud-trial/Signup Payara Cloud.adoc[].
+
+If you're an existing Payara Cloud user, you can easily create additional subscriptions.
+You have the option to either link:additional.adoc[reusing existing invoicing data] or link:additional.adoc[provide new invoicing data] for these new subscriptions.
+
+== Cancelling Subscription
+
+A subscription can be cancelled at any time by following procedure listed in xref:docs:ROOT:getting-started/cloud-trial/Cancel Payara Cloud.adoc[].
+
+== Invoicing
+
+Payara Cloud issues invoices in 30-day cycles, which include:
+
+. Fixed Monthly Fee: This is charged in advance for the upcoming billing period.
+. Variable Fee: This fee covers any usage that exceeds your plan's prepaid volume in the previous billing period.
+
+[#_consumption_measurement]
+== Consumption Measurement
+Billing is based on vCPU-minutes.
+Each plan includes a set amount of prepaid vCPU-minutes per month, calculated as 30 days' worth of minutes per vCPU (43,200 minutes).
+For instance:
+
+
+. The Basic plan includes 172,800 minutes.
+. The Standard and Premium plans include 691,200 minutes.
+
+This 30-day cycle basis for billing periods is why they do not always align with calendar months.
+
+== Payment Options
+
+Payara Cloud accepts both credit and debit card payments. We use Stripe as our trusted payment processor to ensure secure transactions.
+
+
+
