@@ -1,5 +1,5 @@
 // Reference
-* Reference
+* Payara Cloud Reference Docs
 // ** xref:manage/overview.adoc[]
 // *** xref:manage/namespace/list.adoc[]
 // **** xref:manage/namespace/detail.adoc[]
