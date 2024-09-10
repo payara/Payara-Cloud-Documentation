@@ -1,8 +1,6 @@
+* Payara Cloud How To Guides
 
-== Getting Started
-
-* xref:Getting Started.adoc[Getting Started]
-** Cloud Trial
+** xref:Getting Started.adoc[Getting Started]
 *** xref:getting-started/cloud-trial/Signup Payara Cloud.adoc[Signing up]
 *** xref:getting-started/Log in into Account.adoc[Log into Your Account]
 // ** Deploying an Application
@@ -17,29 +15,22 @@
 // *** xref:Getting Started.adoc#deploy-a-stopped-application[Deploy a Stopped Application]
 // ** xref:Clustering.adoc#application-clustering-configurations[Clustering]
 
-* https://www.youtube.com/playlist?list=PLFMhxiCgmMR9S2uEiIogs6yp3MmDNsUKY[Demo Videos]
-
-
-== Application How-to Guides
-
-* How-to Guides
-** Namespace Management
-*** xref:how-to-guides/namespace/detail.adoc[Namespace Detail]
-*** xref:how-to-guides/namespace/list.adoc[List Namespace]
+** https://www.youtube.com/playlist?list=PLFMhxiCgmMR9S2uEiIogs6yp3MmDNsUKY[Demo Videos]
 
 ** Application Management
-
-*** xref:how-to-guides/application/Deploying an Application.adoc[Deploying an Application]
+**** xref:how-to-guides/namespace/detail.adoc[Namespace Detail]
+**** xref:how-to-guides/namespace/list.adoc[List Namespace]
+**** xref:how-to-guides/application/Deploying an Application.adoc[Deploying an Application]
 **** xref:how-to-guides/application/Deploying an Application.adoc#create-a-namespace[Create a Namespace]
 **** xref:how-to-guides/application/Deploying an Application.adoc#upload-an-application[Upload an Application]
 **** xref:how-to-guides/application/Deploying an Application.adoc#review-configuration[Review Configuration]
 **** xref:how-to-guides/application/Deploying an Application.adoc#deploy-application[Deploy Application]
 **** xref:how-to-guides/application/Deploying an Application.adoc#stop-application[Stop Application]
 **** xref:how-to-guides/application/Deploying an Application.adoc#delete-application[Delete Application]
-*** xref:how-to-guides/application/List Applications.adoc[List Applications]
-*** xref:how-to-guides/application/Configure Application.adoc[Configure Application]
-*** xref:how-to-guides/application/Start Application.adoc[Start Application]
-*** xref:how-to-guides/application/Logging.adoc[How to Diagnose a Running Application]
+**** xref:how-to-guides/application/List Applications.adoc[List Applications]
+**** xref:how-to-guides/application/Configure Application.adoc[Configure Application]
+**** xref:how-to-guides/application/Start Application.adoc[Start Application]
+**** xref:how-to-guides/application/Logging.adoc[How to Diagnose a Running Application]
 **** xref:how-to-guides/application/Logging.adoc#heap-dumps[Heap Dumps]
 **** xref:how-to-guides/application/Logging.adoc#thread-dumps[Thread Dumps]
 ** Advanced Features
@@ -51,11 +42,10 @@
 // *** xref:how-to-guides/FAQ.adoc[Frequently Asked Questions]
 
 
-== Billing & Account Management
+** Billing & Account Management
 
-* Billing Management
-** Signup & Subscription
-*** xref:how-to-guides/billing/signup/overview.adoc[Overview]
+*** Signup & Subscription
+**** xref:how-to-guides/billing/signup/overview.adoc[Overview]
 **** xref:how-to-guides/billing/signup/login.adoc[Login]
 **** xref:how-to-guides/billing/signup/subscription.adoc[Subscription Management]
 **** xref:how-to-guides/billing/signup/additional.adoc[Additional Subscriptions]
@@ -64,11 +54,8 @@
 *** xref:how-to-guides/billing/subscription/user-subscription.adoc[Manage User Access]
 ** Manage Billing Invoices
 *** xref:how-to-guides/billing/subscription/manage-billing-stripe.adoc[]
-** Manage Users and Access Levels
-*** xref:reference:manage/Roles and Permissions/managing-users.adoc[How to Manager Users]
-*** xref:reference:manage/Roles and Permissions/access-control.adoc[How to Manage Access Levels]
-* xref:Account Management and How to View Current Usage.adoc[Account Management and Usage View]
-* xref:getting-started/cloud-trial/Cancel Payara Cloud.adoc[How To Cancel Payara Cloud Account]
+** xref:Account Management and How to View Current Usage.adoc[Account Management and Usage View]
+** xref:getting-started/cloud-trial/Cancel Payara Cloud.adoc[How To Cancel Payara Cloud Account]
 
 
 
