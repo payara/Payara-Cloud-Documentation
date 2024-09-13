@@ -46,4 +46,9 @@ Namespace Management Permissions
 .Namespace management permissions
 image::manage/application/application-namespace-permissions.png[link="{imagesdir}/manage/application/application-namespace-permissions.png", window="_blank"]
 
+Subscription Management Permissions
+
+.Subscription Management Permission
+image::manage/application/subscription-management-permissions.png[link="{imagesdir}/manage/application/application-namespace-permissions.png", window="_blank"]
+
 These tables show the granular access control that Payara Cloud provides, ensuring that users have the necessary permissions to perform their tasks while maintaining the security and integrity of your cloud environment.

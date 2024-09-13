@@ -1,4 +1,4 @@
-= Payara IntelliJ IDEA Plugin User Guide
+= IntelliJ IDEA Plugin User Guide
 :man-prefix: #
 :man-suffix: 1
 :imagesdir: images/

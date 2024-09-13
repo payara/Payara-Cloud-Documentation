@@ -1,8 +1,13 @@
 = Application Management
 
+An application in Payara Cloud represents the core unit of deployment and execution for your Jakarta EE (formerly Java EE) projects.
+Payara Cloud applications must be developed using the Web Profile of the Jakarta EE (formerly Java EE) standard.
+You can upload any number of applications to your account and organize them according to your project needs using Namespaces.
+
+
 == Namespaces
 
-In Payara Cloud, a namespace acts as a container to isolate and group related applications.
+A namespace acts as a container to isolate and group related applications.
 It's characterized by a unique project name and a stage that represents the current phase of your application's development (e.g., "dev," "test," or "production").
 The project name also forms part of the URL for your deployed applications.
 

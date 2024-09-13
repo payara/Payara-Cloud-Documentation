@@ -1,29 +1,5 @@
 // Reference
-* Payara Cloud Reference Docs
-// ** xref:manage/overview.adoc[]
-// *** xref:manage/namespace/list.adoc[]
-// **** xref:manage/namespace/detail.adoc[]
-// **** xref:manage/namespace/custom-domain.adoc[]
-// *** xref:manage/app/overview.adoc[]
-// **** xref:manage/app/upload.adoc[]
-// **** xref:manage/app/limitations.adoc[]
-// **** xref:manage/app/detail.adoc[]
-// **** xref:manage/app/configuration/overview.adoc[]
-// ***** xref:manage/app/configuration/app-runtime.adoc[]
-// ***** xref:manage/app/configuration/context-root.adoc[]
-// ***** xref:manage/app/configuration/microprofile-config.adoc[]
-// ***** xref:manage/app/configuration/data-source.adoc[]
-// ** xref:billing/overview.adoc[]
-// *** xref:billing/signup/overview.adoc[]
-// **** xref:billing/signup/login.adoc[]
-// **** xref:billing/signup/subscription.adoc[Subscription Management]
-// **** xref:billing/signup/additional.adoc[]
-// **** xref:billing/subscription/user-preference.adoc[User Preferences]
-// *** xref:billing/subscription/user-subscription.adoc[]
-// *** xref:billing/subscription/manage-billing-stripe.adoc[]
-// *** xref:reference:manage/Roles and Permissions/managing-users.adoc[Manage Users and Access Levels]
-// **** xref:reference:manage/Roles and Permissions/managing-users.adoc[How to Manager Users]
-// **** xref:reference:manage/Roles and Permissions/access-control.adoc[][How to Manage Access Levels]
+* Reference Docs
 
 
 ** xref:intro.adoc[Introduction To Payara Cloud]
@@ -33,9 +9,4 @@
 ** xref:access-management.adoc[Access Management]
 ** xref:advanced-topics.adoc[Advanced Topics]
 ** xref:faqs.adoc[Frequently Asked Questions]
-
-// *** xref:manage/monitoring/overview.adoc[]
-// **** xref:manage/monitoring/logs.adoc[]
-// **** xref:manage/monitoring/dumps.adoc[]
-// **** xref:manage/monitoring/charts.adoc[]
 ** xref:Glossary.adoc[]
