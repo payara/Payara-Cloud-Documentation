@@ -23,7 +23,9 @@ image::image13.png[image,width=480,height=149,window="_blank", link="{imagesdir}
 
 MicroProfile configuration is a preferred way to externalize the configuration parameters for your application. You can Inject them similar to a CDI or retrieve them programmatically.
 
-When you upload your application, Payara Cloud looks for the file _microprofile-config.properties_ to see if there are configuration parameters defined in the application. Your default parameters are read and displayed here, and you can override them or add new configuration keys. The Add Configuration Key is useful when reading MP configuration values programmatically or when the values don’t have a default – and thus not present in _microprofile-config.properties_.
+When you upload your application, Payara Cloud looks for the file _microprofile-config.properties_ to see if there are configuration parameters defined in the application.
+Your default parameters are read and displayed here, and you can override them or add new configuration keys.
+The Add Configuration Key is useful when reading MP configuration values programmatically or when the values don’t have a default – and thus not present in _microprofile-config.properties_.
 
 image::image14.png[image,width=480,height=108,window="_blank", link="{imagesdir}/image14.png"]
 

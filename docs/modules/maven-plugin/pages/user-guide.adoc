@@ -1,4 +1,4 @@
-= Payara Cloud Maven Plugin User Guide
+= Maven Plugin User Guide
 :man-prefix: #
 :man-suffix: 1
 :imagesdir: images/

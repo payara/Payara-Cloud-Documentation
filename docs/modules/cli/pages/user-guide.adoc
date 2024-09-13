@@ -1,4 +1,4 @@
-= Payara Cloud CLI User Guide
+= CLI User Guide
 :man-prefix: #
 :man-suffix: 1
 :imagesdir: images/
