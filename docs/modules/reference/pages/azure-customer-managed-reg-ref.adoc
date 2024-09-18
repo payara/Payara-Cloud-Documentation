@@ -30,7 +30,6 @@ This offers greater control, isolation, and potentially improved performance com
 * Development teams seeking greater control over their cloud environment.
 * Enterprises looking to leverage Payara Cloud's managed Jakarta EE capabilities within their own Azure infrastructure.
 
-Conclusion
 
 Payara Cloud's Customer Managed Region on Azure provides a powerful solution for deploying and managing Jakarta EE applications in a private, dedicated cloud environment.
 It combines the benefits of Payara Cloud's managed runtime with the control and flexibility of Azure, making it an ideal choice for organizations seeking a tailored and secure cloud experience.
