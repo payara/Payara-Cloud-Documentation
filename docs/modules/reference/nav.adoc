@@ -7,6 +7,7 @@
 ** xref:application-management.adoc[Application Management]
 ** xref:subscription-and-billing-management.adoc[Subscription and Billing Management]
 ** xref:access-management.adoc[Access Management]
+** xref:azure-customer-managed-reg-ref.adoc[Azure Customer Managed Region]
 ** xref:advanced-topics.adoc[Advanced Topics]
 ** xref:faqs.adoc[Frequently Asked Questions]
 ** xref:Glossary.adoc[]
