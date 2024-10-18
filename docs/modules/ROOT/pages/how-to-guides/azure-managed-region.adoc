@@ -60,7 +60,7 @@ image::docs:ROOT:how-to-guides/cmr/cmr-3.png[A screenshot displaying new CMR dia
 ==== Verify and Deploy Applications
 
 . Back in Payara Cloud, go to "Subscription Management" and ensure your new region is "Active."
-. Navigate to "Application Management" and create a new namespace.
+. Navigate to "Application Management" and create a new namespace, selecting your custom region.
 . Upload your Jakarta EE web application (WAR file).
 . Select "Deploy Immediately" and click "Upload."
 . Once deployed, you can access your application using the provided URL.
