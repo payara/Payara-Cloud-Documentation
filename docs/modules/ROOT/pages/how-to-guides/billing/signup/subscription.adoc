@@ -21,7 +21,7 @@ The trial plan limits usage to a maximum of 4 vCPU cores.
 After your free trial ends, you must select a subscription plan to continue using the service
 
 .Payara Cloud Subscription Plans
-image::/how-to-guides/application/billing/billing-plan-1.png[alt="Payara Cloud Plans", window="_blank", link="{imagesdir}/how-to-guides/application/billing/billing-plan-1.png"]
+image::/how-to-guides/application/billing/new-product-line-up.png[alt="Payara Cloud Plans", window="_blank", link="{imagesdir}/how-to-guides/application/billing/billing-plan-1.png"]
 
 After making your selection and clicking btn:[Continue to Invoicing], a summary of your chosen plan appears above the invoicing details form.
 To change your plan, click btn:[Change Subscription].
@@ -130,10 +130,3 @@ image::how-to-guides/application/billing/billing-plan-4.png[alt="New Usage Alert
 * ❸ click to save the alert
 
 With the alert in place, any usage above the set threshold will trigger an email to be sent to the email address of the Billing Manager of the subscription.
-
-
-
-
-
-
-

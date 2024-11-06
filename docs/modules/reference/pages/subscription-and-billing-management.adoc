@@ -8,8 +8,11 @@ The subscription model simplifies the billing process, providing a clear and agg
 
 Payara Cloud offers three subscription plans tailored to different needs, each with its own set of features and resource allocations. The available plans are:
 
-* *Basic*: Provides essential features for deploying and managing applications.
-* *Standard*: Offers additional features like custom domain support and increased resource limits.
+* *Pay as You Go*: Provides essential features for deploying and managing applications includes additional features such as custom domain support.
+This plan is ideal for small applications or users who want to pay only for the resources they consume .
+
+* *Standard*: Includes all the features of Pay as You Go plan with increased resource limits which allows you have horizontal scaling ability.
+
 * *Premium*: Includes all the features of the Standard plan, plus access to Payara Micro Enterprise binaries for local development and expedited support from the Payara team.
 
 The specific resource allocations and pricing for each plan can be found on the Payara Cloud website or by contacting the Payara sales team.
