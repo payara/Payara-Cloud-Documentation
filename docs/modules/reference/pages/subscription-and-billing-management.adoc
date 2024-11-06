@@ -75,4 +75,4 @@ In case of payment failure, Payara Cloud will keep your current subscription act
 
 ==== Subscription Downgrade
 
-For a downgrade, the new plan will take effect at the end of the current billing cycle. The new plan will be effective from the next billing cycle, however it will get suspended if the payment is not successful within 7 days.
+For a downgrade, the new plan will take effect at the end of the current billing cycle and will be effective from the next billing cycle, however it will get suspended if the payment is not successful within 7 days.
