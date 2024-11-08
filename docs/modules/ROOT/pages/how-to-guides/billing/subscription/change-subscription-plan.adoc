@@ -1,0 +1,33 @@
+= Change Subscription Plan
+
+To change the subscription plan, click on the "Subscription Actions" button on the top right of the subscription page and select "Change Plan".
+
+.Change Plan Menu
+image::how-to-guides/application/billing/change-plan.png[link="{imagesdir}/how-to-guides/application/billing/change-plan.png", window="_blank"]
+
+== Select New Plan
+
+Select the new plan from the list of available plans. Payara Cloud offers both upgrade and downgrade options for your subscription plans. Click "Confirm Subscription Choice" to proceed.
+
+.Subscription Plan Selection
+image::how-to-guides/application/billing/change-plan-selection.png[link="{imagesdir}/how-to-guides/application/billing/change-plan-selection.png", window="_blank"]
+
+== Subscription Change Confirmation
+
+=== Subscription Plan Upgrade
+After clicking "Confirm Subscription Choice", it will display the following upgrade summary. Click "Confirm Subscription Change" to process the upgrade.
+
+.Upgrade Confirmation
+image::how-to-guides/application/billing/upgrade-confirmation.png[link="{imagesdir}/how-to-guides/application/billing/upgrade-confirmation.png", window="_blank"]
+
+
+Upgrade will happen and be effective immediately.
+
+=== Subscription Plan Downgrade
+
+It will display the following downgrade summary. Click "Confirm Subscription Change" to process the downgrade.
+
+.Downgrade Confirmation
+image::how-to-guides/application/billing/downgrade-confirmation.png[link="{imagesdir}/how-to-guides/application/billing/downgrade-confirmation.png", window="_blank"]
+
+Downgrade will happen at the end of the current billing cycle. The new plan will be effective from the next billing cycle.
