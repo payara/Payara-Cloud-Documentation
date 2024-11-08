@@ -15,7 +15,7 @@ image::how-to-guides/application/billing/change-plan-selection.png[link="{images
 == Subscription Change Confirmation
 
 === Subscription Plan Upgrade
-After clicking "Confirm Subscription Choice" it will display the following upgrade summary. Click "Confirm Subscription Change" to process the upgrade.
+After clicking "Confirm Subscription Choice", it will display the following upgrade summary. Click "Confirm Subscription Change" to process the upgrade.
 
 .Upgrade Confirmation
 image::how-to-guides/application/billing/upgrade-confirmation.png[link="{imagesdir}/how-to-guides/application/billing/upgrade-confirmation.png", window="_blank"]
