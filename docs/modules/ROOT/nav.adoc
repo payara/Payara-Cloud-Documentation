@@ -41,6 +41,7 @@
 **** xref:how-to-guides/billing/signup/subscription.adoc[Subscription Management]
 **** xref:how-to-guides/billing/signup/additional.adoc[Additional Subscriptions]
 **** xref:how-to-guides/billing/subscription/user-preference.adoc[User Preferences]
+**** xref:how-to-guides/billing/subscription/change-subscription-plan.adoc[Change Subscription Plan]
 ** Access Management
 *** xref:how-to-guides/billing/subscription/user-subscription.adoc[Manage User Access]
 ** Manage Billing Invoices
