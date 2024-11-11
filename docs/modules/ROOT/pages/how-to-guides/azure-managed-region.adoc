@@ -44,7 +44,7 @@ image::docs:ROOT:how-to-guides/cmr/cmr-3.png[A screenshot displaying new CMR dia
 
 ==== Deploy the Managed Application on Azure
 
-. In the Azure portal, under My Market Place, click on private plans and search for and select the "Payara Cloud Customer Managed Region" managed application.
+. In the Azure portal, under My Market Place, click on plans and search for and select the "Payara Cloud Customer Managed Region" managed application.
 
 . Provide the following required parameters:
 *** Payara Cloud Connection String: Paste the connection string you copied earlier.
@@ -61,7 +61,7 @@ image::docs:ROOT:how-to-guides/cmr/cmr-3.png[A screenshot displaying new CMR dia
 
 . Back in Payara Cloud, go to "Subscription Management" and ensure your new region is "Active."
 . Navigate to "Application Management" and create a new namespace, selecting your custom region.
-. Upload your Jakarta EE web application (WAR file).
+. xref:docs:ROOT:how-to-guides/application/Deploying an Application.adoc[Upload] your Jakarta EE web application (WAR file).
 . Select "Deploy Immediately" and click "Upload."
 . Once deployed, you can access your application using the provided URL.
 
