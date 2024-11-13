@@ -1,127 +1,141 @@
-= Pricing
+= Payara Cloud Pricing
 
-Payara Cloud is billed only by single usage metric -- virtual CPU cores reserved for your application to make it run.
-The metric is captured every minute and summarize at the end of the billing cycle, which is 30 days.
+== Overview
 
-The minimum reservation for an application is one quarter of a core and the largest currently supported reservation for a single application is 4 cores.
+Payara Cloud uses a simple pricing model based on virtual CPU (vCPU) core usage.
+Usage is measured per minute and billed in 30-day cycles.
 
-Cost for a vCPU core starts at *$0.005* per minute and goes down as you reserve more cores.
+- Minimum allocation: 0.25 vCPU cores
+- Maximum allocation per application: 4 vCPU cores
+- Base rate: $0.005 per vCPU core per minute (with volume discounts available)
 
-The offer is separated into three different plans based on your needs:
+== Available Plans
 
-* **Pay As You Go**: You can scale down your usage to 0, but cannot exceed a usage quota of 2 vCPU cores at any time.
-* **Standard**: You pay in advance for 2 vCPU cores (60 vCPU days) but can scale up to 32 vCPU cores and enjoy a lower price per core.
-* **Premium**: Starts at 16 vCPU cores and includes access to Payara's Service Team to help you solve any problems you might have with your application.
+=== Pay As You Go
+* Perfect for development and testing
+* Scale from 0 to 2 vCPU cores
+* No upfront costs
+* Pay only for what you use at $0.005 per vCPU minute
 
-== Features And Limits of Plans
+=== Standard Plan
+* Ideal for production workloads
+* Pre-pay for 2 vCPU cores
+* Scale up to 32 vCPU cores
+* Monthly fee: $432
+* Volume discounts for additional usage
+* Includes horizontal scaling
 
+=== Premium Plan
+* Designed for large scale enterprise applications
+* Minimum 16 vCPU cores
+* Scale up to 64 vCPU cores
+* Monthly fee: $3,300
+* Includes 10x5 technical support
+* Lower per-minute rates
+* Includes horizontal scaling
+
+== Feature Comparison
+
+[cols="1,^1,^1,^1", options="header"]
 |===
-| Plan | Pay As You Go | Standard | Premium
+|Feature |Pay As You Go |Standard |Premium
 
-h| Usage Quota
-| 0--2 vCPU cores
-| 2--32 vCPU cores
-| 16--64 vCPU cores
+|vCPU Range
+|0-2 cores
+|2-32 cores
+|16-64 cores
 
-h| Custom domains
-| yes
-| yes
-| yes
+|Custom Domains
+|yes
+|yes
+|yes
 
-h| Log Retention
-| 30 days
-| 30 days
-| 30 days
+|Log Retention
+|30 days
+|30 days
+|30 days
 
-h| Exports and Dumps retention
-| 7 days
-| 7 days
-| 7 days
+|Export Retention
+|7 days
+|7 days
+|7 days
 
-h| Horizontal scaling
-| no
-| yes
-| yes
+|Horizontal Scaling
+|no
+|yes
+|yes
 
-
-h| 10x5 Support
-| no
-| no
-| yes
-|===
-
-== Price per vCPU minute
-
-|===
-| Plan | Pay As You Go | Standard | Premium
-
-h| Fixed fee
-| $0
-| $432
-| $3300
-
-h| 0--60 +
-vCPU days
-| $0.005
-| $0.005 +
-(included in fixed fee)
-.4+| $0.00477 +
-(included in fixed fee)
-
-h| 60--120 +
-vCPU days
-.4+| --
-| $0.00463
-
-h| 120--240 +
-vCPU days
-| $0.00445
-
-h| 240--480 +
-vCPU days
-| $0.00429
-
-h| more than 480 +
-vCPU days
-| $0.00413
-| $0.00442
+|Technical Support (10x5)
+|no
+|no
+|yes
 |===
 
-== Pricing Examples
+== Price Per vCPU Minute
+[cols="2,^1,^1,^1", options="header"]
+|===
+|Usage Band |Pay As You Go |Standard |Premium
 
-Here are some examples of continuous usage costs for different types of applications.
-Take note, that usage is calculated per minute and continuous use is not the only use case for Payara Cloud.
+|Fixed fee
+|$0
+|$432
+|$3.300
 
-=== Minimum continuous usage
+|0-60 vCPU days
+|$0.005
+|$0.005 (included in fixed fee)
+.4+|$0.00477 (included in fixed fee)
 
-The smallest application you can deploy on Payara cloud would have reservation of 0.25 vCPU core. The cost of running such application for a month would be:
+|60-120 vCPU days
+.4+|--
+|$0.00463
 
-> $0.005 * 0.25 * 60 * 24 * 30 = $54
+|120-240 vCPU days
+|$0.00445
 
-The price can further go down once you'd automate your deployment and invoke kbd:[Start] and kbd:[Stop] commands on your application only for times when you need it.
+|240-480 vCPU days
+|$0.00429
 
-=== Single production application
+|480+ vCPU days
+|$0.00413
+|$0.00477
+|===
 
-We recommend reserving at least 2 vCPU cores for a production application.
+== Cost Examples
 
-The cost of running such application for a month would be:
+=== Minimal Development Setup
 
-> $0.005 * 2 * 60 * 24 * 30 = $432
+* Configuration: 0.25 vCPU cores
+* Monthly cost: *$54*
+* Can be optimized by xref:how-to-guides/application/Deploying an Application.adoc[starting/stopping] the application as needed
 
-=== Large application
+=== Single Production Application
 
-Assume a horizontally scaled application with 2 x 2 vCPU cores accompanied by a third application for which half a core reservation suffices.
+* Configuration: 2 vCPU cores
 
-Here the different usage bands come into play
+> Monthly cost: $0.005 * 2 * 60 * 24 * 30 = *$432*
 
-> First 2 cores over 30 days: $0.005 * 2 * 60 * 24 * 30 = $432
->
-> Next 2 cores over 30 days: $0.00477 * 2 * 60 * 24 * 30 = $400
->
-> Next Half a core over 30 days : $0.00445 * 0.5 * 60 * 24 * 30 = $96,12
->
-> Total: $432 + $400 + $96,12 = $928,12
+Recommended minimum for production workloads
 
+=== Large Scale Application
+Configuration:
 
+* 2 applications × 2 vCPU cores each
+* 1 application × 0.5 vCPU cores
 
+> Total: 4.5 vCPU cores
 
+Monthly cost breakdown:
+
+1. First 2 cores: $0.005 * 2 * 60 * 24 * 30 = *$432*
+2. Next 2 cores: $0.00477 * 2 * 60 * 24 * 30 = *$400*
+3. Additional 0.5 cores: $0.00445 * 0.5 * 60 * 24 * 30 = *$96.12*
+
+> Total Monthly Cost: *$928.12*
+
+== Notes
+- All prices are in USD
+- Billing occurs in 30-day cycles
+- Usage is calculated per minute
+- Applications can be scaled up or down within plan limits
+- Consider automated start/stop (through xref:cli:user-guide.adoc[pcl]) scheduling to optimize costs
