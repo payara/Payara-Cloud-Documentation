@@ -1,83 +1,127 @@
 = Pricing
 
-*Basic* – $700 per 30 days, additional usage billed at $190 per vCPU per 30 days (pro-rata).
+Payara Cloud is billed only by single usage metric -- virtual CPU cores reserved for your application to make it run.
+The metric is captured every minute and summarize at the end of the billing cycle, which is 30 days.
 
-*Standard* – $2500 per 30 days, additional usage billed at $160 per vCPU per 30 days (pro-rata).
+The minimum reservation for an application is one quarter of a core and the largest currently supported reservation for a single application is 4 cores.
 
-*Premium* – $3500 per 30 days, additional usage billed at $160 per vCPU per 30 days (pro-rata).
+Cost for a vCPU core starts at *$0.005* per minute and goes down as you reserve more cores.
 
-When you subscribe to Payara Cloud, the flat rate of the chosen subscription plan is billed immediately, which gives you access to Payara Cloud for 30 days. For example, if you choose a Basic subscription plan, you are billed $700 during the sign up process and can begin using Payara Cloud immediately.
+The offer is separated into three different plans based on your needs:
 
-Your actual vCPU usage is calculated over the next 30 days to generate the pro-rata fees for any vCPU usage beyond the included vCPU of your subscription.
+* **Pay As You Go**: You can scale down your usage to 0, but cannot exceed a usage quota of 2 vCPU cores at any time.
+* **Standard**: You pay in advance for 2 vCPU cores (60 vCPU days) but can scale up to 32 vCPU cores and enjoy a lower price per core.
+* **Premium**: Starts at 16 vCPU cores and includes access to Payara's Service Team to help you solve any problems you might have with your application.
 
-== Additional Usage Calculations
+== Features And Limits of Plans
 
-Calculation of your pro-rata charges are as follows:
+|===
+| Plan | Pay As You Go | Standard | Premium
 
-=== Basic Subscription
+h| Usage Quota
+| 0--2 vCPU cores
+| 2--32 vCPU cores
+| 16--64 vCPU cores
 
-A Basic Subscription includes 4 vCPU, which is 172,800 vCPU minutes, per 30 days. Any usage over the included 4 vCPU within the 30-day billing period is calculated at the rate of $0.004398148 per vCPU minute.
+h| Custom domains
+| yes
+| yes
+| yes
 
-.Basic Subscriptions
-[example]
-====
-If you use 190,000 vCPU minutes, you’ve used 17,200 vCPU minutes over your included 172,800 vCPU minutes.
+h| Log Retention
+| 30 days
+| 30 days
+| 30 days
 
-17,200 vCPU minutes x $0.004398148 = $75.648.
+h| Exports and Dumps retention
+| 7 days
+| 7 days
+| 7 days
 
-In the example above, your additional usage charge for the 30-day billing period would be $75.65. Additional usage charges are billed with your next 30-day period subscription fee. In this example, your invoice would look like this:
+h| Horizontal scaling
+| no
+| yes
+| yes
 
-Day 1, subscribe to the Payara Cloud Basic Subscription = $700.
 
-Day 31:
+h| 10x5 Support
+| no
+| no
+| yes
+|===
 
-Additional Usage calculated for previous 30-day billing period = $75.65
+== Price per vCPU minute
 
-Next 30-day period subscription fee = $700
+|===
+| Plan | Pay As You Go | Standard | Premium
 
-Total Invoice: $775.65
-====
+h| Fixed fee
+| $0
+| $432
+| $3300
 
-=== Standard and Premium Subscriptions
+h| 0--60 +
+vCPU days
+| $0.005
+| $0.005 +
+(included in fixed fee)
+.4+| $0.00477 +
+(included in fixed fee)
 
-Choosing a Standard Subscription plan results in a $2500 fee for your first 30-day billing period during the sign up process. Choosing a Premium Subscription results in a $3500 fee for your first 30-day billing period. You will have immediate access to Payara Cloud upon completing the sign up and billing process.
+h| 60--120 +
+vCPU days
+.4+| --
+| $0.00463
 
-Your actual vCPU usage is calculated over the next 30 days to generate the pro-rata fees for any vCPU usage beyond the included vCPU of your subscription.
+h| 120--240 +
+vCPU days
+| $0.00445
 
-Both Standard and Premium subscriptions include 16 vCPU, which is 691,200 vCPU minutes, per 30 days. Any usage over the included 16 vCPU within the 30-day billing period is calculated at the rate of $0.003703704 per vCPU minute.
+h| 240--480 +
+vCPU days
+| $0.00429
 
-.Standard & Premium 
-[example]
-====
-If you use 900,000 vCPU minutes, you’ve used 208,800 vCPU minutes over your included 691,200 vCPU minutes.
+h| more than 480 +
+vCPU days
+| $0.00413
+| $0.00442
+|===
 
-208,800 vCPU minutes x $0.003703704 = $773.332
+== Pricing Examples
 
-In the example above, your additional usage charge for the 30-day billing period would be $773.33. Additional usage charges are billed with your next 30-day period subscription fee. In this example, your invoice as a Standard subscriber would look like this:
+Here are some examples of continuous usage costs for different types of applications.
+Take note, that usage is calculated per minute and continuous use is not the only use case for Payara Cloud.
 
-Day 1, subscribe to the Payara Cloud Standard Subscription = $2500.
+=== Minimum continuous usage
 
-Day 31:
+The smallest application you can deploy on Payara cloud would have reservation of 0.25 vCPU core. The cost of running such application for a month would be:
 
-Additional Usage calculated for previous 30-day billing period = $773.33
+> $0.005 * 0.25 * 60 * 24 * 30 = $54
 
-Next 30-day period subscription fee = $2500
+The price can further go down once you'd automate your deployment and invoke kbd:[Start] and kbd:[Stop] commands on your application only for times when you need it.
 
-Total Invoice: $3,273.33
+=== Single production application
 
-If you chose a Premium subscription, your invoice would look like this:
+We recommend reserving at least 2 vCPU cores for a production application.
 
-Day 1, subscribe to the Payara Cloud Premium Subscription = $3500.
+The cost of running such application for a month would be:
 
-Day 31:
+> $0.005 * 2 * 60 * 24 * 30 = $432
 
-Additional Usage calculated for previous 30-day billing period = $773.33
+=== Large application
 
-Next 30-day period subscription fee = $3500
+Assume a horizontally scaled application with 2 x 2 vCPU cores accompanied by a third application for which half a core reservation suffices.
 
-Total Invoice: $4,273.33
-====
+Here the different usage bands come into play
 
-=== Final Invoice
+> First 2 cores over 30 days: $0.005 * 2 * 60 * 24 * 30 = $432
+>
+> Next 2 cores over 30 days: $0.00477 * 2 * 60 * 24 * 30 = $400
+>
+> Next Half a core over 30 days : $0.00445 * 0.5 * 60 * 24 * 30 = $96,12
+>
+> Total: $432 + $400 + $96,12 = $928,12
 
-The final invoice will only include additional use (if any) for the final month of use. 
+
+
+
