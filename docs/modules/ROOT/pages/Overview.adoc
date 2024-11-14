@@ -2,7 +2,7 @@
 
 Payara Cloud is an all-in-one platform as a service (PaaS) solution for automatically deploying Jakarta EE (formerly Java EE) and MicroProfile applications. It makes deployment in a cloud environment easier by simplifying cloud infrastructure provisioning and eliminating the need for the manual management of application servers, docker and Kubernetes.
 
-Instead of dealing with low-level components like Docker and Kubernetes yourself, the UI allows you to graphically define the configuration parameters and the application which needs to be deployed.
+Instead of dealing with low-level components like Kubernetes and Cloud monitoring tooling yourself, the UI allows you to graphically define the configuration parameters and the application which needs to be deployed.
 
 If you’re new to Payara Cloud, we recommend starting with the *Getting Started* section to get you moving in the right direction.
 
@@ -12,27 +12,36 @@ By design, Payara Cloud does a lot of hidden work in the background that you don
 
 Since your application is running on a Payara Micro instance, Payara Cloud can run Java EE / Jakarta EE Web Profile based applications. 
 
-The Payara Cloud environment is centered around two main concepts: the namespace and the application. You manage your namespaces and applications within Payara Cloud’s graphical user interface.
-
-To access and manage your applications, you click on the name of the Namespace containing your applications.
+The Payara Cloud environment is centered around two main concepts: the namespace and the application.
+Namespace is a group of applications hosted on single domain where each application has different path prefix.
+You manage your namespaces and applications within Payara Cloud’s graphical user interface.
 
 == Features
 
-*Basic subscription features:*
+*Pay as You Go subscription features:*
 
-* 4 vCPU / 8 Gb
-* Choose small, medium, or large runtime size
+* No upfront fee
+* 0--2 vCPU cores
+* Runtime size up to 2 vCPU / 6 GB RAM
+* Log and diagnostic dump access
+* Custom domains
+* No horizontal scaling
+
 
 *Standard subscription features:*
 
-* 16 vCPU / 32 Gb
-* Multiple Custom Domains
-* Choose small, medium, large, or XL runtime size
+* 2--32 vCPU cores
+* Custom domains
+* Runtime size up to 4 vCPU / 12 GB RAM
+* Log and diagnostic dump access
+* Horizontal scaling
+* Tiered usage pricing
 
 *Premium subscription features:*
 
-Everything in the Standard subscription, plus:
-
+* 16--64 vCPU cores
 * Payara Micro Enterprise binaries for local development
-* Access to Payara support team
-
+* Runtime size up to 4 vCPU / 12 GB RAM
+* Log and diagnostic dump access
+* Horizontal scaling
+* Access to Payara support team with 10x5 support
