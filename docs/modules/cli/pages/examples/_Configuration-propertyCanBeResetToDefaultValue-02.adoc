@@ -17,9 +17,9 @@ _[SUCCESS] Revision reconfigured_
                 "complete": true,
                 "keys": [
                     {
-                        "name": "quiz.lockout",
+                        "name": "maths.duration",
                         "required": false,
-                        "default": "1500"
+                        "default": "20"
                     },
                     {
                         "name": "mp.jwt.verify.issuer",
@@ -32,14 +32,14 @@ _[SUCCESS] Revision reconfigured_
                         "default": "publickey.pem"
                     },
                     {
-                        "name": "maths.duration",
+                        "name": "quiz.duration",
                         "required": false,
                         "default": "20"
                     },
                     {
-                        "name": "quiz.duration",
+                        "name": "quiz.lockout",
                         "required": false,
-                        "default": "20"
+                        "default": "1500"
                     }
                 ]
             }
@@ -48,12 +48,22 @@ _[SUCCESS] Revision reconfigured_
             "pass-deploy.war": {
                 "values": {
                     "runtimeSize": "QUARTER+++_+++CORE",
+                    "runtimeType": "PAYARA5+++_+++JDK11",
+                    "rollOverTime": "MODERATE",
                     "scalabilityType": "ROLLING+++_+++UPGRADE"
                 },
                 "complete": true,
                 "keys": [
                     {
+                        "name": "rollOverTime",
+                        "required": false
+                    },
+                    {
                         "name": "runtimeSize",
+                        "required": false
+                    },
+                    {
+                        "name": "runtimeType",
                         "required": false
                     },
                     {
@@ -72,8 +82,9 @@ _[SUCCESS] Revision reconfigured_
                 "complete": true,
                 "keys": [
                     {
-                        "name": "exposedPaths",
-                        "required": false
+                        "name": "appName",
+                        "required": true,
+                        "default": "game-demo"
                     },
                     {
                         "name": "contextRoot",
@@ -81,9 +92,8 @@ _[SUCCESS] Revision reconfigured_
                         "default": "/"
                     },
                     {
-                        "name": "appName",
-                        "required": true,
-                        "default": "game-demo"
+                        "name": "exposedPaths",
+                        "required": false
                     }
                 ]
             }

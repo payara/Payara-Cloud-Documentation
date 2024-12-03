@@ -1,6 +1,8 @@
 [listing,subs="+macros,+quotes"]
 ----
 *pcl list-namespaces*
+_Nov 28, 2024 7:04:16 PM org.glassfish.jersey.message.internal.MessagingBinders$EnabledProvidersBinder bindToBinder_
+_WARNING: A class javax.activation.DataSource for a default provider MessageBodyWriter<javax.activation.DataSource> was not found. The provider is not available._
 _[SUCCESS] Namespaces:_
 start-dev
     name: start-dev

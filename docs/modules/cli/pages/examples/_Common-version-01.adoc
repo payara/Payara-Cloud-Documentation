@@ -2,7 +2,7 @@
 ----
 *pcl -V*
 pcl version: development-snapshot
-Java version: 11.0.13, Vendor: Eclipse Adoptium, Platform encoding: UTF-8
-OS: Windows 10, Version: 10.0, Arch: amd64
+Java version: 21.0.3, Vendor: Oracle Corporation, Platform encoding: UTF-8
+OS: Windows 11, Version: 10.0, Arch: amd64
 
 ----

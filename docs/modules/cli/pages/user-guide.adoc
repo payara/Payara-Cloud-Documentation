@@ -1,8 +1,8 @@
-= CLI User Guide
+= Payara Cloud CLI User Guide
 :man-prefix: #
 :man-suffix: 1
 :imagesdir: images/
-:release-version: 1.1.0
+:release-version: 1.0.1
 :release-repo: https://nexus.payara.fish/repository/payara-artifacts
 
 == Introduction
@@ -36,7 +36,7 @@ Command Line Client is distributed as a zip package containing the client, shell
 
 The client itself is an executable `.jar` file, that requires at least Java 8 to be available on the system.
 
-=== Downloading the Commnand Line Client
+=== Downloading the Command Line Client
 
 Client is distributed over Payara's Nexus Repository under following coordinates:
 
@@ -87,25 +87,25 @@ The client will also open the browser for you if your environment permits it.
 In case you follow link manually you'll need to enter the confirmation code on first page:
 
 [.text-center]
-image:login-01-enter-code.png[width=320, window="_blank", link="{imagesdir}/login-01-enter-code.png"]
+image:login-01-enter-code.png[width=320]
 
 After that a confirmation page is displayed:
 
 [.text-center]
-image:login-02-confirmation.png[width=320, window="_blank", link="{imagesdir}/login-02-confirmation.png"]
+image:login-02-confirmation.png[width=320]
 
-WARNING: Only confirm this page if you knowingly initiated login flow via `pcl login`, `payara-cloud-maven-plugin` or `Payara IDE plugins`.
+WARNING: Only confirm this page if you knowingly initiated login flow via `pcl login`.
 Payara Cloud will never ask you to authenticate via this flow via any other channel or under any other circumstance, such as solving a support issue.
 
 If you are logging in for the first time the authentication service will ask you to authorize Payara Cloud CLI to perform application management tasks with your identity:
 
 [.text-center]
-image:login-03-authorize.png[width=320, window="_blank", link="{imagesdir}/login-03-authorize.png"]
+image:login-03-authorize.png[width=320]
 
 After confirming this, the authentication process is completed and you may close the browser window:
 
 [.text-center]
-image:login-04-success.png[width=320, window="_blank", link="{imagesdir}/login-04-success.png"]
+image:login-04-success.png[width=320]
 
 === Managing tokens
 
@@ -145,6 +145,17 @@ In the workflow file refer to the secret like this:
 
 == Common options
 
+=== Environment Variables
+The CLI supports the following environment variables to be set, reducing repetitive typing of common options:
+
+`PCL_NAMESPACE`: Default namespace name. Used when `-n` or `--namespace` is not specified.
+Required for most commands except `login`, `list-namespaces`, and `create-namespace`.
+
+`PCL_SUBSCRIPTION`: Default subscription name. Used when `-s` or `--subscription` is not specified.
+Only needed when your account has access to multiple subscriptions.
+
+Command line options, when provided, will override these environment variables for that specific command.
+
 === Obtaining help
 
 Option `--help` will provide with same content as _Command Reference_ does, listing all available options and a short description of the command.
@@ -172,7 +183,7 @@ include::examples/_Namespaces-canBeListedAsJson-01.adoc[]
 
 include::examples/_Namespaces-cannotBeCreatedTwiceJson-01.adoc[]
 
-Option `-q` will suppress all progress and warning messages, puting just the output onto `stdout` or error messages to `stderr`.
+Option `-q` will suppress all progress and warning messages, putting just the output onto `stdout` or error messages to `stderr`.
 
 == Namespace Management
 
