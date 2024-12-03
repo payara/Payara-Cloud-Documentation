@@ -1,8 +1,8 @@
 [listing,subs="+macros,+quotes"]
 ----
 *pcl -n _$namespace_ -a _$appName_ scale --instances=4*
-_[UPDATE] State of deployment process is DEPLOYING_
-_[UPDATE] State of deployment process is DEPLOYED_
+_[UPDATE] State of deployment process is DEPLOYING [0/2]_
+_[UPDATE] State of deployment process is DEPLOYED [2/2]_
 _[SUCCESS] Deployment completed_
 
 {
@@ -11,7 +11,6 @@ _[SUCCESS] Deployment completed_
     "pendingChanges": false,
     "status": "RUNNING",
     "numberOfReplicas": 4,
-    "liveRuntimeSize": "QUARTER+++_+++CORE",
-    "horizontalScaling": true
+    "liveRuntimeSize": "QUARTER+++_+++CORE"
 }
 ----

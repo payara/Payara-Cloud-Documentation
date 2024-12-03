@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
 *pcl -o json list-namespaces*
-[{"href":"+++https:+++//manage.payara.cloud/application/4727ef01-7811-4e5d-be9e-0847017bfc87/n/cli:clitest:efacd05c/","rel":"+++https:+++//api.payara.cloud/entity/namespace","name":"cli-clitest","liveURI":"+++https:+++//cli-clitest-xxxxxxxx.payara.app/","title":"cli-clitest"},{"href":"+++https:+++//manage.payara.cloud/application/4727ef01-7811-4e5d-be9e-0847017bfc87/n/start:dev:85cafb11/","rel":"+++https:+++//api.payara.cloud/entity/namespace","name":"start-dev","liveURI":"+++https:+++//start-dev-xxxxxxxx.payara.app/","title":"start-dev"}]
+[{"href":"+++https:+++//manage.payara.cloud/application/aa1d7a52-4cd5-4c4f-8451-df0672b986d4/n/cli:clitest:27bd65c2/","rel":"+++https:+++//api.payara.cloud/entity/namespace","name":"cli-clitest","liveURI":"+++https:+++//cli-clitest-xxxxxxxx.payara.app/","title":"cli-clitest"},{"href":"+++https:+++//manage.payara.cloud/application/aa1d7a52-4cd5-4c4f-8451-df0672b986d4/n/start:dev:6d0de3e1/","rel":"+++https:+++//api.payara.cloud/entity/namespace","name":"start-dev","liveURI":"+++https:+++//start-dev-xxxxxxxx.payara.app/","title":"start-dev"}]
 
 ----

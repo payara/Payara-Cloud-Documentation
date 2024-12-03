@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
 *pcl delete-namespace -n _$namespace_ -y*
-_[FAILURE] Namespace cli-clitest was not found in the subscription_
+_[SUCCESS] Namespace has been deleted_
 
 ----

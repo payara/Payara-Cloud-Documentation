@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ configure contextRoot --reset exposedPaths*
+*pcl -n _$namespace_ -a _$appName_ configure appRuntime --add dataGridMode=ENABLED*
 _[SUCCESS] Revision reconfigured_
 
 {
@@ -8,9 +8,9 @@ _[SUCCESS] Revision reconfigured_
         "contextRoot": {
             "pass-deploy.war": {
                 "values": {
-                    "exposedPaths": "/ui/+++*+++",
+                    "exposedPaths": "/+++*+++",
                     "appName": "game-demo",
-                    "contextRoot": "/cr"
+                    "contextRoot": "/"
                 },
                 "complete": true,
                 "keys": [
@@ -38,9 +38,10 @@ _[SUCCESS] Revision reconfigured_
             "pass-deploy.war": {
                 "values": {
                     "runtimeSize": "QUARTER+++_+++CORE",
+                    "numberOfReplicas": "2",
                     "runtimeType": "PAYARA5+++_+++JDK11",
-                    "rollOverTime": "MODERATE",
-                    "scalabilityType": "ROLLING+++_+++UPGRADE"
+                    "dataGridMode": "ENABLED",
+                    "scalabilityType": "HORIZONTAL+++_+++SCALING"
                 },
                 "complete": true,
                 "keys": [
@@ -81,7 +82,7 @@ _[SUCCESS] Revision reconfigured_
             "pass-deploy.war": {
                 "values": {
                     "mp.jwt.verify.issuer": "fish.payara.demo",
-                    "quiz.lockout": "12",
+                    "quiz.lockout": "1500",
                     "mp.jwt.verify.publickey.location": "publickey.pem",
                     "maths.duration": "20",
                     "quiz.duration": "20"

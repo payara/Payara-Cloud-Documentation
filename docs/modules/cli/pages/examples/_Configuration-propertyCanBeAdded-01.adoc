@@ -5,6 +5,78 @@ _[SUCCESS] Revision reconfigured_
 
 {
     "kind": {
+        "contextRoot": {
+            "pass-deploy.war": {
+                "values": {
+                    "exposedPaths": "/ui/+++*+++",
+                    "appName": "game-demo",
+                    "contextRoot": "/cr"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "exposedPaths",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "contextRoot",
+                        "required": true,
+                        "restricted": false,
+                        "default": "/"
+                    },
+                    {
+                        "name": "appName",
+                        "required": true,
+                        "restricted": false,
+                        "default": "game-demo"
+                    }
+                ]
+            }
+        },
+        "appRuntime": {
+            "pass-deploy.war": {
+                "values": {
+                    "runtimeSize": "QUARTER+++_+++CORE",
+                    "runtimeType": "PAYARA5+++_+++JDK11",
+                    "rollOverTime": "MODERATE",
+                    "scalabilityType": "ROLLING+++_+++UPGRADE"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "runtimeSize",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "runtimeType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "numberOfReplicas",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "dataGridMode",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    }
+                ]
+            }
+        },
         "microprofileConfig": {
             "pass-deploy.war": {
                 "values": {
@@ -18,77 +90,39 @@ _[SUCCESS] Revision reconfigured_
                 "complete": true,
                 "keys": [
                     {
-                        "name": "quiz.lockout",
+                        "name": "maths.duration",
                         "required": false,
-                        "default": "1500"
-                    },
-                    {
-                        "name": "new.app.config.property",
-                        "required": false
+                        "restricted": false,
+                        "default": "20"
                     },
                     {
                         "name": "mp.jwt.verify.issuer",
                         "required": false,
+                        "restricted": false,
                         "default": "fish.payara.demo"
                     },
                     {
                         "name": "mp.jwt.verify.publickey.location",
                         "required": false,
+                        "restricted": false,
                         "default": "publickey.pem"
                     },
                     {
-                        "name": "maths.duration",
+                        "name": "new.app.config.property",
                         "required": false,
-                        "default": "20"
+                        "restricted": false
                     },
                     {
                         "name": "quiz.duration",
                         "required": false,
+                        "restricted": false,
                         "default": "20"
-                    }
-                ]
-            }
-        },
-        "appRuntime": {
-            "pass-deploy.war": {
-                "values": {
-                    "runtimeSize": "QUARTER+++_+++CORE",
-                    "scalabilityType": "ROLLING+++_+++UPGRADE"
-                },
-                "complete": true,
-                "keys": [
-                    {
-                        "name": "runtimeSize",
-                        "required": false
                     },
                     {
-                        "name": "scalabilityType",
-                        "required": false
-                    }
-                ]
-            }
-        },
-        "contextRoot": {
-            "pass-deploy.war": {
-                "values": {
-                    "appName": "game-demo",
-                    "contextRoot": "/"
-                },
-                "complete": true,
-                "keys": [
-                    {
-                        "name": "exposedPaths",
-                        "required": false
-                    },
-                    {
-                        "name": "contextRoot",
-                        "required": true,
-                        "default": "/"
-                    },
-                    {
-                        "name": "appName",
-                        "required": true,
-                        "default": "game-demo"
+                        "name": "quiz.lockout",
+                        "required": false,
+                        "restricted": false,
+                        "default": "1500"
                     }
                 ]
             }

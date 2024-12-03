@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
 *pcl create-namespace --project cli --stage clitest --region unsupported*
-_[FAILURE] Backend rejected the request: Applicable values for region are: azure-westeurope (Azure, West Europe), azure-eastus (Azure, East US) (diagnostic id +++https:+++//api.payara.cloud/error-instance/lcurjko0)_
+_[FAILURE] Backend rejected the request: Applicable values for region are: aws-poc (AWS, EU Central 1), azure-eastus (Azure, East US), azure-westeurope (Azure, West Europe) (diagnostic id +++https:+++//api.payara.cloud/error-instance/m41oualb)_
 
 ----

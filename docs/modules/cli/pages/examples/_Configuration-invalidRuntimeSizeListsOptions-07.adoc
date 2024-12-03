@@ -1,6 +1,0 @@
-[listing,subs="+macros,+quotes"]
-----
-*pcl delete-namespace --namespace _$namespace_ -y*
-_[FAILURE] Namespace cli-clitest was not found in the subscription_
-
-----
