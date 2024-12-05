@@ -1,102 +1,172 @@
 = Private Cloud Subscriptions
 
-Payara Cloud is capable of deploying applications into your own cloud infrastructure.
-This feature is called Private Cloud subscriptions and is currently available for Azure.
+Deploy Payara Cloud applications in your own Azure infrastructure while maintaining full control over your cloud resources and costs.
+This guide walks through Azure Private Cloud setup for deploying Jakarta EE applications across multiple regions in your Azure account.
 
-== Azure Private Cloud Subscriptions
+*Estimated setup time: 30 minutes*
 
-Private Cloud subscription allows you to deploy multiple regions in your own Azure account.
-Each region is an Azure Managed Application, that consists of AKS cluster and its supporting infrastructure.
-You will be able to use Payara Cloud interface to deploy Jakarta EE applications into these regions.
-See more information on advantages of this solution in xref:azure-customer-managed-reg-ref.adoc[].
+== Before You Begin
 
-=== Prerequisites
+.Prerequisites
 
-* Contributor role in an Azure subscription.
-This will guarantee that you have enough permissions to deploy the managed application.
-* Public DNS Domain.
-For every region you will need to create a public DNS zone that you can refer to from public DNS domain you control.
+* Azure subscription with Contributor role permissions to deploy managed applications
+* A public DNS domain that you control, where you can manage DNS zones
 
-=== Pricing
-In addition to Azure resources the applications that you deploy into your region over Payara Cloud are subject to per-core pricing at $0.04 per vCPU-hour as defined in Runtime Size of the application, starting at 0,25 core.
+.Technical Terms
 
-=== Step-by-Step Setup
+AKS:: Azure Kubernetes Service - managed container orchestration
+vCPU:: Virtual CPU core unit for computing resources
+DNS Zone:: Domain name system records for routing traffic
 
-The installation happens in parallel in Azure portal and in Payara Cloud user interface.
+== Pricing
 
-. Create Private Cloud Subscription by clicking https://billing.payara.cloud/cmr/signup[this link]:
+Your costs will include:
+
+* Azure infrastructure costs for deployed resources
+* Payara Cloud runtime fee: $0.04 per vCPU-hour (minimum 0.25 core)
+
+== Setup Instructions
+
+=== 1. Payara Cloud Setup
+
+. Create your Private Cloud Subscription:
+
+.. Visit https://billing.payara.cloud/cmr/signup[Payara Cloud Signup]
 +
-image::billing/signup/cmr-signup.png[link=https://billing.payara.cloud/cmr/signup]
+image::billing/signup/cmr-signup.png[Signup page,link=https://billing.payara.cloud/cmr/signup]
+.. Accept terms and click btn:[Subscribe]
++
+image::billing/signup/cmr-confirm.png[Terms confirmation]
 
-. Confirm the terms and conditions by ticking the required checkbox and clicking btn:[Subscribe]:
+. Set up your first region:
+.. Enter a descriptive, unique region name
 +
-image::billing/signup/cmr-confirm.png[]
+image::billing/signup/cmr-region.png[Region setup]
++
 
-. Give descriptive name to your first region and hit btn:[Save Setting]:
-+
-image::billing/signup/cmr-region.png[]
-+
-This description will serve as label of the Region later.
-Since description is passed to the managed application in parameters, it cannot be changed afterwards.
-It also needs to be unique within subscription.
+IMPORTANT: Region names cannot be changed after creation
 
-. Copy the connection string from the Account Information page:
+.. Click btn:[Save Setting]
+
+. Locate connection details:
+.. Find and copy the connection string from Account Information
+
 +
-image::billing/signup/cmr-connection.png[]
+image::billing/signup/cmr-connection.png[Connection string]
+
+=== 2. Azure Configuration
+
+. Access Azure Marketplace:
 // TODO: Link will be different since cloud-cmr uses standard Azure contract, which we will not use in the final version
-. In Azure portal, search for https://portal.azure.com/#create/payara.cloud-cmr["Payara Cloud Customer Managed Region"] in the Marketplace and pick the plan that is offered:
+.. Search for https://portal.azure.com/#create/payara.cloud-cmr[Payara Cloud Customer Managed Region]
+.. Select the available plan
 +
 // TODO: This needs to be updated with final public plan screenshot
-image::billing/signup/cmr-planselect.png[]
+image::billing/signup/cmr-planselect.png[Plan selection]
 
-. After clicking on btn:[Create] fill out the parameters for your region:
+. Configure basic settings:
 +
-image::billing/signup/cmr-azureparams-1.png[]
+image::billing/signup/cmr-azureparams-1.png[Basic configuration]
 +
-Subscription:: Azure subscription that will be used for the region.
-Resource Group:: Resource Group that will contain the Managed application resource
-Region:: Azure Region where the resources will be deployed
-Payara Cloud Connection String:: The value you copied from the Account Information page in Step 4.
-Domain to Create:: Subdomain of your public DNS domain that you control and will be used for this region.
-Let's Encrypt Email:: The email address that will be used for Let's Encrypt certificate registration.
-Application Name:: Name of Managed Application Resource to be created in Azure
-Managed Resource Group:: Resource Group that will be created in Azure for the region.
+Subscription:: Azure subscription for deployment
+Resource Group:: Container for managed application
+Region:: Azure deployment location
+Connection String:: Value copied from Payara Cloud
+Domain:: Your DNS subdomain
+Let's Encrypt Email:: SSL certificate notifications
+Application Name:: Managed Application identifier
+Managed Resource Group:: Resource container name
 
-. Click btn:[ Next ] to configure further details, or btn:[ Review + Create ] to skip to final step.
-Optional steps allow you to fine-tune settings for the region:
+. Set infrastructure options (Optional):
 +
-image::billing/signup/cmr-azureparams-2.png[]
-AKS Cluster Name:: Name of the AKS cluster that will be created for this region.
-Kubernetes Version:: Version of Kubernetes that will be used in the AKS cluster.
-Node Size:: VM type that will be used for the AKS cluster nodes. At least 4 vCPUs are recommended.
-Minimum Cluster size:: Smallest number of nodes that will be kept in the cluster.
-Maximum Cluster size:: Largest number of nodes that will be kept in the cluster.
-Log Analytics Workspace Name:: Name of the Log Analytics workspace that will be created for this region.
-
-. Click btn:[ Review + Create ] to see the summary of the deployment and click btn:[ Create ] to start the deployment.
+image::billing/signup/cmr-azureparams-2.png[Infrastructure settings]
 +
-// TODO: The terms will be different on final offer
-image::billing/signup/cmr-azureparams-3.png[]
+AKS Cluster Name:: Azure Kubernetes Service cluster identifier
+Kubernetes Version:: Platform version selection
+Node Size:: VM type (4+ vCPUs recommended)
+Cluster Size Range::
+* Minimum: Base node count
+* Maximum: Scale limit
+Log Analytics Workspace:: Monitoring workspace name
 
-. Wait for deployment to finish:
+. Review and create:
+.. Verify all settings
 +
-image::billing/signup/cmr-azuredeployment-1.png[]
+image::billing/signup/cmr-azureparams-3.png[Review settings]
 
-. After that visit the deployed Managed Application and check its btn:[Outputs]:
+.. Click btn:[Create]
+
+. Monitor deployment:
+.. Watch progress indicators
 +
-image::billing/signup/cmr-azuredeployment-2.png[]
-You will need the values `dns_nameservers` in order to set up the subzone of your public DNS domain.
+image::billing/signup/cmr-azuredeployment-1.png[Deployment progress]
 
-. Navigate to your public DNS domain and create a new NS records for subzone with the name you chose in Step 6.
-Following is an example if your domain is hosted in Azure DNS:
+.. Check outputs after completion
 +
-image::billing/signup/cmr-azuredeployment-3.png[]
+image::billing/signup/cmr-azuredeployment-2.png[Deployment outputs]
++
+TIP: Note the `dns_nameservers` values for the next step
 
-=== Verification
+=== 3. DNS Setup
 
-Eventually back in Payara Cloud, you will see the region becoming Active:
+. Configure domain settings:
+.. Create NS records for your subdomain
+.. Add all `dns_nameservers` values
++
+image::billing/signup/cmr-azuredeployment-3.png[DNS configuration]
++
+.Example DNS Configuration
+[source]
+----
+Subdomain: [your-region-name]
+Record type: NS
+TTL: 3600
+Values: [dns_nameservers values]
+----
 
-image::billing/signup/cmr-verification-1.png[]
+=== 4. Final Verification
 
-The region is then available as a deployment target for nammespaces created in this subscription.
-Note that public cloud regions will not be available for deployments in this subscription, only the regions you would deploy yourself using the procedure above.
+. Check Payara Cloud dashboard:
+.. Monitor region status
+.. Wait for "Active" indication
++
+image::billing/signup/cmr-verification-1.png[Region verification]
+
+NOTE: This subscription will only show your private regions. Public cloud regions are not accessible.
+
+== Troubleshooting Guide
+
+.Common Issues
+* Region activation delay
+** Normal time: 10-15 minutes
+** If exceeding 30 minutes, verify:
+*** DNS configuration accuracy
+*** Azure deployment status
+*** Connection string correctness
+
+== Next Steps
+
+. Create namespaces in your new region
+. Deploy your first application
+. Monitor Azure portal metrics
+
+TIP: Keep your Azure infrastructure costs optimized by monitoring resource usage regularly.
+
+== Support
+
+For technical assistance:
+
+* Check Payara Cloud documentation
+* Contact support through your subscription portal
+* Monitor Azure health dashboard for infrastructure status
+
+[NOTE]
+====
+Remember to:
+
+* Keep connection strings secure
+* Monitor resource usage
+* Review Azure security recommendations
+====
+
+xref:azure-customer-managed-reg-ref.adoc[Additional Azure Region Management Information]
