@@ -169,4 +169,4 @@ Remember to:
 * Review Azure security recommendations
 ====
 
-xref:azure-customer-managed-reg-ref.adoc[Additional Azure Region Management Information]
+xref:azure-customer-managed-reg-ref.adoc[Additional Azure Managed Region Information]
