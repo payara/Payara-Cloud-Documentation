@@ -5,30 +5,6 @@ _[SUCCESS] Revision reconfigured_
 
 {
     "kind": {
-        "appRuntime": {
-            "fail-deploy.war": {
-                "values": {
-                    "runtimeSize": "QUARTER+++_+++CORE",
-                    "scalabilityType": "ROLLING+++_+++UPGRADE",
-                    "rollOverTime": "MODERATE"
-                },
-                "complete": true,
-                "keys": [
-                    {
-                        "name": "runtimeSize",
-                        "required": false
-                    },
-                    {
-                        "name": "scalabilityType",
-                        "required": false
-                    },
-                    {
-                        "name": "rollOverTime",
-                        "required": false
-                    }
-                ]
-            }
-        },
         "contextRoot": {
             "fail-deploy.war": {
                 "values": {
@@ -40,17 +16,63 @@ _[SUCCESS] Revision reconfigured_
                 "keys": [
                     {
                         "name": "exposedPaths",
-                        "required": false
+                        "required": false,
+                        "restricted": false
                     },
                     {
                         "name": "contextRoot",
                         "required": true,
+                        "restricted": false,
                         "default": "/missing-injection-fail"
                     },
                     {
                         "name": "appName",
                         "required": true,
+                        "restricted": false,
                         "default": "missing-injection-fail"
+                    }
+                ]
+            }
+        },
+        "appRuntime": {
+            "fail-deploy.war": {
+                "values": {
+                    "runtimeSize": "QUARTER+++_+++CORE",
+                    "runtimeType": "PAYARA5+++_+++JDK11",
+                    "rollOverTime": "MODERATE",
+                    "scalabilityType": "ROLLING+++_+++UPGRADE"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "runtimeSize",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "runtimeType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "numberOfReplicas",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "dataGridMode",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
                     }
                 ]
             }

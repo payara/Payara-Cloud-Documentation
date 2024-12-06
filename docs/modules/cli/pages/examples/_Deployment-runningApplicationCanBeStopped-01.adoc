@@ -1,7 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
 *pcl stop -n _$namespace_ -a _$appName_*
-_[UPDATE] State of deployment process is DEPLOYING_
 _[UPDATE] State of deployment process is STOPPED_
 _[SUCCESS] Deployment completed_
 

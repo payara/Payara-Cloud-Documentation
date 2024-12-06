@@ -1,125 +1,122 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ configure appRuntime scalabilityType=HORIZONTAL+++_+++SCALING --add numberOfReplicas=4*
+*pcl -n _$namespace_ -a _$appName_ configure appRuntime scalabilityType=HORIZONTAL+++_+++SCALING --add numberOfReplicas=2*
 _[SUCCESS] Revision reconfigured_
 
 {
     "kind": {
-        "appRuntime": {
-            "petclinic.war": {
-                "values": {
-                    "numberOfReplicas": "4",
-                    "runtimeSize": "QUARTER+++_+++CORE",
-                    "runtimeType": "PAYARA6+++_+++JDK11",
-                    "dataGridMode": "ENABLED",
-                    "scalabilityType": "HORIZONTAL+++_+++SCALING"
-                },
-                "complete": true,
-                "keys": [
-                    {
-                        "name": "dataGridMode",
-                        "required": false
-                    },
-                    {
-                        "name": "numberOfReplicas",
-                        "required": false
-                    },
-                    {
-                        "name": "runtimeSize",
-                        "required": false
-                    },
-                    {
-                        "name": "runtimeType",
-                        "required": false
-                    },
-                    {
-                        "name": "scalabilityType",
-                        "required": false
-                    }
-                ]
-            }
-        },
         "contextRoot": {
-            "petclinic.war": {
+            "pass-deploy.war": {
                 "values": {
                     "exposedPaths": "/+++*+++",
-                    "appName": "petclinic-jakartaee",
-                    "contextRoot": "/game"
+                    "appName": "game-demo",
+                    "contextRoot": "/"
                 },
                 "complete": true,
                 "keys": [
                     {
                         "name": "exposedPaths",
-                        "required": false
+                        "required": false,
+                        "restricted": false
                     },
                     {
                         "name": "contextRoot",
                         "required": true,
-                        "default": "/petclinic-jakartaee"
+                        "restricted": false,
+                        "default": "/"
                     },
                     {
                         "name": "appName",
                         "required": true,
-                        "default": "petclinic-jakartaee"
+                        "restricted": false,
+                        "default": "game-demo"
                     }
                 ]
             }
         },
-        "dataSource": {
-            "java:comp/DefaultDataSource": {
+        "appRuntime": {
+            "pass-deploy.war": {
                 "values": {
-                    "datasourceClass": "org.h2.jdbcx.JdbcDataSource",
-                    "steadyPoolSize": "1",
-                    "maxWaitTime": "30000",
-                    "jdbcUrl": "<default>",
-                    "maxPoolSize": "10",
-                    "resourceType": "javax.sql.DataSource",
-                    "poolName": "java+++_+++comp+++_+++DefaultDataSource"
+                    "runtimeSize": "QUARTER+++_+++CORE",
+                    "numberOfReplicas": "2",
+                    "runtimeType": "PAYARA5+++_+++JDK11",
+                    "scalabilityType": "HORIZONTAL+++_+++SCALING"
                 },
                 "complete": true,
                 "keys": [
                     {
-                        "name": "steadyPoolSize",
-                        "required": true,
-                        "default": "1"
+                        "name": "runtimeSize",
+                        "required": false,
+                        "restricted": false
                     },
                     {
-                        "name": "maxPoolSize",
-                        "required": true,
-                        "default": "10"
+                        "name": "runtimeType",
+                        "required": false,
+                        "restricted": false
                     },
                     {
-                        "name": "maxWaitTime",
-                        "required": true,
-                        "default": "30000"
+                        "name": "numberOfReplicas",
+                        "required": false,
+                        "restricted": false
                     },
                     {
-                        "name": "jdbcUrl",
-                        "required": true,
-                        "default": "<default>"
+                        "name": "dataGridMode",
+                        "required": false,
+                        "restricted": false
                     },
                     {
-                        "name": "datasourceClass",
-                        "required": true,
-                        "default": "org.h2.jdbcx.JdbcDataSource"
+                        "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
                     },
                     {
-                        "name": "resourceType",
-                        "required": true,
-                        "default": "javax.sql.DataSource"
+                        "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    }
+                ]
+            }
+        },
+        "microprofileConfig": {
+            "pass-deploy.war": {
+                "values": {
+                    "mp.jwt.verify.issuer": "fish.payara.demo",
+                    "quiz.lockout": "1500",
+                    "mp.jwt.verify.publickey.location": "publickey.pem",
+                    "maths.duration": "20",
+                    "quiz.duration": "20"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "maths.duration",
+                        "required": false,
+                        "restricted": false,
+                        "default": "20"
                     },
                     {
-                        "name": "user",
-                        "required": false
+                        "name": "mp.jwt.verify.issuer",
+                        "required": false,
+                        "restricted": false,
+                        "default": "fish.payara.demo"
                     },
                     {
-                        "name": "password",
-                        "required": false
+                        "name": "mp.jwt.verify.publickey.location",
+                        "required": false,
+                        "restricted": false,
+                        "default": "publickey.pem"
                     },
                     {
-                        "name": "poolName",
-                        "required": true,
-                        "default": "java+++_+++comp+++_+++DefaultDataSource"
+                        "name": "quiz.duration",
+                        "required": false,
+                        "restricted": false,
+                        "default": "20"
+                    },
+                    {
+                        "name": "quiz.lockout",
+                        "required": false,
+                        "restricted": false,
+                        "default": "1500"
                     }
                 ]
             }
