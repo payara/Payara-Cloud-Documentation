@@ -156,7 +156,7 @@ TIP: Keep your Azure infrastructure costs optimized by monitoring resource usage
 
 For technical assistance:
 
-* Check Payara Cloud documentation
+* Check https://docs.payara.fish/cloud/docs/Overview.html[Payara Cloud documentation]
 * Contact support through your subscription portal
 * Monitor Azure health dashboard for infrastructure status
 
