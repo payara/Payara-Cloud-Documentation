@@ -33,15 +33,16 @@ Your costs will include:
 
 .. Visit https://billing.payara.cloud/cmr/signup[Payara Cloud Signup]
 +
-image::cmr-signup.png[Signup page,link=https://billing.payara.cloud/cmr/signup]
+image::cmr-signup.png[image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-signup.png"]
+
 .. Accept terms and click btn:[Subscribe]
 +
-image::cmr-confirm.png[Terms confirmation]
+image::cmr-confirm.png[Terms confirmation,image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-confirm.png"]
 
 . Set up your first region:
 .. Enter a descriptive, unique region name
 +
-image::cmr-region.png[Region setup]
+image::cmr-region.png[Region setup,image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-region.png"]
 +
 
 IMPORTANT: Region names cannot be changed after creation
@@ -52,7 +53,7 @@ IMPORTANT: Region names cannot be changed after creation
 .. Find and copy the connection string from Account Information
 
 +
-image::cmr-connection.png[Connection string]
+image::cmr-connection.png[Connection string,image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-connection.png"]
 
 === 2. Azure Configuration
 
@@ -62,11 +63,11 @@ image::cmr-connection.png[Connection string]
 .. Select the available plan
 +
 // TODO: This needs to be updated with final public plan screenshot
-image::cmr-planselect.png[Plan selection]
+image::cmr-planselect.png[Plan selection, ,image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-planselect.png"]
 
 . Configure basic settings:
 +
-image::cmr-azureparams-1.png[Basic configuration]
+image::cmr-azureparams-1.png[Basic configuration,image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-azureparams-1.png"]
 +
 Subscription:: Azure subscription for deployment
 Resource Group:: Container for managed application
@@ -79,7 +80,7 @@ Managed Resource Group:: Resource container name
 
 . Set infrastructure options (Optional):
 +
-image::cmr-azureparams-2.png[Infrastructure settings]
+image::cmr-azureparams-2.png[Infrastructure settings, ,image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-azureparams-2.png"]
 +
 AKS Cluster Name:: Azure Kubernetes Service cluster identifier
 Kubernetes Version:: Platform version selection
@@ -92,18 +93,18 @@ Log Analytics Workspace:: Monitoring workspace name
 . Review and create:
 .. Verify all settings
 +
-image::cmr-azureparams-3.png[Review settings]
+image::cmr-azureparams-3.png[Review settings,image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-azureparams-3.png"]
 
 .. Click btn:[Create]
 
 . Monitor deployment:
 .. Watch progress indicators
 +
-image::cmr-azuredeployment-1.png[Deployment progress]
+image::cmr-azuredeployment-1.png[Deployment progress,image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-azuredeployment-1.png"]
 
 .. Check outputs after completion
 +
-image::cmr-azuredeployment-2.png[Deployment outputs]
+image::cmr-azuredeployment-2.png[Deployment outputs,image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-azuredeployment-2.png"]
 +
 TIP: Note the `dns_nameservers` values for the next step
 
@@ -113,7 +114,7 @@ TIP: Note the `dns_nameservers` values for the next step
 .. Create NS records for your subdomain
 .. Add all `dns_nameservers` values
 +
-image:cmr-azuredeployment-3.png[DNS configuration]
+image:cmr-azuredeployment-3.png[DNS configuration,image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-azuredeployment-3.png"]
 +
 .Example DNS Configuration
 [source]
@@ -130,7 +131,7 @@ Values: [dns_nameservers values]
 .. Monitor region status
 .. Wait for "Active" indication
 +
-image::cmr-verification-1.png[Region verification]
+image::cmr-verification-1.png[Region verification,image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-verification-1.png"]
 
 NOTE: This subscription will only show your private regions. Public cloud regions are not accessible.
 
