@@ -11,7 +11,7 @@ The primary method for reporting issues or providing feedback is through our fee
 
 === Submission Process
 
-
+image::feedback-form.png[Payara Cloud Feedback Form, text Description automatically generated,width=672,height=361, link="{imagesdir}/feedback-form.png", window="_blank"]
 
 . Click the "Provide Feedback" button
 . Fill out the required fields:
@@ -22,22 +22,22 @@ The primary method for reporting issues or providing feedback is through our fee
 *** Steps to reproduce
 *** Impact on your operations
 .. Your contact information (name and email)
+.. Optional: Attach relevant screenshots or files using the "Attach file" button (image icon)
 
 === Best Practices for Submitting Feedback
 
-[%hardbreaks]
-Include specific examples and timestamps
-Describe any error messages received
-Mention any workarounds attempted
-Note the urgency/severity of the issue
+* Include specific examples and timestamps
+* Attach screenshots of error messages when possible
+* Describe any error messages received
+* Mention any workarounds attempted
+* Note the urgency/severity of the issue
 
 == Response Times and Limitations
 
-[%hardbreaks]
-This is a Beta service, so response times may vary
-Critical issues affecting service availability receive priority attention
-General feedback and feature requests are reviewed periodically
-You may be contacted for additional information if needed
+* This is a Beta service, so response times may vary
+* Critical issues affecting service availability receive priority attention
+* General feedback and feature requests are reviewed periodically
+* You may be contacted for additional information if needed
 
 == Additional Support Resources
 
@@ -48,7 +48,8 @@ Contact Management:: For urgent matters, reach out to your assigned account mana
 
 == Service Monitoring
 
-While we actively monitor the service, your feedback helps us identify and address issues more quickly. Please report any performance degradation, unexpected behavior, or service disruptions through the feedback form.
+While we actively monitor the service, your feedback helps us identify and address issues more quickly.
+Please report any performance degradation, unexpected behavior, or service disruptions through the feedback form.
 
 [IMPORTANT]
 ====
