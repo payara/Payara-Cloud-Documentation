@@ -44,7 +44,7 @@ image::new-signup-4.png[Payara Cloud Invoicing Info, text Description automatica
 On the ensuing invoicing tab, set the name of the primary contact for the account and click the btn:[Continue To Confirmation] button.
 
 .Subscription creation confirmation
-image::new-signup5.png[Payara Cloud Subscription Confirmation, text Description automatically generated,width=672,height=361, link="{imagesdir}/new-signup-5.png", window="_blank"]
+image::new-signup5.png[Payara Cloud Subscription Confirmation, text Description automatically generated,width=672,height=361, link="{imagesdir}/new-signup5.png", window="_blank"]
 
 On the Confirmation tab, review and accept the Terms & Conditions.
 Optionally, opt in for marketing communications.
