@@ -34,7 +34,10 @@ image::feedback-form.png[Payara Cloud Feedback Form, text Description automatica
 
 == Response Times and Limitations
 
-* This is a Beta service, so response times may vary
+* This is a Beta feature. The Feature and user experience is largely complete, tested and stable.
+AWS Region has configuration and dependencies that are unlikely to change.
+There is a low risk of data loss.
+The feature is supported on a commercially-reasonable effort basis, but with the expectation that issues require extra time and assistance from development to troubleshoot.
 * Critical issues affecting service availability receive priority attention
 * General feedback and feature requests are reviewed periodically
 * You may be contacted for additional information if needed
