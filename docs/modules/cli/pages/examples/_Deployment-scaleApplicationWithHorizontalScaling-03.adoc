@@ -1,8 +1,10 @@
 [listing,subs="+macros,+quotes"]
 ----
 *pcl deploy -n _$namespace_ -a _$appName_*
+_[UPDATE] State of deployment process is WAITING_
 _[UPDATE] State of deployment process is DEPLOYING_
 _[UPDATE] State of deployment process is DEPLOYING [1/2]_
+_[UPDATE] State of deployment process is DEPLOYING [2/2]_
 _[UPDATE] State of deployment process is DEPLOYED [2/2]_
 _[SUCCESS] Deployment completed_
 

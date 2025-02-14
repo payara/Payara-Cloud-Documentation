@@ -1,7 +1,7 @@
 [listing,subs="+macros,+quotes"]
 ----
 *pcl -n _$namespace_ -a _$appName_ configure --help*
-Usage: configure [-ehV] [--deploy] [-t=<timeout>] [<CONFIGURATION KIND>
+Usage: configure [-ehlV] [--deploy] [-t=<timeout>] [<CONFIGURATION KIND>
                  key=value...]...
       --deploy              Deploy revision with updated configuration
                               immediately
@@ -14,6 +14,7 @@ Usage: configure [-ehV] [--deploy] [-t=<timeout>] [<CONFIGURATION KIND>
                               deployment that failed with early warning will
                               not start up later.
   -h, --help                Show this help message and exit.
+  -l, --logs                Show application's logs during deployment
   -t, --timeout=<timeout>   Duration in seconds specifying how long to wait for
                               deployment to complete
                             This is client side timeout which doesn't affect
