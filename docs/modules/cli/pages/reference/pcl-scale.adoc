@@ -19,8 +19,9 @@ pcl-scale - Scale an application
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl scale* [*-hqV*] [*-a*=_<applicationName>_] *--instances*=_<instances>_
+*pcl scale* [*-ehlqV*] [*-a*=_<applicationName>_] *--instances*=_<instances>_
           [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_]
+          [*-t*=_<timeout>_]
 
 // end::picocli-generated-man-section-synopsis[]
 
@@ -40,11 +41,21 @@ Application can be scaled by passing the number of instances to scale
 +
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
 
+*-e*, *--fail-early*::
+  Fail command immediately after first deployment problem instead of waiting for timeout on client or backend side
++
+There are certain scenarios when deployment can succeed despite deployment problems reported. 
++
+It is therefore not guaranteed that application deployment that failed with early warning will not start up later.
+
 *-h*, *--help*::
   Show this help message and exit.
 
 *--instances*=_<instances>_::
   State number of instances between 1 and 8
+
+*-l*, *--logs*::
+  Show application's logs during deployment
 
 *-n*, *--namespace*=_<namespaceName>_::
   Name of namespace to manage.
@@ -61,6 +72,11 @@ Only result of operations will be displayed to `stdout`, or error message to `st
 
 *-s*, *--subscription*=_<subscriptionName>_::
   Name of subscription to use. Only necessary when account has access to multiple subscriptions.
+
+*-t*, *--timeout*=_<timeout>_::
+  Duration in seconds specifying how long to wait for deployment to complete
++
+This is client side timeout which doesn't affect deployment process in Payara Cloud. It is therefore not guaranteed that application deployment that failed due to this time out will not eventually start up later.
 
 *-V*, *--version*::
   Print version information and exit.

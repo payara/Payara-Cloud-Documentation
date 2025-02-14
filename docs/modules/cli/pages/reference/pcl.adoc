@@ -70,43 +70,43 @@ Only result of operations will be displayed to `stdout`, or error message to `st
 // tag::picocli-generated-man-section-commands[]
 == Commands
 
-xref:cli:reference/pcl-login.adoc[*login*]::
+xref:pcl-login.adoc[*login*]::
   Log in to Payara Cloud instance.
 
-xref:cli:reference/pcl-list-subscriptions.adoc[*list-subscriptions*]::
+xref:pcl-list-subscriptions.adoc[*list-subscriptions*]::
   Get list of subscriptions available to user.
 
-xref:cli:reference/pcl-list-namespaces.adoc[*list-namespaces*]::
+xref:pcl-list-namespaces.adoc[*list-namespaces*]::
   List namespaces available in a subscription.
 
-xref:cli:reference/pcl-list-applications.adoc[*list-applications*]::
+xref:pcl-list-applications.adoc[*list-applications*]::
   List applications present in a namespace.
 
-xref:cli:reference/pcl-upload.adoc[*upload*]::
+xref:pcl-upload.adoc[*upload*]::
   Upload application binary
 
-xref:cli:reference/pcl-deploy.adoc[*deploy*]::
+xref:pcl-deploy.adoc[*deploy*]::
   Deploy an existing application.
 
-xref:cli:reference/pcl-start.adoc[*start*]::
+xref:pcl-start.adoc[*start*]::
   Start an application
 
-xref:cli:reference/pcl-stop.adoc[*stop*]::
+xref:pcl-stop.adoc[*stop*]::
   Stop an application
 
-xref:cli:reference/pcl-create-namespace.adoc[*create-namespace*]::
+xref:pcl-create-namespace.adoc[*create-namespace*]::
   Create new namespace
 
-xref:cli:reference/pcl-delete-namespace.adoc[*delete-namespace*]::
+xref:pcl-delete-namespace.adoc[*delete-namespace*]::
   Deletes a namespace.
 
-xref:cli:reference/pcl-delete-application.adoc[*delete-application*]::
+xref:pcl-delete-application.adoc[*delete-application*]::
   Delete an application.
 
-xref:cli:reference/pcl-configure.adoc[*configure*]::
+xref:pcl-configure.adoc[*configure*]::
   Change configuration of an application
 
-xref:cli:reference/pcl-scale.adoc[*scale*]::
+xref:pcl-scale.adoc[*scale*]::
   Scale an application
 
 // end::picocli-generated-man-section-commands[]

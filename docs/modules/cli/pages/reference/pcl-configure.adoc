@@ -19,7 +19,7 @@ pcl-configure - Change configuration of an application
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl configure* [*-eq*] [*--deploy*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_]
+*pcl configure* [*-elq*] [*--deploy*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_]
               [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_] [*-t*=_<timeout>_]
 
 // end::picocli-generated-man-section-synopsis[]
@@ -51,6 +51,9 @@ Not required for commands listed by `-n` option, as well as `list-applications` 
 There are certain scenarios when deployment can succeed despite deployment problems reported. 
 +
 It is therefore not guaranteed that application deployment that failed with early warning will not start up later.
+
+*-l*, *--logs*::
+  Show application's logs during deployment
 
 *-n*, *--namespace*=_<namespaceName>_::
   Name of namespace to manage.

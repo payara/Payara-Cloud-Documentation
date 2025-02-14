@@ -1,17 +1,15 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl upload -n _$namespace_ _$warFile_ --deploy*
+*pcl upload -n _$namespace_ -a _$appName_ _$warFile_*
 _[UPDATE] State of inspection process is CREATED_
-_[UPDATE] State of inspection process is DEPLOYING_
-_[UPDATE] State of deployment process is DEPLOYING_
-_[UPDATE] State of deployment process is DEPLOYED_
-_[SUCCESS] Deployment completed_
+_[SUCCESS] Application uploaded_
 
 {
     "name": "game-demo",
     "applicationEndpoint": "+++https:+++//cli-clitest-xxxxxxxx.payara.app/",
-    "pendingChanges": false,
+    "pendingChanges": true,
     "status": "RUNNING",
+    "numberOfReplicas": 4,
     "liveRuntimeSize": "QUARTER+++_+++CORE"
 }
 ----

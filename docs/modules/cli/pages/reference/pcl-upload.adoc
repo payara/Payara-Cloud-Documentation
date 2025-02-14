@@ -19,7 +19,7 @@ pcl-upload - Upload application binary
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl upload* [*-ehqV*] [*--deploy*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_]
+*pcl upload* [*-ehlqV*] [*--deploy*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_]
            [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_] [*-t*=_<timeout>_] _<file>_
 
 // end::picocli-generated-man-section-synopsis[]
@@ -54,6 +54,9 @@ It is therefore not guaranteed that application deployment that failed with earl
 
 *-h*, *--help*::
   Show this help message and exit.
+
+*-l*, *--logs*::
+  Show application's logs during deployment
 
 *-n*, *--namespace*=_<namespaceName>_::
   Name of namespace to manage.

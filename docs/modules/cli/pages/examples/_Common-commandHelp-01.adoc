@@ -1,7 +1,7 @@
 [listing,subs="+macros,+quotes"]
 ----
 *pcl upload --help*
-Usage: pcl upload [-ehqV] [--deploy] [-a=<applicationName>]
+Usage: pcl upload [-ehlqV] [--deploy] [-a=<applicationName>]
                   [-n=<namespaceName>] [-o=<outputFormat>]
                   [-s=<subscriptionName>] [-t=<timeout>] <file>
 Upload application binary
@@ -25,6 +25,7 @@ Use to either provide new binary for existing application by specifying option
                               deployment that failed with early warning will
                               not start up later.
   -h, --help                Show this help message and exit.
+  -l, --logs                Show application's logs during deployment
   -n, --namespace=<namespaceName>
                             Name of namespace to manage.
                             Required for all commands except +++`+++login+++`+++,
