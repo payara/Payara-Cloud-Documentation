@@ -4,47 +4,42 @@
 Usage: pcl upload [-ehlqV] [--deploy] [-a=<applicationName>]
                   [-n=<namespaceName>] [-o=<outputFormat>]
                   [-s=<subscriptionName>] [-t=<timeout>] <file>
-Upload application binary
-Use to either provide new binary for existing application by specifying option
+Upload an application binary (.war file) to Payara Cloud.
+This command can either provide a new binary for an existing application or upload a new application into a namespace.
 +++`+++-a+++`+++ / +++`+++--application+++`+++, or to upload new application into a namespace.
       <file>                Application archive file (.war) to be uploaded
   -a, --application=<applicationName>
                             Name of application to manage.
                             Not required for commands listed by +++`+++-n+++`+++ option, as
                               well as +++`+++list-applications+++`+++ and +++`+++upload+++`+++.
-      --deploy              Deploy application immediately.
-                            Application will be immediately deployed after
-                              upload if its default configuration is complete,
-                              i. e. all required option have default values.
+      --deploy              Deploy the application immediately after uploading.
+                            The application will only deploy if its default configuration is complete
+                             (i.e., all required options have default values).
   -e, --fail-early          Fail command immediately after first deployment
                               problem instead of waiting for timeout on client
                               or backend side
                             There are certain scenarios when deployment can
-                              succeed despite deployment problems reported.
-                            It is therefore not guaranteed that application
-                              deployment that failed with early warning will
-                              not start up later.
+                              succeed despite reported deployment problems.
+                            This means that even if you receive early warning messages
+                              about deployment failures, the application
+                              might still start up and run properly later.
   -h, --help                Show this help message and exit.
-  -l, --logs                Show application's logs during deployment
+  -l, --logs                Display application deployment logs in real-time.
   -n, --namespace=<namespaceName>
-                            Name of namespace to manage.
-                            Required for all commands except +++`+++login+++`+++,
+                            Specify the name of the namespace to manage.
+                            This option is required for all commands except +++`+++login+++`+++,
                               +++`+++list-namespaces+++`+++ and +++`+++create-namespace+++`+++.
   -o, --output=<outputFormat>
-                            Output format. Allowed values: TEXT, JSON.
-  -q, --quiet               Quiet output.
+                            Set the output format. Allowed values: TEXT, JSON.
+  -q, --quiet              Enable quiet output.
                             Only result of operations will be displayed to
                               +++`+++stdout+++`+++, or error message to +++`+++stderrr+++`+++.
   -s, --subscription=<subscriptionName>
-                            Name of subscription to use. Only necessary when
-                              account has access to multiple subscriptions.
-  -t, --timeout=<timeout>   Duration in seconds specifying how long to wait for
-                              deployment to complete
-                            This is client side timeout which doesn't affect
-                              deployment process in Payara Cloud. It is
-                              therefore not guaranteed that application
-                              deployment that failed due to this time out will
-                              not eventually start up later.
+                            Specify the name of the subscription to use. This is only necessary when
+                              your account has access to multiple subscriptions.
+  -t, --timeout=<seconds>   Set how long to wait for deployment completion on the client side (in seconds).
+                              This timeout doesn't affect the actual deployment process in Payara Cloud,
+                              so applications might still start up even after a timeout occurs.
   -V, --version             Print version information and exit.
 
 ----
