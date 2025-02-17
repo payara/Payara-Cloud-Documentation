@@ -143,7 +143,7 @@ In the workflow file refer to the secret like this:
       run: pcl -n project-head -a main-app upload target/app.war --deploy
 ----
 
-NOTE: For using pcl with Github Actions we recommend looking at our Github Action https://github.com/payara/cloud-deploy[payara/cloud-deploy].
+NOTE: To use PCL with GitHub Actions, check out our dedicated GitHub Action at  https://github.com/payara/cloud-deploy[payara/cloud-deploy].
 
 == Common options
 
@@ -294,15 +294,19 @@ These both options are also available to other commands that might trigger deplo
 
 ==== Deployment Logs
 
-It is also possible to see logs of the application during deployment by means of switch `--logs`.
-These are raw logs from the container and are in Payara's JSON log format.
-Prefix `[UPDATE]` also signifies the instance from which the log originated so that deployment of multiple instances can be distinguished.
-The logs shipping will stop as soon as the deployment is finished though.
+The deployment logs can be viewed in real-time using the `--logs` switch.
+The output shows the container's raw logs formatted in Payara's JSON structure.
+When deploying multiple instances, each log entry includes a `[UPDATE]` prefix to identify its source instance.
+Log streaming automatically stops once deployment completes.
 
+Example:
 include::examples/_Deployment-logsCanBeDisplayedDuringDeployment-02.adoc[]
 
-The switch is also available for other commands that might trigger deployment,
-such as `scale`, `upload --deploy` or `configure --deploy`.
+The `--logs` switch works with several commands that involve deployment:
+
+* `scale`
+* `upload --deploy`
+* `configure --deploy`
 
 === Listing Applications
 

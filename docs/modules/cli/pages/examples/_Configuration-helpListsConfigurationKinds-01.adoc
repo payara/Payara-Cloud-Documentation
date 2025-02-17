@@ -3,25 +3,14 @@
 *pcl -n _$namespace_ -a _$appName_ configure --help*
 Usage: configure [-ehlV] [--deploy] [-t=<timeout>] [<CONFIGURATION KIND>
                  key=value...]...
-      --deploy              Deploy revision with updated configuration
-                              immediately
-  -e, --fail-early          Fail command immediately after first deployment
-                              problem instead of waiting for timeout on client
-                              or backend side
-                            There are certain scenarios when deployment can
-                              succeed despite deployment problems reported.
-                            It is therefore not guaranteed that application
-                              deployment that failed with early warning will
-                              not start up later.
+      --deploy              Applies and deploys configuration changes immediately
+
+  -e, --fail-early          Stops the command at the first deployment issue, rather than waiting for timeout.
+                                Note that applications may still deploy successfully even if problems are initially reported.
   -h, --help                Show this help message and exit.
-  -l, --logs                Show application's logs during deployment
-  -t, --timeout=<timeout>   Duration in seconds specifying how long to wait for
-                              deployment to complete
-                            This is client side timeout which doesn't affect
-                              deployment process in Payara Cloud. It is
-                              therefore not guaranteed that application
-                              deployment that failed due to this time out will
-                              not eventually start up later.
+  -l, --logs                Shows application deployment logs in real-time
+  -t, --timeout=<seconds>   DSets how long to wait for deployment completion on the client side.
+                                This timeout doesn't affect the actual deployment process in Payara Cloud, so applications might still start up even after a timeout occurs.
   -V, --version             Print version information and exit.
 Configuration kinds:
   microprofileConfig
