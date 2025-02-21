@@ -1,6 +1,12 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl list-namespaces*
-_[FAILURE] Credentials are invalid. Please login again_
+*pcl -n _$namespace_ upload _$warFile_*
+_[UPDATE] State of inspection process is CREATED_
+_[SUCCESS] Application uploaded_
 
+{
+    "name": "game-demo",
+    "pendingChanges": true,
+    "status": "PENDING"
+}
 ----

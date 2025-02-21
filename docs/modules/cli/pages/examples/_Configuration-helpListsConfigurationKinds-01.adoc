@@ -1,13 +1,30 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ upload _$warFile_*
-_[UPDATE] State of inspection process is UPLOADING_
-_[UPDATE] State of inspection process is CREATED_
-_[SUCCESS] Application uploaded_
+*pcl -n _$namespace_ -a _$appName_ configure --help*
+Usage: configure [-ehlV] [--deploy] [-t=<seconds>] [<CONFIGURATION KIND>
+                 key=value...]...
+      --deploy              Deploy revision with updated configuration
+                              immediately
+  -e, --fail-early          Fail command immediately after first deployment
+                              problem instead of waiting for timeout on client
+                              or backend side
+                            There are certain scenarios when deployment can
+                              succeed despite reported deployment problems.
+                            This means that even if you receive early warning
+                              messages about deployment failures, the
+                              application might still start up and run properly
+                              later.
+  -h, --help                Show this help message and exit.
+  -l, --logs                Shows application deployment logs in real-time
+  -t, --timeout=<seconds>   Sets how long to wait for deployment completion on
+                              the client side.
+                            This timeout doesn't affect the actual deployment
+                              process in Payara Cloud, so applications might
+                              still start up even after a timeout occurs.
+  -V, --version             Print version information and exit.
+Configuration kinds:
+  microprofileConfig
+  appRuntime
+  contextRoot
 
-{
-    "name": "game-demo",
-    "pendingChanges": true,
-    "status": "PENDING"
-}
 ----

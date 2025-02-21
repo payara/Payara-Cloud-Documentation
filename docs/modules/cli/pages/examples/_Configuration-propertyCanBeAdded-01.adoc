@@ -8,9 +8,8 @@ _[SUCCESS] Revision reconfigured_
         "contextRoot": {
             "pass-deploy.war": {
                 "values": {
-                    "exposedPaths": "/ui/+++*+++",
                     "appName": "game-demo",
-                    "contextRoot": "/cr"
+                    "contextRoot": "/"
                 },
                 "complete": true,
                 "keys": [
@@ -39,11 +38,16 @@ _[SUCCESS] Revision reconfigured_
                 "values": {
                     "runtimeSize": "QUARTER+++_+++CORE",
                     "runtimeType": "PAYARA5+++_+++JDK11",
-                    "rollOverTime": "MODERATE",
-                    "scalabilityType": "ROLLING+++_+++UPGRADE"
+                    "scalabilityType": "ROLLING+++_+++UPGRADE",
+                    "rollOverTime": "MODERATE"
                 },
                 "complete": true,
                 "keys": [
+                    {
+                        "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    },
                     {
                         "name": "runtimeSize",
                         "required": false,
@@ -68,17 +72,12 @@ _[SUCCESS] Revision reconfigured_
                         "name": "rollOverTime",
                         "required": false,
                         "restricted": false
-                    },
-                    {
-                        "name": "scalabilityType",
-                        "required": false,
-                        "restricted": false
                     }
                 ]
             }
         },
         "microprofileConfig": {
-            "pass-deploy.war": {
+            "pass-deploy": {
                 "values": {
                     "new.app.config.property": "value",
                     "mp.jwt.verify.issuer": "fish.payara.demo",

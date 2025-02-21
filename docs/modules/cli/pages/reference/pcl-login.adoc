@@ -51,18 +51,18 @@ Not required for commands listed by `-n` option, as well as `list-applications` 
 Required for all commands except `login`, `list-namespaces` and `create-namespace`.
 
 *-o*, *--output*=_<outputFormat>_::
-  Output format. Allowed values: TEXT, JSON.
+  Set the output format. Allowed values: TEXT, JSON.
 
 *--print-token*::
   Print out environment setting to be used to use this token in non-interactive way.
 
 *-q*, *--quiet*::
-  Quiet output.
+  Enable quiet output.
 +
 Only result of operations will be displayed to `stdout`, or error message to `stderrr`.
 
 *-s*, *--subscription*=_<subscriptionName>_::
-  Name of subscription to use. Only necessary when account has access to multiple subscriptions.
+  Specify the name of the subscription to use. This is only necessary when your account has access to multiple subscriptions.
 
 *-V*, *--version*::
   Print version information and exit.
