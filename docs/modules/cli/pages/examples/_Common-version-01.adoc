@@ -2,7 +2,7 @@
 ----
 *pcl -V*
 pcl version: development-snapshot
-Java version: 21.0.3, Vendor: Oracle Corporation, Platform encoding: UTF-8
+Java version: 21.0.6, Vendor: Azul Systems, Inc., Platform encoding: UTF-8
 OS: Windows 11, Version: 10.0, Arch: amd64
 
 ----

@@ -45,6 +45,11 @@ _[SUCCESS] Revision reconfigured_
                 "complete": true,
                 "keys": [
                     {
+                        "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
                         "name": "runtimeSize",
                         "required": false,
                         "restricted": false
@@ -68,17 +73,12 @@ _[SUCCESS] Revision reconfigured_
                         "name": "rollOverTime",
                         "required": false,
                         "restricted": false
-                    },
-                    {
-                        "name": "scalabilityType",
-                        "required": false,
-                        "restricted": false
                     }
                 ]
             }
         },
         "microprofileConfig": {
-            "pass-deploy.war": {
+            "pass-deploy": {
                 "values": {
                     "mp.jwt.verify.issuer": "fish.payara.demo",
                     "quiz.lockout": "1500",

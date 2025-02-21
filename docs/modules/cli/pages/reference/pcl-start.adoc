@@ -19,8 +19,8 @@ pcl-start - Start an application
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl start* [*-hqV*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_]
-          [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_]
+*pcl start* [*-ehlqV*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_]
+          [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_] [*-t*=_<seconds>_]
 
 // end::picocli-generated-man-section-synopsis[]
 
@@ -40,8 +40,18 @@ When application is in stopped state it can be started again by means of this co
 +
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
 
+*-e*, *--fail-early*::
+  Fail command immediately after first deployment problem instead of waiting for timeout on client or backend side
++
+There are certain scenarios when deployment can succeed despite reported deployment problems.
++
+This means that even if you receive early warning messages about deployment failures, the application might still start up and run properly later.
+
 *-h*, *--help*::
   Show this help message and exit.
+
+*-l*, *--logs*::
+  Shows application deployment logs in real-time
 
 *-n*, *--namespace*=_<namespaceName>_::
   Name of namespace to manage.
@@ -49,15 +59,20 @@ Not required for commands listed by `-n` option, as well as `list-applications` 
 Required for all commands except `login`, `list-namespaces` and `create-namespace`.
 
 *-o*, *--output*=_<outputFormat>_::
-  Output format. Allowed values: TEXT, JSON.
+  Set the output format. Allowed values: TEXT, JSON.
 
 *-q*, *--quiet*::
-  Quiet output.
+  Enable quiet output.
 +
 Only result of operations will be displayed to `stdout`, or error message to `stderrr`.
 
 *-s*, *--subscription*=_<subscriptionName>_::
-  Name of subscription to use. Only necessary when account has access to multiple subscriptions.
+  Specify the name of the subscription to use. This is only necessary when your account has access to multiple subscriptions.
+
+*-t*, *--timeout*=_<seconds>_::
+  Sets how long to wait for deployment completion on the client side.
++
+This timeout doesn't affect the actual deployment process in Payara Cloud, so applications might still start up even after a timeout occurs.
 
 *-V*, *--version*::
   Print version information and exit.

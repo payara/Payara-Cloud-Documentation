@@ -12,23 +12,23 @@
 // tag::picocli-generated-man-section-name[]
 == Name
 
-pcl-upload - Upload application binary
+pcl-upload - Upload an application binary (.war file) to Payara Cloud.
 
 // end::picocli-generated-man-section-name[]
 
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl upload* [*-ehqV*] [*--deploy*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_]
-           [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_] [*-t*=_<timeout>_] _<file>_
+*pcl upload* [*-ehlqV*] [*--deploy*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_]
+           [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_] [*-t*=_<seconds>_] _<file>_
 
 // end::picocli-generated-man-section-synopsis[]
 
 // tag::picocli-generated-man-section-description[]
 == Description
 
-Upload application binary
-Use to either provide new binary for existing application by specifying option `-a` / `--application`, or to upload new application into a namespace.
+Upload an application binary (.war file) to Payara Cloud.
+This command can either provide a new binary for an existing application or upload a new application into a namespace.
 
 // end::picocli-generated-man-section-description[]
 
@@ -41,19 +41,22 @@ Use to either provide new binary for existing application by specifying option `
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
 
 *--deploy*::
-  Deploy application immediately.
+  Deploy the application immediately after uploading.
 +
-Application will be immediately deployed after upload if its default configuration is complete, i. e. all required option have default values.
+The application will only deploy if its default configuration is complete  (i.e., all required options have default values).
 
 *-e*, *--fail-early*::
   Fail command immediately after first deployment problem instead of waiting for timeout on client or backend side
 +
-There are certain scenarios when deployment can succeed despite deployment problems reported. 
+There are certain scenarios when deployment can succeed despite reported deployment problems.
 +
-It is therefore not guaranteed that application deployment that failed with early warning will not start up later.
+This means that even if you receive early warning messages about deployment failures, the application might still start up and run properly later.
 
 *-h*, *--help*::
   Show this help message and exit.
+
+*-l*, *--logs*::
+  Shows application deployment logs in real-time
 
 *-n*, *--namespace*=_<namespaceName>_::
   Name of namespace to manage.
@@ -61,20 +64,20 @@ It is therefore not guaranteed that application deployment that failed with earl
 Required for all commands except `login`, `list-namespaces` and `create-namespace`.
 
 *-o*, *--output*=_<outputFormat>_::
-  Output format. Allowed values: TEXT, JSON.
+  Set the output format. Allowed values: TEXT, JSON.
 
 *-q*, *--quiet*::
-  Quiet output.
+  Enable quiet output.
 +
 Only result of operations will be displayed to `stdout`, or error message to `stderrr`.
 
 *-s*, *--subscription*=_<subscriptionName>_::
-  Name of subscription to use. Only necessary when account has access to multiple subscriptions.
+  Specify the name of the subscription to use. This is only necessary when your account has access to multiple subscriptions.
 
-*-t*, *--timeout*=_<timeout>_::
-  Duration in seconds specifying how long to wait for deployment to complete
+*-t*, *--timeout*=_<seconds>_::
+  Sets how long to wait for deployment completion on the client side.
 +
-This is client side timeout which doesn't affect deployment process in Payara Cloud. It is therefore not guaranteed that application deployment that failed due to this time out will not eventually start up later.
+This timeout doesn't affect the actual deployment process in Payara Cloud, so applications might still start up even after a timeout occurs.
 
 *-V*, *--version*::
   Print version information and exit.

@@ -1,0 +1,15 @@
+[listing,subs="+macros,+quotes"]
+----
+*pcl upload -n _$namespace_ -a _$appName_ _$warFile_*
+_[UPDATE] State of inspection process is CREATED_
+_[SUCCESS] Application uploaded_
+
+{
+    "name": "game-demo",
+    "applicationEndpoint": "+++https:+++//cli-clitest-xxxxxxxx.payara.app/",
+    "pendingChanges": true,
+    "status": "RUNNING",
+    "numberOfReplicas": 1,
+    "liveRuntimeSize": "QUARTER+++_+++CORE"
+}
+----

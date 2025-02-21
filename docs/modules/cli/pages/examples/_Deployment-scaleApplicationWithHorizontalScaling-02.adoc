@@ -40,11 +40,16 @@ _[SUCCESS] Revision reconfigured_
                     "runtimeSize": "QUARTER+++_+++CORE",
                     "numberOfReplicas": "2",
                     "runtimeType": "PAYARA5+++_+++JDK11",
-                    "dataGridMode": "ENABLED",
-                    "scalabilityType": "HORIZONTAL+++_+++SCALING"
+                    "scalabilityType": "HORIZONTAL+++_+++SCALING",
+                    "dataGridMode": "ENABLED"
                 },
                 "complete": true,
                 "keys": [
+                    {
+                        "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    },
                     {
                         "name": "runtimeSize",
                         "required": false,
@@ -69,17 +74,12 @@ _[SUCCESS] Revision reconfigured_
                         "name": "rollOverTime",
                         "required": false,
                         "restricted": false
-                    },
-                    {
-                        "name": "scalabilityType",
-                        "required": false,
-                        "restricted": false
                     }
                 ]
             }
         },
         "microprofileConfig": {
-            "pass-deploy.war": {
+            "pass-deploy": {
                 "values": {
                     "mp.jwt.verify.issuer": "fish.payara.demo",
                     "quiz.lockout": "1500",
