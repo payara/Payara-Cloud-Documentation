@@ -3,89 +3,111 @@
 Payara Cloud uses subscriptions as the primary billing unit. All application usage across your various namespaces gets consolidated into a single invoice, simplifying the billing process.
 A single Billing Manager can oversee multiple subscriptions, which can be associated with different companies and use various payment methods.
 
-== Starting a New Subscription
-
-=== Free Trial
-For new users, the best way to begin is with our 15-day free trial. You won't be charged during this period. A detailed guide to get you started is available here: xref:docs:ROOT:getting-started/cloud-trial/Signup Payara Cloud.adoc[].
-
-During the trial, you can use:
-
-* Up to a total of 4 vCPUs and 8GB RAM across all your applications.
-* Individual application runtime sizes ranging from 0.25 vCPU to 2 vCPU.
-
-Billing automatically starts at the end of the trial based on the plan you choose or default to if none is selected.
-
-=== Existing Users
-If you're an already using Payara Cloud, you can easily create additional subscriptions. You have the option to either link:additional.adoc[reuse existing invoicing data] or link:additional.adoc[provide new invoicing data] for these new subscriptions.
-
 == Subscription Tiers and vCPU Limits
 
 Payara Cloud billing is based on the total vCPU resources consumed by your applications over time, measured in vCPU-minutes. Each subscription tier has a maximum limit or a prepaid amount of vCPU resources you can use across *all* your deployed applications within that subscription.
 
-Billing periods are based on 30-day cycles. The base unit for prepaid calculation is the number of minutes one vCPU runs over this period:
-*Calculation:* 1 vCPU * 30 days * 24 hours/day * 60 minutes/hour = *43,200 vCPU-minutes per vCPU*.
+[cols="25%,25%,25%,25%",options="header"]
+|===
+|*Free Trial*
+|*Pay As You Go*
+|*Standard*
+|*Premium*
 
-Think of the vCPU limit as a total budget for your subscription. Every application you deploy consumes a portion of this budget based on its configured runtime size (e.g., 0.25 vCPU, 1 vCPU, 2 vCPU).
+|15 days free trial
+|$0/month base fee
+|$432/month fixed fee
+|$3300/month fixed fee
+
+|Up to 4 vCPUs / 8GB memory
+|Maximum 2 vCPU / 4 GB memory
+|2 vCPU / 4 GB memory (prepaid)
+|16 vCPU / 32 GB memory (prepaid)
+
+|No charge during trial
+|$0.005 per vCPU minute
+|$0.00405 per vCPU minute for additional usage
+|$0.0044 per vCPU minute for additional usage
+
+|Runtime sizes: 0.25-2 vCPU per app
+|Runtime sizes: 0.25-2 vCPU per app
+|Runtime sizes: 0.25-4 vCPU per app
+|Runtime sizes: 0.25-4 vCPU per app
+|===
+
+=== Understanding Your vCPU Budget
+
+Think of your subscription's vCPU limit as a total resource budget for all your applications:
+
+* *Base unit:* 1 vCPU running for 30 days = 43,200 vCPU-minutes
+* Each application you deploy consumes a portion of this budget based on its configured runtime size
+
+=== Free Trial
+* *Duration:* 15 days with no charges
+* *Total vCPU limit:* 4 vCPUs across all applications
+* *Example allocations:*
+** One application at 4 vCPU
+** Two applications at 2 vCPU each
+** Four applications at 1 vCPU each
+** Eight applications at 0.5 vCPU each
+* Billing automatically starts at the end of trial based on your chosen plan
 
 === Pay As You Go
-* **Ideal for:** Standalone applications or small environments with variable usage.
-* **vCPU Limit:** Maximum **2 vCPU** total simultaneous usage across all applications.
-* **RAM Limit:** Maximum **4 GB** total simultaneous usage.
-* **Allowed Runtime Sizes:** 0.25 vCPU to 2 vCPU per application.
-* **Cost:** $0/month base fee.
-* **Overage:** $0.005 per vCPU-minute consumed.
-
-*Mental Model:* With the Pay As You Go tier, you have a hard cap of 2 vCPUs in total at any given time.
-* Example 1: You can run one application at 2 vCPU.
-* Example 2: You can run a development instance at 0.5 vCPU and a production instance at 1.5 vCPU (0.5 + 1.5 = 2 vCPU total).
-* Example 3: You could run four small applications at 0.5 vCPU each (4 * 0.5 = 2 vCPU total).
-* You *cannot* run two applications at 1.5 vCPU each, as that would be 3 vCPU total, exceeding the 2 vCPU limit.
+* *Hard cap:* Maximum 2 vCPU total simultaneous usage
+* *Examples of valid allocations:*
+** One application at 2 vCPU
+** One application at 1.5 vCPU + one at 0.5 vCPU
+** Four applications at 0.5 vCPU each
+* *Examples that exceed limit:*
+** Two applications at 1.5 vCPU each (3 vCPU total - exceeds limit)
+** Three applications at 1 vCPU each (3 vCPU total - exceeds limit)
+* *Notification:* When attempting to deploy an application that would exceed the 2 vCPU limit, you'll receive an error message stating: "Deployment failed: Total vCPU allocation would exceed your subscription limit of 2 vCPU."
 
 === Standard
-* **Ideal for:** Teams and businesses with constantly running applications needing predictable costs.
-* **Prepaid Resources:** Includes **2 vCPU** and **4 GB RAM**. This prepaid vCPU amount equates to 2 * 43,200 = *86,400 vCPU-minutes* over a 30-day cycle.
-* **Allowed Runtime Sizes:** 0.25 vCPU to 4 vCPU per application.
-* **Cost:** $432/month (covers the prepaid resources).
-* **Overage:** $0.00405 per vCPU-minute consumed *above* the prepaid 86,400 minutes.
-
-*Mental Model:* The Standard tier gives you a prepaid budget equivalent to running 2 vCPUs constantly for 30 days (86,400 vCPU-minutes). You can configure individual applications up to 4 vCPUs, but your *average* usage across all applications should stay near 2 vCPU to avoid extra charges.
-* Example 1: Running two applications at 1 vCPU each continuously would consume exactly the prepaid amount.
-* Example 2: Running four applications at 0.5 vCPU each continuously would also consume the prepaid amount.
-* Example 3: Running one application at 3 vCPU continuously would use the prepaid 2 vCPU amount and incur overage charges for the extra 1 vCPU of usage.
+* *Prepaid amount:* 2 vCPU running continuously (86,400 vCPU-minutes per 30 days)
+* *Examples of allocations within prepaid amount:*
+** Two applications at 1 vCPU each running continuously
+** Four applications at 0.5 vCPU each running continuously
+** One application at 2 vCPU running continuously
+* *Examples requiring additional payment:*
+** Three applications at 1 vCPU each running continuously (1 vCPU over prepaid amount)
+** One application at 3 vCPU running continuously (1 vCPU over prepaid amount)
+* *Notification:* When your usage exceeds the prepaid amount, you'll see a dashboard alert: "You are now consuming resources beyond your prepaid limit and incurring additional charges."
 
 === Premium
-* **Ideal for:** Larger applications needing a supported environment and access to the Payara Services support team.
-* **Prepaid Resources:** Includes **16 vCPU** and **32 GB RAM**. This prepaid vCPU amount equates to 16 * 43,200 = *691,200 vCPU-minutes* over a 30-day cycle.
-* **Allowed Runtime Sizes:** 0.25 vCPU to 4 vCPU per application.
-* **Includes:** Multiple custom domains, Payara Micro Enterprise binaries, Access to Payara Services support team.
-* **Cost:** $3300/month (covers the prepaid resources and support).
-* **Overage:** $0.0044 per vCPU-minute consumed *above* the prepaid 691,200 minutes.
+* *Prepaid amount:* 16 vCPU running continuously (691,200 vCPU-minutes per 30 days)
+* *Examples of allocations within prepaid amount:*
+** Four applications at 4 vCPU each running continuously
+** Sixteen applications at 1 vCPU each running continuously
+** Eight applications at 2 vCPU each running continuously
+* *Examples requiring additional payment:*
+** Five applications at 4 vCPU each (20 vCPU total - 4 over prepaid amount)
+** Twenty applications at 1 vCPU each (4 vCPU over prepaid amount)
+* *Notification:* Same as Standard tier - dashboard alerts will appear when usage exceeds prepaid amount
 
-*Mental Model:* The Premium tier provides a large prepaid budget equivalent to running 16 vCPUs constantly for 30 days (691,200 vCPU-minutes).
-* Example 1: Running four applications at 4 vCPU each continuously would consume the prepaid amount.
-* Example 2: Running sixteen applications at 1 vCPU each continuously would also consume the prepaid amount.
-* Example 3: Running five applications at 4 vCPU each (total 20 vCPU) continuously would use the prepaid 16 vCPU amount and incur overage charges for the extra 4 vCPU of usage.
+== Optimizing Your vCPU Usage
 
-=== Optimizing vCPU Usage
 To manage costs and stay within your tier's limits or prepaid amounts:
 
-* **Right-size your applications:** Choose the smallest runtime size (vCPU/RAM) that meets your application's performance needs. Don't overallocate resources.
-* **Scale down non-essential environments:** Reduce the vCPU allocation for development, testing, or staging environments when they are not actively used, or stop them entirely.
-* **Monitor your consumption:** Regularly check the Payara Cloud dashboard to understand your current vCPU usage patterns across all applications and namespaces within the subscription.
-* **Consolidate applications:** If feasible, consider running multiple related applications within a single, slightly larger runtime instance instead of many small instances.
+* *Right-size your applications:* Choose the smallest runtime size that meets your application's performance needs
+* *Scale down non-essential environments:* Use smaller vCPU allocations (0.25-0.5) for development and testing
+* *Monitor your consumption:* Regularly check your dashboard to identify resource-intensive applications
+* *Consolidate applications:* When possible, run multiple small applications within one larger instance
 
-=== Exceeding vCPU Limits
-* **Pay As You Go:** If your total simultaneous vCPU usage attempts to exceed the 2 vCPU limit, deployment or scaling operations might fail. You will need to reduce the vCPU allocation of existing applications before deploying or scaling new ones.
-* **Standard & Premium:** If your total vCPU-minute consumption exceeds the prepaid amount for the 30-day billing cycle, you will be charged the specified overage rate per vCPU-minute for the excess usage. You will typically see notifications within the Payara Cloud console dashboard indicating that you are consuming resources beyond your prepaid limit and incurring overage charges.
+== Starting a New Subscription
+
+=== Free Trial
+For new users, the best way to begin is with our 15-day free trial. A detailed guide to get you started is available here: xref:docs:ROOT:getting-started/cloud-trial/Signup Payara Cloud.adoc[].
+
+=== Existing Users
+If you're already using Payara Cloud, you can easily create additional subscriptions by either link:additional.adoc[reusing existing invoicing data] or link:additional.adoc[providing new invoicing data].
 
 == Invoicing
 
 Payara Cloud issues invoices based on 30-day cycles, which include:
 
-.   **Fixed Monthly Fee (Standard & Premium):** Charged in advance for the upcoming 30-day billing period, covering the prepaid vCPU-minutes and features of the tier.
-.   **Variable Fee (All Tiers with Overage):** Charged in arrears for any vCPU-minute usage that exceeded your plan's prepaid volume (or any usage for Pay As You Go) in the *previous* 30-day billing period.
-
-Because billing periods are based on 30-day cycles, they do not always align perfectly with calendar months.
+. *Fixed Monthly Fee (Standard & Premium):* Charged in advance for the upcoming billing period
+. *Variable Fee (All Tiers):* Covers any usage exceeding your plan's prepaid volume in the previous billing period
 
 == Cancelling Subscription
 
@@ -93,4 +115,4 @@ A subscription can be cancelled at any time by following the procedure listed he
 
 == Payment Options
 
-Payara Cloud accepts both credit and debit card payments. We use Stripe as our trusted payment processor to ensure secure transactions.
+Payara Cloud accepts both credit and debit card payments processed securely through Stripe.
