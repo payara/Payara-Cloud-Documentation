@@ -5,42 +5,54 @@ A single Billing Manager can oversee multiple subscriptions, which can be associ
 
 == Subscription Tiers and vCPU Limits
 
-Payara Cloud billing is based on the total vCPU resources consumed by your applications over time, measured in vCPU-minutes. Each subscription tier has a maximum limit or a prepaid amount of vCPU resources you can use across *all* your deployed applications within that subscription.
+Payara Cloud billing is based on the total vCPU (virtual CPU) resources consumed by your applications over time, measured in vCPU-minutes.
+Each subscription tier has a maximum limit or a prepaid amount of vCPU resources you can use across *all* your deployed applications within that subscription.
 
-[cols="25%,25%,25%,25%",options="header"]
+[cols="25%,25%,25%,25%,25%",options="header"]
 |===
-|*Free Trial*
-|*Pay As You Go*
-|*Standard*
-|*Premium*
+|*Feature/Resource* |*Free Trial* |*Pay As You Go* |*Standard* |*Premium*
 
+|Monthly Cost
 |15 days free trial
 |$0/month base fee
 |$432/month fixed fee
 |$3300/month fixed fee
 
+|vCPU/Memory Allocation
 |Up to 4 vCPUs / 8GB memory
 |Maximum 2 vCPU / 4 GB memory
 |2 vCPU / 4 GB memory (prepaid)
 |16 vCPU / 32 GB memory (prepaid)
 
+|Usage Pricing
 |No charge during trial
 |$0.005 per vCPU minute
 |$0.00405 per vCPU minute for additional usage
 |$0.0044 per vCPU minute for additional usage
 
+|Application Size Limit
 |Runtime sizes: 0.25-2 vCPU per app
 |Runtime sizes: 0.25-2 vCPU per app
 |Runtime sizes: 0.25-4 vCPU per app
 |Runtime sizes: 0.25-4 vCPU per app
 |===
 
+[NOTE]
+Free trial offers higher resources (4 vCPU/8GB) than Pay As You Go (2 vCPU/4GB) specifically to let you test horizontal scaling scenarios,
+such as running two 2-vCPU instances simultaneously, before committing to a paid plan.
+
 === Understanding Your vCPU Budget
 
-Think of your subscription's vCPU limit as a total resource budget for all your applications:
+The basic billing unit in Payara Cloud is vCPU-minutes, calculated as:
 
-* *Base unit:* 1 vCPU running for 30 days = 43,200 vCPU-minutes
-* Each application you deploy consumes a portion of this budget based on its configured runtime size
+* 1 vCPU running for 1 minute = 1 vCPU-minute
+* For a 30-day billing period, the calculation is:
+** 1 vCPU × 30 days × 24 hours/day × 60 minutes/hour = 43,200 vCPU-minutes
+
+This means:
+
+* Standard tier's 2 vCPU prepaid allocation = 2 × 43,200 = 86,400 vCPU-minutes
+* Premium tier's 16 vCPU prepaid allocation = 16 × 43,200 = 691,200 vCPU-minutes
 
 === Free Trial
 * *Duration:* 15 days with no charges
