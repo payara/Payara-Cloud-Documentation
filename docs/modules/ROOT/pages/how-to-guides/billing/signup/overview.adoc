@@ -54,48 +54,59 @@ This means:
 * Standard tier's 2 vCPU prepaid allocation = 2 × 43,200 = 86,400 vCPU-minutes
 * Premium tier's 16 vCPU prepaid allocation = 16 × 43,200 = 691,200 vCPU-minutes
 
-=== Free Trial
-* *Duration:* 15 days with no charges
-* *Total vCPU limit:* 4 vCPUs across all applications
-* *Example allocations:*
-** One application at 4 vCPU
-** Two applications at 2 vCPU each
-** Four applications at 1 vCPU each
-** Eight applications at 0.5 vCPU each
-* Billing automatically starts at the end of trial based on your chosen plan
+.Example vCPU Allocation Comparison by Subscription Tier
+[cols="1,2,3,3,3", options="header"]
+|===
+|Tier
+|Allocation Limit
+|Within Limit Examples
+|Exceeding Limit Examples
+|Notification
 
-=== Pay As You Go
-* *Hard cap:* Maximum 2 vCPU total simultaneous usage
-* *Examples of valid allocations:*
-** One application at 2 vCPU
-** One application at 1.5 vCPU + one at 0.5 vCPU
-** Four applications at 0.5 vCPU each
-* *Examples that exceed limit:*
-** Two applications at 1.5 vCPU each (3 vCPU total - exceeds limit)
-** Three applications at 1 vCPU each (3 vCPU total - exceeds limit)
-* *Notification:* When attempting to deploy an application that would exceed the 2 vCPU limit, you'll receive an error message stating: "Deployment failed: Total vCPU allocation would exceed your subscription limit of 2 vCPU."
+|Free Trial
+|4 vCPU total for 15 days
+a|
+* One app at 4 vCPU
+* Two apps at 2 vCPU each
+* Four apps at 1 vCPU each
+* Eight apps at 0.5 vCPU each
+|N/A - Hard limit of 4 vCPU
+|Billing automatically starts at the end of trial based on your chosen plan
 
-=== Standard
-* *Prepaid amount:* 2 vCPU running continuously (86,400 vCPU-minutes per 30 days)
-* *Examples of allocations within prepaid amount:*
-** Two applications at 1 vCPU each running continuously
-** Four applications at 0.5 vCPU each running continuously
-** One application at 2 vCPU running continuously
-* *Examples requiring additional payment:*
-** Three applications at 1 vCPU each running continuously (1 vCPU over prepaid amount)
-** One application at 3 vCPU running continuously (1 vCPU over prepaid amount)
-* *Notification:* When your usage exceeds the prepaid amount, you'll see a dashboard alert: "You are now consuming resources beyond your prepaid limit and incurring additional charges."
+|Pay As You Go
+|2 vCPU max simultaneous usage
+a|
+* One app at 2 vCPU
+* One app at 1.5 vCPU + one at 0.5 vCPU
+* Four apps at 0.5 vCPU each
+a|
+* Two apps at 1.5 vCPU each (3 vCPU total)
+* Three apps at 1 vCPU each (3 vCPU total)
+|"Deployment failed: Total vCPU allocation would exceed your subscription limit of 2 vCPU."
 
-=== Premium
-* *Prepaid amount:* 16 vCPU running continuously (691,200 vCPU-minutes per 30 days)
-* *Examples of allocations within prepaid amount:*
-** Four applications at 4 vCPU each running continuously
-** Sixteen applications at 1 vCPU each running continuously
-** Eight applications at 2 vCPU each running continuously
-* *Examples requiring additional payment:*
-** Five applications at 4 vCPU each (20 vCPU total - 4 over prepaid amount)
-** Twenty applications at 1 vCPU each (4 vCPU over prepaid amount)
-* *Notification:* Same as Standard tier - dashboard alerts will appear when usage exceeds prepaid amount
+|Standard
+|2 vCPU prepaid (86,400 vCPU-minutes/30 days)
+a|
+* Two apps at 1 vCPU each continuously
+* Four apps at 0.5 vCPU each continuously
+* One app at 2 vCPU continuously
+a|
+* Three apps at 1 vCPU each continuously (1 vCPU over)
+* One app at 3 vCPU continuously (1 vCPU over)
+|"You are now consuming resources beyond your prepaid limit and incurring additional charges."
+
+|Premium
+|16 vCPU prepaid (691,200 vCPU-minutes/30 days)
+a|
+* Four apps at 4 vCPU each continuously
+* Sixteen apps at 1 vCPU each continuously
+* Eight apps at 2 vCPU each continuously
+a|
+* Five apps at 4 vCPU each (20 vCPU total - 4 over)
+* Twenty apps at 1 vCPU each (4 vCPU over)
+|Same as Standard tier - dashboard alerts appear when usage exceeds prepaid amount
+|===
+
 
 == Optimizing Your vCPU Usage
 
