@@ -1,7 +1,7 @@
 = Sign Up To Payara Cloud
 
 Payara Cloud offers a 15-day free trial to explore the service without commitment.
-To get started, head over to the https://login.payara.cloud/u/signup[signup page] and fill in the signup form.
+To get started, head over to the https://www.payara.fish/products/payara-cloud/[signup page] and fill in the signup form.
 
 .Signup Form
 image::new-signup-1.png[Payara Cloud Signup Form, text Description automatically generated,width=672,height=361, link="{imagesdir}/new-signup-1.png", window="_blank"]
