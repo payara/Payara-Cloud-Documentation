@@ -1,20 +1,33 @@
-= Deploying An Application on Payara Cloud
+= Deploying An Application in Payara Cloud
 
 [[create-a-namespace]]
-== Establishing a Namespace
+== Creating a Namespace
 
-In Payara Cloud, a _Namespace_ is a home to a group of related applications.
-It’s characterized by a unique project name and a stage representing the current phase of your application.
+A Namespace in Payara Cloud works as a container that organizes your applications within your subscription.
 
-To create a namespace, click btn:[Create New Namespace].
+Each namespace:
+
+* Creates a dedicated environment for managing related applications
+* Has its own domain name
+* Allows applications to be deployed at specific paths under that domain
+
+=== How to Create a Namespace
 
 .Namespace creation dialog
 image::image6.png[Creating a new namespace,width=504,height=435]
 
-Ensure the project name is distinct, as it forms part of the URL for your deployed application.
-The "stage" field allows you to tag the current phase of your application, commonly denoted as "_QA_", "_test_", or "_production_".
+. Click the btn:[Create New Namespace] button from the application management dashboard
 
-Upon clicking btn:[Create namespace], you’ll be directed to the namespace details screen to begin adding applications to your new namespace.
+. Fill in these required fields:
+* *Project*: Enter a name (using only letters, numbers, and dashes). This becomes part of your application's URL.
+* *Stage*: Specify your environment (like "qa", "test", or "production")
+* *Cloud Region*: Select your preferred cloud provider and location for hosting:
+** AWS (EU Central 1 or US East 2)
+** Azure (West Europe or East US)
+
+. Click btn:[Create Namespace]
+
+After creation, you'll be taken to the namespace details screen where you can start adding applications.
 
 [[upload-an-application]]
 == Uploading an Application
