@@ -1,8 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl upload -n _$namespace_ _$warFile_ --deploy*
-_[UPDATE] State of inspection process is DEPLOYING_
-_[UPDATE] State of deployment process is DEPLOYING_
+*pcl -n _$namespace_ -a _$appName_ scale --instances=1*
 _[UPDATE] State of deployment process is DEPLOYED_
 _[SUCCESS] Deployment completed_
 
@@ -11,6 +9,7 @@ _[SUCCESS] Deployment completed_
     "applicationEndpoint": "+++https:+++//cli-clitest-xxxxxxxx.payara.app/",
     "pendingChanges": false,
     "status": "RUNNING",
+    "numberOfReplicas": 1,
     "liveRuntimeSize": "QUARTER+++_+++CORE"
 }
 ----

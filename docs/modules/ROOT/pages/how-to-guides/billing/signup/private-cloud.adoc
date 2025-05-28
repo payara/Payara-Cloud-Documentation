@@ -23,7 +23,7 @@ DNS Zone:: Domain name system records for routing traffic
 Your costs will include:
 
 * Azure infrastructure costs for deployed resources
-* Payara Cloud runtime fee: $0.04 per vCPU-hour (minimum 0.25 core)
+* Payara Cloud runtime fee: $0.12 per vCPU-hour (minimum 0.25 core)
 
 == Setup Instructions
 
@@ -31,7 +31,7 @@ Your costs will include:
 
 . Create your Private Cloud Subscription:
 
-.. Visit https://billing.payara.cloud/cmr/signup[Payara Cloud Signup]
+.. Visit https://billing.payara.cloud/cmr/signup[Payara Cloud Signup,window=_blank]
 +
 image::cmr-signup.png[image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-signup.png"]
 
@@ -59,7 +59,7 @@ image::cmr-connection.png[Connection string,image,width=480,height=149,window="_
 
 . Access Azure Marketplace:
 // TODO: Link will be different since cloud-cmr uses standard Azure contract, which we will not use in the final version
-.. Search for https://portal.azure.com/#create/payara.cloud-cmr[Payara Cloud Customer Managed Region]
+.. Search for https://portal.azure.com/#create/payara.cloud-cmr[Payara Cloud Customer Managed Region,window=_blank]
 .. Select the available plan
 +
 // TODO: This needs to be updated with final public plan screenshot

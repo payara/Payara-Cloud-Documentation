@@ -2,7 +2,7 @@
 :man-prefix: #
 :man-suffix: 1
 :imagesdir: images/
-:release-version: 1.0.1
+:release-version: 1.2.0
 :release-repo: https://nexus.payara.fish/repository/payara-artifacts
 
 == Introduction
@@ -142,6 +142,8 @@ In the workflow file refer to the secret like this:
         PCL_AUTH_TOKEN: ${{ secrets.PCL_AUTH_TOKEN }}
       run: pcl -n project-head -a main-app upload target/app.war --deploy
 ----
+
+NOTE: To use PCL with GitHub Actions, check out our dedicated GitHub Action at  https://github.com/payara/cloud-deploy[payara/cloud-deploy].
 
 == Common options
 
@@ -289,6 +291,22 @@ Exit code in such case is 2.
 include::examples/_Deployment-failEarlyFailsOnDeploymentProblem-03.adoc[]
 
 These both options are also available to other commands that might trigger deployment -- xref:{man-prefix}pcl-upload{man-suffix}[upload] and xref:{man-prefix}pcl-configure{man-suffix}[configure].
+
+==== Deployment Logs
+
+The deployment logs can be viewed in real-time using the `--logs` switch.
+The output shows the container's raw logs formatted in Payara's JSON structure.
+When deploying multiple instances, each log entry includes a `[UPDATE]` with additional prefix to identify its source instance.
+Log streaming automatically stops once deployment completes.
+
+Example:
+include::examples/_Deployment-logsCanBeDisplayedDuringDeployment-02.adoc[]
+
+The `--logs` switch works with several commands that involve deployment:
+
+* `scale`
+* `upload --deploy`
+* `configure --deploy`
 
 === Listing Applications
 

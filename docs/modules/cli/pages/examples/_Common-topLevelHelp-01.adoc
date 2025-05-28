@@ -20,20 +20,21 @@ can be provided via environment variable +++`+++PCL+++_+++AUTH+++_+++TOKEN+++`++
                   Required for all commands except +++`+++login+++`+++, +++`+++list-namespaces+++`+++
                     and +++`+++create-namespace+++`+++.
   -o, --output=<outputFormat>
-                  Output format. Allowed values: TEXT, JSON.
-  -q, --quiet     Quiet output.
+                  Set the output format. Allowed values: TEXT, JSON.
+  -q, --quiet     Enable quiet output.
                   Only result of operations will be displayed to +++`+++stdout+++`+++, or
                     error message to +++`+++stderrr+++`+++.
   -s, --subscription=<subscriptionName>
-                  Name of subscription to use. Only necessary when account has
-                    access to multiple subscriptions.
+                  Specify the name of the subscription to use. This is only
+                    necessary when your account has access to multiple
+                    subscriptions.
   -V, --version   Print version information and exit.
 Commands:
   login               Log in to Payara Cloud instance.
   list-subscriptions  Get list of subscriptions available to user.
   list-namespaces     List namespaces available in a subscription.
   list-applications   List applications present in a namespace.
-  upload              Upload application binary
+  upload              Upload an application binary (.war file) to Payara Cloud.
   deploy              Deploy an existing application.
   start               Start an application
   stop                Stop an application

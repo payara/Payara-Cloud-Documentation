@@ -1,0 +1,60 @@
+= Support and Service Monitoring for AWS Region (Beta)
+
+== Getting Help and Support
+
+As an AWS Region (Beta) customer, you have access to dedicated support channels to report and address service issues.
+This document outlines the available support options and process for submitting feedback.
+
+== Reporting Issues
+
+The primary method for reporting issues or providing feedback is through our feedback form, accessible via the "Provide Feedback" link in the bottom of the left (vertical) navigation bar.
+
+=== Submission Process
+
+image::feedback-form.png[Payara Cloud Feedback Form, text Description automatically generated,width=672,height=361, link="{imagesdir}/feedback-form.png", window="_blank"]
+
+. Click the "Provide Feedback" button
+. Fill out the required fields:
+.. *Summary*: A brief description of your issue
+.. *Description*: Detailed information about the problem, including:
+*** What happened
+*** Expected behavior
+*** Steps to reproduce
+*** Impact on your operations
+.. Your contact information (name and email)
+.. Optional: Attach relevant screenshots or files using the "Attach file" button (image icon)
+
+=== Best Practices for Submitting Feedback
+
+* Include specific examples and timestamps
+* Attach screenshots of error messages when possible
+* Describe any error messages received
+* Mention any workarounds attempted
+* Note the urgency/severity of the issue
+
+== Response Times and Limitations
+
+* This is a Beta feature. The Feature and user experience is largely complete, tested and stable.
+AWS Region has configuration and dependencies that are unlikely to change.
+There is a low risk of data loss.
+The feature is supported on a commercially-reasonable effort basis, but with the expectation that issues require extra time and assistance from development to troubleshoot.
+* Critical issues affecting service availability receive priority attention
+* General feedback and feature requests are reviewed periodically
+* You may be contacted for additional information if needed
+
+== Additional Support Resources
+
+[horizontal]
+Documentation:: Access comprehensive service documentation through the left sidebar
+Regular Updates:: Monitor the service dashboard for known issues and planned maintenance
+Contact Management:: For urgent matters, reach out to your assigned account manager
+
+== Service Monitoring
+
+While we actively monitor the service, your feedback helps us identify and address issues more quickly.
+Please report any performance degradation, unexpected behavior, or service disruptions through the feedback form.
+
+[IMPORTANT]
+====
+Keep your contact information current to ensure timely communication about your reported issues.
+====
