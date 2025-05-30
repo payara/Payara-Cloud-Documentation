@@ -1,0 +1,54 @@
+= Organisation Mangement
+
+Organisation management is a feature that allows you to manage your organisation's users, roles, and permissions. It provides a way to control access to resources and ensure that only authorized users can perform certain actions.
+
+== Organisation Management Overview
+
+On successful login, user will be redirected to the Organisation Management page. This page shows a list of organisations with organisation name, creation date, status, and  total number of organisations for this account.
+
+image::ROOT:qube/organisation-management/overview.png[window="_blank", link="{imagesdir}/qube/organisation-management/overview.png"]
+
+On the column header of Organisation names, there is toggle button to show or hide organisation's ids.
+
+image::ROOT:qube/organisation-management/show-ids.png[window="_blank", link="{imagesdir}/qube/organisation-management/show-ids.png"]
+
+
+=== Add Organisation
+To add a new organisation, click on the btn:[Add Organisation] button. This will open a form where you can enter the organisation name.
+
+image::ROOT:qube/organisation-management/add-org.png[window="_blank", link="{imagesdir}/qube/organisation-management/add-org.png"]
+
+image::ROOT:qube/organisation-management/add-org-popup.png[window="_blank", link="{imagesdir}/qube/organisation-management/add-org-popup.png"]
+
+=== Organisation Details
+To view the details of an organisation, click on the organisation name in the list. This will open the Organisation Details page, which shows the organisation's ID, name, creation date, status, and quota.
+
+image::ROOT:qube/organisation-management/org-detail.png[window="_blank", link="{imagesdir}/qube/organisation-management/org-detail.png"]
+
+Organisation vCPU quota can be set or updated from the right side of the page. Provide the vCPU quota value and click on the btn:[Update] button to save the changes.
+
+=== Manage Users
+
+To manage users in an organisation, click on the btn:[Manage Users] button. This will open the User Management page, where you can add or remove users from the organisation. Clicking on Manage users will show a list of users in the organisation with their name and status.
+
+- btn:[Add User] button will open a popup to add a new user to the organisation. You can enter the user's email address  before clicking on the btn:[Add User] button.
+
+image::ROOT:qube/organisation-management/add-user.png[window="_blank", link="{imagesdir}/qube/organisation-management/add-user.png"]
+
+- btn:[Users Actions] button will allow you to update or remove users from the organisation.
+
+image::ROOT:qube/organisation-management/user-actions.png[window="_blank", link="{imagesdir}/qube/organisation-management/user-actions.png"]
+
+==== Update User
+
+To update a user's status, click on the btn:[Update User] button under btn:[User Actions]. This will open a pop where you can change user's active status. After selecting the status, click on the btn:[Update] button to save the changes.
+
+image::ROOT:qube/organisation-management/update-user.png[window="_blank", link="{imagesdir}/qube/organisation-management/update-user.png"]
+
+==== Remove User
+
+To remove a user from the organisation, click on the btn:[Remove User] button under btn:[User Actions]. This will open a confirmation popup. Check the checkbox and click on the btn:[Remove User] button to remove the user from the organisation.
+
+image::ROOT:qube/organisation-management/remove-user.png[window="_blank", link="{imagesdir}/qube/organisation-management/remove-user.png"]
+
+
