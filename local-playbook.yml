@@ -9,6 +9,8 @@ content:
 asciidoc:
     attributes:
         attribute-missing: 'skip'
+        experimental: ''
+        page-site-edition: 'qube'  # Set this to test qube locally
 ui:
     bundle:
         url: https://github.com/payara/antora-ui-default/releases/download/v1.1/ui-bundle.zip

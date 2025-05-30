@@ -1,56 +1,106 @@
-* xref:Pricing.adoc[Pricing]
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+* xref:user-guides/paas/Pricing.adoc[Pricing]
+endif::[]
+
 * How To Guides
 
-** xref:Getting Started.adoc[Getting Started]
-*** xref:getting-started/cloud-trial/Signup Payara Cloud.adoc[Signing up]
-*** xref:getting-started/Log in into Account.adoc[Log into Your Account]
+** Getting Started
+ifeval::["{page-site-edition}" == "cloud"]
+*** xref:Getting Started.adoc[Getting Started with {productName}]
+*** xref:getting-started/paas/Signup Payara Cloud.adoc[Signing up]
+*** xref:getting-started/paas/Log in into Account.adoc[Log into Your Account]
+endif::[]
 
+ifeval::["{page-site-edition}" == "qube"]
+*** xref:getting-started/qube/what-is-payara-qube.adoc[What is Payara Qube?]
+*** xref:getting-started/qube/qube-installation.adoc[Installation Guide]
+*** xref:getting-started/qube/qube-configuration.adoc[Initial Configuration]
+endif::[]
 
+ifeval::["{page-site-edition}" == "cloud"]
 ** https://www.youtube.com/playlist?list=PLFMhxiCgmMR9S2uEiIogs6yp3MmDNsUKY[Demo Videos]
+endif::[]
 
 ** Application Management
-**** xref:how-to-guides/namespace/detail.adoc[Namespace Detail]
-**** xref:how-to-guides/namespace/list.adoc[List Namespace]
-**** xref:how-to-guides/application/Deploying an Application.adoc[Deploying an Application]
-**** xref:how-to-guides/application/Deploying an Application.adoc#create-a-namespace[Create a Namespace]
-**** xref:how-to-guides/application/Deploying an Application.adoc#upload-an-application[Upload an Application]
-**** xref:how-to-guides/application/microprofile-config.adoc[Configure Application]
-**** xref:how-to-guides/application/data-source.adoc[Configure Datasource]
-**** xref:how-to-guides/application/context-root.adoc[Configure Context Root]
-**** xref:how-to-guides/application/Deploying an Application.adoc#review-configuration[Review Configuration]
-**** xref:how-to-guides/application/Deploying an Application.adoc#deploy-application[Deploy Application]
-**** xref:how-to-guides/application/Deploying an Application.adoc#stop-application[Stop Application]
-**** xref:how-to-guides/application/Start Application.adoc[Start Application]
-**** xref:how-to-guides/application/List Applications.adoc[List Applications]
-**** xref:how-to-guides/application/Deploying an Application.adoc#delete-application[Delete Application]
-**** xref:how-to-guides/application/Logging.adoc[How to Diagnose a Running Application]
-**** xref:how-to-guides/application/Logging.adoc#heap-dumps[Heap Dumps]
-**** xref:how-to-guides/application/Logging.adoc#thread-dumps[Thread Dumps]
+*** xref:user-guides/common/namespace/detail.adoc[Namespace Detail]
+*** xref:user-guides/common/namespace/list.adoc[List Namespace]
+*** xref:user-guides/common/application/Deploying an Application.adoc[Deploying an Application]
+*** xref:user-guides/common/application/Deploying an Application.adoc#create-a-namespace[Create a Namespace]
+*** xref:user-guides/common/application/Deploying an Application.adoc#upload-an-application[Upload an Application]
+*** xref:user-guides/common/application/microprofile-config.adoc[Configure Application]
+*** xref:user-guides/common/application/data-source.adoc[Configure Datasource]
+*** xref:user-guides/common/application/context-root.adoc[Configure Context Root]
+*** xref:user-guides/common/application/Deploying an Application.adoc#review-configuration[Review Configuration]
+*** xref:user-guides/common/application/Deploying an Application.adoc#deploy-application[Deploy Application]
+*** xref:user-guides/common/application/Deploying an Application.adoc#stop-application[Stop Application]
+*** xref:user-guides/common/application/Start Application.adoc[Start Application]
+*** xref:user-guides/common/application/List Applications.adoc[List Applications]
+*** xref:user-guides/common/application/Deploying an Application.adoc#delete-application[Delete Application]
+*** xref:user-guides/common/application/Logging.adoc[How to Diagnose a Running Application]
+*** xref:user-guides/common/application/Logging.adoc#heap-dumps[Heap Dumps]
+*** xref:user-guides/common/application/Logging.adoc#thread-dumps[Thread Dumps]
 
-
+ifeval::["{page-site-edition}" == "cloud"]
 ** Billing & Account Management
-
 *** Signup & Subscription
-**** xref:how-to-guides/billing/signup/overview.adoc[Overview]
-**** xref:how-to-guides/billing/signup/login.adoc[Login]
-**** xref:how-to-guides/billing/signup/subscription.adoc[Subscription Management]
-**** xref:how-to-guides/billing/signup/additional.adoc[Additional Subscriptions]
-**** xref:how-to-guides/billing/subscription/user-preference.adoc[User Preferences]
-**** xref:how-to-guides/billing/subscription/change-subscription-plan.adoc[Change Subscription Plan]
-**** xref:Account Management and How to View Current Usage.adoc[Account Management and Usage View]
-*** xref:getting-started/cloud-trial/Cancel Payara Cloud.adoc[How To Cancel Payara Cloud Account]
+**** xref:user-guides/paas/billing/signup/overview.adoc[Overview]
+**** xref:user-guides/paas/billing/signup/login.adoc[Login]
+**** xref:user-guides/paas/billing/signup/subscription.adoc[Subscription Management]
+**** xref:user-guides/paas/billing/signup/additional.adoc[Additional Subscriptions]
+**** xref:user-guides/paas/billing/subscription/user-preference.adoc[User Preferences]
+**** xref:user-guides/paas/billing/subscription/change-subscription-plan.adoc[Change Subscription Plan]
+**** xref:user-guides/paas/Account Management and How to View Current Usage.adoc[Account Management and Usage View]
+*** xref:getting-started/paas/Cancel Payara Cloud.adoc[How To Cancel Payara Cloud Account]
 
 ** Access Management
-*** xref:how-to-guides/billing/subscription/user-subscription.adoc[Manage User Access]
+*** xref:user-guides/paas/billing/subscription/user-subscription.adoc[Manage User Access]
 
 ** Manage Billing Invoices
-*** xref:how-to-guides/billing/subscription/manage-billing-stripe.adoc[]
+*** xref:user-guides/paas/billing/subscription/manage-billing-stripe.adoc[]
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+** {productName} Specifics
+*** xref:user-guides/qube/managing-qube-environment.adoc[Managing Your Qube Environment]
+*** xref:user-guides/qube/backup-and-restore.adoc[Backup and Restore]
+*** xref:user-guides/qube/upgrading-payara-qube.adoc[Upgrading Payara Qube]
+endif::[]
 
 ** Advanced Features
-*** xref:how-to-guides/How to Use Custom Domains.adoc[How to Use Custom Domains]
-*** xref:how-to-guides/How To Route Applications.adoc[Application Communication]
-*** xref:how-to-guides/clustering.adoc[]
-*** xref:how-to-guides/billing/signup/private-cloud.adoc[Azure Customer Managed Region Setup]
+*** xref:user-guides/common/How to Use Custom Domains.adoc[How to Use Custom Domains]
+*** xref:user-guides/common/How To Route Applications.adoc[Application Communication]
+*** xref:user-guides/common/clustering.adoc[Clustering]
+ifeval::["{page-site-edition}" == "cloud"]
+*** xref:user-guides/paas/billing/signup/private-cloud.adoc[Azure Customer Managed Region Setup]
+endif::[]
 
 ** Troubleshooting & Support
-*** xref:how-to-guides/Troubleshooting.adoc[Troubleshooting Tips]
+*** xref:user-guides/common/Troubleshooting.adoc[Troubleshooting Tips]
+ifeval::["{page-site-edition}" == "qube"]
+*** xref:user-guides/qube/qube-troubleshooting.adoc[Payara Qube Troubleshooting]
+endif::[]
+
+endif::[]
+
+ifndef::page-site-edition[]
+* xref:user-guides/paas/Pricing.adoc[Pricing]
+* How To Guides
+** xref:Getting Started.adoc[Getting Started]
+*** xref:getting-started/paas/Signup Payara Cloud.adoc[Signing up]
+*** xref:getting-started/paas/Log in into Account.adoc[Log into Your Account]
+** https://www.youtube.com/playlist?list=PLFMhxiCgmMR9S2uEiIogs6yp3MmDNsUKY[Demo Videos]
+** Application Management
+*** xref:user-guides/common/namespace/detail.adoc[Namespace Detail]
+*** xref:user-guides/common/namespace/list.adoc[List Namespace]
+*** xref:user-guides/common/application/Deploying an Application.adoc[Deploying an Application]
+** Advanced Features
+*** xref:user-guides/common/How to Use Custom Domains.adoc[How to Use Custom Domains]
+*** xref:user-guides/common/How To Route Applications.adoc[Application Communication]
+*** xref:user-guides/common/clustering.adoc[Clustering]
+** Troubleshooting & Support
+*** xref:user-guides/common/Troubleshooting.adoc[Troubleshooting Tips]
+endif::[]

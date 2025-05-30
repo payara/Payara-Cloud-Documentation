@@ -35,7 +35,6 @@ This offers greater control, isolation, and potentially improved performance com
 * Research institutions or companies requiring dedicated resources for compute-intensive Jakarta EE applications.
 * Organizations setting up geographically distributed backup environments for improved disaster recovery and business continuity.
 * Development teams integrating Payara Cloud's managed runtime into Azure-based DevOps workflows and CI/CD pipelines.
-* Businesses implementing hybrid cloud architectures, combining on-premises infrastructure with cloud resources.
 * Companies with applications experiencing seasonal or variable workloads, requiring scalable resources within their Azure environment.
 * Organizations operating under strict data residency requirements, ensuring application data remains within specific geographic boundaries.
 * Enterprises with unique security needs implementing custom security measures and integrations in their cloud environment.

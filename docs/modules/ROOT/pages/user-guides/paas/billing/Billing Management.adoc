@@ -1,0 +1,105 @@
+== Billing Management
+
+=== Manage Subscription Users Screen
+
+User management activities are performed in the btn:[Manage Users] section.
+
+.Manage Users Screen
+image::how-to-guides/application/billing/manage-users.svg[Screenshot of Manage Users screen,100%,opts=interactive, link="{imagesdir}/how-to-guides/application/billing/manage-users.png", window="_blank"]
+
+[checklist]
+* ❶ Invite New User
+* ❷ Roles
+* ❸ Status of the user
+* ❹ Additional actions available in the dropdown menu
+
+Details of `Roles` can be found here: xref:user-guides/paas/billing/subscription/user-subscription.adoc[]
+
+=== Permission for roles for Namespace operations in Billing Management
+
+* Billing Manager with Admin rights
+* Billing Manager without Admin rights
+* Administrator
+* Manager
+* Viewer
+* No Access
+
+
+=== Inviting New User
+
+Click btn:[Add User] to begin.
+
+image::how-to-guides/application/billing/add.png[Screenshot of Add User page, link="{imagesdir}/how-to-guides/application/billing/add.png", window="_blank"]
+
+Enter their email address and select the role they should have in the subscription once they accept it.
+The option to grant Administrative privileges to a Billing Manager is only available when the Billing Manager role is selected.
+Only a Billing Manager can grant or remove Billing Manager roles in the subscription.
+
+Click btn:[Add User] to send an invitation email to the provided email address.
+The user's email will appear in the list with a status of _Pending_.
+
+image::how-to-guides/application/billing/email.png[Screenshot of invitation email,65%,link="{imagesdir}/how-to-guides/application/billing/email.png", window="_blank"]
+
+Following the link btn:[Signup to Payara Cloud] will lead to the signup prompt.
+
+image::how-to-guides/application/billing/signup.svg[Screenshot of signup screen,100%,opts=interactive, link="{imagesdir}/how-to-guides/application/billing/signup.png", window="_blank"]
+
+The email used for registration does *not* need to match the email to which the invitation was sent.
+Users can also choose to use their existing Google or GitHub account instead ❷.
+Signup will fail if the user already has an account.
+In such a case, they need to select "Already have an account? btn:[Log in]" ❶.
+
+Afterward, their invitation is accepted.
+
+image::how-to-guides/application/billing/accepted.png[Screenshot of acceptance screen, link="{imagesdir}/how-to-guides/application/billing/accepted.png", window="_blank"]
+
+btn:[Go To Subscription] will take them to the link:../overview.html[Subscription Overview].
+
+The user will be listed as _Active_ on the <<Manage Subscription Users Screen,user list screen>> after accepting.
+Acceptance of the invitation may fail if the user is already a member of the subscription, even if they are <<Enabling or Disabling a User, disabled>>.
+
+=== Other Means of Inviting
+
+If the invited user misses the invitation email, the menu action btn:[Resend Invite] allows for resending the email and also changing the email address of the user being invited.
+
+Clicking btn:[Copy Invitation Link] will bring you to a page that lists the invitation link the user should follow.
+With that, you can transfer the link by other means, i.e., instant message.
+The invitation link is for single use only; no further verification is performed when visiting it, so ensure no unauthorized actors obtain it.
+Specifically, Payara Cloud Support will never ask you for the invitation link.
+
+image::how-to-guides/application/billing/copy-link.png[Screenshot of Copy Invitation Link, link="{imagesdir}/how-to-guides/application/billing/copy-link.png", window="_blank"]
+
+=== Editing a User
+
+Click btn:[Edit User] to view the properties of the respective user of this subscription.
+
+image::how-to-guides/application/billing/edit.png[Screenshot of Edit User screen, link="{imagesdir}/how-to-guides/application/billing/edit.png", window="_blank"]
+
+On this screen, you can change the user's role.
+Confirm the updates by clicking btn:[Update User].
+
+When updating, the <<Manage Subscription Users Screen, requirements>> for role staffing need to be maintained; otherwise, the update will fail.
+Only a Billing Manager can grant or remove Billing Manager roles in the subscription.
+
+New roles will take effect the next time the user logs in.
+
+==== Enabling or Disabling a User
+
+By un-clicking the checkbox btn:[Active], the user will become _Inactive_.
+An inactive user has no permissions in the subscription.
+For them, the effect is the same as if they were <<Removing a User, removed>>, however, it's possible to restore their permissions by re-enabling btn:[Active] without needing to invite the user again.
+
+=== Removing a User
+
+To completely remove a user, select the btn:[Remove User] option from the action menu for the respective user.
+
+NOTE: This action cannot be undone.
+The user will need to be invited again to regain access to the subscription.
+To temporarily remove a user, consider <<Enabling or Disabling a User,disabling>> the user instead.
+
+Confirmation is required to complete the removal:
+
+image::how-to-guides/application/billing/remove.png[Screenshot of Remove User screen, link="{imagesdir}/how-to-guides/application/billing/remove.png", window="_blank"]
+
+Upon confirmation, the user will be removed from the subscription, and their access will be revoked.
+They will need to be re-invited to regain access to the subscription.

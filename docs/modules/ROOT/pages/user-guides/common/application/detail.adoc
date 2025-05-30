@@ -1,0 +1,124 @@
+= Navigating the Application Detail Page
+
+The application detail page shows all relevant information about a specific application.
+
+.Application detail page
+image::how-to-guides/application/applications-2-detail.png[window="_blank", link="{imagesdir}/how-to-guides/application/applications-2-detail.png"]
+
+.Detail Application Page
+[checklist]
+* ❶ Application Name: Displays the name of the application you are currently viewing
+* ❷ Application State: Indicates whether the application is RUNNING.
+* ❸ Runtime Size: Shows the xref:user-guides/common/clustering.adoc[configured] runtime size for this application
+* ❹ Accessible URL: The internet URL for the application. Note: This URL resolves to the application only if it is in the RUNNING state; otherwise, a 502 error page appears
+* ❺ Application Management Menu: Includes options to start, edit application configuration, upload a deployment artifact (.war file), search application logs, and delete the application
+* ❻ Graphical Application Metrics: Visual representation of application performance
+* ❼ More Metrics: Button to view extended graphical application metrics
+* ❽ Second Application Management Menu: Same functions as in ❺
+* ❾ Start/Stop Button: Toggle to start or stop a configured application
+* ❿ Application Revisions Table: Displays revision number, upload, configuration, application status, and a menu for revision actions (view/edit)
+
+
+
+== Understanding Application States
+
+Applications hosted on Payara Cloud can be in various states throughout their lifecycle.
+
+[#_pending_state]
+=== PENDING State
+An application first enters the PENDING state when it is uploaded but not yet deployed.
+
+.Newly uploaded application in pending state
+image::how-to-guides/application/application-3-newly-uploaded-pending.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-3-newly-uploaded-pending.png"]
+
+.Details of PENDING State:
+[checklist]
+* ❶ Application Name: Displays the current application's name
+* ❷ PENDING State: Shows that the application is ready for deployment
+* ❸ Deployed Application URL: This field remains blank as the application is yet to be deployed
+* ❹ Management Menu: Provides options to edit, deploy, upload a new .war file, access logs, and delete the application
+* ❺ Duplicate Management Menu: Identical ❹
+* ❻ Revision Table Menu: Offers options to view, edit, or deploy the application. The 'Deployed At' date is absent since the application hasn't been deployed
+
+[#_running_state]
+=== RUNNING State
+An application is in the RUNNING state when it has been successfully deployed and is accessible online.
+
+.Running application
+image::how-to-guides/application/application-6-running-state.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-6-running-state.png"]
+
+.Details of RUNNING State
+[checklist]
+* ❶ Application Name: The current application's name
+* ❷ RUNNING State: Indicates the application is active and deployed
+* ❸ Application URL: The URL through which the deployed application is accessible
+
+[#_stopped_state]
+=== STOPPED State
+A STOPPED application is one that was previously running but has been manually halted.
+
+.Application in stopped state
+image::how-to-guides/application/application-5-stopped-status.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-5-stopped-status.png"]
+
+.Details of STOPPED State
+[checklist]
+* ❶ Application Name: The current application's name
+* ❷ STOPPED State: Shows that the application is currently not active
+* ❸ Application URL:  URL of the stopped application, which leads to a 502 error when accessed
+* ❹ Start Application Button: Used to restart the application, transitioning it back to the RUNNING state
+* ❺ Deployed time stamp: Indicates the last deployment time of the application
+
+
+
+
+
+== Application Revisions: Managing and Tracking Changes
+Over its lifetime, an application in Payara Cloud undergoes several revisions, each representing a unique binary upload.
+
+
+.Application revisions table
+image::how-to-guides/application/application-7-application-revisions.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-7-application-revisions.png"]
+
+.Application Revisions Details
+[checklist]
+* ❶ Application Name: Name of the application under review
+* ❷ Revisions Table: Lists all revisions of the application
+* ❸ Revision Number: Identifies the sequence number of each revision
+* ❹ Uploaded Date: Revision uploaded/created date
+* ❺ Configured Date: The date when the uploaded binary was configured
+* ❻ Deployed Date: The deployment date of the current revision
+* ❼ Revision Status: The current status of the revision
+* ❽ Actions: Menu for viewing, editing, or deploying revisions
+
+The revisions table is a critical tool for managing your application.
+It allows to roll back to previous versions as needed. It provides history of the binary artifact's status at the time of each upload
+This feature ensures flexibility in version control and deployment strategies.
+
+
+
+
+== Starting, Stopping, and Scaling Applications: A Guide
+
+You can start an application in a <<_stopped_state>> by using any of the available options.
+
+.Starting a stopped application
+image::how-to-guides/application/application-8-starting-stopped-application.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-8-starting-stopped-application.png"]
+
+.Options to start a stopped application
+
+[checklist]
+* ❶ Application Actions Menu: Start an application from the application action menu
+* ❷ Start Application Button: To start the application
+
+Starting a stopped application through any of the above options transitions the application back to the <<_running_state>>
+
+
+
+
+
+
+
+
+
+
+
