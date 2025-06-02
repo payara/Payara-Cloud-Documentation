@@ -51,6 +51,8 @@
 *** xref:how-to-guides/How To Route Applications.adoc[Application Communication]
 *** xref:how-to-guides/clustering.adoc[]
 *** xref:how-to-guides/billing/signup/private-cloud.adoc[Azure Customer Managed Region Setup]
+** Payara Qube
+*** xref:how-to-guides/qube/Billing Management Administrator/access-management.adoc[Organisation Management]
 
 ** Troubleshooting & Support
 *** xref:how-to-guides/Troubleshooting.adoc[Troubleshooting Tips]
