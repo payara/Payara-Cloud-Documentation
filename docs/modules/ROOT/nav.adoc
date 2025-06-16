@@ -6,7 +6,7 @@ ifeval::["{page-site-edition}" == "cloud"]
 * xref:user-guides/paas/Pricing.adoc[Pricing]
 endif::[]
 
-* How To Guides
+* How-To Guides
 
 ** Getting Started
 ifeval::["{page-site-edition}" == "cloud"]
