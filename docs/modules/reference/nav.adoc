@@ -1,13 +1,50 @@
+include::ROOT:partial$_attributes.adoc[]
+
 // Reference
 * Reference Docs
 
+ifdef::page-site-edition[]
 
-** xref:intro.adoc[Introduction To Payara Cloud]
-** xref:getting-started.adoc[Getting Started With Payara Cloud]
+ifeval::["{page-site-edition}" == "cloud"]
+** xref:intro.adoc[Introduction To {productName}]
+** xref:getting-started.adoc[Getting Started With {productName}]
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+** xref:qube-intro.adoc[Introduction To {productName}]
+** xref:qube-getting-started.adoc[Getting Started With {productName}]
+** xref:qube-installation-reference.adoc[Installation Reference]
+** xref:qube-configuration-reference.adoc[Configuration Reference]
+endif::[]
+
 ** xref:application-management.adoc[Application Management]
+
+ifeval::["{page-site-edition}" == "cloud"]
 ** xref:subscription-and-billing-management.adoc[Subscription and Billing Management]
 ** xref:access-management.adoc[Access Management]
 ** xref:azure-customer-managed-reg-ref.adoc[Azure Customer Managed Region]
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+** xref:qube-environment-management.adoc[Environment Management]
+** xref:qube-monitoring-reference.adoc[Monitoring and Logging Reference]
+** xref:qube-backup-restore-reference.adoc[Backup and Restore Reference]
+** xref:qube-security-reference.adoc[Security Reference]
+** xref:qube-troubleshooting-reference.adoc[Troubleshooting Reference]
+endif::[]
+
 ** xref:advanced-topics.adoc[Advanced Topics]
 ** xref:faqs.adoc[Frequently Asked Questions]
 ** xref:Glossary.adoc[]
+
+endif::[]
+
+ifndef::page-site-edition[]
+// Fallback when no edition is specified
+** xref:intro.adoc[Introduction To Payara Platform]
+** xref:getting-started.adoc[Getting Started]
+** xref:application-management.adoc[Application Management]
+** xref:advanced-topics.adoc[Advanced Topics]
+** xref:faqs.adoc[Frequently Asked Questions]
+** xref:Glossary.adoc[]
+endif::[]

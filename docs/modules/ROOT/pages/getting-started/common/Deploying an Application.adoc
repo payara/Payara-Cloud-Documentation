@@ -1,0 +1,3 @@
+= Deploying An Application on Payara Cloud
+
+Please refer to xref:user-guides/common/application/Deploying an Application.adoc#_deploying_an_application_on_payara_cloud[How to Deploy application] in How-to-guides for deploying application on Payara Cloud
