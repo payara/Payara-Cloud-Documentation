@@ -64,7 +64,7 @@ ifeval::["{page-site-edition}" == "cloud"]
 endif::[]
 
 ifeval::["{page-site-edition}" == "qube"]
-** {productName} Specifics
+** {productName} Management
 *** xref:user-guides/qube/managing-qube-environment.adoc[Managing Your Qube Environment]
 *** xref:user-guides/qube/backup-and-restore.adoc[Backup and Restore]
 *** xref:user-guides/qube/upgrading-payara-qube.adoc[Upgrading Payara Qube]
