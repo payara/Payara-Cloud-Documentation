@@ -1,3 +1,8 @@
+include::ROOT:partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+ifeval::["{page-site-edition}" == "cloud"]
 * xref:user-guide.adoc[]
 ** Command Reference
 *** xref:reference/pcl.adoc[]
@@ -12,3 +17,4 @@
 *** xref:reference/pcl-start.adoc[]
 *** xref:reference/pcl-configure.adoc[]
 *** xref:reference/pcl-scale.adoc[]
+endif::[]
