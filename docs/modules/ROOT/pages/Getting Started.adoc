@@ -3,7 +3,7 @@
 
 // Using the Payara Cloud environment requires a user account that is linked to a _Subscription_. A _Subscription_ is a unit for billing purposes. For the product launch, Payara Cloud allows a single user account to access your subscription. A future feature will allow you to add multiple users with different access levels to your account.
 
-To initiate your journey with Payara Cloud, securing access to a Payara Cloud Subscription is the initial step. This can be effortlessly achieved by proceeding with the xref:getting-started/cloud-trial/Signup Payara Cloud.adoc[Signup]  process to create a trial account.
+To initiate your journey with Payara Cloud, securing access to a Payara Cloud Subscription is the initial step. This can be effortlessly achieved by proceeding with the xref:getting-started/paas/Signup Payara Cloud.adoc[Signup]  process to create a trial account.
 
 Subsequently, having a Jakarta EE application ready is essential, as you'll need to deploy it onto the platform.
 

@@ -1,0 +1,71 @@
+= Introduction To Payara Qube
+
+Payara Qube is a self-hosted application platform that brings the power of Payara's Jakarta EE runtime to your own infrastructure.
+
+== Overview
+
+Payara Qube provides:
+
+* **Self-hosted deployment** - Run on your own Kubernetes clusters
+* **Full control** - Complete control over your infrastructure and data
+* **Enterprise security** - Deploy within your security perimeter
+* **Scalable architecture** - Horizontal and vertical scaling capabilities
+* **Jakarta EE compliance** - Full Jakarta EE 10 support
+
+== Architecture
+
+Payara Qube consists of:
+
+* **Control Plane** - Management interface and API
+* **Runtime Environment** - Jakarta EE application execution
+* **Monitoring Stack** - Built-in observability tools
+* **Storage Layer** - Persistent data management
+
+== Key Differences from Payara Cloud
+
+[cols="1,1,1"]
+|===
+|Feature |Payara Cloud |Payara Qube
+
+|**Hosting**
+|Managed by Payara
+|Self-hosted
+
+|**Infrastructure**
+|Payara's AWS infrastructure
+|Your Kubernetes cluster
+
+|**Billing**
+|SaaS subscription model
+|License-based pricing
+
+|**Control**
+|Platform managed
+|Full infrastructure control
+
+|**Security**
+|Shared responsibility
+|Complete control
+
+|**Maintenance**
+|Automatic updates
+|Self-managed updates
+|===
+
+== Use Cases
+
+Payara Qube is ideal for:
+
+* Organizations with strict data residency requirements
+* Enterprises requiring air-gapped deployments
+* Companies with existing Kubernetes expertise
+* Businesses needing custom infrastructure configurations
+* Organizations with specific compliance requirements
+
+== System Requirements
+
+* Kubernetes 1.20 or later
+* Minimum 4 CPU cores
+* Minimum 8GB RAM
+* 50GB available storage
+* Network connectivity for application access
