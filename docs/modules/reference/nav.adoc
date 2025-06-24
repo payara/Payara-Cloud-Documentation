@@ -33,7 +33,10 @@ ifeval::["{page-site-edition}" == "qube"]
 ** xref:qube-troubleshooting-reference.adoc[Troubleshooting Reference]
 endif::[]
 
+ifeval::["{page-site-edition}" == "cloud"]
 ** xref:advanced-topics.adoc[Advanced Topics]
+endif::[]
+
 ** xref:faqs.adoc[Frequently Asked Questions]
 ** xref:Glossary.adoc[]
 
