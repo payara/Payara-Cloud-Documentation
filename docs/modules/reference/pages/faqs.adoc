@@ -109,7 +109,12 @@ The previous versions of your app will be undeployed once a new version is deplo
 
 How do I get started with {productName}?::
 
+ifeval::["{page-site-edition}" == "cloud"]
 You can start a https://www.payara.fish/products/payara-cloud/#buy[15-day free trial] by creating an account on the {productName} website.
 For security reasons, you'll need to provide a payment method, but you won't be charged until the trial ends.
 You will be sent a reminder before expiry of your trial.
+endif::[]
 
+ifeval::["{page-site-edition}" == "qube"]
+You can get started with Payara Qube by making a demo request directly on the https://www.payara.fish/page/payara-qube-interested/[Payara Qube page].
+endif::[]

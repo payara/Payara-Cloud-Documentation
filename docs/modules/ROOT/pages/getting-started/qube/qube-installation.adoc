@@ -1,1 +1,225 @@
-= Payara Qube Installation
+= Payara Qube Installation Guide
+:toc: left
+:toclevels: 3
+:sectnums:
+:icons: font
+
+== Overview
+
+This documentation will walk you through the complete installation process for Payara Qube, from getting installation files to setting up your first organization.
+The installation uses Pulumi for infrastructure management and deploys on AWS.
+
+== Prerequisites
+
+Before starting the installation, ensure you have:
+
+* AWS CLI client configured with appropriate administrative permissions
+* Access to your Nexus credentials (provided in welcome package)
+* https://www.pulumi.com[Pulumi] installed on your machine
+* npm and Helm (may be required depending on your system)
+
+== Getting Installation Files
+
+. Navigate to https://billing.payara.cloud/install-qube/wizard as instructed in your welcome package
+. Enter your Nexus credentials when prompted
+. Define a name for your installation — this will prefix all AWS resources created
+. Configure DNS settings:
+* **Control Plane DNS Zone** must be present and modifiable in your current AWS account
+* **Application DNS Zone** should also be present for single-step installation (optional but recommended)
+. Review the default instance settings - avoid using instances smaller than 2-CPU as they can cause deployment timeouts
+. Set your Region ID (typically matches stack ID) and Region Description
+. Click **Generate installation data** to download the zip file
+
+== Pulumi Configuration
+
+=== Choosing State Management
+
+Pulumi offers several options for storing infrastructure state:
+
+* **Pulumi Cloud** (recommended): Secure online service for team use
+* **S3 bucket**: Store state in AWS S3 or other cloud storage
+* **Local storage**: Not recommended for production use
+
+Consult the https://www.pulumi.com/docs/iac/concepts/state-and-backends/[Managing State documentation] for detailed configuration options.
+
+=== Authentication Setup
+
+==== AWS Login
+Ensure your default AWS profile or environment variables have administrative permissions for your target account.
+
+==== Pulumi Login
+Choose the appropriate command based on your state backend:
+
+[source,bash]
+----
+# For Pulumi Cloud
+pulumi login
+
+# For Azure Blob storage (example)
+pulumi login azblob://pulumi/?storage_account=stacc
+
+# For local storage (not recommended)
+pulumi login --local
+----
+
+== Installation Environment Setup
+
+. Extract the downloaded installation files to a directory
+. Consider version controlling this directory for team collaboration
+
+=== Stack Initialization
+
+[source,bash]
+----
+# Initialize the stack (replace 'qb02' with your chosen name)
+pulumi stack init qb02
+
+# Synchronize configuration
+pulumi refresh -y
+----
+
+=== Optional: Change Encryption Provider
+
+If you prefer a different encryption provider, run:
+
+[source,bash]
+----
+pulumi stack change-secrets-provider
+----
+
+Refer to the https://www.pulumi.com/docs/iac/cli/commands/pulumi_stack_change-secrets-provider/[official documentation] for available providers.
+
+=== Nexus Credentials
+
+The `.npmrc` file contains base64-encoded credentials. You may want to move the second line to your home directory's `.npmrc` for system-wide access.
+
+=== Install Pulumi SDK
+
+[source,bash]
+----
+pulumi install
+----
+
+== Infrastructure Deployment
+
+Start the deployment process:
+
+[source,bash]
+----
+pulumi up
+----
+
+The deployment process will:
+
+. Show a preview of planned changes
+. Wait for your confirmation
+. Execute the deployment (approximately 45 minutes)
+
+NOTE: Due to the eventually consistent nature of Kubernetes and AWS, you may need to run `pulumi up` multiple times if initial attempts encounter timing issues.
+
+=== Monitoring Deployment
+
+* Green text doesn't always indicate complete success - check for errors in the output
+* Look for a return code of 0 and no errors in the diagnostics section
+* The process is complete when you see a success message without errors
+
+== DNS Configuration
+
+If both parent domains were in your AWS account, DNS configuration is automatic. Otherwise, you need to manually configure NS records.
+
+. Check the AWS Route 53 console for your hosted zone details
+. Note the nameservers for your application domain
+. Create NS records in the parent domain pointing to these nameservers
+
+The installation will not complete successfully until domains resolve publicly on the internet.
+
+== Troubleshooting Common Issues
+
+=== AWS Credentials Error
+[source]
+----
+error: unable to validate AWS credentials
+----
+
+**Solution**: Check your AWS credentials with `aws sts get-caller-identity`
+
+=== Helm Timeout Error
+[source]
+----
+error: Helm release failed to initialize completely
+----
+
+**Solution**: Run `pulumi up` again or investigate using Helm CLI
+
+=== Domain Resolution Issues
+[source]
+----
+qb02-import-realm failing/timing out
+----
+
+**Solution**: Ensure your domain resolves on the internet. Keycloak must be accessible at `users.control.plane.domain.com` with a valid TLS certificate.
+
+== Post-Installation Configuration
+
+=== Access Installation Outputs
+
+View your installation details:
+
+[source,bash]
+----
+pulumi stack output --show-secrets
+----
+
+This displays important information including:
+* `userManagementUrl`: Keycloak admin interface
+* `managementUrl`: Payara Qube management interface
+* `userManagementAdminUser` and `userManagementAdminPassword`: Initial admin credentials
+
+=== Keycloak Administrator Setup
+
+. Visit the `userManagementUrl` with the provided admin credentials
+. Create a permanent admin account:
+* Navigate to **Users** > **Add User**
+* Fill in the username and create the user
+* Go to **Credentials** > **Set Password** and set a secure password
+* In **Role Mapping** > **Assign role**, switch to **Filter by realm roles** and assign the admin role
+
+. Optional: Disable the initial admin account for security
+
+=== Payara Qube Organization Administrator
+
+. Switch to the `payara-qube` realm in Keycloak
+. Create your organization administrator:
+* Go to **Users** > **Create new user**
+* Fill in the username and other required fields
+* Click **Join Groups** and select both `cloud-admins` and `cloud-users`
+
+NOTE: Normal users should be in the `cloud-users` group, while organization administrators need both `cloud-admins` and `cloud-users` groups.
+
+=== Optional: Enable User Self-Registration
+
+To allow users to register themselves:
+
+. In Keycloak, go to **Realm Settings** > **Login**
+. Toggle **User registration** to enabled
+
+== Creating Your First Organization
+
+. Navigate to the `managementUrl` from your stack outputs
+. Log in with your organization admin credentials
+. You'll be directed to the **Organization Management** screen
+. Click to create a new organization and provide a name
+. Enter the organization and go to **Manage Users**
+. Add users by specifying their email addresses
+
+NOTE: Email configuration is not yet automated in this installation process. You'll need to manually send invitation links to new users, who will then register through Keycloak.
+
+== Next Steps
+
+Your Payara Qube installation is now complete! Organization administrators can:
+
+* Create and manage namespaces
+* Invite and manage users within their organization
+* Configure additional settings as needed
+
+Users will be redirected to Keycloak for account registration and can then access their assigned namespaces through the Payara Qube interface.
