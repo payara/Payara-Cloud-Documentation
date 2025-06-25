@@ -1,1 +1,7 @@
+include::ROOT:partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+ifeval::["{page-site-edition}" == "cloud"]
+
 * xref:user-guide.adoc[]
+endif::[]

@@ -1,1 +1,59 @@
-# What is Payara Qube
+= Payara Qube: Effortless Enterprise Java Deployment
+
+Payara Qube is a zero-maintenance, unified platform designed to streamline the deployment of enterprise Java applications while eliminating the complexities associated with Kubernetes setup and maintenance.
+It provides a complete solution for effortless deployment of Jakarta EE, Spring, and Quarkus applications on your own infrastructure.
+
+== Platform Overview
+
+Payara Qube offers a framework-agnostic approach to Java application deployment, supporting major enterprise Java frameworks without requiring application rewrites or specialized Kubernetes knowledge.
+The platform automates deployment processes, provides enterprise-grade monitoring, and includes pre-configured Kubernetes clusters, allowing development teams to speed up delivery cycles while maintaining complete data sovereignty.
+
+== Features
+
+=== Automated Infrastructure Management
+The platform eliminates the need for manual Kubernetes cluster configuration and ongoing maintenance.
+Teams can deploy applications without requiring specialized DevOps expertise or extensive infrastructure knowledge.
+
+=== Multi-Framework Support
+Payara Qube natively supports:
+
+* Jakarta EE applications
+* Spring Boot applications (available Q2 2025)
+* Quarkus applications (available Q3 2025)
+
+=== Cloud Infrastructure Control
+Organizations maintain complete control over their cloud infrastructure while benefiting from simplified deployment processes.
+The platform currently supports AWS deployments, with Azure support planned for Q3 2025 and Google Cloud Platform under consideration.
+
+=== Enterprise-Grade Features
+* Integrated monitoring and logging capabilities
+* Externalized configuration with change history tracking
+* Support for blue/green deployments and managed rollbacks
+
+== Target Use Cases
+
+Payara Qube addresses several critical enterprise scenarios:
+
+=== Legacy Application Modernization
+Organizations can modernize existing Java EE applications to cloud-native environments without extensive rewrites or framework changes.
+
+=== Multi-Framework Environments
+Teams managing diverse application portfolios across different Java frameworks can standardize their deployment processes while maintaining framework flexibility.
+
+=== Resource-Constrained Teams
+Development teams with limited DevOps resources can deploy and manage enterprise Java applications without hiring specialized Kubernetes experts.
+
+== Architecture and Deployment
+Payara Qube operates as a cloud-native application runtime built specifically for Kubernetes environments.
+The platform abstracts away infrastructure complexity while providing the performance and scalability benefits of containerized deployments.
+
+=== Self-Service Capabilities
+The platform enables developer self-service through automated deployment pipelines, reducing operational overhead and allowing teams to focus on application development rather than infrastructure management.
+
+=== Monitoring and Observability
+Built-in monitoring capabilities provide real-time visibility into application performance, helping teams identify issues quickly and optimize their deployment strategies.
+
+== Getting Started
+
+Payara Qube is designed for organizations building and managing enterprise Java applications who want a unified, vendor-neutral platform to deploy and manage applications in multi-framework cloud environments.
+The platform is particularly suited for teams seeking to modernize legacy applications while maintaining enterprise-grade performance, security, and support.
