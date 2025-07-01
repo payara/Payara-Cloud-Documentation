@@ -1,0 +1,30 @@
+= Access Management
+
+Access management module provides the functionality to manage user access and permissions within your Payara Qube subscription.
+
+Billing Management Administrator can manage users in the organization. The user management page provides the following functionality:
+
+On successful login, the Billing Management Administrator will see administration options in the left navigation menu. Clicking on the "Users" option will show a list of users in the organization. Billing Management Administrator needs to select `Payara-Qube` realm from the top-left corner from Navigation Bar.
+
+image::ROOT:qube/access-management/manage-realm.png[window="_blank", link="{imagesdir}/qube/access-management/manage-realm.png"]
+
+On select 'Payara-Qube' realm, the Billing Management Administrator will see the user management page with a list of users in the organization.
+
+image::ROOT:qube/access-management/user-list.png[window="_blank", link="{imagesdir}/qube/access-management/user-list.png"]
+
+The Billing Management Administrator can perform the following actions on the user management page:
+
+* **Create User**: Allows the administrator to create a new user in the organization. Clicking on the "Create User" button will open a form to create a new user. The administrator needs to provide the following details:
+- **Username**: Mandatory unique username for the new user
+- **Email**: The email address of the new user
+- **First Name**: The first name of the new user
+- **Last Name**: The last name of the new user
+- **Groups**: If user needs to be added to any group, the administrator can select the group from the dropdown. The user will be added to the selected group.
+// add border to image
+image::ROOT:qube/access-management/create-user.png[window="_blank", link="{imagesdir}/qube/access-management/create-user.png"]
+
+image::ROOT:qube/access-management/join-group.png[window="_blank", link="{imagesdir}/qube/access-management/join-group.png"]
+
+* **Delete User**: Allows the administrator to create a new user in the organization.
+
+image::ROOT:qube/access-management/delete-user.png[window="_blank", link="{imagesdir}/qube/access-management/delete-user.png"]

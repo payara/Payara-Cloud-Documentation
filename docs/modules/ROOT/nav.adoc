@@ -19,6 +19,8 @@ ifeval::["{page-site-edition}" == "qube"]
 *** xref:getting-started/qube/what-is-payara-qube.adoc[What is Payara Qube?]
 *** xref:getting-started/qube/qube-installation.adoc[Installation Guide]
 *** xref:getting-started/qube/qube-configuration.adoc[Initial Configuration]
+*** xref:getting-started/qube/access-management.adoc[Access Management]
+*** xref:getting-started/qube/qube-organisation-management.adoc[Organisation Management]
 endif::[]
 
 ifeval::["{page-site-edition}" == "cloud"]
