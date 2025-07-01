@@ -20,7 +20,7 @@ The Billing Management Administrator can perform the following actions on the us
 - **First Name**: The first name of the new user
 - **Last Name**: The last name of the new user
 - **Groups**: If user needs to be added to any group, the administrator can select the group from the dropdown. The user will be added to the selected group.
-// add border to image
+
 image::ROOT:qube/access-management/create-user.png[window="_blank", link="{imagesdir}/qube/access-management/create-user.png"]
 
 image::ROOT:qube/access-management/join-group.png[window="_blank", link="{imagesdir}/qube/access-management/join-group.png"]
