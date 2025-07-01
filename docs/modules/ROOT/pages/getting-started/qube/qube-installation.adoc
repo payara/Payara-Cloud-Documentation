@@ -26,12 +26,12 @@ Follow the following steps
 2. Enter your Nexus credentials when prompted
 +
 .Nexus Credentials Page
-image::docs:ROOT:qube/qube-install-1.png[Nexus Credentials Page,width=624,height=257,link="{imagesdir}/qube/qube-install-1.png", window="_blank"]
+image::docs:ROOT:qube/installation/qube-install-1.png[Nexus Credentials Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-1.png", window="_blank"]
 
 3. Define a name for your installation — this will prefix all AWS resources created
 +
 .Installation Name Definition Page
-image::docs:ROOT:qube/qube-install-2.png[Installation Name Definition Page,width=624,height=257,link="{imagesdir}/qube/qube-install-2.png", window="_blank"]
+image::docs:ROOT:qube/installation/qube-install-2.png[Installation Name Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-2.png", window="_blank"]
 
 4. Configure DNS settings:
 +
@@ -39,22 +39,22 @@ image::docs:ROOT:qube/qube-install-2.png[Installation Name Definition Page,width
 * **Application DNS Zone** should also be present for single-step installation (optional but recommended)
 +
 .DNS Definition Page
-image::docs:ROOT:qube/qube-install-3.png[DNS Definition Page,width=624,height=257,link="{imagesdir}/qube/qube-install-3.png", window="_blank"]
+image::docs:ROOT:qube/installation/qube-install-3.png[DNS Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-3.png", window="_blank"]
 
 5. Review the SMTP Provider Settings
 +
 .SMTP Definition Page
-image::docs:ROOT:qube/qube-install-4.png[SMTP Definition Page,width=624,height=257,link="{imagesdir}/qube/qube-install-4.png", window="_blank"]
+image::docs:ROOT:qube/installation/qube-install-4.png[SMTP Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-4.png", window="_blank"]
 
 6. Review the default instance settings—avoid using instances smaller than 2-CPU as they can cause deployment timeouts
 +
 .Default Instance Definition Page
-image::docs:ROOT:qube/qube-install-5.png[Default Instance Definition Page,width=624,height=257,link="{imagesdir}/qube/qube-install-5.png", window="_blank"]
+image::docs:ROOT:qube/installation/qube-install-5.png[Default Instance Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-5.png", window="_blank"]
 
 7. Set your Region ID (typically matches stack ID) and Region Description
 +
 .Installation Region Definition Page
-image::docs:ROOT:qube/qube-install-6.png[Installation Region Definition Page,width=624,height=257,link="{imagesdir}/qube/qube-install-6.png", window="_blank"]
+image::docs:ROOT:qube/installation/qube-install-6.png[Installation Region Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-6.png", window="_blank"]
 
 8. Click **Generate installation data** to download the zip file
 
