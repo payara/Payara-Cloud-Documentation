@@ -22,44 +22,41 @@ Before starting the installation, ensure you have:
 
 Follow the following steps
 
-. Navigate to https://billing.payara.cloud/install-qube/wizard as instructed in your welcome package
-. Enter your Nexus credentials when prompted
-
-
+1. Navigate to https://billing.payara.cloud/install-qube/wizard as instructed in your welcome package
+2. Enter your Nexus credentials when prompted
++
 .Nexus Credentials Page
 image::docs:ROOT:qube/qube-install-1.png[Nexus Credentials Page,width=624,height=257,link="{imagesdir}/qube/qube-install-1.png", window="_blank"]
 
-. Define a name for your installation — this will prefix all AWS resources created
-
+3. Define a name for your installation — this will prefix all AWS resources created
++
 .Installation Name Definition Page
 image::docs:ROOT:qube/qube-install-2.png[Installation Name Definition Page,width=624,height=257,link="{imagesdir}/qube/qube-install-2.png", window="_blank"]
 
-
-. Configure DNS settings:
-
-
+4. Configure DNS settings:
++
 * **Control Plane DNS Zone** must be present and modifiable in your current AWS account
 * **Application DNS Zone** should also be present for single-step installation (optional but recommended)
-
++
 .DNS Definition Page
 image::docs:ROOT:qube/qube-install-3.png[DNS Definition Page,width=624,height=257,link="{imagesdir}/qube/qube-install-3.png", window="_blank"]
 
-. Review the SMTP Provider Settings
-
+5. Review the SMTP Provider Settings
++
 .SMTP Definition Page
 image::docs:ROOT:qube/qube-install-4.png[SMTP Definition Page,width=624,height=257,link="{imagesdir}/qube/qube-install-4.png", window="_blank"]
 
-. Review the default instance settings—avoid using instances smaller than 2-CPU as they can cause deployment timeouts
-
+6. Review the default instance settings—avoid using instances smaller than 2-CPU as they can cause deployment timeouts
++
 .Default Instance Definition Page
 image::docs:ROOT:qube/qube-install-5.png[Default Instance Definition Page,width=624,height=257,link="{imagesdir}/qube/qube-install-5.png", window="_blank"]
 
-. Set your Region ID (typically matches stack ID) and Region Description
-
+7. Set your Region ID (typically matches stack ID) and Region Description
++
 .Installation Region Definition Page
 image::docs:ROOT:qube/qube-install-6.png[Installation Region Definition Page,width=624,height=257,link="{imagesdir}/qube/qube-install-6.png", window="_blank"]
 
-. Click **Generate installation data** to download the zip file
+8. Click **Generate installation data** to download the zip file
 
 == Pulumi Configuration
 
