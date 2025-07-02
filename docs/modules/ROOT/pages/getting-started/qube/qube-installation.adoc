@@ -31,11 +31,39 @@ image::docs:ROOT:qube/installation/qube-install-2.png[Installation Name Definiti
 
 4. Configure DNS settings:
 +
+.DNS Definition Page
+image::docs:ROOT:qube/installation/qube-install-3.png[DNS Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-3.png", window="_blank"]
+Configure DNS settings using the following format
++
+[cols="1,2"]
+|===
+|Field |Example
+
+|**Control Plane Domain**
+|`stackName.control.example.com` +
+Example: If your stack name is "mycompany", enter `mycompany.control.example.com`
+
+|**Control Plane Zone**
+|`control.example.com` +
+This is the parent zone that must exist in your AWS account
+
+|**Application Domain**
+|`stackName.apps.example.com` +
+Example: If your stack name is "mycompany", enter `mycompany.apps.example.com`
+
+|**Application Zone**
+|`apps.example.com` +
+This is the parent zone for application deployments
+
+|**LetsEncrypt Contact Email**
+|`admin@example.com` +
+Replace with your actual email address for SSL certificate notifications
+|===
++
 * **Control Plane DNS Zone** must be present and modifiable in your current AWS account
 * **Application DNS Zone** should also be present for single-step installation (optional but recommended)
 +
-.DNS Definition Page
-image::docs:ROOT:qube/installation/qube-install-3.png[DNS Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-3.png", window="_blank"]
+The DNS configuration follows a hierarchical structure where your stack name becomes a subdomain of the provided zones. This allows multiple installations to coexist within the same AWS account while maintaining proper DNS resolution.
 
 5. Review the SMTP Provider Settings
 +
@@ -211,14 +239,7 @@ This displays important information including:
 . Optional: Disable the initial admin account for security
 
 === Payara Qube Organization Administrator
-
-. Switch to the `payara-qube` realm in Keycloak
-. Create your organization administrator:
-* Go to **Users** > **Create new user**
-* Fill in the username and other required fields
-* Click **Join Groups** and select both `cloud-admins` and `cloud-users`
-
-NOTE: Normal users should be in the `cloud-users` group, while organization administrators need both `cloud-admins` and `cloud-users` groups.
+The Payara Qube  xref:docs:ROOT:user-guides/qube/qube-organisation-management.adoc[] doc has full end-to-end information about managing organizations in Payara Qube via Keycloak.
 
 === Optional: Enable User Self-Registration
 
@@ -236,7 +257,8 @@ To allow users to register themselves:
 . Enter the organization and go to **Manage Users**
 . Add users by specifying their email addresses
 
-NOTE: Email configuration is not yet automated in this installation process. You'll need to manually send invitation links to new users, who will then register through Keycloak.
+NOTE: Email configuration is not yet automated in this installation process.
+You'll need to manually send invitation links to new users, who will then register through Keycloak.
 
 == Next Steps
 
