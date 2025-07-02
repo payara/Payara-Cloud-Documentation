@@ -211,14 +211,7 @@ This displays important information including:
 . Optional: Disable the initial admin account for security
 
 === Payara Qube Organization Administrator
-
-. Switch to the `payara-qube` realm in Keycloak
-. Create your organization administrator:
-* Go to **Users** > **Create new user**
-* Fill in the username and other required fields
-* Click **Join Groups** and select both `cloud-admins` and `cloud-users`
-
-NOTE: Normal users should be in the `cloud-users` group, while organization administrators need both `cloud-admins` and `cloud-users` groups.
+The Payara Qube  xref:docs:ROOT:user-guides/qube/qube-organisation-management.adoc[] doc has full end-to-end information about managing organizations in Payara Qube via Keycloak.
 
 === Optional: Enable User Self-Registration
 
@@ -236,7 +229,8 @@ To allow users to register themselves:
 . Enter the organization and go to **Manage Users**
 . Add users by specifying their email addresses
 
-NOTE: Email configuration is not yet automated in this installation process. You'll need to manually send invitation links to new users, who will then register through Keycloak.
+NOTE: Email configuration is not yet automated in this installation process.
+You'll need to manually send invitation links to new users, who will then register through Keycloak.
 
 == Next Steps
 
