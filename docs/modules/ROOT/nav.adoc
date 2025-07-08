@@ -18,9 +18,7 @@ endif::[]
 ifeval::["{page-site-edition}" == "qube"]
 *** xref:getting-started/qube/what-is-payara-qube.adoc[What is Payara Qube?]
 *** xref:getting-started/qube/qube-installation.adoc[Installation Guide]
-*** xref:getting-started/qube/qube-configuration.adoc[Initial Configuration]
-*** xref:getting-started/qube/access-management.adoc[Access Management]
-*** xref:getting-started/qube/qube-organisation-management.adoc[Organisation Management]
+// *** xref:getting-started/qube/qube-configuration.adoc[Initial Configuration]
 endif::[]
 
 ifeval::["{page-site-edition}" == "cloud"]
@@ -67,9 +65,12 @@ endif::[]
 
 ifeval::["{page-site-edition}" == "qube"]
 ** {productName} Management
-*** xref:user-guides/qube/managing-qube-environment.adoc[Managing Your Qube Environment]
-*** xref:user-guides/qube/backup-and-restore.adoc[Backup and Restore]
-*** xref:user-guides/qube/upgrading-payara-qube.adoc[Upgrading Payara Qube]
+*** xref:user-guides/qube/access-management.adoc[Access Management]
+*** xref:user-guides/qube/qube-organisation-management.adoc[Organisation Management]
+// *** xref:user-guides/qube/[Managing Your Qube Environment]
+// *** xref:user-guides/qube/managing-qube-environment.adoc[Managing Your Qube Environment]
+// *** xref:user-guides/qube/backup-and-restore.adoc[Backup and Restore]
+// *** xref:user-guides/qube/upgrading-payara-qube.adoc[Upgrading Payara Qube]
 endif::[]
 
 ** Advanced Features

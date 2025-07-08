@@ -1,17 +1,12 @@
-include::ROOT:partial$_attributes.adoc[]
-
-ifdef::page-site-edition[]
-
-
 = Frequently Asked Questions (FAQs)
 
-What is {productName}?::
-{productName} is a fully managed cloud platform designed for deploying and running Jakarta EE and MicroProfile web applications.
+What is Payara Cloud?::
+Payara Cloud is a fully managed cloud platform designed for deploying and running Jakarta EE and MicroProfile web applications.
 It simplifies the deployment process by handling infrastructure provisioning, server configuration, and container orchestration, allowing you to focus on building your applications.
 
-What are the key features of {productName}?::
+What are the key features of Payara Cloud?::
 
-{productName} offers a range of features, including:
+Payara Cloud offers a range of features, including:
 
 * Automatic scaling based on demand
 * High availability through multi-zone deployments
@@ -21,74 +16,74 @@ What are the key features of {productName}?::
 * Straightforward integration with other cloud services
 * A user-friendly web-based management console
 
-What programming languages/frameworks does {productName} support?::
+What programming languages/frameworks does Payara Cloud support?::
 
-{productName} is primarily designed for Jakarta EE Web Profile applications, which are typically written in Java.
+Payara Cloud is primarily designed for Jakarta EE Web Profile applications, which are typically written in Java.
 It also supports MicroProfile applications.
 
-Can I deploy my existing Java EE applications on {productName}?::
+Can I deploy my existing Java EE applications on Payara Cloud?::
 
-Yes, you can deploy your existing Java EE Web Profile applications on {productName} without any modifications.
+Yes, you can deploy your existing Java EE Web Profile applications on Payara Cloud without any modifications.
 The platform ensures full compatibility with Java EE 8 and Jakarta EE 10 standards.
 
 Can I run multiple applications?::
 
-Absolutely, {productName} allows you to deploy multiple applications within the same namespace.
+Absolutely, Payara Cloud allows you to deploy multiple applications within the same namespace.
 You can also create multiple namespaces to further organize and isolate your applications.
 
-Does {productName} also host Database instances?::
+Does Payara Cloud also host Database instances?::
 
-Currently, {productName} does not host database instances.
+Currently, Payara Cloud does not host database instances.
 You need to maintain your own database installation, either in the cloud or on-premises.
 However, you can easily configure your applications to connect to your external databases using standard Jakarta EE database connection mechanisms.
 
-How does automatic scaling work in {productName}?::
+How does automatic scaling work in Payara Cloud?::
 
-{productName} can automatically scale your applications based on predefined rules or metrics, such as CPU utilization, memory usage, or incoming request rates.
+Payara Cloud can automatically scale your applications based on predefined rules or metrics, such as CPU utilization, memory usage, or incoming request rates.
 It dynamically adjusts the number of instances running your application to match the demand, ensuring optimal performance and resource utilization.
 
-Can I integrate {productName} with other cloud services?::
+Can I integrate Payara Cloud with other cloud services?::
 
-Yes, {productName} provides seamless integration with other cloud services and platforms.
+Yes, Payara Cloud provides seamless integration with other cloud services and platforms.
 You can connect your applications to databases, storage services, message queues, and other services offered by various cloud providers.
-As long as the service provides a HTTP API or supports connection mechanisms like JDBC, you can connect to it from  {productName}.
+As long as the service provides a HTTP API or supports connection mechanisms like JDBC, you can connect to it from  Payara Cloud.
 
-Is {productName} secure?::
+Is Payara Cloud secure?::
 
-Yes, {productName} prioritizes security and implements various measures to protect your applications and data.
+Yes, Payara Cloud prioritizes security and implements various measures to protect your applications and data.
 These include network isolation, encryption, secure access controls, and automated security updates.
 
-Can I have multiple users on my {productName} account?::
+Can I have multiple users on my Payara Cloud account?::
 Yes, you can invite users to share your subscription and assign each user fine-grained roles and permissions.
 
-How does {productName} handle high availability?::
+How does Payara Cloud handle high availability?::
 
-{productName} ensures high availability by automatically distributing your application instances across multiple availability zones.
+Payara Cloud ensures high availability by automatically distributing your application instances across multiple availability zones.
 In case of a failure, it can quickly recover your application on another healthy instance, minimizing downtime.
 
-Where Does {productName} Host Its Data?::
-By default, your {productName} data, including application binaries and user information, is hosted in Microsoft Azure's EU region.
+Where Does Payara Cloud Host Its Data?::
+By default, your Payara Cloud data, including application binaries and user information, is hosted in Microsoft Azure's EU region.
 You can also choose to store your application data in Azure's US region when creating a namespace.
 
-Can I monitor and manage my applications in {productName}?::
+Can I monitor and manage my applications in Payara Cloud?::
 
-Yes, {productName} offers built-in metrics and monitoring dashboards, allowing you to track the performance and health of your applications.
+Yes, Payara Cloud offers built-in metrics and monitoring dashboards, allowing you to track the performance and health of your applications.
 You can also use the web-based management console to configure and manage various aspects of your applications.
 
 Is there downtime when I upgrade my application?::
 
-{productName} minimizes downtime during upgrades by keeping the current version running until the new one is fully deployed and ready.
+Payara Cloud minimizes downtime during upgrades by keeping the current version running until the new one is fully deployed and ready.
 There might be a negligible downtime during the switchover, but all uploaded and undeployed application versions remain available for easy rollback.
 
 How do I pick the appropriate runtime size for my application?::
 
 The runtime size determines the resource allocation for your application instance.
 You should choose a size based on your application's resource requirements, considering factors like memory usage and CPU utilization.
-{productName} offers different runtime sizes (Small, Medium, Large, XL) with varying resource allocations.
+Payara Cloud offers different runtime sizes (Small, Medium, Large, XL) with varying resource allocations.
 
 What is a namespace?::
 
-A namespace in {productName} is a container for grouping and isolating resources.
+A namespace in Payara Cloud is a container for grouping and isolating resources.
 A subscription can have multiple namespaces, and each namespace can host multiple applications.
 Each deployed application within a namespace is accessible as a context path on the namespace's domain.
 
@@ -107,9 +102,8 @@ Why is the previous version of my application showing as (Deployed)?::
 
 The previous versions of your app will be undeployed once a new version is deployed. The status "(Deployed)" indicates that they are not the currently active, deployed version.
 
-How do I get started with {productName}?::
+How do I get started with Payara Cloud?::
 
-You can start a https://www.payara.fish/products/payara-cloud/#buy[15-day free trial] by creating an account on the {productName} website.
+You can start a https://www.payara.fish/products/payara-cloud/#buy[15-day free trial] by creating an account on the Payara Cloud website.
 For security reasons, you'll need to provide a payment method, but you won't be charged until the trial ends.
 You will be sent a reminder before expiry of your trial.
-

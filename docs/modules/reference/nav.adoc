@@ -35,9 +35,9 @@ endif::[]
 
 ifeval::["{page-site-edition}" == "cloud"]
 ** xref:advanced-topics.adoc[Advanced Topics]
+** xref:faqs.adoc[Frequently Asked Questions]
 endif::[]
 
-** xref:faqs.adoc[Frequently Asked Questions]
 ** xref:Glossary.adoc[]
 
 endif::[]
