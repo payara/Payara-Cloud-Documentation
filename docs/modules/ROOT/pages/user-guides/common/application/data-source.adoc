@@ -1,15 +1,41 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+
+
 = Data Sources
 
-Apps deployed to Payara Cloud, being Jakarta EE (Java EE) compatible, can connect to any database using the Jakarta EE https://docs.oracle.com/middleware/12211/wls/JDBCP/ds_annotation.htm#JDBCP1043[datasource]  mechanism.
-Payara Cloud  looks for a persistence.xml file that uses the Jakarta EE https://nofluffjuststuff.com/blog/arun_gupta/2014/07/defaults_in_java_ee_7_tech_tip_37_#:~:text=nobeans%2Dxml.-,Default%20data%20source,-%3A%20A%C2%A0Java%20EE[default datasource] `java:comp/DefaultDataSource`.
+ifeval::["{page-site-edition}" == "qube"]
+Apps deployed to {productName}, being Jakarta EE (Java EE) compatible, can connect to any database using the Jakarta EE https://docs.oracle.com/middleware/12211/wls/JDBCP/ds_annotation.htm#JDBCP1043[datasource] mechanism.
+
+For Jakarta EE/MicroProfile applications, {productName} looks for a persistence.xml file that uses the Jakarta EE https://nofluffjuststuff.com/blog/arun_gupta/2014/07/defaults_in_java_ee_7_tech_tip_37_#:~:text=nobeans%2Dxml.-,Default%20data%20source,-%3A%20A%C2%A0Java%20EE[default datasource] `java:comp/DefaultDataSource`.
+
+Spring Boot applications can connect to databases using Spring's standard datasource configuration mechanisms.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Apps deployed to {productName}, being Jakarta EE (Java EE) compatible, can connect to any database using the Jakarta EE https://docs.oracle.com/middleware/12211/wls/JDBCP/ds_annotation.htm#JDBCP1043[datasource] mechanism.
+
+{productName} looks for a persistence.xml file that uses the Jakarta EE https://nofluffjuststuff.com/blog/arun_gupta/2014/07/defaults_in_java_ee_7_tech_tip_37_#:~:text=nobeans%2Dxml.-,Default%20data%20source,-%3A%20A%C2%A0Java%20EE[default datasource] `java:comp/DefaultDataSource`.
+endif::[]
+
 If detected, it makes the necessary minimal configuration parameters for the default datasource available on the UI.
 
 .Default Datasource Configuration
 image::how-to-guides/application/application-18-default-datasource.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-18-default-datasource.png"]
 
+ifeval::["{page-site-edition}" == "qube"]
+== Configuring Datasources for Jakarta EE Applications
+
+For Jakarta EE/MicroProfile applications, you can configure datasources using either the `@DataSourceDefinition` or through the <data-source> element in the *web.xml* file.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
 == Configuring Datasources
 
-You can configure datasources using either the `@DataSourceDefinition`  or through the <data-source> element in the _web.xml_ file.
+You can configure datasources using either the `@DataSourceDefinition` or through the <data-source> element in the *web.xml* file.
+endif::[]
 
 === Using Annotation
 
@@ -28,16 +54,21 @@ You can configure database connection through the `@DataSourceDefinition`.
 ----
 
 Using the MicroProfile Config property MPCONFIG, you can externalise the various properties needed for the connection.
+
+ifeval::["{page-site-edition}" == "qube"]
+This allows you to set different values for different environments and namespaces in {productName}.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
 This allows you to set different values for different environments and namespaces in Payara.
+endif::[]
 
 You can also use the `@DataSourceDefinitions()` to define different datasources to connect to different databases.
 
 [source,java]
 ----
-
 @DataSourceDefinitions(
       value = {
-
         @DataSourceDefinition(name="java:app/jdbc/cloud-postgres",
         className="org.postgresql.ds.PGSimpleDataSource",
         serverName = "${MPCONFIG=ds_servername}",
@@ -46,7 +77,6 @@ You can also use the `@DataSourceDefinitions()` to define different datasources 
         user="${MPCONFIG=ds_username}",
         password="${MPCONFIG=ds_password}"
 ),
-
         @DataSourceDefinition(name = "java:comp/env/DS2",
            minPoolSize = 0,
            initialPoolSize = 0,
@@ -63,7 +93,8 @@ You can also use the `@DataSourceDefinitions()` to define different datasources 
 ----
 
 === Using Web Descriptor
-You can also configure datasources in the _web.xml_ descriptor.
+
+You can also configure datasources in the *web.xml* descriptor.
 
 [source,xml]
 ----
@@ -81,4 +112,62 @@ You can also configure datasources in the _web.xml_ descriptor.
 Similar to the annotation, you can externalize connection properties through the MicroProfile Config property MPCONFIG property.
 
 [NOTE]
+ifeval::["{page-site-edition}" == "qube"]
+You must define the MicroProfile xref:user-guides/common/application/microprofile-config.adoc#_adding_configuration_properties[configuration keys] passed to MPCONFIG manually in {productName}. You can then set values for those keys to be passed to the datasource definition parameters.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
 You must define the MicroProfile xref:user-guides/common/application/microprofile-config.adoc#_adding_configuration_properties[configuration keys] passed to MPCONFIG manually in Payara Cloud. You can then set values for those keys to be passed to the datasource definition parameters.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+== Spring Boot Database Configuration
+
+For Spring Boot applications deployed to {productName}, database connections are configured using standard Spring Boot properties in your `application.properties` or `application.yml` file.
+
+=== Basic Configuration
+
+[source,properties]
+----
+# Database connection properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
+spring.datasource.username=myuser
+spring.datasource.password=mypassword
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# Connection pool settings
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=5
+spring.datasource.hikari.connection-timeout=20000
+----
+
+=== Using Environment Variables
+
+You can externalize database configuration using environment variables:
+
+[source,properties]
+----
+spring.datasource.url=${DATABASE_URL:jdbc:h2:mem:testdb}
+spring.datasource.username=${DATABASE_USERNAME:sa}
+spring.datasource.password=${DATABASE_PASSWORD:}
+----
+
+=== Multiple Datasources
+
+For applications requiring multiple database connections:
+
+[source,properties]
+----
+# Primary datasource
+spring.datasource.primary.url=jdbc:postgresql://localhost:5432/primary_db
+spring.datasource.primary.username=primary_user
+spring.datasource.primary.password=primary_password
+
+# Secondary datasource
+spring.datasource.secondary.url=jdbc:mysql://localhost:3306/secondary_db
+spring.datasource.secondary.username=secondary_user
+spring.datasource.secondary.password=secondary_password
+----
+
+These properties can be configured through the {productName} UI when deploying your Spring Boot application.
+endif::[]

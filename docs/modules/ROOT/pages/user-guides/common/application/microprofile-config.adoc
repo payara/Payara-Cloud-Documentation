@@ -1,6 +1,11 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+
 = MicroProfile Config
 
-Payara Cloud provides an intuitive dashboard for managing MicroProfile Config properties used in your application.
+{productName} provides an intuitive dashboard for managing MicroProfile Config properties used in your application.
 
 You can add, update and remove MicroProfile Config properties set in your application on the MicroProfile Config panel on the application configuration dashboard.
 

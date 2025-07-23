@@ -1,6 +1,10 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Application Communication
 
-Payara Cloud designates a distinct domain under payara.app for each namespace, like  \https://staging-118842.payara.app.
+{productName} designates a distinct domain under payara.app for each namespace, like  \https://staging-118842.payara.app.
 In this namespace, apps are deployed at specific xref:user-guides/common/application/Configure Application.adoc#internet-accessible-paths[paths]. For instance, an app named foo will be deployed at \https://staging-118842.payara.app/foo.
 
 Apps within the same namespace can interact using the URL format \http://deployedAppName/contextRoot/someEndpoint.
@@ -16,7 +20,7 @@ Apps can also designate a sub-path for external exposure, like app-context-root/
 
 == Setting up Communication Between Applications
 
-Assume `bar` and `bazz` are deployed to the same namespace on Payara Cloud, with `bar` exposing a REST endpoint api/finance that `bazz` consumes. The following sections illustrate their communication setup.
+Assume `bar` and `bazz` are deployed to the same namespace on {productName}, with `bar` exposing a REST endpoint api/finance that `bazz` consumes. The following sections illustrate their communication setup.
 
 === Deploying `bar` and `bazz`
 
@@ -53,7 +57,7 @@ public class FinanceApiClient {
 
 === Use MicroProfile Config For Utmost Flexibility
 
-Employ MicroProfile Config properties to specify the endpoints, allowing different server URLs during development and production. With this setup, xref:user-guides/common/application/Configure Application.adoc[app deployment configuration] on Payara Cloud can override these properties.
+Employ MicroProfile Config properties to specify the endpoints, allowing different server URLs during development and production. With this setup, xref:user-guides/common/application/Configure Application.adoc[app deployment configuration] on {productName} can override these properties.
 
 Here’s how the above snippet can be adapted to use MicroProfile Config properties:
 
@@ -80,6 +84,6 @@ public class FinanceApiClient {
 }
 ----
 
-With this setup, different URLs can be passed dynamically without redeploying the app. Modify this property anytime on the Payara Cloud dashboard to suit your needs.
+With this setup, different URLs can be passed dynamically without redeploying the app. Modify this property anytime on the {productName} dashboard to suit your needs.
 
 

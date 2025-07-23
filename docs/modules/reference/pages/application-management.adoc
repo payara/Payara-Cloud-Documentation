@@ -1,9 +1,25 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Application Management
 
-An application in Payara Cloud represents the core unit of deployment and execution for your Jakarta EE (formerly Java EE) projects.
-Payara Cloud applications must be developed using the Web Profile of the Jakarta EE (formerly Java EE) standard.
-You can upload any number of applications to your account and organize them according to your project needs using Namespaces.
+ifeval::["{page-site-edition}" == "qube"]
+An application in {productName} represents the core unit of deployment and execution for your Jakarta EE (formerly Java EE) and Spring Boot projects.
 
+{productName} supports:
+
+* *Jakarta EE/MicroProfile applications*: Must be developed using the Web Profile of the Jakarta EE (formerly Java EE) standard
+* *Spring Boot applications*: Standard Spring Boot applications packaged as executable JARs
+
+You can upload any number of applications to your installation and organize them according to your project needs using Namespaces.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+An application in {productName} represents the core unit of deployment and execution for your Jakarta EE (formerly Java EE) projects.
+{productName} applications must be developed using the Web Profile of the Jakarta EE (formerly Java EE) standard.
+You can upload any number of applications to your account and organize them according to your project needs using Namespaces.
+endif::[]
 
 == Namespaces
 
@@ -12,12 +28,22 @@ It's characterized by a unique project name and a stage that represents the curr
 The project name also forms part of the URL for your deployed applications.
 
 === Namespaces offer several benefits
-* *Organization*: They help you keep your Payara Cloud account well-structured, especially when dealing with multiple applications or projects.
-* *Isolation*: They ensure your applications remain separate from each other, even if they're deployed on the same Payara Cloud cluster. This prevents conflicts between different applications.
+
+* *Organization*: They help you keep your {productName} account well-structured, especially when dealing with multiple applications or projects.
+* *Isolation*: They ensure your applications remain separate from each other, even if they're deployed on the same {productName} cluster. This prevents conflicts between different applications.
+
+ifeval::["{page-site-edition}" == "qube"]
+
+* *Unique Domain and Sub-paths*: Each namespace has its own distinct domain within your infrastructure. Within this namespace, your applications are deployed at specific sub-paths, making them easily accessible and manageable.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+
 * *Unique Domain and Sub-paths*: Each namespace has its own distinct domain under the `payara.app` domain. Within this namespace, your applications are deployed at specific sub-paths, making them easily accessible and manageable.
+endif::[]
+
 * *Custom Domains*: You can link custom domains to a namespace, making your applications more accessible, professional and user-friendly with personalized URLs.
 * *Logical Grouping*: Namespaces allow you to group applications based on their purpose or stage of development. For example, you can have separate namespaces for development, testing, and production environments.
-
 
 To create a namespace:
 
@@ -29,22 +55,45 @@ You'll then be directed to the namespace details screen, where you can start add
 
 === Custom Domains
 
-Custom domains allow you to replace the default Payara Cloud URL with a more recognizable and brand-friendly domain name.
+Custom domains allow you to replace the default {productName} URL with a more recognizable and brand-friendly domain name.
 
 To add a custom domain:
+
 
 . Select the desired namespace.
 . In the "Namespace Actions" dropdown, click "Custom Domain."
 . Click "Add Custom Domain."
 . Enter your preferred domain name and click "Set Custom Domain."
 . Follow the provided instructions to configure the DNS records with your domain registrar.
-. Return to Payara Cloud and click "Check DNS."
+. Return to {productName} and click "Check DNS."
 
 Once the DNS changes propagate, your namespace will be linked to the custom domain, and all applications within that namespace will be accessible via sub-paths of the custom domain.
 
 == Applications
 
-An application in Payara Cloud is the atomic, individual deployable unit in a namespace.
+ifeval::["{page-site-edition}" == "qube"]
+
+An application in {productName} is the atomic, individual deployable unit in a namespace.
+
+Applications must be packaged in the appropriate format based on their type:
+
+* *Jakarta EE/MicroProfile applications*: Must be packaged in the Jakarta EE (Java EE) https://jakarta.ee/learn/docs/jakartaee-tutorial/current/platform/packaging/packaging.html#_packaging_web_archives[Web Archive (WAR)] format
+* *Spring Boot applications*: Must be packaged as executable JAR files
+
+Uploading and Deploying Applications:
+
+. *Choose Namespace*: Select the namespace where you want to deploy your application.
+. *Upload Application*: Click "Upload Application" and select your WAR or JAR file. If no special configuration is needed, check "Deploy Immediately."
+. *Application Name*: The application name serves as the DNS name for its container. It can be specified in the UI, derived from the artifactId in your pom.xml (if Maven-built), or taken from the uploaded file name.
+. *Configuration (if needed)*: If your application requires configuration, you'll be directed to the application details screen after upload. Here, you can configure properties based on your application type:
+* For Jakarta EE/MicroProfile: MicroProfile Config properties, context root, and database connections
+* For Spring Boot: Application properties and profile-specific configurations
+. *Deploy*: Once configured, deploy your application by going to the application details screen, clicking "Application Actions," and selecting "Deploy Changes."
+. *Access*: After successful deployment, your application will be accessible via the provided Application URL (allow for DNS propagation time).
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+An application in {productName} is the atomic, individual deployable unit in a namespace.
 Applications must be packaged in the Jakarta EE (Java EE) https://jakarta.ee/learn/docs/jakartaee-tutorial/current/platform/packaging/packaging.html#_packaging_web_archives[Web Archive (WAR)] format.
 
 Uploading and Deploying Applications:
@@ -55,11 +104,14 @@ Uploading and Deploying Applications:
 . *Configuration (if needed)*: If your application requires configuration, you'll be directed to the application details screen after upload. Here, you can configure MicroProfile Config properties, context root, and database connections.
 . *Deploy*: Once configured, deploy your application by going to the application details screen, clicking "Application Actions," and selecting "Deploy Changes."
 . *Access*: After successful deployment, your application will be accessible via the provided Application URL (allow for DNS propagation time).
+endif::[]
 
 === Application Configuration
 
-Payara Cloud allows you to configure various aspects of your application:
+ifeval::["{page-site-edition}" == "qube"]
+{productName} allows you to configure various aspects of your application based on the application type:
 
+*For Jakarta EE/MicroProfile applications:*
 * *MicroProfile Config Properties*: If your application uses MicroProfile Config, you can manage its properties through the UI.
 * *Context Root*: Define the base path for your application relative to the namespace's domain.
 * *Internet-Accessible Paths*: Control which sub-paths of your application are accessible over the internet.
@@ -67,8 +119,26 @@ Payara Cloud allows you to configure various aspects of your application:
 * *Runtime Type*: Choose the appropriate Jakarta EE, Payara, and JDK versions for your application.
 * *Runtime Size*: Select the resource allocation for your application instance.
 
+*For Spring Boot applications:*
+* *Application Properties*: Manage application.properties or application.yml configurations through the UI.
+* *Profile-specific Configurations*: Configure different settings for different Spring profiles (dev, test, prod).
+* *Database Connections*: Configure datasource properties for database connectivity.
+* *Runtime Size*: Select the resource allocation for your application instance.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+{productName} allows you to configure various aspects of your application:
+
+* *MicroProfile Config Properties*: If your application uses MicroProfile Config, you can manage its properties through the UI.
+* *Context Root*: Define the base path for your application relative to the namespace's domain.
+* *Internet-Accessible Paths*: Control which sub-paths of your application are accessible over the internet.
+* *Database Connections*: Configure database connections for your application if it uses a database.
+* *Runtime Type*: Choose the appropriate Jakarta EE, Payara, and JDK versions for your application.
+* *Runtime Size*: Select the resource allocation for your application instance.
+endif::[]
+
 === Application States and Revisions
-An application in Payara Cloud can be in different states at any point in time. The following are the various application states defined by Payara Cloud.
+An application in {productName} can be in different states at any point in time. The following are the various application states defined by {productName}.
 
 * PENDING: Uploaded but not yet deployed.
 * RUNNING: Successfully deployed and accessible via application URL.
@@ -85,23 +155,29 @@ Remember a STOPPED application is not accessible until it is STARTED and moves t
 Each application uploaded creates a new revision or version of the uploaded binary.
 You can view, edit, or deploy different revisions, providing version control and rollback capabilities.
 
-
-
 === Scaling
-Payara Cloud allows you to scale your applications horizontally.
+{productName} allows you to scale your applications horizontally.
 This means you can dynamically adjust the number of instances running your application to accommodate varying levels of demand.
+
+ifeval::["{page-site-edition}" == "qube"]
+The platform offers scaling capabilities based on your infrastructure resources:
+
+* *Rolling Upgrade*: The default type, ensures smooth updates with minimal downtime through blue-green deployments.
+* *Singleton*: Ideal for applications where only one instance should be active at a time, preventing race conditions in scenarios like queue processing or task scheduling.
+* *Horizontal Scaling*: Perfect for stateless applications, this type allows you to scale based on demand and specify the resource allocation (CPU cores and memory) for each instance within your infrastructure constraints.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
 The platform offers three scalability types:
 
 * *Rolling Upgrade*: The default type, ensures smooth updates with minimal downtime through blue-green deployments.
 * *Singleton*: Ideal for applications where only one instance should be active at a time, preventing race conditions in scenarios like queue processing or task scheduling.
 * *Horizontal Scaling*: Perfect for stateless applications, this type allows you to scale based on demand and specify the resource allocation (CPU cores and memory) for each instance.
-
+endif::[]
 
 === Monitoring and Troubleshooting
-Payara Cloud provides you with tools to monitor your applications and troubleshoot any issues that may arise.
+{productName} provides you with tools to monitor your applications and troubleshoot any issues that may arise.
 
 * *Application Logging*: The platform includes built-in application logging, allowing you to track and analyze your application's behavior. You can view and search logs using the "Search Logs" option within the Application Actions menu. The search functionality supports queries, date/time filtering, and Boolean operators for precise log analysis.
 * *Heap Dumps*: If you suspect memory-related problems, you can generate heap dumps of the JVM process running your application. These dumps can be analyzed using standard tools to identify memory leaks or inefficient object usage.
 * *Thread Dumps*: To gain insights into thread activity and potential performance bottlenecks, you can generate thread dumps. These dumps provide a snapshot of the threads within your application, aiding in the debugging of performance issues.
-
-

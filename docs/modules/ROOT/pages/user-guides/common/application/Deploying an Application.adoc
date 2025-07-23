@@ -1,9 +1,20 @@
-= Deploying An Application in Payara Cloud
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+= Deploying An Application in {productName}
+
+ifeval::["{page-site-edition}" == "qube"]
+{productName} supports deploying Jakarta EE (and MicroProfile) applications as WAR files, and Spring Boot applications as JAR files.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+{productName} supports deploying Jakarta EE (and MicroProfile) applications as WAR files.
+endif::[]
 
 [[create-a-namespace]]
 == Creating a Namespace
-
-A Namespace in Payara Cloud works as a container that organizes your applications within your subscription.
+A Namespace in {productName} works as a container that organizes your applications within your subscription.
 
 Each namespace:
 
@@ -12,19 +23,16 @@ Each namespace:
 * Allows applications to be deployed at specific paths under that domain
 
 === How to Create a Namespace
-
 .Namespace creation dialog
 image::image6.png[Creating a new namespace,width=504,height=435]
 
 . Click the btn:[Create New Namespace] button from the application management dashboard
-
 . Fill in these required fields:
 * *Project*: Enter a name (using only letters, numbers, and dashes). This becomes part of your application's URL.
 * *Stage*: Specify your environment (like "qa", "test", or "production")
 * *Cloud Region*: Select your preferred cloud provider and location for hosting:
 ** AWS (EU Central 1 or US East 2)
 ** Azure (West Europe or East US)
-
 . Click btn:[Create Namespace]
 
 After creation, you'll be taken to the namespace details screen where you can start adding applications.
@@ -32,33 +40,110 @@ After creation, you'll be taken to the namespace details screen where you can st
 [[upload-an-application]]
 == Uploading an Application
 
+ifeval::["{page-site-edition}" == "qube"]
 Uploading an application is straightforward. From the *Namespace Details Screen*, click btn:[Upload Application].
+
+Choose the appropriate file type for your application:
+
+* *Jakarta EE/MicroProfile applications*: Upload a WAR file
+* *Spring Boot applications*: Upload a JAR file
+
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Uploading an application is straightforward. From the *Namespace Details Screen*, click btn:[Upload Application].
+
+Upload your Jakarta EE/MicroProfile application as a WAR file.
+endif::[]
 
 .Namespace home screen
 image::image8.png[Uploading an application,width=624,height=257,link="{imagesdir}/image8.png", window="_blank"]
 
-A dialog box will appear, prompting you to choose the WAR file for deployment.
-If your application doesn’t require any special configuration, simply mark the _Deploy Immediately_ checkbox.
+ifeval::["{page-site-edition}" == "qube"]
+A dialog box will appear, prompting you to choose the WAR or JAR file for deployment.
+endif::[]
 
-The application name is crucial as it also serves as the DNS name for the container hosting your application.
-This name is either specified in the Payara Cloud UI dialog, derived from the `artifactId` in the `pom.xml` file if your WAR file is Maven-built, or taken from the uploaded file name.
+ifeval::["{page-site-edition}" == "cloud"]
+A dialog box will appear, prompting you to choose the WAR file for deployment.
+endif::[]
+
+If your application doesn't require any special configuration, simply mark the *Deploy Immediately* checkbox.
+
+ifeval::["{page-site-edition}" == "qube"]
+The application name is important as it also serves as the DNS name for the container hosting your application.
+This name is either specified in the {productName} UI dialog, derived from the `artifactId` in the `pom.xml` file if your application file is Maven-built, or taken from the uploaded file name.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+The application name is important as it also serves as the DNS name for the container hosting your application.
+This name is either specified in the {productName} UI dialog, derived from the `artifactId` in the `pom.xml` file if your WAR file is Maven-built, or taken from the uploaded file name.
+endif::[]
 
 .Application upload dialog
 image::image9.png[Application details post-upload,width=624,height=370]
 
-Once the WAR file is uploaded, you’ll be navigated to the application’s detail screen for configuration before deploying it to the cloud.
+ifeval::["{page-site-edition}" == "qube"]
+Once the application file is uploaded, you'll be navigated to the application's detail screen for configuration before deploying it to the cloud.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Once the WAR file is uploaded, you'll be navigated to the application's detail screen for configuration before deploying it to the cloud.
+endif::[]
 
 [[review-configuration]]
 == Reviewing Configuration
 
-Configurations in Payara Cloud cover three main areas: MicroProfile Config properties, context root, and database connections for JPA data sources.
+ifeval::["{page-site-edition}" == "qube"]
+Configurations in {productName} cover different areas depending on your application type:
+
+*For Jakarta EE/MicroProfile applications:*
+
+* MicroProfile Config properties
+* Context root
+* Database connections for JPA data sources
+
+*For Spring Boot applications:*
+
+* Application properties
+* Profile-specific configurations
+
+If your Jakarta EE/MicroProfile application uses the MicroProfile Config API and has the microprofile-config.properties file, all properties declared in that file will be available on the UI.
+
+If your Jakarta EE/MicroProfile application bundles a persistence.xml file, then the datasource definition as declared through @Datasource annotation or in the web.xml will also be available for editing.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Configurations in {productName} cover three main areas: MicroProfile Config properties, context root, and database connections for JPA data sources.
 
 If your application uses the MicroProfile Config API and has the microprofile-config.properties file, all properties declared in that file will be available on the UI.
 
 If your application bundles a persistence.xml file, then the datasource definition as declared through @Datasource annotation or in the web.xml will also be available for editing.
+endif::[]
 
+ifeval::["{page-site-edition}" == "qube"]
+=== Runtime Type for Jakarta EE Applications
 
+For Jakarta EE/MicroProfile applications, choose a runtime type based on your application's Jakarta EE, Payara, and JDK versions. The table below summarizes the supported versions:
 
+[cols="1,1,1", options="header"]
+|===
+| Jakarta EE Version | Payara Version | JDK
+|  8 |  5 |  11 /17/ 21
+|  10 |  6 |  11 /17/ 21
+|===
+
+As an example, if your application is developed on Jakarta EE 8 and compiled for JDK 17, then you can pick the option for Jakarta EE 8 (Payara 5, JDK17).
+
+And if your application is developed with Jakarta EE 10 and compiled for JDK 21, then you should select Jakarta EE 10 (Payara6, JDK 21) option
+
+NOTE: {productName} by default will assign a runtime based on referenced Jakarta EE classes and target JDK version for the compiled classes.
+
+.Runtime Types
+image::image-37-runtime-type1.png[Choosing a runtime type, link="{imagesdir}/image-37-runtime-type1.png", window="_blank"]
+image::image-37-runtime-type2.png[Choosing a runtime type, link="{imagesdir}/image-37-runtime-type2.png", window="_blank"]
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
 === Runtime Type
 
 Choose a runtime type based on your application's Jakarta EE, Payara, and JDK versions. The table below summarizes the supported versions:
@@ -71,13 +156,15 @@ Choose a runtime type based on your application's Jakarta EE, Payara, and JDK ve
 |===
 
 As an example, if your application is developed on Jakarta EE 8 and compiled for JDK 17, then you can pick the option for Jakarta EE 8 (Payara 5, JDK17).
+
 And if your application is developed with Jakarta EE 10 and compiled for JDK 21, then you should select Jakarta EE 10 (Payara6, JDK 21) option
 
-NOTE: Payara Cloud by default will assign a runtime based on referenced Jakarta EE classes and target JDK version for the compiled classes.
+NOTE: {productName} by default will assign a runtime based on referenced Jakarta EE classes and target JDK version for the compiled classes.
 
 .Runtime Types
 image::image-37-runtime-type1.png[Choosing a runtime type, link="{imagesdir}/image-37-runtime-type1.png", window="_blank"]
 image::image-37-runtime-type2.png[Choosing a runtime type, link="{imagesdir}/image-37-runtime-type2.png", window="_blank"]
+endif::[]
 
 Post-upload, you can view or edit configurations by clicking btn:[Action], then btn:[Edit Configurations].
 
@@ -87,7 +174,7 @@ image::image38.png[Editing configurations,width=624,height=370, link="{imagesdir
 [[deploy-application]]
 == Deploying the Application
 
-Once configured, it’s time to deploy your application to make it publicly accessible.
+Once configured, it's time to deploy your application to make it publicly accessible.
 
 Navigate to the application details screen, click btn:[Applications Actions], and choose the Deploy Changes option.
 
@@ -100,12 +187,13 @@ A successful deployment updates the application's status on your screen.
 image::image20.png[Successful deployment,width=624,height=307, link="{imagesdir}/image20.png", window="_blank"]
 
 You can now access your application via the provided Application URL.
+
 There might be a some delay due to DNS propagation.
 
 [[stop-application]]
 == Stopping an Application
 
-Stopping a running application in Payara Cloud is simple.
+Stopping a running application in {productName} is simple.
 
 Select the application you wish to stop from the Namespace Navigator sidebar, open the btn:[Application Actions] drop-down menu and choose btn:[Stop Application].
 
@@ -125,12 +213,12 @@ Similarly, to delete an application, select the application you want to remove, 
 .Application deletion menu
 image::image39.png[Deleting an application,width=624,height=287, link="{imagesdir}/image39.png", window="_blank"]
 
-You’ll receive a confirmation prompt, type the name of the application you want to delete and click btn:[Delete] to confirm.
+You'll receive a confirmation prompt, type the name of the application you want to delete and click btn:[Delete] to confirm.
 
 .Application deletion confirmation
 image::image40.png[Deleting application confirmation,width=624,height=287]
 
-Upon successful deletion, a confirmation message is displayed, and you’re redirected back to the Namespace Detail screen, where the application will no longer be listed.
+Upon successful deletion, a confirmation message is displayed, and you're redirected back to the Namespace Detail screen, where the application will no longer be listed.
 
 .Deleted application page
 image::image41.png[Successful deletion,width=624,height=287, link="{imagesdir}/image41.png", window="_blank"]

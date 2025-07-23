@@ -84,7 +84,7 @@ endif::[]
 ** Troubleshooting & Support
 *** xref:user-guides/common/Troubleshooting.adoc[Troubleshooting Tips]
 ifeval::["{page-site-edition}" == "qube"]
-*** xref:user-guides/qube/qube-troubleshooting.adoc[Payara Qube Troubleshooting]
+// *** xref:user-guides/qube/qube-troubleshooting.adoc[Payara Qube Troubleshooting]
 endif::[]
 
 endif::[]

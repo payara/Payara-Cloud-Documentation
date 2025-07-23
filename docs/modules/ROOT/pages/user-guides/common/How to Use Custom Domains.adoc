@@ -1,9 +1,13 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = How to Use Custom Domains
 
-Payara Cloud offers customers on the Standard or Premium subscription tiers the ability to associate custom domains to namespaces.
+{productName} offers customers on the Standard or Premium subscription tiers the ability to associate custom domains to namespaces.
 This feature enhances the accessibility of your applications deployed to such namespaces for end users, by providing a personalized and easily recognizable URL.
 
-When applications are uploaded to a specific namespace in Payara Cloud, a default URL is created.
+When applications are uploaded to a specific namespace in {productName}, a default URL is created.
 This URL is formed by concatenating your namespace and application names, resulting in a link like: \https://guide-docu-6696a94c.payara.app/demo (Note: This is a fabricated URL for illustration purposes).
 
 However, these auto-generated URLs may not always align with your brand or be user-friendly, which is why the custom domain feature is valuable.
@@ -24,7 +28,7 @@ image::image34-new.png[Interface to add new domain,width=624,height=284,window="
 
 Enter the domain name you'd prefer to use for accessing your application in the Custom Domain Name field.
 
-.Custom domain addition screen on Payara Cloud
+.Custom domain addition screen on {productName}
 image::image35-new.png[Interface for entering custom domain name,width=624,height=284,window="_blank", link="{imagesdir}/image35-new.png"]
 
 Click btn:[Set Custom Domain]
@@ -52,10 +56,10 @@ image::image37-new.png[Cloudflare dns update view, width=624,height=282]
 [checklist]
 * ❶ Set record type to CNAME
 * ❷ Enter root domain name. Some providers also allow the use of the '@' symbol as a shorthand
-* ❸ Paste the DNS record value copied from Payara Cloud's custom domain screen
+* ❸ Paste the DNS record value copied from {productName}'s custom domain screen
 * ❹ Save
 
-Return to the custom domain setup screen in Payara Cloud.
+Return to the custom domain setup screen in {productName}.
 
 .Screen displaying DNS info for custom domain setup
 image::image38-new.png[Interface showing DNS info for custom domain setup,width=624,height=282,window="_blank", link="{imagesdir}/image38-new.png"]

@@ -1,32 +1,36 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 == Application Communication
 
-In Payara Cloud, applications within the same namespace can communicate with each other using internal URLs.
+In {productName}, applications within the same namespace can communicate with each other using internal URLs.
 The format for these internal URLs is \http://deployedAppName/contextRoot/someEndpoint.
 The `deployedAppName` refers to the name of the target application, contextRoot is the base path of that application, and someEndpoint specifies the particular endpoint or resource you want to access.
 For example, if you have two applications, app1 and app2, deployed in the same namespace, and app1 exposes a REST endpoint at /api/data, then app2 can access this endpoint using the URL \http://app1/app1/api/data.
 It's recommended to use MicroProfile Config properties to externalize endpoint URLs, allowing for flexibility in different environments.
 This way, you can easily switch between development and production server URLs without modifying your application code.
 
-== Payara Cloud CLI
+== {productName} CLI
 
-The Payara Cloud Command-Line Interface (CLI) offers a powerful way to manage your Payara Cloud resources directly from the terminal and automated environments like CI/CD pipelines.
+The {productName} Command-Line Interface (CLI) offers a powerful way to manage your {productName} resources directly from the terminal and automated environments like CI/CD pipelines.
 
 The pcl command provides various functions, including:
 
-* *Logging in*: Authenticate with Payara Cloud through auth tokens.
+* *Logging in*: Authenticate with {productName} through auth tokens.
 * *Managing Namespaces*: List, create, and delete namespaces.
 * *Managing Applications*: Upload, deploy, start, stop, configure, scale, and delete applications.
 
-The CLI is particularly useful for automating deployment and management tasks, integrating Payara Cloud into your CI/CD pipelines, and performing operations in non-interactive environments.
+The CLI is particularly useful for automating deployment and management tasks, integrating {productName} into your CI/CD pipelines, and performing operations in non-interactive environments.
 
-== Payara Cloud Maven Plugin
+== {productName} Maven Plugin
 
-The Payara Cloud Maven Plugin integrates Payara Cloud deployments into Maven build process. It provides goals for various operations, such as:
+The {productName} Maven Plugin integrates {productName} deployments into Maven build process. It provides goals for various operations, such as:
 
-* *Logging in*: Authenticate with Payara Cloud.
-* *Deploying Applications*: Upload and deploy your application to Payara Cloud.
+* *Logging in*: Authenticate with {productName}.
+* *Deploying Applications*: Upload and deploy your application to {productName}.
 * *Starting and Stopping Applications*: Control the running state of your deployed applications.
-* *Undeploying Applications*: Remove deployed applications from Payara Cloud.
+* *Undeploying Applications*: Remove deployed applications from {productName}.
 * *Development Mode*: Enable continuous deployment and live browser reload for efficient development workflows.
 
-Using the Payara Cloud Maven Plugin in your projects, you can automate deployments, streamline your development process, and ensure consistency between your local dev environment and the cloud.
+Using the {productName} Maven Plugin in your projects, you can automate deployments, streamline your development process, and ensure consistency between your local dev environment and the cloud.

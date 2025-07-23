@@ -1,8 +1,10 @@
 include::partial$_attributes.adoc[]
 
+ifdef::page-site-edition[]
+
+
 = {productName} Documentation
 
-ifdef::page-site-edition[]
 
 ifeval::["{page-site-edition}" == "cloud"]
 Payara Cloud is an all-in-one platform as a service (PaaS) solution for automatically deploying Jakarta EE (formerly Java EE) and MicroProfile applications.
