@@ -5,7 +5,8 @@ ifdef::page-site-edition[]
 = Application Communication
 
 {productName} designates a distinct domain under payara.app for each namespace, like  \https://staging-118842.payara.app.
-In this namespace, apps are deployed at specific xref:user-guides/common/application/Configure Application.adoc#internet-accessible-paths[paths]. For instance, an app named foo will be deployed at \https://staging-118842.payara.app/foo.
+In this namespace, apps are deployed at specific xref:user-guides/common/application/Configure Application.adoc#internet-accessible-paths[paths].
+For instance, an app named foo will be deployed at \https://staging-118842.payara.app/foo.
 
 Apps within the same namespace can interact using the URL format \http://deployedAppName/contextRoot/someEndpoint.
 
@@ -26,11 +27,12 @@ Assume `bar` and `bazz` are deployed to the same namespace on {productName}, wit
 
 Deploy both apps to a namespace, say \https://staging-118842.payara.app, making them accessible at \https://staging-118842.payara.app/`bar` and \https://staging-118842.payara.app/`bazz`.
 
-If a custom domain foocompany.com is configured, the apps are available at \https://foocompany.com/bar and \https://foocompany.com/bazz respectively.
+If a custom domain `foocompany.com` is configured, the apps are available at \https://foocompany.com/bar and \https://foocompany.com/bazz respectively.
 
 === Accessing Endpoint in `bazz`
 
-`bazz` can access `bars` /api/finance endpoint at the internal address http://`bar`/`bar`/api/finance. This address utilizes the app name and context root for in-namespace routing.
+`bazz` can access `bars` /api/finance endpoint at the internal address http://`bar`/`bar`/api/finance.
+This address uses the app name and context root for in-namespace routing.
 
 Below is a code snippet demonstrating a call from `bar` to `bazz`'s api/finance endpoint:
 
@@ -57,7 +59,8 @@ public class FinanceApiClient {
 
 === Use MicroProfile Config For Utmost Flexibility
 
-Employ MicroProfile Config properties to specify the endpoints, allowing different server URLs during development and production. With this setup, xref:user-guides/common/application/Configure Application.adoc[app deployment configuration] on {productName} can override these properties.
+Use MicroProfile Config properties to specify the endpoints, allowing different server URLs during development and production.
+With this setup, xref:user-guides/common/application/Configure Application.adoc[app deployment configuration] on {productName} can override these properties.
 
 Here’s how the above snippet can be adapted to use MicroProfile Config properties:
 
@@ -85,5 +88,13 @@ public class FinanceApiClient {
 ----
 
 With this setup, different URLs can be passed dynamically without redeploying the app. Modify this property anytime on the {productName} dashboard to suit your needs.
+
+== External Communication
+All deployed apps can make outbound communication to the wider internet, for example upload files to S3 storage, access database etc.
+
+=== Port Requirements
+{productName} does not support the exposure of specific ports.
+This is a limitation of the underlying cloud providers.
+If you need the services of such ports (for example port 25 for SMTP), we recommend the use of relay services on a different port such as 587.
 
 
