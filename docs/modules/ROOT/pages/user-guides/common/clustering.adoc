@@ -1,6 +1,10 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = How to Scale Applications
 
-Payara Cloud provides a robust framework for scaling applications through three distinct Scalability Types.
+{productName} provides a robust framework for scaling applications through three distinct Scalability Types.
 
 These types cater to different scenarios to ensure optimal performance and reliability.
 These are:

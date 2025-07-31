@@ -1,3 +1,8 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+
 == Configure Your Application for Deployment
 
 Click on the btn:[Application Actions] button to access all actions related to the application.
@@ -8,7 +13,7 @@ To configure your application for deployment, click Change Configuration.
 
 === Configuration screen
 
-Payara Cloud has support for three configuration areas, MicroProfile Config properties, context root, and a database connections for a JPA data sources.  The configuration screen will only display the MicroProfile Configuration values for an application using microprofile.config.properties and will only show you the Database Configuration values if your application contains a persistence.xml file.
+{productName} has support for three configuration areas, MicroProfile Config properties, context root, and a database connections for a JPA data sources.  The configuration screen will only display the MicroProfile Configuration values for an application using microprofile.config.properties and will only show you the Database Configuration values if your application contains a persistence.xml file.
 
 If your application connects to a datasource you’ll first provide the JDBC URL, datasource class, and the username and password used to authenticate your connection to the database server.
 
@@ -23,7 +28,7 @@ image::image13.png[image,width=480,height=149,window="_blank", link="{imagesdir}
 
 MicroProfile configuration is a preferred way to externalize the configuration parameters for your application. You can Inject them similar to a CDI or retrieve them programmatically.
 
-When you upload your application, Payara Cloud looks for the file _microprofile-config.properties_ to see if there are configuration parameters defined in the application.
+When you upload your application, {productName} looks for the file _microprofile-config.properties_ to see if there are configuration parameters defined in the application.
 Your default parameters are read and displayed here, and you can override them or add new configuration keys.
 The Add Configuration Key is useful when reading MP configuration values programmatically or when the values don’t have a default – and thus not present in _microprofile-config.properties_.
 
@@ -64,7 +69,7 @@ Note that communications within a namespace are http only, as the traffic is lim
 [[database-configuration]]
 == Database Configuration
 
-When you upload your application, Payara Cloud looks for the _persistence.xml_ file. If detected, the necessary minimal configuration parameters for a database source for the reference JNDI name can be specified.
+When you upload your application, {productName} looks for the _persistence.xml_ file. If detected, the necessary minimal configuration parameters for a database source for the reference JNDI name can be specified.
 
 image::image16.png[Application Description automatically generated,width=624,height=242,window="_blank", link="{imagesdir}/image16.png"]
 
@@ -101,14 +106,14 @@ Or define the <data-source> element in _web.xml_:
 </data-source>
 ----
 
-combined with `MPCONFIG` Microprofile Config variables. These MicroProfile Config variables can be configured with the Payara Cloud GUI
+combined with `MPCONFIG` Microprofile Config variables. These MicroProfile Config variables can be configured with the {productName} GUI
 
-If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in Payara Cloud so the system can detect them as described above. Click ‘Add Configuration Key’ and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy.
+If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in {productName} so the system can detect them as described above. Click ‘Add Configuration Key’ and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy.
 
 image::image17.png[image,width=480,height=108,window="_blank", link="{imagesdir}/image17.png"]
 
 [[allowing-access-to-your-database-from-payara-cloud]]
-=== *Allowing Access to your Database from Payara Cloud*
+=== *Allowing Access to your Database from {productName}*
 
 If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace.
 If your database access is restricted by IP address, enable access to following IP adresses based on the region the namespace is located in:

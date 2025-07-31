@@ -1,57 +1,181 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Glossary
 
-Active User:: A user who has successfully activated their access to a Payara Cloud subscription.
+ifeval::["{page-site-edition}" == "qube"]
+Active User:: A user who has successfully activated their access to a {productName} installation.
+endif::[]
 
+ifeval::["{page-site-edition}" == "cloud"]
+Active User:: A user who has successfully activated their access to a {productName} subscription.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+Administrator:: A user with comprehensive administrative privileges, including the ability to deploy, configure, and manage applications, as well as control user access and roles within the {productName} installation.
+The administrator also has the unique ability to manage namespace-specific roles and perform important namespace-level operations, such as creating new namespaces, setting up custom domains, and deleting namespaces.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
 Administrator:: A user with comprehensive administrative privileges, including the ability to deploy, configure, and manage applications, as well as control user access and roles within a subscription.
-The administrator also has the unique ability to manage namespace-specific roles and perform critical namespace-level operations, such as creating new namespaces, setting up custom domains, and deleting namespaces.
+The administrator also has the unique ability to manage namespace-specific roles and perform important namespace-level operations, such as creating new namespaces, setting up custom domains, and deleting namespaces.
+endif::[]
 
+ifeval::["{page-site-edition}" == "qube"]
+Billing Manager:: A user responsible for managing the administrative aspects of an installation, such as overseeing user management and system configuration tasks.
+The Billing Manager can also invite new users to the installation and modify their roles, except for granting or revoking Billing Manager roles.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
 Billing Manager:: A user responsible for managing the financial aspects of a subscription, such as viewing invoices, updating payment information, and overseeing billing-related tasks.
 The Billing Manager can also invite new users to the subscription and modify their roles, except for granting or revoking Billing Manager roles.
+endif::[]
 
-Billing Manager with Administrative Privileges:: A special role that combines the permissions of both the Billing Manager and Administrator, granting full access to both the financial and technical aspects of a Payara Cloud subscription.
+ifeval::["{page-site-edition}" == "qube"]
+Billing Manager with Administrative Privileges:: A special role that combines the permissions of both the Billing Manager and Administrator, granting full access to both the administrative and technical aspects of a {productName} installation.
+endif::[]
 
-CLI Token:: A unique token used to authenticate and authorize access to the Payara Cloud Command Line Interface (CLI) for managing namespaces and applications from a terminal or command prompt.
+ifeval::["{page-site-edition}" == "cloud"]
+Billing Manager with Administrative Privileges:: A special role that combines the permissions of both the Billing Manager and Administrator, granting full access to both the financial and technical aspects of a {productName} subscription.
+endif::[]
 
-Deploy:: The process of launching an uploaded and configured application, making it accessible and operational within the Payara Cloud environment.
+ifeval::["{page-site-edition}" == "qube"]
+CLI Token:: A unique token used to authenticate and authorize access to the {productName} Command Line Interface (CLI) for managing namespaces and applications from a terminal or command prompt.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+CLI Token:: A unique token used to authenticate and authorize access to the {productName} Command Line Interface (CLI) for managing namespaces and applications from a terminal or command prompt.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+Deploy:: The process of launching an uploaded and configured application, making it accessible and operational within the {productName} environment on your infrastructure.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Deploy:: The process of launching an uploaded and configured application, making it accessible and operational within the {productName} environment.
+endif::[]
 
 DNS (Domain Name System):: A hierarchical and decentralized naming system that translates human-readable domain names (e.g., \https://www.example.com) into machine-readable IP addresses, enabling users to access websites and services over the internet.
-In the context of Payara Cloud, DNS is important for associating custom domains with namespaces and ensuring the accessibility of deployed applications.
+
+ifeval::["{page-site-edition}" == "qube"]
+In the context of {productName}, DNS is important for associating custom domains with namespaces and ensuring the accessibility of deployed applications within your infrastructure.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+In the context of {productName}, DNS is important for associating custom domains with namespaces and ensuring the accessibility of deployed applications.
+endif::[]
 
 Heap Dump:: A snapshot of the Java Virtual Machine's (JVM) memory at a specific point in time, capturing information about objects, their sizes, and references.
-Heap dumps are important for debugging memory-related issues, such as memory leaks and inefficient object usage, in Payara Cloud applications.
 
-Inactive User:: A user whose access to a Payara Cloud subscription has been temporarily deactivated or suspended.
+ifeval::["{page-site-edition}" == "qube"]
+Heap dumps are important for debugging memory-related issues, such as memory leaks and inefficient object usage, in {productName} applications.
+endif::[]
 
-Invitation:: An email sent to a user, granting them access to an existing Payara Cloud subscription.
+ifeval::["{page-site-edition}" == "cloud"]
+Heap dumps are important for debugging memory-related issues, such as memory leaks and inefficient object usage, in {productName} applications.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+Inactive User:: A user whose access to a {productName} installation has been temporarily deactivated or suspended.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Inactive User:: A user whose access to a {productName} subscription has been temporarily deactivated or suspended.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+Invitation:: An email sent to a user, granting them access to an existing {productName} installation.
+The invitation contains a unique link that the recipient can follow to activate their access and join the installation.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Invitation:: An email sent to a user, granting them access to an existing {productName} subscription.
 The invitation contains a unique link that the recipient can follow to activate their access and join the subscription.
+endif::[]
 
-Manager:: A user role with full access to existing Payara Cloud namespaces.
+ifeval::["{page-site-edition}" == "qube"]
+Manager:: A user role with full access to existing {productName} namespaces.
+Managers can upload new applications, delete existing ones, and perform various application management tasks, but they cannot access administrative data or perform namespace-level operations.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Manager:: A user role with full access to existing {productName} namespaces.
 Managers can upload new applications, delete existing ones, and perform various application management tasks, but they cannot access billing data or perform namespace-level operations.
+endif::[]
 
-Member:: A user with limited access to a Payara Cloud subscription, typically restricted from performing certain administrative or billing-related tasks.
+ifeval::["{page-site-edition}" == "qube"]
+Member:: A user with limited access to a {productName} installation, typically restricted from performing certain administrative tasks.
+endif::[]
 
-Namespace:: A logical grouping or container within a Payara Cloud subscription that isolates and organizes related applications, providing a distinct environment for application deployment and management.
+ifeval::["{page-site-edition}" == "cloud"]
+Member:: A user with limited access to a {productName} subscription, typically restricted from performing certain administrative or billing-related tasks.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+Namespace:: A logical grouping or container within a {productName} installation that isolates and organizes related applications, providing a distinct environment for application deployment and management.
 Each namespace has its own unique domain and allows applications to be deployed at specific sub-paths within that domain.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Namespace:: A logical grouping or container within a {productName} subscription that isolates and organizes related applications, providing a distinct environment for application deployment and management.
+Each namespace has its own unique domain and allows applications to be deployed at specific sub-paths within that domain.
+endif::[]
 
 Operator:: A user role focused on application reconfiguration and diagnostics.
 Operators can analyze and adjust application settings but cannot delete applications or access sensitive configuration properties.
 
-Pending User:: A user who has received an invitation to a Payara Cloud subscription but has not yet accepted or activated their access.
+ifeval::["{page-site-edition}" == "qube"]
+Pending User:: A user who has received an invitation to a {productName} installation but has not yet accepted or activated their access.
+endif::[]
 
-Runtime Size:: The allocation of resources, primarily CPU and memory, assigned to an application instance in Payara Cloud.
-The available runtime sizes depend on the subscription tier and impact the application's performance and resource utilization.
+ifeval::["{page-site-edition}" == "cloud"]
+Pending User:: A user who has received an invitation to a {productName} subscription but has not yet accepted or activated their access.
+endif::[]
 
-Runtime Type:: The combination of Java and Jakarta EE versions that an application is developed against and requires for execution in Payara Cloud.
+ifeval::["{page-site-edition}" == "qube"]
+Runtime Size:: The allocation of resources, primarily CPU and memory, assigned to an application instance in {productName}.
+The available runtime sizes depend on your infrastructure capacity and impact the application's performance and resource usage.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Runtime Size:: The allocation of resources, primarily CPU and memory, assigned to an application instance in {productName}.
+The available runtime sizes depend on the subscription tier and impact the application's performance and resource usage.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+Runtime Type:: The combination of Java and Jakarta EE versions that an application is developed against and requires for execution in {productName}.
+For Spring Boot applications, this refers to the Java version and Spring Boot framework version.
 Selecting the correct runtime type ensures compatibility and optimal performance.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Runtime Type:: The combination of Java and Jakarta EE versions that an application is developed against and requires for execution in {productName}.
+Selecting the correct runtime type ensures compatibility and optimal performance.
+endif::[]
 
 Stage:: The specific phase or environment in which an application is deployed, such as development, testing, pre-production, or production.
 Stages help organize and manage applications based on their development lifecycle.
 
-Subscription:: The fundamental billing unit in Payara Cloud, representing a defined set of resources and access levels granted to users within the platform.
+ifeval::["{page-site-edition}" == "qube"]
+Subscription:: The fundamental licensing unit in {productName}, representing a defined set of resources and access levels granted to users within the platform installation.
+Each installation operates under its subscription terms and provides access to the platform's features and capabilities.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Subscription:: The fundamental billing unit in {productName}, representing a defined set of resources and access levels granted to users within the platform.
 Each subscription has its own invoice and billing period, allowing for separate billing for different projects or departments.
+endif::[]
 
 Thread Dump:: A snapshot of all the threads running within the JVM at a specific moment, capturing their states, stack traces, and other relevant information.
-Thread dumps are helpful for debugging performance issues, deadlocks, and other thread-related problems in Payara Cloud applications.
+
+ifeval::["{page-site-edition}" == "qube"]
+Thread dumps are helpful for debugging performance issues, deadlocks, and other thread-related problems in {productName} applications.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Thread dumps are helpful for debugging performance issues, deadlocks, and other thread-related problems in {productName} applications.
+endif::[]
 
 Viewer:: A user role with read-only access to deployed applications.
 Viewers can monitor application metrics, view logs, and access configuration details (excluding sensitive properties) but cannot make any modifications.

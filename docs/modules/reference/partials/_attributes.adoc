@@ -1,0 +1,14 @@
+ifeval::["{page-site-edition}" == "qube"]
+:productName: Payara Qube
+:productEditionSlug: qube
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+:productName: Payara Cloud
+:productEditionSlug: cloud
+endif::[]
+
+ifndef::page-site-edition[]
+:productName: Payara Platform
+:productEditionSlug: platform
+endif::[]

@@ -67,10 +67,7 @@ ifeval::["{page-site-edition}" == "qube"]
 ** {productName} Management
 *** xref:user-guides/qube/access-management.adoc[Access Management]
 *** xref:user-guides/qube/qube-organisation-management.adoc[Organisation Management]
-// *** xref:user-guides/qube/[Managing Your Qube Environment]
-// *** xref:user-guides/qube/managing-qube-environment.adoc[Managing Your Qube Environment]
-// *** xref:user-guides/qube/backup-and-restore.adoc[Backup and Restore]
-// *** xref:user-guides/qube/upgrading-payara-qube.adoc[Upgrading Payara Qube]
+
 endif::[]
 
 ** Advanced Features
@@ -84,7 +81,6 @@ endif::[]
 ** Troubleshooting & Support
 *** xref:user-guides/common/Troubleshooting.adoc[Troubleshooting Tips]
 ifeval::["{page-site-edition}" == "qube"]
-*** xref:user-guides/qube/qube-troubleshooting.adoc[Payara Qube Troubleshooting]
 endif::[]
 
 endif::[]

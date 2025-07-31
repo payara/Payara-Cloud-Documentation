@@ -1,97 +1,261 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+
 = Frequently Asked Questions (FAQs)
 
-What is Payara Cloud?::
-Payara Cloud is a fully managed cloud platform designed for deploying and running Jakarta EE and MicroProfile web applications.
+ifeval::["{page-site-edition}" == "qube"]
+What is {productName}?::
+{productName} is an installable application deployment platform designed for deploying and running Jakarta EE, MicroProfile, and Spring Boot applications on your own infrastructure.
+It simplifies the deployment process by providing container orchestration and application management capabilities while allowing you full control over your hosting environment.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+What is {productName}?::
+{productName} is a fully managed cloud platform designed for deploying and running Jakarta EE and MicroProfile web applications.
 It simplifies the deployment process by handling infrastructure provisioning, server configuration, and container orchestration, allowing you to focus on building your applications.
+endif::[]
 
-What are the key features of Payara Cloud?::
+ifeval::["{page-site-edition}" == "qube"]
+What are the key features of {productName}?::
 
-Payara Cloud offers a range of features, including:
+{productName} offers a range of features, including:
+
+* Application deployment on your own infrastructure
+* Container orchestration and management
+* Monitoring and metrics for tracking application performance
+* Security measures including network isolation
+* Centralized logging for troubleshooting
+* Integration capabilities with your existing infrastructure
+* A user-friendly web-based management console
+* Support for multiple application types (Jakarta EE, MicroProfile, Spring Boot)
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+What are the key features of {productName}?::
+
+{productName} offers a range of features, including:
 
 * Automatic scaling based on demand
 * High availability through multi-zone deployments
 * Monitoring and metrics for tracking application performance
-* Reliable security measures, including network isolation and encryption
+* Strong security measures, including network isolation and encryption
 * Centralized logging for easy troubleshooting
 * Straightforward integration with other cloud services
 * A user-friendly web-based management console
+endif::[]
 
-What programming languages/frameworks does Payara Cloud support?::
+ifeval::["{page-site-edition}" == "qube"]
+What programming languages/frameworks does {productName} support?::
 
-Payara Cloud is primarily designed for Jakarta EE Web Profile applications, which are typically written in Java.
+{productName} supports:
+
+* Jakarta EE Web Profile applications (written in Java)
+* MicroProfile applications
+* Spring Boot applications
+
+All applications are deployed as container-based deployments on your infrastructure.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+What programming languages/frameworks does {productName} support?::
+
+{productName} is primarily designed for Jakarta EE Web Profile applications, which are typically written in Java.
 It also supports MicroProfile applications.
+endif::[]
 
-Can I deploy my existing Java EE applications on Payara Cloud?::
+ifeval::["{page-site-edition}" == "qube"]
+Can I deploy my existing Java EE applications on {productName}?::
 
-Yes, you can deploy your existing Java EE Web Profile applications on Payara Cloud without any modifications.
+Yes, you can deploy your existing Java EE Web Profile applications on {productName} without any modifications.
 The platform ensures full compatibility with Java EE 8 and Jakarta EE 10 standards.
+You can also migrate and deploy existing Spring Boot applications.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Can I deploy my existing Java EE applications on {productName}?::
+
+Yes, you can deploy your existing Java EE Web Profile applications on {productName} without any modifications.
+The platform ensures full compatibility with Java EE 8 and Jakarta EE 10 standards.
+endif::[]
 
 Can I run multiple applications?::
 
-Absolutely, Payara Cloud allows you to deploy multiple applications within the same namespace.
+ifeval::["{page-site-edition}" == "qube"]
+Absolutely, {productName} allows you to deploy multiple applications within the same namespace.
+You can also create multiple namespaces to further organize and isolate your applications across your infrastructure.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Absolutely, {productName} allows you to deploy multiple applications within the same namespace.
 You can also create multiple namespaces to further organize and isolate your applications.
+endif::[]
 
-Does Payara Cloud also host Database instances?::
+ifeval::["{page-site-edition}" == "qube"]
+Does {productName} also host Database instances?::
 
-Currently, Payara Cloud does not host database instances.
+{productName} does not host database instances as it runs on your own infrastructure.
+You maintain your own database installations, either locally or in your chosen cloud environment.
+You can easily configure your applications to connect to your databases using standard Jakarta EE database connection mechanisms or Spring Boot datasource configurations.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Does {productName} also host Database instances?::
+
+Currently, {productName} does not host database instances.
 You need to maintain your own database installation, either in the cloud or on-premises.
 However, you can easily configure your applications to connect to your external databases using standard Jakarta EE database connection mechanisms.
+endif::[]
 
-How does automatic scaling work in Payara Cloud?::
+ifeval::["{page-site-edition}" == "qube"]
+How does scaling work in {productName}?::
 
-Payara Cloud can automatically scale your applications based on predefined rules or metrics, such as CPU utilization, memory usage, or incoming request rates.
-It dynamically adjusts the number of instances running your application to match the demand, ensuring optimal performance and resource utilization.
+{productName} provides application scaling capabilities within your infrastructure constraints.
+You can manually scale applications up or down based on your needs and available resources.
+The platform helps manage container instances efficiently across your available infrastructure.
+endif::[]
 
-Can I integrate Payara Cloud with other cloud services?::
+ifeval::["{page-site-edition}" == "cloud"]
+How does automatic scaling work in {productName}?::
 
-Yes, Payara Cloud provides seamless integration with other cloud services and platforms.
+{productName} can automatically scale your applications based on predefined rules or metrics, such as CPU consumption, memory usage, or incoming request rates.
+It dynamically adjusts the number of instances running your application to match the demand, ensuring optimal performance and resource usage.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+Can I integrate {productName} with other services?::
+
+Yes, {productName} provides integration capabilities with services in your infrastructure.
+You can connect your applications to databases, storage services, message queues, and other services in your environment.
+As long as the service provides an HTTP API or supports connection mechanisms like JDBC, you can connect to it from {productName}.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Can I integrate {productName} with other cloud services?::
+
+Yes, {productName} provides integration with other cloud services and platforms.
 You can connect your applications to databases, storage services, message queues, and other services offered by various cloud providers.
-As long as the service provides a HTTP API or supports connection mechanisms like JDBC, you can connect to it from  Payara Cloud.
+As long as the service provides a HTTP API or supports connection mechanisms like JDBC, you can connect to it from {productName}.
+endif::[]
 
-Is Payara Cloud secure?::
+ifeval::["{page-site-edition}" == "qube"]
+Is {productName} secure?::
 
-Yes, Payara Cloud prioritizes security and implements various measures to protect your applications and data.
+Yes, {productName} implements various security measures to protect your applications and data within your infrastructure.
+These include network isolation, secure access controls, and support for your existing security policies.
+Since you control the infrastructure, you maintain full control over security configurations and compliance requirements.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Is {productName} secure?::
+
+Yes, {productName} prioritizes security and implements various measures to protect your applications and data.
 These include network isolation, encryption, secure access controls, and automated security updates.
+endif::[]
 
-Can I have multiple users on my Payara Cloud account?::
+ifeval::["{page-site-edition}" == "qube"]
+Can I have multiple users on my {productName} installation?::
+Yes, you can configure multiple users for your {productName} installation and assign each user appropriate roles and permissions based on your organizational needs.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Can I have multiple users on my {productName} account?::
 Yes, you can invite users to share your subscription and assign each user fine-grained roles and permissions.
+endif::[]
 
-How does Payara Cloud handle high availability?::
+ifeval::["{page-site-edition}" == "qube"]
+How does {productName} handle high availability?::
 
-Payara Cloud ensures high availability by automatically distributing your application instances across multiple availability zones.
+{productName} supports high availability configurations within your infrastructure setup.
+You can deploy applications across multiple nodes or zones in your environment to ensure redundancy and minimize downtime during failures.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+How does {productName} handle high availability?::
+
+{productName} ensures high availability by automatically distributing your application instances across multiple availability zones.
 In case of a failure, it can quickly recover your application on another healthy instance, minimizing downtime.
+endif::[]
 
-Where Does Payara Cloud Host Its Data?::
-By default, your Payara Cloud data, including application binaries and user information, is hosted in Microsoft Azure's EU region.
+ifeval::["{page-site-edition}" == "qube"]
+Where does {productName} store its data?::
+{productName} stores all data within your own infrastructure.
+Application binaries, user information, and configuration data remain under your control and within your chosen hosting environment, whether on-premises or in your preferred cloud provider.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Where Does {productName} Host Its Data?::
+By default, your {productName} data, including application binaries and user information, is hosted in Microsoft Azure's EU region.
 You can also choose to store your application data in Azure's US region when creating a namespace.
+endif::[]
 
-Can I monitor and manage my applications in Payara Cloud?::
+Can I monitor and manage my applications in {productName}?::
 
-Yes, Payara Cloud offers built-in metrics and monitoring dashboards, allowing you to track the performance and health of your applications.
+ifeval::["{page-site-edition}" == "qube"]
+Yes, {productName} offers built-in metrics and monitoring dashboards, allowing you to track the performance and health of your applications.
+You can also use the web-based management console to configure and manage various aspects of your applications within your infrastructure.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+Yes, {productName} offers built-in metrics and monitoring dashboards, allowing you to track the performance and health of your applications.
 You can also use the web-based management console to configure and manage various aspects of your applications.
+endif::[]
 
 Is there downtime when I upgrade my application?::
 
-Payara Cloud minimizes downtime during upgrades by keeping the current version running until the new one is fully deployed and ready.
+ifeval::["{page-site-edition}" == "qube"]
+{productName} minimizes downtime during upgrades by keeping the current version running until the new one is fully deployed and ready.
+There might be minimal downtime during the switchover, but all uploaded and undeployed application versions remain available for easy rollback.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+{productName} minimizes downtime during upgrades by keeping the current version running until the new one is fully deployed and ready.
 There might be a negligible downtime during the switchover, but all uploaded and undeployed application versions remain available for easy rollback.
+endif::[]
 
 How do I pick the appropriate runtime size for my application?::
 
 The runtime size determines the resource allocation for your application instance.
-You should choose a size based on your application's resource requirements, considering factors like memory usage and CPU utilization.
-Payara Cloud offers different runtime sizes (Small, Medium, Large, XL) with varying resource allocations.
+You should choose a size based on your application's resource requirements, considering factors like memory usage and CPU consumption.
+
+ifeval::["{page-site-edition}" == "qube"]
+{productName} offers different runtime sizes (Small, Medium, Large, XL) with varying resource allocations based on your infrastructure capacity.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+{productName} offers different runtime sizes (Small, Medium, Large, XL) with varying resource allocations.
+endif::[]
 
 What is a namespace?::
 
-A namespace in Payara Cloud is a container for grouping and isolating resources.
+ifeval::["{page-site-edition}" == "qube"]
+A namespace in {productName} is a container for grouping and isolating resources within your infrastructure.
+An installation can have multiple namespaces, and each namespace can host multiple applications.
+Each deployed application within a namespace is accessible as a context path on the namespace's domain.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+A namespace in {productName} is a container for grouping and isolating resources.
 A subscription can have multiple namespaces, and each namespace can host multiple applications.
 Each deployed application within a namespace is accessible as a context path on the namespace's domain.
+endif::[]
 
-I just created a namespace and deployed an app, but it’s showing as 404, what gives?::
+I just created a namespace and deployed an app, but it's showing as 404, what gives?::
 
+ifeval::["{page-site-edition}" == "qube"]
+This can happen for a few reasons:
+
+* If you're using external DNS, the full URL to the app needs time to propagate across the DNS system, which usually takes between 5 and 20 minutes
+* Check that your infrastructure's network configuration allows access to the application
+* Verify that the application has started successfully in the monitoring dashboard
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
 This is expected behavior.
 When you create a namespace and deploy an app for the first time, the full URL to the app needs time to propagate across the DNS system.
 This usually takes between 5 and 20 minutes. In rare occasions, this can take up to 24 hours.
+endif::[]
 
 I have uploaded a new app version, what next?::
 
@@ -102,8 +266,18 @@ Why is the previous version of my application showing as (Deployed)?::
 
 The previous versions of your app will be undeployed once a new version is deployed. The status "(Deployed)" indicates that they are not the currently active, deployed version.
 
-How do I get started with Payara Cloud?::
+ifeval::["{page-site-edition}" == "qube"]
+How do I get started with {productName}?::
 
-You can start a https://www.payara.fish/products/payara-cloud/#buy[15-day free trial] by creating an account on the Payara Cloud website.
+You can download and install {productName} on your own infrastructure by visiting the Payara website.
+Installation guides and documentation are available to help you set up {productName} in your environment.
+A trial version may be available to evaluate the platform before making a commitment.
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+How do I get started with {productName}?::
+
+You can start a https://www.payara.fish/products/payara-cloud/#buy[15-day free trial] by creating an account on the {productName} website.
 For security reasons, you'll need to provide a payment method, but you won't be charged until the trial ends.
 You will be sent a reminder before expiry of your trial.
+endif::[]

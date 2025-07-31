@@ -1,3 +1,8 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+
 = Navigating the Application Detail Page
 
 The application detail page shows all relevant information about a specific application.
@@ -22,7 +27,7 @@ image::how-to-guides/application/applications-2-detail.png[window="_blank", link
 
 == Understanding Application States
 
-Applications hosted on Payara Cloud can be in various states throughout their lifecycle.
+Applications hosted on {productName} can be in various states throughout their lifecycle.
 
 [#_pending_state]
 === PENDING State
@@ -73,7 +78,7 @@ image::how-to-guides/application/application-5-stopped-status.png[window="_blank
 
 
 == Application Revisions: Managing and Tracking Changes
-Over its lifetime, an application in Payara Cloud undergoes several revisions, each representing a unique binary upload.
+Over its lifetime, an application in {productName} undergoes several revisions, each representing a unique binary upload.
 
 
 .Application revisions table
