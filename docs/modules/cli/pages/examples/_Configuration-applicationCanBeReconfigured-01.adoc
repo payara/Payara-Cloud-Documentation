@@ -45,7 +45,7 @@ _[SUCCESS] Revision reconfigured_
                 "complete": true,
                 "keys": [
                     {
-                        "name": "scalabilityType",
+                        "name": "numberOfReplicas",
                         "required": false,
                         "restricted": false
                     },
@@ -55,12 +55,17 @@ _[SUCCESS] Revision reconfigured_
                         "restricted": false
                     },
                     {
+                        "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
                         "name": "runtimeType",
                         "required": false,
                         "restricted": false
                     },
                     {
-                        "name": "numberOfReplicas",
+                        "name": "rollOverTime",
                         "required": false,
                         "restricted": false
                     },
@@ -70,7 +75,7 @@ _[SUCCESS] Revision reconfigured_
                         "restricted": false
                     },
                     {
-                        "name": "rollOverTime",
+                        "name": "jvmType",
                         "required": false,
                         "restricted": false
                     }
