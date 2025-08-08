@@ -2,6 +2,6 @@
 ----
 *pcl list-subscriptions*
 _[SUCCESS] You have access to following subscriptions_
-Payara 2025-02-14
+CLI Company Test 2025-08-08
 
 ----

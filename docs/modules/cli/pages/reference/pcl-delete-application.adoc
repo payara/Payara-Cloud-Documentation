@@ -19,8 +19,9 @@ pcl-delete-application - Delete an application.
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl delete-application* [*-hqV*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_]
-                       [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_]
+*pcl delete-application* [*-hqV*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
+                       [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_]
+                       [*-s*=_<subscriptionName>_]
 
 // end::picocli-generated-man-section-synopsis[]
 
@@ -38,6 +39,9 @@ Delete an application.
   Name of application to manage. 
 +
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
+
+*--endpoint*=_<baseUri>_::
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable PCL_ENDPOINT
 
 *-h*, *--help*::
   Show this help message and exit.

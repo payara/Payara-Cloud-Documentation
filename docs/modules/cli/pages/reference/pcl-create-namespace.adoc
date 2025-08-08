@@ -19,9 +19,10 @@ pcl-create-namespace - Create new namespace
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl create-namespace* [*-hqV*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_]
-                     [*-o*=_<outputFormat>_] *--project*=_<project>_
-                     [*--region*=_<region>_] [*-s*=_<subscriptionName>_] *--stage*=_<stage>_
+*pcl create-namespace* [*-hqV*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
+                     [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_]
+                     *--project*=_<project>_ [*--region*=_<region>_]
+                     [*-s*=_<subscriptionName>_] *--stage*=_<stage>_
 
 // end::picocli-generated-man-section-synopsis[]
 
@@ -39,6 +40,9 @@ Create new namespace
   Name of application to manage. 
 +
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
+
+*--endpoint*=_<baseUri>_::
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable PCL_ENDPOINT
 
 *-h*, *--help*::
   Show this help message and exit.
