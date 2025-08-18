@@ -4,7 +4,6 @@
 _[SUCCESS] Namespaces:_
 cli-clitest
     name: cli-clitest
-    liveURI: +++https:+++//cli-clitest-xxxxxxxx.payara.app/
 start-dev
     name: start-dev
     liveURI: +++https:+++//start-dev-xxxxxxxx.payara.app/

@@ -1,6 +1,12 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl delete-namespace -n _$namespace_ -y*
-_[SUCCESS] Namespace has been deleted_
+*pcl create-namespace --project cli --stage clitest*
+_[SUCCESS] Namespace was created_
 
+{
+    "name": "cli-clitest",
+    "cluster": {
+        "name": "Azure, West Europe"
+    }
+}
 ----

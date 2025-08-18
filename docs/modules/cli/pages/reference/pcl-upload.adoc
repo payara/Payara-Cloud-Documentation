@@ -19,8 +19,9 @@ pcl-upload - Upload an application binary (.war file) to Payara Cloud.
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl upload* [*-ehlqV*] [*--deploy*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_]
-           [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_] [*-t*=_<seconds>_] _<file>_
+*pcl upload* [*-ehlqV*] [*--deploy*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
+           [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_]
+           [*-t*=_<seconds>_] _<file>_
 
 // end::picocli-generated-man-section-synopsis[]
 
@@ -51,6 +52,9 @@ The application will only deploy if its default configuration is complete  (i.e.
 There are certain scenarios when deployment can succeed despite reported deployment problems.
 +
 This means that even if you receive early warning messages about deployment failures, the application might still start up and run properly later.
+
+*--endpoint*=_<baseUri>_::
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable PCL_ENDPOINT
 
 *-h*, *--help*::
   Show this help message and exit.

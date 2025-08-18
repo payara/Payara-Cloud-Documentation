@@ -7,7 +7,6 @@ _[WARN] To confirm you are sure about deleting this namespace, pass option -y on
     "name": "cli-clitest",
     "cluster": {
         "name": "Azure, West Europe"
-    },
-    "liveURI": "+++https:+++//cli-clitest-xxxxxxxx.payara.app/"
+    }
 }
 ----

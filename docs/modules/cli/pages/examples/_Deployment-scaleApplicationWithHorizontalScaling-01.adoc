@@ -20,59 +20,16 @@ _[SUCCESS] Revision reconfigured_
                         "restricted": false
                     },
                     {
-                        "name": "contextRoot",
-                        "required": true,
-                        "restricted": false,
-                        "default": "/"
-                    },
-                    {
                         "name": "appName",
                         "required": true,
                         "restricted": false,
                         "default": "game-demo"
-                    }
-                ]
-            }
-        },
-        "appRuntime": {
-            "pass-deploy.war": {
-                "values": {
-                    "runtimeSize": "QUARTER+++_+++CORE",
-                    "numberOfReplicas": "2",
-                    "runtimeType": "PAYARA5+++_+++JDK11",
-                    "scalabilityType": "HORIZONTAL+++_+++SCALING"
-                },
-                "complete": true,
-                "keys": [
-                    {
-                        "name": "scalabilityType",
-                        "required": false,
-                        "restricted": false
                     },
                     {
-                        "name": "runtimeSize",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "runtimeType",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "numberOfReplicas",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "dataGridMode",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "rollOverTime",
-                        "required": false,
-                        "restricted": false
+                        "name": "contextRoot",
+                        "required": true,
+                        "restricted": false,
+                        "default": "/"
                     }
                 ]
             }
@@ -117,6 +74,54 @@ _[SUCCESS] Revision reconfigured_
                         "required": false,
                         "restricted": false,
                         "default": "1500"
+                    }
+                ]
+            }
+        },
+        "appRuntime": {
+            "pass-deploy.war": {
+                "values": {
+                    "runtimeSize": "QUARTER+++_+++CORE",
+                    "numberOfReplicas": "2",
+                    "runtimeType": "PAYARA5+++_+++JDK11",
+                    "scalabilityType": "HORIZONTAL+++_+++SCALING"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "runtimeType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "runtimeSize",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "numberOfReplicas",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "jvmType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "dataGridMode",
+                        "required": false,
+                        "restricted": false
                     }
                 ]
             }
