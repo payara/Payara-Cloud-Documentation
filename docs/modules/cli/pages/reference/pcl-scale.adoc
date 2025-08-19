@@ -19,9 +19,9 @@ pcl-scale - Scale an application
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl scale* [*-ehlqV*] [*-a*=_<applicationName>_] *--instances*=_<instances>_
-          [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_]
-          [*-t*=_<seconds>_]
+*pcl scale* [*-ehlqV*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
+          *--instances*=_<instances>_ [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_]
+          [*-s*=_<subscriptionName>_] [*-t*=_<seconds>_]
 
 // end::picocli-generated-man-section-synopsis[]
 
@@ -47,6 +47,9 @@ Not required for commands listed by `-n` option, as well as `list-applications` 
 There are certain scenarios when deployment can succeed despite reported deployment problems.
 +
 This means that even if you receive early warning messages about deployment failures, the application might still start up and run properly later.
+
+*--endpoint*=_<baseUri>_::
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable PCL_ENDPOINT
 
 *-h*, *--help*::
   Show this help message and exit.

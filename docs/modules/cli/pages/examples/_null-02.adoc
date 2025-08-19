@@ -1,13 +1,12 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl create-namespace --project cli --stage clitest*
-_[SUCCESS] Namespace was created_
+*pcl -n _$namespace_ upload _$warFile_*
+_[UPDATE] State of inspection process is CREATED_
+_[SUCCESS] Application uploaded_
 
 {
-    "name": "cli-clitest",
-    "cluster": {
-        "name": "Azure, West Europe"
-    },
-    "liveURI": "+++https:+++//cli-clitest-xxxxxxxx.payara.app/"
+    "name": "game-demo",
+    "pendingChanges": true,
+    "status": "PENDING"
 }
 ----
