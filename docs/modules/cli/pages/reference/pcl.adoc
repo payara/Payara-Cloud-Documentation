@@ -19,8 +19,8 @@ pcl - Payara Cloud Command Line.
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl* [*-hqV*] [*-a*=_<applicationName>_] [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_]
-    [*-s*=_<subscriptionName>_] [COMMAND]
+*pcl* [*-hqV*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_] [*-n*=_<namespaceName>_]
+    [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_] [COMMAND]
 
 // end::picocli-generated-man-section-synopsis[]
 
@@ -39,6 +39,9 @@ In order to sign in, use the command `pcl login` interactively. This will allow 
   Name of application to manage. 
 +
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
+
+*--endpoint*=_<baseUri>_::
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable PCL_ENDPOINT
 
 *-h*, *--help*::
   Show this help message and exit.

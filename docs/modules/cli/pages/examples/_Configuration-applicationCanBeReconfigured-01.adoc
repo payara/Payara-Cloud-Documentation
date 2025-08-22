@@ -5,86 +5,14 @@ _[SUCCESS] Revision reconfigured_
 
 {
     "kind": {
-        "contextRoot": {
-            "pass-deploy.war": {
-                "values": {
-                    "exposedPaths": "/+++*+++",
-                    "appName": "game-demo",
-                    "contextRoot": "/game"
-                },
-                "complete": true,
-                "keys": [
-                    {
-                        "name": "exposedPaths",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "contextRoot",
-                        "required": true,
-                        "restricted": false,
-                        "default": "/"
-                    },
-                    {
-                        "name": "appName",
-                        "required": true,
-                        "restricted": false,
-                        "default": "game-demo"
-                    }
-                ]
-            }
-        },
-        "appRuntime": {
-            "pass-deploy.war": {
-                "values": {
-                    "runtimeSize": "QUARTER+++_+++CORE",
-                    "runtimeType": "PAYARA5+++_+++JDK11",
-                    "scalabilityType": "ROLLING+++_+++UPGRADE",
-                    "rollOverTime": "MODERATE"
-                },
-                "complete": true,
-                "keys": [
-                    {
-                        "name": "scalabilityType",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "runtimeSize",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "runtimeType",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "numberOfReplicas",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "dataGridMode",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "rollOverTime",
-                        "required": false,
-                        "restricted": false
-                    }
-                ]
-            }
-        },
         "microprofileConfig": {
             "pass-deploy": {
                 "values": {
-                    "mp.jwt.verify.issuer": "fish.payara.demo",
-                    "quiz.lockout": "1500",
-                    "mp.jwt.verify.publickey.location": "publickey.pem",
                     "maths.duration": "20",
-                    "quiz.duration": "20"
+                    "mp.jwt.verify.issuer": "fish.payara.demo",
+                    "mp.jwt.verify.publickey.location": "publickey.pem",
+                    "quiz.duration": "20",
+                    "quiz.lockout": "1500"
                 },
                 "complete": true,
                 "keys": [
@@ -117,6 +45,83 @@ _[SUCCESS] Revision reconfigured_
                         "required": false,
                         "restricted": false,
                         "default": "1500"
+                    }
+                ]
+            }
+        },
+        "appRuntime": {
+            "pass-deploy.war": {
+                "values": {
+                    "rollOverTime": "MODERATE",
+                    "runtimeSize": "QUARTER+++_+++CORE",
+                    "runtimeType": "PAYARA5+++_+++JDK11",
+                    "scalabilityType": "ROLLING+++_+++UPGRADE"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "runtimeSize",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "numberOfReplicas",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "jvmType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "dataGridMode",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "runtimeType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    }
+                ]
+            }
+        },
+        "contextRoot": {
+            "pass-deploy.war": {
+                "values": {
+                    "appName": "game-demo",
+                    "contextRoot": "/game",
+                    "exposedPaths": "/+++*+++"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "appName",
+                        "required": true,
+                        "restricted": false,
+                        "default": "game-demo"
+                    },
+                    {
+                        "name": "contextRoot",
+                        "required": true,
+                        "restricted": false,
+                        "default": "/"
+                    },
+                    {
+                        "name": "exposedPaths",
+                        "required": false,
+                        "restricted": false
                     }
                 ]
             }
