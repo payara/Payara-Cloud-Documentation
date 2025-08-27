@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
 *pcl create-namespace --project cli --stage clitest*
-_[FAILURE] Backend rejected the request: Namespace with this project / stage combination already exists (diagnostic id +++https:+++//api.payara.cloud/error-instance/m7ethk4a)_
+_[FAILURE] Backend rejected the request: Namespace with this project / stage combination already exists (diagnostic id +++https:+++//api.payara.cloud/error-instance/mebfxwae)_
 
 ----

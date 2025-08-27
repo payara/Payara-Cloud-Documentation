@@ -5,62 +5,28 @@ _[SUCCESS] Revision reconfigured_
 
 {
     "kind": {
-        "contextRoot": {
-            "fail-deploy.war": {
-                "values": {
-                    "exposedPaths": "/+++*+++",
-                    "appName": "missing-injection-fail",
-                    "contextRoot": "/2"
-                },
-                "complete": true,
-                "keys": [
-                    {
-                        "name": "exposedPaths",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "contextRoot",
-                        "required": true,
-                        "restricted": false,
-                        "default": "/missing-injection-fail"
-                    },
-                    {
-                        "name": "appName",
-                        "required": true,
-                        "restricted": false,
-                        "default": "missing-injection-fail"
-                    }
-                ]
-            }
-        },
         "appRuntime": {
             "fail-deploy.war": {
                 "values": {
                     "runtimeSize": "QUARTER+++_+++CORE",
                     "runtimeType": "PAYARA5+++_+++JDK11",
-                    "scalabilityType": "ROLLING+++_+++UPGRADE",
-                    "rollOverTime": "MODERATE"
+                    "rollOverTime": "MODERATE",
+                    "scalabilityType": "ROLLING+++_+++UPGRADE"
                 },
                 "complete": true,
                 "keys": [
-                    {
-                        "name": "scalabilityType",
-                        "required": false,
-                        "restricted": false
-                    },
                     {
                         "name": "runtimeSize",
                         "required": false,
                         "restricted": false
                     },
                     {
-                        "name": "runtimeType",
+                        "name": "numberOfReplicas",
                         "required": false,
                         "restricted": false
                     },
                     {
-                        "name": "numberOfReplicas",
+                        "name": "jvmType",
                         "required": false,
                         "restricted": false
                     },
@@ -71,6 +37,45 @@ _[SUCCESS] Revision reconfigured_
                     },
                     {
                         "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "runtimeType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    }
+                ]
+            }
+        },
+        "contextRoot": {
+            "fail-deploy.war": {
+                "values": {
+                    "exposedPaths": "/+++*+++",
+                    "appName": "missing-injection-fail",
+                    "contextRoot": "/2"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "appName",
+                        "required": true,
+                        "restricted": false,
+                        "default": "missing-injection-fail"
+                    },
+                    {
+                        "name": "contextRoot",
+                        "required": true,
+                        "restricted": false,
+                        "default": "/missing-injection-fail"
+                    },
+                    {
+                        "name": "exposedPaths",
                         "required": false,
                         "restricted": false
                     }

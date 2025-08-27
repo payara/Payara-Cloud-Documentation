@@ -2,7 +2,7 @@
 :man-prefix: #
 :man-suffix: 1
 :imagesdir: images/
-:release-version: 1.2.0
+:release-version: 1.2.1
 :release-repo: https://nexus.payara.fish/repository/payara-artifacts
 
 == Introduction
@@ -144,6 +144,36 @@ In the workflow file refer to the secret like this:
 ----
 
 NOTE: To use PCL with GitHub Actions, check out our dedicated GitHub Action at  https://github.com/payara/cloud-deploy[payara/cloud-deploy].
+
+=== Setting the endpoint
+By default, the CLI communicates with the default base endpoint at:
+
+link:https://manage.payara.cloud[https://manage.payara.cloud]
+
+You can override this to target the management endpoint of your Qube instance.
+This can be done in two ways:
+
+. By specifying custom endpoint using the `--endpoint` Command-Line Option.
++
+Specify the custom endpoint directly when executing a command:
+
+[source,bash]
+----
+pcl login --endpoint http://custom-api.mycompany.cloud
+----
+
+[start=2]
+. By using the `PCL_ENDPOINT` Environment Variable.
++
+Set the `PCL_ENDPOINT` environment variable to override the default for all CLI commands:
+
+[source,bash]
+----
+export PCL_ENDPOINT=http://custom-api.mycompany.cloud
+pcl login
+----
+
+NOTE: The CLI uses the value of `PCL_ENDPOINT` unless an `--endpoint` option is explicitly passed, which takes precedence.
 
 == Common options
 
