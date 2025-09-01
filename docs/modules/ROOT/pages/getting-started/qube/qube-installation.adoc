@@ -73,7 +73,12 @@ image::docs:ROOT:qube/installation/qube-install-4.png[SMTP Definition Page,width
 6. Review the default instance settings—avoid using instances smaller than 2-CPU as they can cause deployment timeouts
 +
 .Default Instance Definition Page
+
 image::docs:ROOT:qube/installation/qube-install-5.png[Default Instance Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-5.png", window="_blank"]
+
+.To install additional regions in an existing Qube deployment, follow these steps:
+
+image::docs:ROOT:qube/installation/qube-install-7.png[SMTP Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-7.png", window="_blank"]
 
 7. Set your Region ID (typically matches stack ID) and Region Description
 +
