@@ -73,14 +73,23 @@ image::docs:ROOT:qube/installation/qube-install-4.png[SMTP Definition Page,width
 6. Review the default instance settings—avoid using instances smaller than 2-CPU as they can cause deployment timeouts
 +
 .Default Instance Definition Page
+
 image::docs:ROOT:qube/installation/qube-install-5.png[Default Instance Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-5.png", window="_blank"]
 
-7. Set your Region ID (typically matches stack ID) and Region Description
+.Prerequisites to install additional regions in an existing Qube deployment:
+
+* Ensure there is existing Qube deployment in the same AWS account
+* Use same Stack name as existing deployment
+* URL: $existing-url/install-qube/region
+
+image::docs:ROOT:qube/installation/qube-install-7.png[Install additional region,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-7.png", window="_blank"]
+
+1. Set your Region ID (typically matches stack ID) and Region Description
 +
 .Installation Region Definition Page
 image::docs:ROOT:qube/installation/qube-install-6.png[Installation Region Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-6.png", window="_blank"]
 
-8. Click **Generate installation data** to download the zip file
+2. Click **Generate installation data** to download the zip file
 
 == Pulumi Configuration
 
