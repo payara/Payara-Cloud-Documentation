@@ -112,6 +112,7 @@ ifeval::["{page-site-edition}" == "qube"]
 {productName} allows you to configure various aspects of your application based on the application type:
 
 *For Jakarta EE/MicroProfile applications:*
+
 * *MicroProfile Config Properties*: If your application uses MicroProfile Config, you can manage its properties through the UI.
 * *Context Root*: Define the base path for your application relative to the namespace's domain.
 * *Internet-Accessible Paths*: Control which sub-paths of your application are accessible over the internet.
@@ -120,6 +121,7 @@ ifeval::["{page-site-edition}" == "qube"]
 * *Runtime Size*: Select the resource allocation for your application instance.
 
 *For Spring Boot applications:*
+
 * *Application Properties*: Manage application.properties or application.yml configurations through the UI.
 * *Profile-specific Configurations*: Configure different settings for different Spring profiles (dev, test, prod).
 * *Database Connections*: Configure datasource properties for database connectivity.
