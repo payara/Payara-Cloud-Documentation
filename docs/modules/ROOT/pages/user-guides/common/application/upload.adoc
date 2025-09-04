@@ -1,3 +1,7 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Uploading Applications
 
 Applications can be uploaded within Namespace
@@ -17,7 +21,13 @@ Clicking either of the new application upload options above brings up the follow
 image::how-to-guides/application/application-10-upload.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-10-upload.png"]
 
 [checklist]
+ifeval::["{page-site-edition}" == "qube"]
+* ❶ Binary Upload Button: Click to bring up the file upload dialog to pick an application binary (.WAR file for Jakarta EE applications or .JAR file for Spring Boot applications).
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
 * ❶ Binary Upload Button: Click to bring up the file upload dialog to pick an application binary (.WAR file).
+endif::[]
 * ❷ Name Of Artifact: Shows the name of the selected application binary
 * ❸ Deploy Option: Option to directly deploy the uploaded binary
 * ❹ Application Name: Option to give the application a name distinct from the uploaded binary file
