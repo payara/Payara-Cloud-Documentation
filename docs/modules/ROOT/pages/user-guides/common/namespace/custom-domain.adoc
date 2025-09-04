@@ -1,6 +1,10 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Custom Domains
 
-You can assign a custom domain to a Namespace in Payara Cloud.
+You can assign a custom domain to a Namespace in {productName}.
 Navigate to the respective Namespace and click on the btn:[Namespace Actions] button.
 
 .Custom Domain Menu

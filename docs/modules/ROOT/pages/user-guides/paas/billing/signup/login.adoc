@@ -1,6 +1,10 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Registering and Logging In
 
-Payara Cloud streamlines user authentication with three convenient options:
+{productName} streamlines user authentication with three convenient options:
 
 . Email and Password
 . GitHub Account
@@ -8,9 +12,9 @@ Payara Cloud streamlines user authentication with three convenient options:
 
 == Email and Password
 
-Upon visiting the Payara Cloud Billing Management console, you're greeted with a registration screen:
+Upon visiting the {productName} Billing Management console, you're greeted with a registration screen:
 
-.Payara Cloud Signup Screen
+.{productName} Signup Screen
 image::how-to-guides/application/billing/signup.svg[Screenshot of signup screen,100%,opts=interactive, window="_blank", link="{imagesdir}/how-to-guides/application/billing/signup.png"]
 
 This method differentiates between new signups and existing account logins.
@@ -57,7 +61,7 @@ Selecting the GitHub login method will redirect you to GitHub login page:
 .GitHub Login Prompt
 image::how-to-guides/application/billing/github-01.png[Github Login Page, window="_blank", link="{imagesdir}/how-to-guides/application/billing/github-01.png"]
 
-For first-time logins, GitHub will request authorization for Payara Cloud to access your account:
+For first-time logins, GitHub will request authorization for {productName} to access your account:
 
 .GitHub Authorization Prompt
 image::how-to-guides/application/billing/github-02.png[Github Authorisation Page, window="_blank", link="{imagesdir}/how-to-guides/application/billing/github-02.png"]

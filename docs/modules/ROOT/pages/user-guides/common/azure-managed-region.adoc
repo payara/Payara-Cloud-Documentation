@@ -1,33 +1,38 @@
-= Payara Cloud Azure Customer Managed Region
+include::partial$_attributes.adoc[]
 
-The Payara Cloud Azure Customer Managed Region feature allows you to deploy your applications to a dedicated, private cloud region within your own Azure account, providing more control and isolation compared to a shared cloud environment.
+ifdef::page-site-edition[]
 
-In essence, this service enables you to use Payara Cloud's managed Jakarta EE capabilities while maintaining your applications within your own Azure infrastructure.
 
-== Setting Up Your Payara Cloud Customer Managed Region on Azure
+= {productName} Azure Customer Managed Region
 
-This guide will walk you through deploying a Payara Cloud Customer Managed Region on Azure, allowing you to run your Jakarta EE applications in a dedicated, private cloud environment.
+The {productName} Azure Customer Managed Region feature allows you to deploy your applications to a dedicated, private cloud region within your own Azure account, providing more control and isolation compared to a shared cloud environment.
+
+In essence, this service enables you to use {productName}'s managed Jakarta EE capabilities while maintaining your applications within your own Azure infrastructure.
+
+== Setting Up Your {productName} Customer Managed Region on Azure
+
+This guide will walk you through deploying a {productName} Customer Managed Region on Azure, allowing you to run your Jakarta EE applications in a dedicated, private cloud environment.
 
 === Prerequisites
 
-* Public DNS Domain: You'll need a domain you control to create a subdomain for your Payara Cloud region.
+* Public DNS Domain: You'll need a domain you control to create a subdomain for your {productName} region.
 * Azure Subscription: You must have an active Azure subscription to deploy the managed application.
 
 
 === Step-by-Step Setup
 
-==== Sign Up for Payara Cloud
+==== Sign Up for {productName}
 
-. Go to the Payara Cloud signup page.
+. Go to the {productName} signup page.
 . Create an account using your preferred method (username/password, GitHub, or Google).
 
-If you already have a Payara Cloud account, login instead.
+If you already have a {productName} account, login instead.
 
 ==== Create a Customer Managed Region
 
-.Customer Managed Region menu from Payara Cloud
+.Customer Managed Region menu from {productName}
 image::docs:ROOT:how-to-guides/cmr/cmr-1.png[A screenshot displaying the menu to add a new customer managed region,width=624,height=290,window="_blank", link="{imagesdir}/how-to-guides/cmr/cmr-1.png"]
-. In Payara Cloud, select Switch Subscriptions menu.
+. In {productName}, select Switch Subscriptions menu.
 . Select Private Cloud menu under the Switch Subscription menu
 
 . Give your region a descriptive name
@@ -44,10 +49,10 @@ image::docs:ROOT:how-to-guides/cmr/cmr-3.png[A screenshot displaying new CMR dia
 
 ==== Deploy the Managed Application on Azure
 
-. In the Azure portal, under My Market Place, click on plans and search for and select the "Payara Cloud Customer Managed Region" managed application.
+. In the Azure portal, under My Market Place, click on plans and search for and select the "{productName} Customer Managed Region" managed application.
 
 . Provide the following required parameters:
-*** Payara Cloud Connection String: Paste the connection string you copied earlier.
+*** {productName} Connection String: Paste the connection string you copied earlier.
 *** Domain to Create: Enter the subdomain you want to use (e.g., 'payara.yourdomain.com').
 *** Let's Encrypt Email: Provide an email associated with your Let's Encrypt certificates.
 . Deploy the managed application.
@@ -59,7 +64,7 @@ image::docs:ROOT:how-to-guides/cmr/cmr-3.png[A screenshot displaying new CMR dia
 
 ==== Verify and Deploy Applications
 
-. Back in Payara Cloud, go to "Subscription Management" and ensure your new region is "Active."
+. Back in {productName}, go to "Subscription Management" and ensure your new region is "Active."
 . Navigate to "Application Management" and create a new namespace, selecting your custom region.
 . xref:user-guides/common/application/Deploying an Application.adoc[Upload] your Jakarta EE web application (WAR file).
 . Select "Deploy Immediately" and click "Upload."
@@ -69,4 +74,4 @@ image::docs:ROOT:how-to-guides/cmr/cmr-3.png[A screenshot displaying new CMR dia
 
 If you encounter a certificate error, it might be because the Let's Encrypt certificate hasn't been issued yet.
 Make sure your DNS settings are correct, and wait a few minutes.
-You can monitor application logs within the Payara Cloud interface.
+You can monitor application logs within the {productName} interface.

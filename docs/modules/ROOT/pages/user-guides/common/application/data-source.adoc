@@ -117,7 +117,7 @@ You must define the MicroProfile xref:user-guides/common/application/microprofil
 endif::[]
 
 ifeval::["{page-site-edition}" == "cloud"]
-You must define the MicroProfile xref:user-guides/common/application/microprofile-config.adoc#_adding_configuration_properties[configuration keys] passed to MPCONFIG manually in Payara Cloud. You can then set values for those keys to be passed to the datasource definition parameters.
+You must define the MicroProfile xref:user-guides/common/application/microprofile-config.adoc#_adding_configuration_properties[configuration keys] passed to MPCONFIG manually in {productName}. You can then set values for those keys to be passed to the datasource definition parameters.
 endif::[]
 
 ifeval::["{page-site-edition}" == "qube"]

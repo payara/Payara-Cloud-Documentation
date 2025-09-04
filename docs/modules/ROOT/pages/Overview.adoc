@@ -7,19 +7,19 @@ ifdef::page-site-edition[]
 
 
 ifeval::["{page-site-edition}" == "cloud"]
-Payara Cloud is an all-in-one platform as a service (PaaS) solution for automatically deploying Jakarta EE (formerly Java EE) and MicroProfile applications.
+{productName} is an all-in-one platform as a service (PaaS) solution for automatically deploying Jakarta EE (formerly Java EE) and MicroProfile applications.
 It makes deployment in a cloud environment easier by simplifying cloud infrastructure provisioning and eliminating the need for the manual management of application servers, docker and Kubernetes.
 Instead of dealing with low-level components like Kubernetes and Cloud monitoring tooling yourself, the UI allows you to graphically define the configuration parameters and the application which needs to be deployed.
-If you're new to Payara Cloud, we recommend starting with the *Getting Started* section to get you moving in the right direction.
+If you're new to {productName}, we recommend starting with the *Getting Started* section to get you moving in the right direction.
 
 == Structure
 
-By design, Payara Cloud does a lot of hidden work in the background that you don't need to worry about. Behind the scenes, a Payara Micro instance is set up to run your application.
+By design, {productName} does a lot of hidden work in the background that you don't need to worry about. Behind the scenes, a Payara Micro instance is set up to run your application.
 All the integrations with the cloud environment are done for you automatically, such as setting up SSL certificates, routing, and integration with logging and monitoring tools.
-Since your application is running on a Payara Micro instance, Payara Cloud can run Java EE / Jakarta EE Web Profile based applications.
-The Payara Cloud environment is centered around two main concepts: the namespace and the application.
+Since your application is running on a Payara Micro instance, {productName} can run Java EE / Jakarta EE Web Profile based applications.
+The {productName} environment is centered around two main concepts: the namespace and the application.
 Namespace is a group of applications hosted on single domain where each application has different path prefix.
-You manage your namespaces and applications within Payara Cloud's graphical user interface.
+You manage your namespaces and applications within {productName}'s graphical user interface.
 
 == Features
 
@@ -86,7 +86,7 @@ Choose between our managed cloud service or self-hosted platform based on your o
 
 == Platform Options
 
-*Payara Cloud (Managed Service):*
+*Payara Qube (Managed Service):*
 * Fully managed PaaS solution
 * No infrastructure management required
 * Automatic scaling and monitoring
