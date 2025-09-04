@@ -1,6 +1,10 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Manage Billing
 
-Payara Cloud accepts both credit and debit card payments. Billing Manager roles allow you to view your account invoices
+{productName} accepts both credit and debit card payments. Billing Manager roles allow you to view your account invoices
 
     * Billing Manager with Administrator role is able to see invoices, change billing data, see usage and invite users
     * Billing Manager without Administrator role is able to see invoices, see usage and invite users

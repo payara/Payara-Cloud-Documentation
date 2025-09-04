@@ -1,6 +1,10 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Application Revision
 
-Payara Cloud uses revisions for application version management.
+{productName} uses revisions for application version management.
 A revision represents an immutable snapshot of your uploaded application's binary at a particular point in time.
 This allows for tracking changes and potential rollbacks.
 

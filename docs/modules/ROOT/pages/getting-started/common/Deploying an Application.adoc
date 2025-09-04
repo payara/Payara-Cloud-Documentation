@@ -1,3 +1,8 @@
-= Deploying An Application on Payara Cloud
+include::partial$_attributes.adoc[]
 
-Please refer to xref:user-guides/common/application/Deploying an Application.adoc#_deploying_an_application_on_payara_cloud[How to Deploy application] in How-to-guides for deploying application on Payara Cloud
+ifdef::page-site-edition[]
+
+
+= Deploying An Application on {productName}
+
+Please refer to xref:user-guides/common/application/Deploying an Application.adoc#_deploying_an_application_on_payara_cloud[How to Deploy application] in How-to-guides for deploying application on {productName}

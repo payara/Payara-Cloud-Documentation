@@ -1,6 +1,10 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 =  Initiating an Additional Subscription
 
-All users of Payara Cloud have the ability to initiate additional subscriptions, provided they have access to the necessary payment information.
+All users of {productName} have the ability to initiate additional subscriptions, provided they have access to the necessary payment information.
 Billing Managers can start a new subscription using existing payment data, while other users must input new payment information.
 
 This feature enhances cost management transparency since each subscription has its own invoice and billing period.
@@ -30,7 +34,7 @@ image::how-to-guides/application/billing/additional-1.png[window="_blank", link=
 == Signing Up with Existing Payment Details
 
 Selecting a plan is the first step, similar to the regular signup process.
-Note that usually, you are not eligible for a trial subscription for an additional plan, as Payara Cloud allows only one trial per user.
+Note that usually, you are not eligible for a trial subscription for an additional plan, as {productName} allows only one trial per user.
 
 .Plan Selection for new subscription
 image::how-to-guides/application/billing/additional-2.png[window="_blank", link="{imagesdir}/how-to-guides/application/billing/additional-2.png"]
@@ -54,6 +58,6 @@ However, if the listed payment details are correct, proceed to the final step by
 image::how-to-guides/application/billing/additional-5.png[, window="_blank", link="{imagesdir}/how-to-guides/application/billing/additional-5.png"]
 
 As in the standard signup process, you will need to confirm the recurring payment and the terms of service.
-You also have the option to subscribe to Payara Cloud product updates via a newsletter.
+You also have the option to subscribe to {productName} product updates via a newsletter.
 
 Clicking btn:[Subscribe] will begin the provisioning process for your new subscription, which should complete in under a minute.

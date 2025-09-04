@@ -1,6 +1,10 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Applications
 
-Payara Cloud organizes applications within distinct Namespaces.
+{productName} organizes applications within distinct Namespaces.
 Follow these steps to interact with your applications:
 
 *Locate the Namespace*: First, identify the Namespace where your application is deployed.

@@ -1,3 +1,8 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+
 == Billing Management
 
 === Manage Subscription Users Screen
@@ -40,7 +45,7 @@ The user's email will appear in the list with a status of _Pending_.
 
 image::how-to-guides/application/billing/email.png[Screenshot of invitation email,65%,link="{imagesdir}/how-to-guides/application/billing/email.png", window="_blank"]
 
-Following the link btn:[Signup to Payara Cloud] will lead to the signup prompt.
+Following the link btn:[Signup to {productName}] will lead to the signup prompt.
 
 image::how-to-guides/application/billing/signup.svg[Screenshot of signup screen,100%,opts=interactive, link="{imagesdir}/how-to-guides/application/billing/signup.png", window="_blank"]
 
@@ -65,7 +70,7 @@ If the invited user misses the invitation email, the menu action btn:[Resend Inv
 Clicking btn:[Copy Invitation Link] will bring you to a page that lists the invitation link the user should follow.
 With that, you can transfer the link by other means, i.e., instant message.
 The invitation link is for single use only; no further verification is performed when visiting it, so ensure no unauthorized actors obtain it.
-Specifically, Payara Cloud Support will never ask you for the invitation link.
+Specifically, {productName} Support will never ask you for the invitation link.
 
 image::how-to-guides/application/billing/copy-link.png[Screenshot of Copy Invitation Link, link="{imagesdir}/how-to-guides/application/billing/copy-link.png", window="_blank"]
 
