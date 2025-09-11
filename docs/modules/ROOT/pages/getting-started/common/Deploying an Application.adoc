@@ -3,6 +3,6 @@ include::partial$_attributes.adoc[]
 ifdef::page-site-edition[]
 
 
-= Deploying An Application on {productName}
+= Deploying an Application on {productName}
 
-Please refer to xref:user-guides/common/application/Deploying an Application.adoc#_deploying_an_application_on_payara_cloud[How to Deploy application] in How-to-guides for deploying application on {productName}
+See xref:user-guides/common/application/Deploying an Application.adoc#_deploying_an_application_on_payara_cloud[How to deploy an application] in the user guide for full steps.

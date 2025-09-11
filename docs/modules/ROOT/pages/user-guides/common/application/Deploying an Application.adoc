@@ -71,23 +71,23 @@ If your application doesn't require any special configuration, simply mark the *
 
 ifeval::["{page-site-edition}" == "qube"]
 The application name is important as it also serves as the DNS name for the container hosting your application.
-This name is either specified in the {productName} UI dialog, derived from the `artifactId` in the `pom.xml` file if your application file is Maven-built, or taken from the uploaded file name.
+This name is either specified in the {productName} Console dialog, derived from the `artifactId` in the `pom.xml` file if your application file is Maven-built, or taken from the uploaded file name.
 endif::[]
 
 ifeval::["{page-site-edition}" == "cloud"]
 The application name is important as it also serves as the DNS name for the container hosting your application.
-This name is either specified in the {productName} UI dialog, derived from the `artifactId` in the `pom.xml` file if your WAR file is Maven-built, or taken from the uploaded file name.
+This name is either specified in the {productName} Console dialog, derived from the `artifactId` in the `pom.xml` file if your WAR file is Maven-built, or taken from the uploaded file name.
 endif::[]
 
 .Application upload dialog
 image::image9.png[Application details post-upload,width=624,height=370]
 
 ifeval::["{page-site-edition}" == "qube"]
-Once the application file is uploaded, you'll be navigated to the application's detail screen for configuration before deploying it to the cloud.
+Once the application file is uploaded, you'll be navigated to the application's detail screen for configuration before deploying it.
 endif::[]
 
 ifeval::["{page-site-edition}" == "cloud"]
-Once the WAR file is uploaded, you'll be navigated to the application's detail screen for configuration before deploying it to the cloud.
+Once the WAR file is uploaded, you'll be navigated to the application's detail screen for configuration before deploying it.
 endif::[]
 
 [[review-configuration]]
@@ -107,7 +107,7 @@ Configurations in {productName} cover different areas depending on your applicat
 * Application properties
 * Profile-specific configurations
 
-If your Jakarta EE/MicroProfile application uses the MicroProfile Config API and has the microprofile-config.properties file, all properties declared in that file will be available on the UI.
+If your Jakarta EE/MicroProfile application uses the MicroProfile Config API and has the microprofile-config.properties file, all properties declared in that file will be available in the {productName} Console.
 
 If your Jakarta EE/MicroProfile application bundles a persistence.xml file, then the datasource definition as declared through @Datasource annotation or in the web.xml will also be available for editing.
 endif::[]
@@ -115,7 +115,7 @@ endif::[]
 ifeval::["{page-site-edition}" == "cloud"]
 Configurations in {productName} cover three main areas: MicroProfile Config properties, context root, and database connections for JPA data sources.
 
-If your application uses the MicroProfile Config API and has the microprofile-config.properties file, all properties declared in that file will be available on the UI.
+If your application uses the MicroProfile Config API and has the microprofile-config.properties file, all properties declared in that file will be available in the {productName} Console.
 
 If your application bundles a persistence.xml file, then the datasource definition as declared through @Datasource annotation or in the web.xml will also be available for editing.
 endif::[]

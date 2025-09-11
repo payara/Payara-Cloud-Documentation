@@ -2,7 +2,7 @@ include::partial$_attributes.adoc[]
 
 ifdef::page-site-edition[]
 
-= Limitations of Cloud Runtime
+= Runtime Limitations
 
 ifeval::["{page-site-edition}" == "qube"]
 {productName} is a deployment runtime that supports both Jakarta EE and Spring Boot applications.
@@ -12,7 +12,7 @@ ifeval::["{page-site-edition}" == "cloud"]
 {productName} is a Jakarta EE focused deployment runtime that automatically provisions a Payara Micro instance for your applications.
 endif::[]
 
-As a cloud deployment runtime, {productName} has the following limitations.
+As a deployment runtime, {productName} has the following limitations.
 
 == Standalone Service
 ifeval::["{page-site-edition}" == "qube"]
@@ -70,7 +70,7 @@ You may have fewer options to fine-tune the runtime environment or install speci
 == Evolving Features
 {productName} is under active development.
 This means features and supported technologies are subject to change.
-Make sure to stay updated on {productName}'s roadmap and release notes.
+Stay updated on the {productName} roadmap and release notes.
 
 === Important Considerations
 
@@ -80,7 +80,7 @@ ifeval::["{page-site-edition}" == "qube"]
 . Project Nature: Is your project built on Jakarta EE or Spring Boot standards?
 . Customization Needs: How much control do you require over the runtime environment?
 . Integrations: What external services does your application rely on, and how easily can they be integrated with {productName}?
-. Budget: Does {productName}'s pricing align with your project's financial constraints?
+. Budget: Does the {productName} pricing align with your project's financial constraints?
 endif::[]
 
 ifeval::["{page-site-edition}" == "cloud"]
@@ -89,5 +89,5 @@ ifeval::["{page-site-edition}" == "cloud"]
 . Project Nature: Is your project built strictly on Jakarta EE standards?
 . Customization Needs: How much control do you require over the runtime environment?
 . Integrations: What external services does your application rely on, and how easily can they be integrated with {productName}?
-. Budget: Does {productName}'s pricing align with your project's financial constraints?
+. Budget: Does the {productName} pricing align with your project's financial constraints?
 endif::[]

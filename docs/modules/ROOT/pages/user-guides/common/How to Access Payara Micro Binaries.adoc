@@ -4,14 +4,14 @@ ifdef::page-site-edition[]
 
 = How to Access Payara Micro Enterprise Binaries for Local Development
 
-{productName} customers with a Premium subscription have access to Payara Micro Enterprise binaries to test their applications locally on the same environment they will use when they deploy to the cloud.
+{productName} customers with a Premium subscription have access to Payara Micro Enterprise binaries to test their applications locally on the same environment they will use when they deploy on the platform.
 
 As part of the {productName} Premium subscription, you are entitled to: 
 
 * Full access to the Payara Customer support portal for raising support tickets for 2 users 
 * A single, shared Nexus repository account for your organisation 
 
-__Sonatype Nexus__ is a repository manager which we use to provide our Enterprise builds and private builds for Payara Micro. It also contains the binaries for our connectors (Cloud, Testing, Security, etc …), Docker Images, and IDE plugins which are tested with our Enterprise Edition software. The repository can also be used to store large files for your support tickets. (Note: Do not confuse _Cloud Connectors_ project with _{productName}_ SaaS)
+__Sonatype Nexus__ is a repository manager which we use to provide our Enterprise builds and private builds for Payara Micro. It also contains the binaries for our connectors (Cloud, Testing, Security, etc …), Docker Images, and IDE plugins which are tested with our Enterprise Edition software. The repository can also be used to store large files for your support tickets. (Note: Do not confuse the Cloud Connectors project with the {productName} managed service.)
 
 Accounts will be created for you on these two key platforms shortly after subscribing to {productName} Premium. 
 

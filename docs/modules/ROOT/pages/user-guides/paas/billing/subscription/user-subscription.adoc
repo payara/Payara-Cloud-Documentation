@@ -27,7 +27,7 @@ This role combines the privileges of both the Billing Manager and Administrator 
 When you sign up for {productName}, this is the default role assigned to your subscription.
 
 Manager::
-Has full access to existing {productName}’s namespaces, can upload new and delete existing applications.
+Has full access to namespaces in {productName}, can upload new applications, and delete existing ones.
 
 Operator::	Can reconfigure and diagnose deployed applications but cannot delete them. Also cannot access restricted (sensitive) configuration properties.
 

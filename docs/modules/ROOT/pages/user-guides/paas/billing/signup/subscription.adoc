@@ -67,7 +67,7 @@ image::how-to-guides/application/billing/cloud-trial-image4.png[alt="Payment Met
 
 == Confirmation
 
-Agree to {productName}'s Terms and Conditions.
+Agree to the {productName} Terms and Conditions.
 You can also choose to opt in for product updates via email to complete the process.
 
 .Confirmation
