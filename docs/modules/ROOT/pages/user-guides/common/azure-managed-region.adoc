@@ -7,7 +7,7 @@ ifdef::page-site-edition[]
 
 The {productName} Azure Customer Managed Region feature allows you to deploy your applications to a dedicated, private cloud region within your own Azure account, providing more control and isolation compared to a shared cloud environment.
 
-In essence, this service enables you to use {productName}'s managed Jakarta EE capabilities while maintaining your applications within your own Azure infrastructure.
+In essence, this service enables you to use the managed Jakarta EE capabilities of {productName} while maintaining your applications within your own Azure infrastructure.
 
 == Setting Up Your {productName} Customer Managed Region on Azure
 

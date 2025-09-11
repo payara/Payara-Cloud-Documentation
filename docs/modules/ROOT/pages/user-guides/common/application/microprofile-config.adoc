@@ -54,7 +54,7 @@ endif::[]
 image::how-to-guides/application/application-19-add-config-key.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-19-add-config-key.png"]
 [NOTE]
 ====
-Configuration properties added through the {productName} UI are made available to your application at runtime, but they will NOT modify or be written back to your application's `.properties` files.
+Configuration properties added through the {productName} Console are made available to your application at runtime, but they will NOT modify or be written back to your application's `.properties` files.
 This ensures that your application's source configuration files remain unchanged while still allowing you to override or add configuration values through the platform interface.
 ====
 
@@ -70,7 +70,7 @@ This automatic detection is a best-effort process and may not identify all possi
 
 === Spring Boot Property Limitations
 
-For Spring Boot applications, while you can modify certain properties through the {productName} UI, any changes to the following system-managed properties will be ignored at runtime.
+For Spring Boot applications, while you can modify certain properties through the {productName} Console, any changes to the following system-managed properties will be ignored at runtime.
 {productName} hardcodes these values to ensure proper operation and log collection for the Spring application instance:
 
 [source,properties]
@@ -107,7 +107,7 @@ ifeval::["{page-site-edition}" == "qube"]
 == Spring Boot Configuration
 
 For Spring Boot applications deployed to {productName}, configuration properties are managed using Spring Boot's standard `application.properties` file.
-You can add, update, and remove Spring Boot configuration properties through the same UI interface.
+You can add, update, and remove Spring Boot configuration properties through the Console.
 
 === Common Spring Boot Properties
 
@@ -129,7 +129,7 @@ logging.level.com.example=DEBUG
 logging.pattern.console=%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
 ----
 
-These properties can be configured through the {productName} UI when deploying your Spring Boot application.
+These properties can be configured through the {productName} Console when deploying your Spring Boot application.
 endif::[]
 
 == Restricting Fields
@@ -150,6 +150,5 @@ You can select any number of fields to set as restricted. Clicking save, the res
 
 .Restricted config fields
 image::how-to-guides/application/application-16-restrected-fields.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-16-restrected-fields.png"]
-
 
 

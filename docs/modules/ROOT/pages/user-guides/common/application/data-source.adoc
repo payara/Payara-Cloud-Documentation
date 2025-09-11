@@ -20,7 +20,7 @@ Apps deployed to {productName}, being Jakarta EE (Java EE) compatible, can conne
 {productName} looks for a persistence.xml file that uses the Jakarta EE https://nofluffjuststuff.com/blog/arun_gupta/2014/07/defaults_in_java_ee_7_tech_tip_37_#:~:text=nobeans%2Dxml.-,Default%20data%20source,-%3A%20A%C2%A0Java%20EE[default datasource] `java:comp/DefaultDataSource`.
 endif::[]
 
-If detected, it makes the necessary minimal configuration parameters for the default datasource available on the UI.
+If detected, it makes the necessary minimal configuration parameters for the default datasource available in the {productName} Console.
 
 .Default Datasource Configuration
 image::how-to-guides/application/application-18-default-datasource.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-18-default-datasource.png"]
@@ -60,7 +60,7 @@ This allows you to set different values for different environments and namespace
 endif::[]
 
 ifeval::["{page-site-edition}" == "cloud"]
-This allows you to set different values for different environments and namespaces in Payara.
+This allows you to set different values for different environments and namespaces in {productName}.
 endif::[]
 
 You can also use the `@DataSourceDefinitions()` to define different datasources to connect to different databases.
@@ -169,5 +169,5 @@ spring.datasource.secondary.username=secondary_user
 spring.datasource.secondary.password=secondary_password
 ----
 
-These properties can be configured through the {productName} UI when deploying your Spring Boot application.
+These properties can be configured through the {productName} Console when deploying your Spring Boot application.
 endif::[]

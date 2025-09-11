@@ -160,7 +160,7 @@ Or define the <data-source> element in _web.xml_:
 </data-source>
 ----
 
-combined with `MPCONFIG` Microprofile Config variables. These MicroProfile Config variables can be configured with the {productName} GUI
+combined with `MPCONFIG` MicroProfile Config variables. These variables can be configured in the {productName} Console.
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in {productName} so the system can detect them as described above. Click 'Add Configuration Key' and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy.
 

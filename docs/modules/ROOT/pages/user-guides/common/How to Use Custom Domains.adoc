@@ -56,7 +56,7 @@ image::image37-new.png[Cloudflare dns update view, width=624,height=282]
 [checklist]
 * ❶ Set record type to CNAME
 * ❷ Enter root domain name. Some providers also allow the use of the '@' symbol as a shorthand
-* ❸ Paste the DNS record value copied from {productName}'s custom domain screen
+* ❸ Paste the DNS record value copied from the {productName} custom domain screen
 * ❹ Save
 
 Return to the custom domain setup screen in {productName}.
@@ -81,5 +81,4 @@ You can always edit or remove configured domains for namespaces on the Custom Do
 
 .Custom domain page showing additional operations
 image::image40-new.png[Interface displaying fully setup custom domain,width=624,height=282,window="_blank", link="{imagesdir}/image40-new.png"]
-
 

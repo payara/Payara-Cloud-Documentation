@@ -7,19 +7,22 @@ ifdef::page-site-edition[]
 
 
 ifeval::["{page-site-edition}" == "cloud"]
-{productName} is an all-in-one platform as a service (PaaS) solution for automatically deploying Jakarta EE (formerly Java EE) and MicroProfile applications.
-It makes deployment in a cloud environment easier by simplifying cloud infrastructure provisioning and eliminating the need for the manual management of application servers, docker and Kubernetes.
-Instead of dealing with low-level components like Kubernetes and Cloud monitoring tooling yourself, the UI allows you to graphically define the configuration parameters and the application which needs to be deployed.
-If you're new to {productName}, we recommend starting with the *Getting Started* section to get you moving in the right direction.
+{productName} is a fully hosted platform for automatically deploying Jakarta EE (formerly Java EE) and MicroProfile applications.
+It delivers the Payara Qube experience as a managed service, so your team consumes the platform without operating the underlying infrastructure.
+It simplifies cloud deployment by automating infrastructure provisioning and removing the need to manually manage application servers, containers, and Kubernetes clusters.
+Instead of dealing with low-level components like Kubernetes and cloud monitoring tools, the {productName} Console lets you configure your application and its runtime through a simple, guided UI.
+If you're new to {productName}, start with the *Getting Started* section.
 
 == Structure
 
-By design, {productName} does a lot of hidden work in the background that you don't need to worry about. Behind the scenes, a Payara Micro instance is set up to run your application.
-All the integrations with the cloud environment are done for you automatically, such as setting up SSL certificates, routing, and integration with logging and monitoring tools.
-Since your application is running on a Payara Micro instance, {productName} can run Java EE / Jakarta EE Web Profile based applications.
-The {productName} environment is centered around two main concepts: the namespace and the application.
-Namespace is a group of applications hosted on single domain where each application has different path prefix.
-You manage your namespaces and applications within {productName}'s graphical user interface.
+By design, {productName} handles background tasks you don't need to worry about.
+Behind the scenes, a Payara Micro instance is set up to run your application.
+Cloud integrations are automatic, including SSL/TLS certificates, routing, logging, and monitoring.
+Because applications run on Payara Micro, {productName} supports Jakarta EE Web Profile applications.
+The {productName} environment centers on two concepts: namespaces and applications.
+
+A namespace groups applications under a single domain, each with its own path prefix.
+Manage namespaces and applications in the {productName} Console.
 
 == Features
 
@@ -52,7 +55,7 @@ You manage your namespaces and applications within {productName}'s graphical use
 endif::[]
 
 ifeval::["{page-site-edition}" == "qube"]
-Payara Qube is a self-hosted application platform that brings the power of Payara's Jakarta EE runtime to your own infrastructure.
+Payara Qube is a self-hosted application platform that brings the power of Payara's enterprise Java deployment runtime to your own infrastructure.
 It provides enterprise-grade application deployment capabilities while giving you complete control over your environment, data, and security.
 Unlike managed cloud solutions, Payara Qube runs entirely within your own Kubernetes clusters, making it ideal for organizations with strict compliance requirements, data residency needs, or existing infrastructure investments.
 If you're new to Payara Qube, we recommend starting with the *Getting Started* section to understand installation and initial configuration.
@@ -87,12 +90,14 @@ Choose between our managed cloud service or self-hosted platform based on your o
 == Platform Options
 
 *Payara Qube (Managed Service):*
+
 * Fully managed PaaS solution
 * No infrastructure management required
 * Automatic scaling and monitoring
 * Pay-as-you-go pricing model
 
 *Payara Qube (Self-Hosted):*
+
 * Deploy on your own infrastructure
 * Complete control and customization
 * License-based pricing model
