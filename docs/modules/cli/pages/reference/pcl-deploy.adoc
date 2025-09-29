@@ -49,7 +49,7 @@ There are certain scenarios when deployment can succeed despite reported deploym
 This means that even if you receive early warning messages about deployment failures, the application might still start up and run properly later.
 
 *--endpoint*=_<baseUri>_::
-  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable PCL_ENDPOINT
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to the management endpoint for your Payara Qube environment if you use a custom domain. Also settable with environment variable PCL_ENDPOINT
 
 *-h*, *--help*::
   Show this help message and exit.
@@ -76,7 +76,7 @@ Only result of operations will be displayed to `stdout`, or error message to `st
 *-t*, *--timeout*=_<seconds>_::
   Sets how long to wait for deployment completion on the client side.
 +
-This timeout doesn't affect the actual deployment process in Payara Cloud, so applications might still start up even after a timeout occurs.
+This timeout doesn't affect the actual deployment process in Payara Qube (Managed), so applications might still start up even after a timeout occurs.
 
 *-V*, *--version*::
   Print version information and exit.

@@ -5,9 +5,9 @@
 
 == Introduction
 
-The Payara IntelliJ Ultimate Tools plugin enables integration of Payara Cloud and Platform with IntelliJ IDEA Ultimate Edition. The Payara IntelliJ Ultimate Tools plugin is available in the https://plugins.jetbrains.com/plugin/15114-payara-platform-tools[JetBrains Plugins Marketplace].
+The Payara IntelliJ Ultimate Tools plugin enables integration of Payara Qube (Managed) and Payara Platform with IntelliJ IDEA Ultimate Edition. The Payara IntelliJ Ultimate Tools plugin is available in the https://plugins.jetbrains.com/plugin/15114-payara-platform-tools[JetBrains Plugins Marketplace].
 
-If you are developing an application on IntelliJ IDEA Community Edition, you should install the Payara IntelliJ Community Tools plugin, which enables integration of Payara Cloud and Payara Micro with IntelliJ IDEA Community Edition. The Payara IntelliJ Community Tools Plugin is also available in the https://plugins.jetbrains.com/plugin/15445-payara-micro-community-tools[JetBrains Plugins Marketplace].
+If you are developing an application on IntelliJ IDEA Community Edition, you should install the Payara IntelliJ Community Tools plugin, which enables integration of Payara Qube (Managed) and Payara Micro with IntelliJ IDEA Community Edition. The Payara IntelliJ Community Tools Plugin is also available in the https://plugins.jetbrains.com/plugin/15445-payara-micro-community-tools[JetBrains Plugins Marketplace].
 
 IMPORTANT: If you are using IntelliJ IDEA Ultimate, you should only install the `Payara IntelliJ Ultimate Tools` plugin. This plugin supports both Payara Server and Payara Micro.
 
@@ -24,18 +24,18 @@ IMPORTANT: If you are using IntelliJ IDEA Ultimate, you should only install the 
 image:install-plugin.png[window="_blank", link="{imagesdir}/install-plugin.png"]
 
 [[run-cloud-project]]
-== Deploying an Application to Payara Cloud from IntelliJ
+== Deploying an Application to Payara Qube (Managed) from IntelliJ
 
 === Create configuration
 
-To deploy a Jakarta EE application to Payara Cloud from IntelliJ, you need to first configure Payara Cloud as a run configuration.
+To deploy a Jakarta EE application to Payara Qube (Managed) from IntelliJ, you need to first configure Payara Qube (Managed) as a run configuration.
 
-In the *Run/Debug Configurations* dialog, select the *Payara Cloud* node:
+In the *Run/Debug Configurations* dialog, select the *Payara Qube (Managed)* node:
 
 [.text-center]
 image:create-configuration.png[window="_blank", link="{imagesdir}/create-configuration.png"]
 
-Select the Maven goal `dev` or `deploy` and Select the Payara Cloud `subscription name` and `namespace name` in the configuration.
+Select the Maven goal `dev` or `deploy`, then choose the Payara Qube (Managed) `subscription name` and `namespace name` in the configuration.
 
 [.text-center]
 image:save-configuration.png[window="_blank", link="{imagesdir}/save-configuration.png"]
@@ -50,9 +50,9 @@ The plugin will also open the browser for you if your environment permits it.
 image:login-02-confirmation.png[width=320, window="_blank", link="{imagesdir}/login-02-confirmation.png"]
 
 WARNING: Only confirm this page if you knowingly initiated login flow via `pcl login`, `payara-cloud-maven-plugin` or `Payara IDE plugins`.
-Payara Cloud will never ask you to authenticate via this flow via any other channel or under any other circumstance, such as solving a support issue.
+Payara Qube (Managed) will never ask you to authenticate via this flow via any other channel or under any other circumstance, such as solving a support issue.
 
-If you are logging in for the first time the authentication service will ask you to authorize Payara Cloud CLI to perform application management tasks with your identity:
+If you are logging in for the first time the authentication service will ask you to authorize Payara Qube (Managed) CLI to perform application management tasks with your identity:
 
 [.text-center]
 image:login-03-authorize.png[width=320, window="_blank", link="{imagesdir}/login-03-authorize.png"]
@@ -65,18 +65,18 @@ image:login-04-success.png[width=320, window="_blank", link="{imagesdir}/login-0
 ==== Managing tokens
 
 After login is complete the relevant token is stored in `$HOME/.payara/manage.payara.cloud`.
-The token does not have any expiration time, so you will not need to log in again for when using the Payara Cloud Tools.
-Tokens can be invalidated remotely via User Preferences screen in Payara Cloud Web UI.
+The token does not have any expiration time, so you will not need to log in again for when using the Payara Qube (Managed) Tools.
+Tokens can be invalidated remotely via User Preferences screen in Payara Qube (Managed) Web UI.
 
 ==== Deploying the application
 
-To deploy the Jakarta EE application to Payara Cloud, just click *Run*.
+To deploy the Jakarta EE application to Payara Qube (Managed), just click *Run*.
 
 [.text-center]
 image:run-configuration.png[window="_blank", link="{imagesdir}/run-configuration.png"]
 
 
-You can view the Payara Cloud log in the *Run* window.
+You can view the Payara Qube (Managed) log in the *Run* window.
 
 [.text-center]
 image:deploy-application.png[window="_blank", link="{imagesdir}/deploy-application.png"]
