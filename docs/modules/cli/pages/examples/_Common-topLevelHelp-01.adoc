@@ -1,12 +1,11 @@
 [listing,subs="+macros,+quotes"]
 ----
 *pcl --help*
-Payara Cloud Command Line.
+Payara Qube (Managed) Command Line.
 Usage: pcl [-hqV] [-a=<applicationName>] [--endpoint=<baseUri>]
            [-n=<namespaceName>] [-o=<outputFormat>] [-s=<subscriptionName>]
            [COMMAND]
-Payara Cloud Command Line Interface allows remote operations over Payara
-Cloud's namespaces and application via command line.
+The Payara Qube (Managed) command-line interface lets you manage namespaces and applications from the terminal.
 In order to sign in, use the command +++`+++pcl login+++`+++ interactively. This will allow
 the client to obtain credentials that are either stored in home directory or
 can be provided via environment variable +++`+++PCL+++_+++AUTH+++_+++TOKEN+++`+++. See +++`+++pcl login
@@ -17,7 +16,7 @@ can be provided via environment variable +++`+++PCL+++_+++AUTH+++_+++TOKEN+++`++
                                as well as +++`+++list-applications+++`+++ and +++`+++upload+++`+++.
       --endpoint=<baseUri>   Management endpoint URL. Defaults to 
                                +++https:+++//manage.payara.cloud. Use your Payara 
-                               Qube instance endpoint if applicable. Environment 
+                               Qube environment endpoint if applicable. Environment 
                                variable: PCL+++_+++ENDPOINT
   -h, --help                 Show this help message and exit.
   -n, --namespace=<namespaceName>
@@ -35,11 +34,11 @@ can be provided via environment variable +++`+++PCL+++_+++AUTH+++_+++TOKEN+++`++
                                to multiple subscriptions.
   -V, --version              Print version information and exit.
 Commands:
-  login               Log in to Payara Cloud instance.
+  login               Log in to a Payara Qube (Managed) environment.
   list-subscriptions  Get list of subscriptions available to user.
   list-namespaces     List namespaces available in a subscription.
   list-applications   List applications present in a namespace.
-  upload              Upload an application binary (.war file) to Payara Cloud.
+  upload              Upload an application binary (.war file) into Payara Qube (Managed).
   deploy              Deploy an existing application.
   start               Start an application
   stop                Stop an application

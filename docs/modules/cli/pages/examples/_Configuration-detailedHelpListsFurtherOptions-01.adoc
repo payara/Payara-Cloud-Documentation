@@ -24,7 +24,7 @@ Usage: configure contextRoot [-ehlV] [--deploy] [-t=<seconds>]
   -t, --timeout=<seconds>   Sets how long to wait for deployment completion on
                               the client side.
                             This timeout doesn't affect the actual deployment
-                              process in Payara Cloud, so applications might
+                              process in Payara Qube (Managed), so applications might
                               still start up even after a timeout occurs.
   -V, --version             Print version information and exit.
 Recognized configuration parameters:
