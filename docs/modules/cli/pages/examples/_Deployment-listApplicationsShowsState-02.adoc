@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl configure -n _$namespace_ -a _$appName_ contextRoot contextRoot=/other*
+*qube configure -n _$namespace_ -a _$appName_ contextRoot contextRoot=/other*
 _[SUCCESS] Revision reconfigured_
 
 {

@@ -2,34 +2,34 @@
 // tag::picocli-generated-man-section-header[]
 :doctype: manpage
 :revnumber: 
-:manmanual: Pcl Manual
+:manmanual: Qube Manual
 :mansource: 
 :man-linkstyle: pass:[blue R < >]
-= pcl-scale(1)
+= qube-list-namespaces(1)
 
 // end::picocli-generated-man-section-header[]
 
 // tag::picocli-generated-man-section-name[]
 == Name
 
-pcl-scale - Scale an application
+qube-list-namespaces - List namespaces available in a subscription.
 
 // end::picocli-generated-man-section-name[]
 
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl scale* [*-ehlqV*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
-          *--instances*=_<instances>_ [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_]
-          [*-s*=_<subscriptionName>_] [*-t*=_<seconds>_]
+*qube list-namespaces* [*-hqV*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
+                     [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_]
+                     [*-s*=_<subscriptionName>_]
 
 // end::picocli-generated-man-section-synopsis[]
 
 // tag::picocli-generated-man-section-description[]
 == Description
 
-Scale an application
-Application can be scaled by passing the number of instances to scale
+List namespaces available in a subscription.
+Returned namespace names can be used as value for option `-n` / `--namespace`.
 
 // end::picocli-generated-man-section-description[]
 
@@ -41,24 +41,11 @@ Application can be scaled by passing the number of instances to scale
 +
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
 
-*-e*, *--fail-early*::
-  Fail command immediately after first deployment problem instead of waiting for timeout on client or backend side
-+
-There are certain scenarios when deployment can succeed despite reported deployment problems.
-+
-This means that even if you receive early warning messages about deployment failures, the application might still start up and run properly later.
-
 *--endpoint*=_<baseUri>_::
-  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable PCL_ENDPOINT
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable QUBE_ENDPOINT
 
 *-h*, *--help*::
   Show this help message and exit.
-
-*--instances*=_<instances>_::
-  State number of instances between 1 and 8
-
-*-l*, *--logs*::
-  Shows application deployment logs in real-time
 
 *-n*, *--namespace*=_<namespaceName>_::
   Name of namespace to manage.
@@ -75,11 +62,6 @@ Only result of operations will be displayed to `stdout`, or error message to `st
 
 *-s*, *--subscription*=_<subscriptionName>_::
   Specify the name of the subscription to use. This is only necessary when your account has access to multiple subscriptions.
-
-*-t*, *--timeout*=_<seconds>_::
-  Sets how long to wait for deployment completion on the client side.
-+
-This timeout doesn't affect the actual deployment process in Payara Cloud, so applications might still start up even after a timeout occurs.
 
 *-V*, *--version*::
   Print version information and exit.

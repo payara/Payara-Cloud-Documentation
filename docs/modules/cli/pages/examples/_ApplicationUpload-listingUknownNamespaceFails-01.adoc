@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl list-applications -n _$namespace_*
+*qube list-applications -n _$namespace_*
 _[FAILURE] Namespace nonexisting-clitest was not found in the subscription_
 
 ----

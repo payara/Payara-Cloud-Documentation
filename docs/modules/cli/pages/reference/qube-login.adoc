@@ -2,34 +2,35 @@
 // tag::picocli-generated-man-section-header[]
 :doctype: manpage
 :revnumber: 
-:manmanual: Pcl Manual
+:manmanual: Qube Manual
 :mansource: 
 :man-linkstyle: pass:[blue R < >]
-= pcl-list-namespaces(1)
+= qube-login(1)
 
 // end::picocli-generated-man-section-header[]
 
 // tag::picocli-generated-man-section-name[]
 == Name
 
-pcl-list-namespaces - List namespaces available in a subscription.
+qube-login - Log in to Payara Qube instance.
 
 // end::picocli-generated-man-section-name[]
 
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl list-namespaces* [*-hqV*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
-                    [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_]
-                    [*-s*=_<subscriptionName>_]
+*qube login* [*-hqV*] [*--print-token*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
+           [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_]
 
 // end::picocli-generated-man-section-synopsis[]
 
 // tag::picocli-generated-man-section-description[]
 == Description
 
-List namespaces available in a subscription.
-Returned namespace names can be used as value for option `-n` / `--namespace`.
+Log in to Payara Qube instance.
+Browser-based flow will start in order to log in to Payara Qube management endpoint, and token will be stored in home directory.
+
+*Non-interactive use:* In order to use in non-interactive way such as in CI, use parameter `--print-token`. After login procedure on interactive terminal the command will print out environment to be set in the CI in order that represents same login credential.
 
 // end::picocli-generated-man-section-description[]
 
@@ -42,7 +43,7 @@ Returned namespace names can be used as value for option `-n` / `--namespace`.
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
 
 *--endpoint*=_<baseUri>_::
-  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable PCL_ENDPOINT
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable QUBE_ENDPOINT
 
 *-h*, *--help*::
   Show this help message and exit.
@@ -54,6 +55,9 @@ Required for all commands except `login`, `list-namespaces` and `create-namespac
 
 *-o*, *--output*=_<outputFormat>_::
   Set the output format. Allowed values: TEXT, JSON.
+
+*--print-token*::
+  Print out environment setting to be used to use this token in non-interactive way.
 
 *-q*, *--quiet*::
   Enable quiet output.

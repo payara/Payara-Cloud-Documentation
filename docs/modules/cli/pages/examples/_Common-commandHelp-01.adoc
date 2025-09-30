@@ -1,7 +1,7 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl upload --help*
-Usage: pcl upload [-ehlqV] [--deploy] [-a=<applicationName>]
+*qube upload --help*
+Usage: qube upload [-ehlqV] [--deploy] [-a=<applicationName>]
                   [--endpoint=<baseUri>] [-n=<namespaceName>]
                   [-o=<outputFormat>] [-s=<subscriptionName>] [-t=<seconds>]
                   <file>
@@ -26,10 +26,11 @@ upload a new application into a namespace.
                                messages about deployment failures, the
                                application might still start up and run
                                properly later.
-      --endpoint=<baseUri>   Management endpoint URL. Defaults to 
-                               +++https:+++//manage.payara.cloud. Use your Payara 
-                               Qube instance endpoint if applicable. Environment 
-                               variable: PCL+++_+++ENDPOINT
+      --endpoint=<baseUri>   Management endpoint. Defaults to +++https:+++//manage.
+                               payara.cloud. Set it to management endpoint of
+                               your Payara Qube instance if that’s your target.
+                               Also settable with environment variable
+                               PCL+++_+++ENDPOINT
   -h, --help                 Show this help message and exit.
   -l, --logs                 Shows application deployment logs in real-time
   -n, --namespace=<namespaceName>
@@ -40,7 +41,7 @@ upload a new application into a namespace.
                              Set the output format. Allowed values: TEXT, JSON.
   -q, --quiet                Enable quiet output.
                              Only result of operations will be displayed to
-                               +++`+++stdout+++`+++, or error message to +++`+++stderr+++`+++.
+                               +++`+++stdout+++`+++, or error message to +++`+++stderrr+++`+++.
   -s, --subscription=<subscriptionName>
                              Specify the name of the subscription to use. This
                                is only necessary when your account has access

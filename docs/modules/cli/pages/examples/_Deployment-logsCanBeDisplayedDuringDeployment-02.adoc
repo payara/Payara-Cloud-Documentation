@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl deploy -n _$namespace_ -a _$appName_ --logs*
+*qube deploy -n _$namespace_ -a _$appName_ --logs*
 _[UPDATE] State of deployment process is DEPLOYING_
 _[UPDATE:game-demo-59f44fddc5-q79hs] {"Timestamp":"2025-08-14T13:33:58.822+0000","Level":"INFO","Version":"","LoggerName":"PayaraMicro","ThreadID":"1","ThreadName":"main","TimeMillis":"1755178438822","LevelValue":"800","LogMessage":"Payara Micro Runtime directory is located at /opt/payara"}_
 _[UPDATE:game-demo-59f44fddc5-q79hs] {"Timestamp":"2025-08-14T13:33:58.835+0000","Level":"INFO","Version":"","LoggerName":"fish.payara.micro.boot.runtime.PayaraMicroRuntimeBuilder","ThreadID":"1","ThreadName":"main","TimeMillis":"1755178438835","LevelValue":"800","LogMessage":"Built Payara Micro Runtime"}_

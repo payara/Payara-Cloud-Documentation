@@ -2,34 +2,36 @@
 // tag::picocli-generated-man-section-header[]
 :doctype: manpage
 :revnumber: 
-:manmanual: Pcl Manual
+:manmanual: Qube Manual
 :mansource: 
 :man-linkstyle: pass:[blue R < >]
-= pcl-upload(1)
+= qube-configure(1)
 
 // end::picocli-generated-man-section-header[]
 
 // tag::picocli-generated-man-section-name[]
 == Name
 
-pcl-upload - Upload an application binary (.war file) to Payara Cloud.
+qube-configure - Change configuration of an application
 
 // end::picocli-generated-man-section-name[]
 
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl upload* [*-ehlqV*] [*--deploy*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
-           [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_]
-           [*-t*=_<seconds>_] _<file>_
+*qube configure* [*-elq*] [*--deploy*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
+               [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_]
+               [*-t*=_<seconds>_]
 
 // end::picocli-generated-man-section-synopsis[]
 
 // tag::picocli-generated-man-section-description[]
 == Description
 
-Upload an application binary (.war file) to Payara Cloud.
-This command can either provide a new binary for an existing application or upload a new application into a namespace.
+Change configuration of an application
+Configuration is different for each application. In order to discover which configuration kinds for an application are available, invoke `qube configuration -n $namespace -a $app configure --help`. 
+In order to learn about keys and configuration ids available for specific kind invoke `qube configuration -n $namespace -a $app configure $kind --help`.
+It is possible to chain setting values of multiple configuration kinds in single command.
 
 // end::picocli-generated-man-section-description[]
 
@@ -42,9 +44,7 @@ This command can either provide a new binary for an existing application or uplo
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
 
 *--deploy*::
-  Deploy the application immediately after uploading.
-+
-The application will only deploy if its default configuration is complete  (i.e., all required options have default values).
+  Applies and deploys configuration changes immediately
 
 *-e*, *--fail-early*::
   Fail command immediately after first deployment problem instead of waiting for timeout on client or backend side
@@ -54,10 +54,7 @@ There are certain scenarios when deployment can succeed despite reported deploym
 This means that even if you receive early warning messages about deployment failures, the application might still start up and run properly later.
 
 *--endpoint*=_<baseUri>_::
-  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable PCL_ENDPOINT
-
-*-h*, *--help*::
-  Show this help message and exit.
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable QUBE_ENDPOINT
 
 *-l*, *--logs*::
   Shows application deployment logs in real-time
@@ -81,19 +78,11 @@ Only result of operations will be displayed to `stdout`, or error message to `st
 *-t*, *--timeout*=_<seconds>_::
   Sets how long to wait for deployment completion on the client side.
 +
-This timeout doesn't affect the actual deployment process in Payara Cloud, so applications might still start up even after a timeout occurs.
-
-*-V*, *--version*::
-  Print version information and exit.
+This timeout doesn't affect the actual deployment process in Payara Qube, so applications might still start up even after a timeout occurs.
 
 // end::picocli-generated-man-section-options[]
 
 // tag::picocli-generated-man-section-arguments[]
-== Arguments
-
-_<file>_::
-  Application archive file (.war) to be uploaded
-
 // end::picocli-generated-man-section-arguments[]
 
 // tag::picocli-generated-man-section-commands[]

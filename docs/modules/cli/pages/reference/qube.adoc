@@ -1,36 +1,34 @@
 // tag::picocli-generated-full-manpage[]
 // tag::picocli-generated-man-section-header[]
 :doctype: manpage
-:revnumber: 
-:manmanual: Pcl Manual
-:mansource: 
+:revnumber: pcl version  development-snapshot
+:manmanual: Qube Manual
+:mansource: pcl version  development-snapshot
 :man-linkstyle: pass:[blue R < >]
-= pcl-login(1)
+= qube(1)
 
 // end::picocli-generated-man-section-header[]
 
 // tag::picocli-generated-man-section-name[]
 == Name
 
-pcl-login - Log in to Payara Cloud instance.
+qube - Payara Qube Command Line.
 
 // end::picocli-generated-man-section-name[]
 
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl login* [*-hqV*] [*--print-token*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
-          [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_]
+*qube* [*-hqV*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_] [*-n*=_<namespaceName>_]
+     [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_] [COMMAND]
 
 // end::picocli-generated-man-section-synopsis[]
 
 // tag::picocli-generated-man-section-description[]
 == Description
 
-Log in to Payara Cloud instance.
-Browser-based flow will start in order to log in to Payara Cloud management endpoint, and token will be stored in home directory.
-
-*Non-interactive use:* In order to use in non-interactive way such as in CI, use parameter `--print-token`. After login procedure on interactive terminal the command will print out environment to be set in the CI in order that represents same login credential.
+Payara Qube Command Line Interface allows remote operations over Payara Qube's namespaces and application via command line.
+In order to sign in, use the command `qube login` interactively. This will allow the client to obtain credentials that are either stored in home directory or can be provided via environment variable `PCL_AUTH_TOKEN`. See `qube login --help` for details.
 
 // end::picocli-generated-man-section-description[]
 
@@ -43,7 +41,7 @@ Browser-based flow will start in order to log in to Payara Cloud management endp
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
 
 *--endpoint*=_<baseUri>_::
-  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable PCL_ENDPOINT
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable QUBE_ENDPOINT
 
 *-h*, *--help*::
   Show this help message and exit.
@@ -55,9 +53,6 @@ Required for all commands except `login`, `list-namespaces` and `create-namespac
 
 *-o*, *--output*=_<outputFormat>_::
   Set the output format. Allowed values: TEXT, JSON.
-
-*--print-token*::
-  Print out environment setting to be used to use this token in non-interactive way.
 
 *-q*, *--quiet*::
   Enable quiet output.
@@ -76,6 +71,47 @@ Only result of operations will be displayed to `stdout`, or error message to `st
 // end::picocli-generated-man-section-arguments[]
 
 // tag::picocli-generated-man-section-commands[]
+== Commands
+
+xref:qube-login.adoc[*login*]::
+  Log in to Payara Qube instance.
+
+xref:qube-list-subscriptions.adoc[*list-subscriptions*]::
+  Get list of subscriptions available to user.
+
+xref:qube-list-namespaces.adoc[*list-namespaces*]::
+  List namespaces available in a subscription.
+
+xref:qube-list-applications.adoc[*list-applications*]::
+  List applications present in a namespace.
+
+xref:qube-upload.adoc[*upload*]::
+  Upload an application binary (.war file) to Payara Qube.
+
+xref:qube-deploy.adoc[*deploy*]::
+  Deploy an existing application.
+
+xref:qube-start.adoc[*start*]::
+  Start an application
+
+xref:qube-stop.adoc[*stop*]::
+  Stop an application
+
+xref:qube-create-namespace.adoc[*create-namespace*]::
+  Create new namespace
+
+xref:qube-delete-namespace.adoc[*delete-namespace*]::
+  Deletes a namespace.
+
+xref:qube-delete-application.adoc[*delete-application*]::
+  Delete an application.
+
+xref:qube-configure.adoc[*configure*]::
+  Change configuration of an application
+
+xref:qube-scale.adoc[*scale*]::
+  Scale an application
+
 // end::picocli-generated-man-section-commands[]
 
 // tag::picocli-generated-man-section-exit-status[]
