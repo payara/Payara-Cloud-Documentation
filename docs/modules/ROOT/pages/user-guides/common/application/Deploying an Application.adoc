@@ -4,13 +4,7 @@ ifdef::page-site-edition[]
 
 = Deploying An Application in {productName}
 
-ifeval::["{page-site-edition}" == "qube"]
-{productName} supports deploying Jakarta EE (and MicroProfile) applications as WAR files, and Spring Boot applications as JAR files.
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-{productName} supports deploying Jakarta EE (and MicroProfile) applications as WAR files.
-endif::[]
+{productName} supports deploying Jakarta EE (and MicroProfile) applications as WAR files, Spring Boot applications as JAR files, and Quarkus applications as ZIP files.
 
 [[create-a-namespace]]
 == Creating a Namespace
@@ -40,60 +34,32 @@ After creation, you'll be taken to the namespace details screen where you can st
 [[upload-an-application]]
 == Uploading an Application
 
-ifeval::["{page-site-edition}" == "qube"]
 Uploading an application is straightforward. From the *Namespace Details Screen*, click btn:[Upload Application].
 
 Choose the appropriate file type for your application:
 
 * *Jakarta EE/MicroProfile applications*: Upload a WAR file
 * *Spring Boot applications*: Upload a JAR file
-
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-Uploading an application is straightforward. From the *Namespace Details Screen*, click btn:[Upload Application].
-
-Upload your Jakarta EE/MicroProfile application as a WAR file.
-endif::[]
+* *Quarkus applications*: Upload a ZIP file
 
 .Namespace home screen
 image::image8.png[Uploading an application,width=624,height=257,link="{imagesdir}/image8.png", window="_blank"]
 
-ifeval::["{page-site-edition}" == "qube"]
-A dialog box will appear, prompting you to choose the WAR or JAR file for deployment.
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-A dialog box will appear, prompting you to choose the WAR file for deployment.
-endif::[]
+A dialog box will appear, prompting you to choose the WAR, JAR, or ZIP file for deployment.
 
 If your application doesn't require any special configuration, simply mark the *Deploy Immediately* checkbox.
 
-ifeval::["{page-site-edition}" == "qube"]
 The application name is important as it also serves as the DNS name for the container hosting your application.
 This name is either specified in the {productName} Console dialog, derived from the `artifactId` in the `pom.xml` file if your application file is Maven-built, or taken from the uploaded file name.
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-The application name is important as it also serves as the DNS name for the container hosting your application.
-This name is either specified in the {productName} Console dialog, derived from the `artifactId` in the `pom.xml` file if your WAR file is Maven-built, or taken from the uploaded file name.
-endif::[]
 
 .Application upload dialog
 image::image9.png[Application details post-upload,width=624,height=370]
 
-ifeval::["{page-site-edition}" == "qube"]
 Once the application file is uploaded, you'll be navigated to the application's detail screen for configuration before deploying it.
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-Once the WAR file is uploaded, you'll be navigated to the application's detail screen for configuration before deploying it.
-endif::[]
 
 [[review-configuration]]
 == Reviewing Configuration
 
-ifeval::["{page-site-edition}" == "qube"]
 Configurations in {productName} cover different areas depending on your application type:
 
 *For Jakarta EE/MicroProfile applications:*
@@ -107,20 +73,15 @@ Configurations in {productName} cover different areas depending on your applicat
 * Application properties
 * Profile-specific configurations
 
+*For Quarkus applications:*
+
+* Application properties
+* Configuration profiles
+
 If your Jakarta EE/MicroProfile application uses the MicroProfile Config API and has the microprofile-config.properties file, all properties declared in that file will be available in the {productName} Console.
 
 If your Jakarta EE/MicroProfile application bundles a persistence.xml file, then the datasource definition as declared through @Datasource annotation or in the web.xml will also be available for editing.
-endif::[]
 
-ifeval::["{page-site-edition}" == "cloud"]
-Configurations in {productName} cover three main areas: MicroProfile Config properties, context root, and database connections for JPA data sources.
-
-If your application uses the MicroProfile Config API and has the microprofile-config.properties file, all properties declared in that file will be available in the {productName} Console.
-
-If your application bundles a persistence.xml file, then the datasource definition as declared through @Datasource annotation or in the web.xml will also be available for editing.
-endif::[]
-
-ifeval::["{page-site-edition}" == "qube"]
 === Runtime Type for Jakarta EE Applications
 
 For Jakarta EE/MicroProfile applications, choose a runtime type based on your application's Jakarta EE, Payara, and JDK versions. The table below summarizes the supported versions:
@@ -141,30 +102,6 @@ NOTE: {productName} by default will assign a runtime based on referenced Jakarta
 .Runtime Types
 image::image-37-runtime-type1.png[Choosing a runtime type, link="{imagesdir}/image-37-runtime-type1.png", window="_blank"]
 image::image-37-runtime-type2.png[Choosing a runtime type, link="{imagesdir}/image-37-runtime-type2.png", window="_blank"]
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-=== Runtime Type
-
-Choose a runtime type based on your application's Jakarta EE, Payara, and JDK versions. The table below summarizes the supported versions:
-
-[cols="1,1,1", options="header"]
-|===
-| Jakarta EE Version | Payara Version | JDK
-|  8 |  5 |  11 /17/ 21
-|  10 |  6 |  11 /17/ 21
-|===
-
-As an example, if your application is developed on Jakarta EE 8 and compiled for JDK 17, then you can pick the option for Jakarta EE 8 (Payara 5, JDK17).
-
-And if your application is developed with Jakarta EE 10 and compiled for JDK 21, then you should select Jakarta EE 10 (Payara6, JDK 21) option
-
-NOTE: {productName} by default will assign a runtime based on referenced Jakarta EE classes and target JDK version for the compiled classes.
-
-.Runtime Types
-image::image-37-runtime-type1.png[Choosing a runtime type, link="{imagesdir}/image-37-runtime-type1.png", window="_blank"]
-image::image-37-runtime-type2.png[Choosing a runtime type, link="{imagesdir}/image-37-runtime-type2.png", window="_blank"]
-endif::[]
 
 Post-upload, you can view or edit configurations by clicking btn:[Action], then btn:[Edit Configurations].
 

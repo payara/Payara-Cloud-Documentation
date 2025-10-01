@@ -4,39 +4,19 @@ ifdef::page-site-edition[]
 
 = Runtime Limitations
 
-ifeval::["{page-site-edition}" == "qube"]
-{productName} is a deployment runtime that supports both Jakarta EE and Spring Boot applications.
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-{productName} is a Jakarta EE focused deployment runtime that automatically provisions a Payara Micro instance for your applications.
-endif::[]
+{productName} is a deployment runtime that supports Jakarta EE, Spring Boot, and Quarkus applications.
 
 As a deployment runtime, {productName} has the following limitations.
 
 == Standalone Service
-ifeval::["{page-site-edition}" == "qube"]
-{productName} focuses exclusively on running your applications (Jakarta EE and Spring Boot).
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-{productName} focuses exclusively on running your Jakarta EE applications.
-endif::[]
+{productName} focuses exclusively on running your applications (Jakarta EE, Spring Boot, and Quarkus).
 
 You'll need to source and integrate other essential services, such as databases or message queues, from external providers.
 {productName} allows full outbound connectivity for implementing such services.
 
-ifeval::["{page-site-edition}" == "qube"]
 == Framework Support
-{productName} supports both Jakarta EE and Spring Boot applications.
-If your project relies on other Java frameworks like Quarkus or Micronaut, you'll need to consider alternative deployment solutions.
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-== Jakarta EE Specific
-{productName} is specifically tailored for Jakarta EE applications.
-If your project relies on other Java frameworks like Spring, Quarkus, or Micronaut, you'll need to consider alternative deployment solutions.
-endif::[]
+{productName} supports Jakarta EE, Spring Boot, and Quarkus applications.
+If your project relies on other Java frameworks like Micronaut, you'll need to consider alternative deployment solutions.
 
 
 == File System Access
@@ -74,20 +54,9 @@ Stay updated on the {productName} roadmap and release notes.
 
 === Important Considerations
 
-ifeval::["{page-site-edition}" == "qube"]
 ==== Before choosing {productName}, carefully weigh these limitations:
 
-. Project Nature: Is your project built on Jakarta EE or Spring Boot standards?
+. Project Nature: Is your project built on Jakarta EE, Spring Boot, or Quarkus standards?
 . Customization Needs: How much control do you require over the runtime environment?
 . Integrations: What external services does your application rely on, and how easily can they be integrated with {productName}?
 . Budget: Does the {productName} pricing align with your project's financial constraints?
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-==== Before choosing {productName}, carefully weigh these limitations:
-
-. Project Nature: Is your project built strictly on Jakarta EE standards?
-. Customization Needs: How much control do you require over the runtime environment?
-. Integrations: What external services does your application rely on, and how easily can they be integrated with {productName}?
-. Budget: Does the {productName} pricing align with your project's financial constraints?
-endif::[]

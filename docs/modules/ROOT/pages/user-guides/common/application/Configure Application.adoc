@@ -3,7 +3,17 @@ include::partial$_attributes.adoc[]
 ifdef::page-site-edition[]
 
 
-== Configure Your Application for Deployment
+= Application Configuration
+
+{productName} supports MicroProfile Config, Spring Boot and Quarkus configuration properties, providing an intuitive dashboard for managing all aspects of your application configuration.
+
+For Jakarta EE/MicroProfile applications, configuration properties are managed through MicroProfile Config using the `microprofile-config.properties` file.
+
+For Spring Boot applications, configuration properties are managed using Spring Boot's standard `application.properties` file.
+
+For Quarkus applications, configuration properties are managed using Quarkus's standard `application.properties` file.
+
+== Accessing Application Configuration
 
 Click on the btn:[Application Actions] button to access all actions related to the application.
 
@@ -11,63 +21,168 @@ The unconfigured status means that the platform detected that a configuration is
 
 To configure your application for deployment, click Change Configuration.
 
-=== Configuration screen
+== Configuration Overview
 
 {productName} has support for configuration areas including application properties, context root, and database connections for data sources. The configuration screen will display:
 
-ifeval::["{page-site-edition}" == "qube"]
-* **Configuration Properties** for Jakarta EE/MicroProfile applications using `microprofile-config.properties` and Spring Boot applications using `application.properties`
-* **Database Configuration** values if your application contains a `persistence.xml` file (Jakarta EE/MicroProfile) or Spring Boot data source configuration
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-* **MicroProfile Configuration** values for applications using `microprofile-config.properties`
-* **Database Configuration** values if your application contains a `persistence.xml` file
-endif:[]
+* **Configuration Properties** for Jakarta EE/MicroProfile applications using `microprofile-config.properties`, Spring Boot applications using `application.properties`, and Quarkus applications using `application.properties`
+* **Database Configuration** values if your application contains a `persistence.xml` file (Jakarta EE/MicroProfile), Spring Boot data source configuration, or Quarkus data source configuration
 
 If your application connects to a datasource you’ll first provide the JDBC URL, datasource class, and the username and password used to authenticate your connection to the database server.
 
-You’ll select your runtime size in the drop down box based on the amount of resources you need to allocate for this instance. The resources count against the included CPU of your subscription.
+You’ll select your runtime size in the drop-down box based on the amount of resources you need to allocate for this instance. The resources count against the included CPU of your subscription.
 
-ifeval::["{page-site-edition}" == "qube"]
 The Runtime Type provides options for different application scenarios:
-* For Jakarta EE 8 applications, select btn:[Payara 5, JDK 11]
-* For Jakarta EE 10 applications, select btn:[Payara 6, JDK 11] 
-* For Spring Boot applications, select the appropriate Spring Boot runtime option
-endif::[]
 
-ifeval::["{page-site-edition}" == "cloud"]
-The Runtime Type provides two options for different application scenarios. For applications utilizing the Jakarta EE 8 API, the recommended choice is btn:[Payara 5, JDK 11]. On the other hand, for applications built on the Jakarta EE 10 platform, it is advisable to select btn:[Payara 6, JDK 11].
-endif:[]
+* For Jakarta EE 8 applications, select btn:[Payara 5, JDK 11]
+* For Jakarta EE 10 applications, select btn:[Payara 6, JDK 21]
+* For Spring Boot applications, select the appropriate Spring Boot runtime option
+* For Quarkus applications, select the appropriate Quarkus runtime option
+
 
 image::image13.png[image,width=480,height=149,window="_blank", link="{imagesdir}/image13.png"]
 
-ifeval::["{page-site-edition}" == "qube"]
-[[application-configuration-values]]
-==== Application Configuration Values
+
+== Configuration Properties
+
+You can add, update and remove configuration properties for your application on the configuration panel of the application dashboard.
+The specific configuration mechanism used depends on your application type:
+
+* **Jakarta EE/MicroProfile applications**: Use MicroProfile Config properties
+* **Spring Boot applications**: Use Spring Boot configuration properties
+* **Quarkus applications**: Use Quarkus configuration properties
+
+.Configuration settings
+image::how-to-guides/application/application-14-mp-config.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-14-mp-config.png"]
+
+[checklist]
+* ❶ Restrict Fields: This option allows you to mark fields as restricted for confidentiality. Values of restricted fields will be represented as * characters
+* ❷ Add Config Property: Clicking this button opens up the form to add a new configuration property for your application
+
+=== Adding Configuration Properties
+
+For Jakarta EE/MicroProfile, Spring Boot, and Quarkus applications, you can create new properties by clicking the btn:[Add Configuration Key].
 
 Configuration properties provide a way to externalize configuration parameters for your application:
 
 * **Jakarta EE/MicroProfile applications**: Use MicroProfile Config properties from `microprofile-config.properties`. You can inject them using CDI (@ConfigProperty) or retrieve them programmatically.
 * **Spring Boot applications**: Use Spring Boot configuration properties from `application.properties` or `application.yml`. These can be injected using @Value or @ConfigurationProperties.
+* **Quarkus applications**: Use application properties from `application.properties`. You can inject them using @ConfigProperty or access them programmatically.
 
-When you upload your application, {productName} looks for the appropriate configuration file (`microprofile-config.properties` for Jakarta EE/MicroProfile or `application.properties` for Spring Boot) to read existing configuration parameters.
+When you upload your application, {productName} looks for the appropriate configuration file (`microprofile-config.properties` for Jakarta EE/MicroProfile, or `application.properties` for Spring Boot and Quarkus) to read existing configuration parameters.
 Your default parameters are read and displayed here, and you can override them or add new configuration keys.
 The Add Configuration Key is useful when reading configuration values programmatically or when the values don't have a default in your configuration files.
-endif::[]
 
-ifeval::["{page-site-edition}" == "cloud"]
-[[microprofile-configuration-values]]
-==== MicroProfile Configuration Values
+.Add Configuration Key
+image::how-to-guides/application/application-19-add-config-key.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-19-add-config-key.png"]
 
-MicroProfile configuration is a preferred way to externalize the configuration parameters for your application. You can Inject them similar to a CDI or retrieve them programmatically.
+[NOTE]
+====
+Configuration properties added through the {productName} Console are made available to your application at runtime, but they will NOT modify or be written back to your application's `.properties` files.
+This ensures that your application's source configuration files remain unchanged while still allowing you to override or add configuration values through the platform interface.
+====
 
-When you upload your application, {productName} looks for the file _microprofile-config.properties_ to see if there are configuration parameters defined in the application.
-Your default parameters are read and displayed here, and you can override them or add new configuration keys.
-The Add Configuration Key is useful when reading MP configuration values programmatically or when the values don't have a default – and thus not present in _microprofile-config.properties_.
-endif:[]
+=== Automatic Sensitive Field Detection
+
+During the application upload process, {productName} performs a best-effort automatic detection and pre-restriction of configuration properties that may contain sensitive information such as API keys, passwords, tokens, and other credentials.
+
+[IMPORTANT]
+====
+This automatic detection is a best-effort process and may not identify all possible sensitive fields in your configuration. Users should review their configuration properties and manually restrict any additional sensitive fields as needed using the field restriction features described below.
+====
+
+=== Spring Boot Property Limitations
+
+For Spring Boot applications, while you can modify certain properties through the {productName} Console, any changes to the following system-managed properties will be ignored at runtime.
+{productName} hardcodes these values to ensure proper operation and log collection for the Spring application instance:
+
+[source,properties]
+----
+# Server configuration
+server.forward-headers-strategy=NATIVE
+server.port=8080
+server.servlet.context-path=[auto-determined]
+spring.application.name=[auto-determined]
+
+# Management and monitoring
+management.health.probes.enabled=true
+management.endpoint.prometheus.enabled=true
+management.endpoints.web.exposure.include=prometheus,metrics,health
+----
+
+[checklist]
+Add Config Key
+
+* ❶ Name of configuration property
+* ❷ Click to add property
+
+Clicking btn:[Add Property] creates a new text box to enter a value.
+
+.Set property value
+image::how-to-guides/application/application-20-set-prop-value.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-20-set-prop-value.png"]
+
+Click btn:[Save] to save property value.
 
 image::image14.png[image,width=480,height=108,window="_blank", link="{imagesdir}/image14.png"]
+
+=== Common Spring Boot Properties
+
+Spring Boot applications typically use properties such as:
+
+[source,properties]
+----
+# Application configuration
+server.port=8080
+spring.application.name=my-spring-app
+
+# Database configuration
+spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
+spring.datasource.username=myuser
+spring.datasource.password=mypassword
+
+# Logging configuration
+logging.level.com.example=DEBUG
+logging.pattern.console=%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+----
+
+These properties can be configured through the {productName} Console when deploying your Spring Boot application.
+
+=== Common Quarkus Properties
+
+Quarkus applications typically use properties such as:
+
+[source,properties]
+----
+# Application configuration
+quarkus.application.name=my-quarkus-app
+quarkus.http.port=8080
+
+# Database configuration
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.username=myuser
+quarkus.datasource.password=mypassword
+quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/mydb
+
+# Logging configuration
+quarkus.log.level=INFO
+quarkus.log.category."com.example".level=DEBUG
+----
+
+These properties can be configured through the {productName} Console when deploying your Quarkus application.
+
+=== Restricting Fields
+
+You can restrict configuration properties (MicroProfile Config, Spring Boot, and Quarkus properties) by clicking the Restricted Fields link on the configuration panel.
+
+Clicking that button brings up the restrict fields option as shown below.
+
+.Restrict fields option
+image::how-to-guides/application/application-15-restrict-fields.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-15-restrict-fields.png"]
+
+You can select any number of fields to set as restricted. Clicking save, the restricted fields will be rendered as follows.
+
+.Restricted config fields
+image::how-to-guides/application/application-16-restrected-fields.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-16-restrected-fields.png"]
 
 [[context-root]]
 == Context Root
@@ -104,34 +219,19 @@ Note that communications within a namespace are http only, as the traffic is lim
 [[database-configuration]]
 == Database Configuration
 
-ifeval::["{page-site-edition}" == "qube"]
 When you upload your application, {productName} detects database configuration requirements:
 
 * **Jakarta EE/MicroProfile applications**: Looks for the `persistence.xml` file. If detected, you can specify database source configuration parameters for the referenced JNDI name.
 * **Spring Boot applications**: Detects Spring Boot data source configuration properties (e.g., `spring.datasource.*` properties). You can configure database connection parameters through the application properties interface.
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-When you upload your application, {productName} looks for the _persistence.xml_ file. If detected, the necessary minimal configuration parameters for a database source for the reference JNDI name can be specified.
-endif:[]
+* **Quarkus applications**: Detects Quarkus data source configuration properties (e.g., `quarkus.datasource.*` properties). You can configure database connection parameters through the application properties interface.
 
 image::image16.png[Application Description automatically generated,width=624,height=242,window="_blank", link="{imagesdir}/image16.png"]
 
-ifeval::["{page-site-edition}" == "qube"]
 === Alternative Database Configuration Methods
 
 ==== Jakarta EE/MicroProfile: Databases without JPA
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you can make use of the @DataSourceDefinition:
-endif::[]
-
-ifeval::["{page-site-edition}" == "cloud"]
-=== Databases without JPA
-
-If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you can
-
-make use of the @DataSourceDefinition:
-endif:[]
 
 [source,java]
 ----
@@ -164,7 +264,6 @@ combined with `MPCONFIG` MicroProfile Config variables. These variables can be c
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in {productName} so the system can detect them as described above. Click 'Add Configuration Key' and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy.
 
-ifeval::["{page-site-edition}" == "qube"]
 ==== Spring Boot: Database Configuration
 
 For Spring Boot applications, database configuration is typically done through standard Spring Boot properties:
@@ -185,7 +284,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ----
 
 These properties can be configured through the {productName} application properties interface, allowing you to set database connection parameters without modifying your application code. Make sure the appropriate database driver dependency is included in your Spring Boot application.
-endif:[]
+
 
 image::image17.png[image,width=480,height=108,window="_blank", link="{imagesdir}/image17.png"]
 
@@ -193,7 +292,7 @@ image::image17.png[image,width=480,height=108,window="_blank", link="{imagesdir}
 === *Allowing Access to your Database from {productName}*
 
 If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace.
-If your database access is restricted by IP address, enable access to following IP adresses based on the region the namespace is located in:
+If your database access is restricted by IP address, enable access to the following IP addresses based on the region the namespace is located in:
 
 |===
 | Region | IP Address(es)

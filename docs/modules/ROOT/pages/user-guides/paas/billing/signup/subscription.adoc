@@ -15,7 +15,7 @@ Each plan offers a specific amount of xref:user-guides/paas/billing/signup/overv
 
 === Trial Plan
 
-If you are new, you can start with the xref:getting-started/paas/Signup {productName}.adoc[{productName} Trial].
+If you are new, you can start with the xref:getting-started/paas/Signup Payara Cloud.adoc[{productName} Trial].
 
 The trial plan limits usage to a maximum of 4 vCPU cores.
 
