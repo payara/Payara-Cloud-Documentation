@@ -6,19 +6,13 @@ ifdef::page-site-edition[]
 
 = Data Sources
 
-ifeval::["{page-site-edition}" == "qube"]
 Apps deployed to {productName}, being Jakarta EE (Java EE) compatible, can connect to any database using the Jakarta EE https://docs.oracle.com/middleware/12211/wls/JDBCP/ds_annotation.htm#JDBCP1043[datasource] mechanism.
 
 For Jakarta EE/MicroProfile applications, {productName} looks for a persistence.xml file that uses the Jakarta EE https://nofluffjuststuff.com/blog/arun_gupta/2014/07/defaults_in_java_ee_7_tech_tip_37_#:~:text=nobeans%2Dxml.-,Default%20data%20source,-%3A%20A%C2%A0Java%20EE[default datasource] `java:comp/DefaultDataSource`.
 
 Spring Boot applications can connect to databases using Spring's standard datasource configuration mechanisms.
-endif::[]
 
-ifeval::["{page-site-edition}" == "cloud"]
-Apps deployed to {productName}, being Jakarta EE (Java EE) compatible, can connect to any database using the Jakarta EE https://docs.oracle.com/middleware/12211/wls/JDBCP/ds_annotation.htm#JDBCP1043[datasource] mechanism.
-
-{productName} looks for a persistence.xml file that uses the Jakarta EE https://nofluffjuststuff.com/blog/arun_gupta/2014/07/defaults_in_java_ee_7_tech_tip_37_#:~:text=nobeans%2Dxml.-,Default%20data%20source,-%3A%20A%C2%A0Java%20EE[default datasource] `java:comp/DefaultDataSource`.
-endif::[]
+Quarkus applications can connect to databases using Quarkus's standard datasource configuration mechanisms.
 
 If detected, it makes the necessary minimal configuration parameters for the default datasource available in the {productName} Console.
 
@@ -113,11 +107,11 @@ Similar to the annotation, you can externalize connection properties through the
 
 [NOTE]
 ifeval::["{page-site-edition}" == "qube"]
-You must define the MicroProfile xref:user-guides/common/application/microprofile-config.adoc#_adding_configuration_properties[configuration keys] passed to MPCONFIG manually in {productName}. You can then set values for those keys to be passed to the datasource definition parameters.
+You must define the MicroProfile xref:user-guides/common/application/Configure Application.adoc#_adding_configuration_properties[configuration keys] passed to MPCONFIG manually in {productName}. You can then set values for those keys to be passed to the datasource definition parameters.
 endif::[]
 
 ifeval::["{page-site-edition}" == "cloud"]
-You must define the MicroProfile xref:user-guides/common/application/microprofile-config.adoc#_adding_configuration_properties[configuration keys] passed to MPCONFIG manually in {productName}. You can then set values for those keys to be passed to the datasource definition parameters.
+You must define the MicroProfile xref:user-guides/common/application/Configure Application.adoc#_adding_configuration_properties[configuration keys] passed to MPCONFIG manually in {productName}. You can then set values for those keys to be passed to the datasource definition parameters.
 endif::[]
 
 ifeval::["{page-site-edition}" == "qube"]
@@ -170,4 +164,55 @@ spring.datasource.secondary.password=secondary_password
 ----
 
 These properties can be configured through the {productName} Console when deploying your Spring Boot application.
+
+== Quarkus Database Configuration
+
+For Quarkus applications deployed to {productName}, database connections are configured using standard Quarkus properties in your `application.properties` file.
+
+=== Basic Configuration
+
+[source,properties]
+----
+# Database connection properties
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.username=myuser
+quarkus.datasource.password=mypassword
+quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/mydb
+
+# Connection pool settings
+quarkus.datasource.jdbc.max-size=10
+quarkus.datasource.jdbc.min-size=5
+----
+
+=== Using Environment Variables
+
+You can externalize database configuration using environment variables:
+
+[source,properties]
+----
+quarkus.datasource.jdbc.url=${DATABASE_URL:jdbc:h2:mem:testdb}
+quarkus.datasource.username=${DATABASE_USERNAME:sa}
+quarkus.datasource.password=${DATABASE_PASSWORD:}
+----
+
+=== Multiple Datasources
+
+For applications requiring multiple database connections:
+
+[source,properties]
+----
+# Default datasource
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/primary_db
+quarkus.datasource.username=primary_user
+quarkus.datasource.password=primary_password
+
+# Named datasource
+quarkus.datasource.secondary.db-kind=mysql
+quarkus.datasource.secondary.jdbc.url=jdbc:mysql://localhost:3306/secondary_db
+quarkus.datasource.secondary.username=secondary_user
+quarkus.datasource.secondary.password=secondary_password
+----
+
+These properties can be configured through the {productName} Console when deploying your Quarkus application.
 endif::[]

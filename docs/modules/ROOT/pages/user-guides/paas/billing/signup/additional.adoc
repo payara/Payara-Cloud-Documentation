@@ -2,6 +2,7 @@ include::partial$_attributes.adoc[]
 
 ifdef::page-site-edition[]
 
+[#_initiating_an_additional_subscription]
 =  Initiating an Additional Subscription
 
 All users of {productName} have the ability to initiate additional subscriptions, provided they have access to the necessary payment information.
@@ -31,6 +32,7 @@ Only the payment details of subscriptions where you are a Billing Manager will b
 .Payment Detail Selection screen
 image::how-to-guides/application/billing/additional-1.png[window="_blank", link="{imagesdir}/how-to-guides/application/billing/additional-1.png"]
 
+[#_signing_up_with_existing_payment_details]
 == Signing Up with Existing Payment Details
 
 Selecting a plan is the first step, similar to the regular signup process.

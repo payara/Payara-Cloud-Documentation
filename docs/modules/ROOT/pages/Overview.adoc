@@ -5,27 +5,60 @@ ifdef::page-site-edition[]
 
 = {productName} Documentation
 
+== What is Payara Qube?
+
+Payara Qube is an enterprise-grade platform for deploying Jakarta EE, Spring Boot, and Quarkus applications.
+It simplifies deployment by automating infrastructure provisioning and removing the need to manually manage application servers, containers, and Kubernetes clusters.
+Instead of dealing with low-level components, the Payara Qube Console lets you configure your application and its runtime through a simple, guided UI and CLI for automated environments.
+
+== Consumption Models
+
+Payara Qube is available in two consumption models:
 
 ifeval::["{page-site-edition}" == "cloud"]
-{productName} is a fully hosted platform for automatically deploying Jakarta EE (formerly Java EE) and MicroProfile applications.
-It delivers the Payara Qube experience as a managed service, so your team consumes the platform without operating the underlying infrastructure.
-It simplifies cloud deployment by automating infrastructure provisioning and removing the need to manually manage application servers, containers, and Kubernetes clusters.
-Instead of dealing with low-level components like Kubernetes and cloud monitoring tools, the {productName} Console lets you configure your application and its runtime through a simple, guided UI.
+* **Payara Qube (Managed)**: A fully managed service where Payara hosts and operates the platform infrastructure. Your team can focus entirely on application development without operating the underlying infrastructure.
+* **Payara Qube**: A self-hosted platform that you install and run on your own Kubernetes infrastructure, giving you complete control over your environment, data, and security.
+
+This documentation covers **Payara Qube (Managed)**, the fully managed service.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+* **Payara Qube**: A self-hosted platform that you install and run on your own Kubernetes infrastructure, giving you complete control over your environment, data, and security. Ideal for organizations with strict compliance requirements, data residency needs, or existing infrastructure investments.
+* **Payara Qube (Managed)**: A fully managed service where Payara hosts and operates the platform infrastructure.
+
+This documentation covers **Payara Qube**, the self-hosted platform.
+endif::[]
+
 If you're new to {productName}, start with the *Getting Started* section.
 
-== Structure
+== Architecture
 
+{productName} is built on a cloud-native architecture that runs on Kubernetes infrastructure.
+ifeval::["{page-site-edition}" == "cloud"]
 By design, {productName} handles background tasks you don't need to worry about.
+endif::[]
+ifeval::["{page-site-edition}" == "qube"]
+The platform runs entirely within your own Kubernetes clusters, making it ideal for organizations with strict compliance requirements, data residency needs, or existing infrastructure investments.
+endif::[]
+
 Behind the scenes, a Payara Micro instance is set up to run your application.
-Cloud integrations are automatic, including SSL/TLS certificates, routing, logging, and monitoring.
-Because applications run on Payara Micro, {productName} supports Jakarta EE Web Profile applications.
+Integrations are automatic, including SSL/TLS certificates, routing, logging, and monitoring.
 The {productName} environment centers on two concepts: namespaces and applications.
 
 A namespace groups applications under a single domain, each with its own path prefix.
-Manage namespaces and applications in the {productName} Console.
+Manage namespaces and applications in the {productName} Console through both a graphical user interface and comprehensive APIs for automation.
+
+== Supported Application Types
+
+{productName} supports three major application frameworks:
+
+* **Jakarta EE/MicroProfile applications**: Deployed as WAR files, supporting Jakarta EE 8 (Payara 5) and Jakarta EE 10 (Payara 6)
+* **Spring Boot applications**: Deployed as JAR files with full Spring Boot configuration support
+* **Quarkus applications**: Deployed as ZIP files with native Quarkus configuration support
 
 == Features
 
+ifeval::["{page-site-edition}" == "cloud"]
 *Pay as You Go subscription features:*
 
 * No upfront fee
@@ -55,30 +88,13 @@ Manage namespaces and applications in the {productName} Console.
 endif::[]
 
 ifeval::["{page-site-edition}" == "qube"]
-Payara Qube is a self-hosted application platform that brings the power of Payara's enterprise Java deployment runtime to your own infrastructure.
-It provides enterprise-grade application deployment capabilities while giving you complete control over your environment, data, and security.
-Unlike managed cloud solutions, Payara Qube runs entirely within your own Kubernetes clusters, making it ideal for organizations with strict compliance requirements, data residency needs, or existing infrastructure investments.
-If you're new to Payara Qube, we recommend starting with the *Getting Started* section to understand installation and initial configuration.
-
-== Architecture
-
-Payara Qube is built on a cloud-native architecture that runs on your Kubernetes infrastructure.
-The platform consists of a control plane for management and orchestration, plus runtime environments where your Jakarta EE applications execute.
-
-Your applications run on Payara Micro instances within containerized environments, with full integration for monitoring, logging, and scaling capabilities.
-Unlike cloud PaaS solutions, you maintain complete control over the underlying infrastructure, networking, and security policies.
-The Payara Qube environment is centered around namespaces and applications, similar to cloud platforms, but with additional controls for resource management, security policies, and infrastructure configuration.
-You manage your environment through both a graphical user interface and comprehensive APIs for automation and integration with your existing DevOps workflows.
-
-== Features
-
 * Complete infrastructure control
-* Jakarta EE 10/Spring/Quarkus compatibility
-* Built-in scalability
+* Jakarta EE, Spring Boot, and Quarkus compatibility
+* Built-in scalability and horizontal scaling
 * Built-in monitoring and logging
 * Custom domain support
 * SSL/TLS certificate management
-
+* Self-hosted on your own Kubernetes infrastructure
 endif::[]
 
 endif::[]
