@@ -5,7 +5,7 @@ Usage: pcl upload [-ehlqV] [--deploy] [-a=<applicationName>]
                   [--endpoint=<baseUri>] [-n=<namespaceName>]
                   [-o=<outputFormat>] [-s=<subscriptionName>] [-t=<seconds>]
                   <file>
-Upload an application binary (.war file) to Payara Cloud.
+Upload an application binary (.war file) to Payara Qube (Managed).
 This command can either provide a new binary for an existing application or
 upload a new application into a namespace.
       <file>                 Application archive file (.war) to be uploaded
@@ -28,7 +28,7 @@ upload a new application into a namespace.
                                properly later.
       --endpoint=<baseUri>   Management endpoint URL. Defaults to 
                                +++https:+++//manage.payara.cloud. Use your Payara 
-                               Qube instance endpoint if applicable. Environment 
+                               Qube environment endpoint if applicable. Environment 
                                variable: PCL+++_+++ENDPOINT
   -h, --help                 Show this help message and exit.
   -l, --logs                 Shows application deployment logs in real-time
@@ -48,7 +48,7 @@ upload a new application into a namespace.
   -t, --timeout=<seconds>    Sets how long to wait for deployment completion on
                                the client side.
                              This timeout doesn't affect the actual deployment
-                               process in Payara Cloud, so applications might
+                               process in Payara Qube (Managed), so applications might
                                still start up even after a timeout occurs.
   -V, --version              Print version information and exit.
 

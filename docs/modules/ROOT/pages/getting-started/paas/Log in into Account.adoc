@@ -1,14 +1,20 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 == Log into Your Account
 
-In the scenario where you create an account but do not complete the subscription process, you can still log in as an existing subscriber. However, upon logging in, you will encounter a "No Subscriptions Available" screen until you provide your payment details and finalize the subscription setup.
+In the scenario where you create an account but do not complete the subscription process, you can still log in as an existing subscriber. 
+However, upon logging in, you will encounter a "No Subscriptions Available" screen until you provide your payment details and finalize the subscription setup.
 
 image::No_subscriptions.png[Graphical user interface, no active subscriptions]
 
-After completing the sign up process entirely, you can log in at https://payara.cloud.
+After completing the sign-up process entirely, you can log in at https://payara.cloud.
 
 image::image5.png[Graphical user interface, text Description automatically generated,width=672,height=361, link="{imagesdir}/image5.png", window="_blank"]
 
-When you log into your account you are taken directly to the Namespaces screen. A starter namespace is provided for you the first time you log into Payara Cloud. You can use the starter namespace to test the functionality of Payara Cloud, or you can delete it and create your own namespace.
+When you log into your account, you are taken directly to the Namespaces screen. A starter namespace is provided for you the first time you log into {productName}.
+You can use the starter namespace to test the functionality of {productName}, or you can delete it and create your own namespace.
 
 Attempting to click on the URL at this time will display an error message. You must first upload an application and give the DNS time to propagate before you can access the application at the URL.
 

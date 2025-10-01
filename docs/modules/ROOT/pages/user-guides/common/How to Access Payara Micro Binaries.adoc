@@ -1,22 +1,26 @@
-s= How to Access Payara Micro Enterprise Binaries for Local Development
+include::partial$_attributes.adoc[]
 
-Payara Cloud customers with a Premium subscription have access to Payara Micro Enterprise binaries to test their applications locally on the same environment they will use when they deploy to the cloud.
+ifdef::page-site-edition[]
 
-As part of the Payara Cloud Premium subscription, you are entitled to: 
+= How to Access Payara Micro Enterprise Binaries for Local Development
+
+{productName} customers with a Premium subscription have access to Payara Micro Enterprise binaries to test their applications locally on the same environment they will use when they deploy on the platform.
+
+As part of the {productName} Premium subscription, you are entitled to: 
 
 * Full access to the Payara Customer support portal for raising support tickets for 2 users 
 * A single, shared Nexus repository account for your organisation 
 
-__Sonatype Nexus__ is a repository manager which we use to provide our Enterprise builds and private builds for Payara Micro. It also contains the binaries for our connectors (Cloud, Testing, Security, etc …), Docker Images, and IDE plugins which are tested with our Enterprise Edition software. The repository can also be used to store large files for your support tickets. (Note: Do not confuse _Cloud Connectors_ project with _Payara Cloud_ SaaS)
+__Sonatype Nexus__ is a repository manager which we use to provide our Enterprise builds and private builds for Payara Micro. It also contains the binaries for our connectors (Cloud, Testing, Security, etc …), Docker Images, and IDE plugins which are tested with our Enterprise Edition software. The repository can also be used to store large files for your support tickets. (Note: Do not confuse the Cloud Connectors project with the {productName} managed service.)
 
-Accounts will be created for you on these two key platforms shortly after subscribing to Payara Cloud Premium. 
+Accounts will be created for you on these two key platforms shortly after subscribing to {productName} Premium. 
 
 [[verify-your-customer-support-portal-access]]
 == Verify Your Customer Support Portal Access
 
 You should have received an email with a link to create a password for your support portal account. Please click the link and set a password to be able to view your tickets on the web. 
 
-If you would like to add/swap named contacts for your company, you may request to do so either through a support ticket or by emailing mailto:support@payara.fish[+++support@payara.fish+++. ]The maximum number of Zendesk users for Payara Cloud support is 2. 
+If you would like to add/swap named contacts for your company, you may request to do so either through a support ticket or by emailing mailto:support@payara.fish[+++support@payara.fish+++. ]The maximum number of Zendesk users for {productName} support is 2. 
 
 *Change Your Nexus Password*
 
@@ -31,7 +35,7 @@ If there is something wrong with access to either of these, please s
 
 +++support@payara.fish+++ which will automatically create a ticket in our system and allow us to make sure you have everything you need. 
 
-Please refer to the Payara Cloud Premium Customer Support Guide for details about how to raise a ticket for support.
+Please refer to the {productName} Premium Customer Support Guide for details about how to raise a ticket for support.
 
 [[download-payara-micro-enterprise]]
 == Download Payara Micro Enterprise

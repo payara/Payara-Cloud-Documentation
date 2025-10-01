@@ -1,12 +1,16 @@
-= Payara Cloud Pricing and Subscriptions
+include::partial$_attributes.adoc[]
 
-Payara Cloud uses subscriptions as the primary billing unit.
+ifdef::page-site-edition[]
+
+= {productName} Pricing and Subscriptions
+
+{productName} uses subscriptions as the primary billing unit.
 All application usage across your various namespaces gets consolidated into a single invoice, simplifying the billing process.
 A single Billing Manager can oversee multiple subscriptions, which can be associated with different companies and use various payment methods.
 
 == Subscription Tiers and vCPU Limits
 
-Payara Cloud billing is based on the total vCPU (virtual CPU) resources consumed by your applications over time, measured in vCPU-minutes.
+{productName} billing is based on the total vCPU (virtual CPU) resources consumed by your applications over time, measured in vCPU-minutes.
 Each subscription tier has a maximum limit or a prepaid amount of vCPU resources you can use across *all* your deployed applications within that subscription.
 
 [cols="25%,25%,25%,25%,25%",options="header"]
@@ -44,7 +48,7 @@ such as running two 2-vCPU instances simultaneously, before committing to a paid
 
 === Understanding Your vCPU Budget
 
-The basic billing unit in Payara Cloud is vCPU-minutes, calculated as:
+The basic billing unit in {productName} is vCPU-minutes, calculated as:
 
 * 1 vCPU running for 1 minute = 1 vCPU-minute
 * For a 30-day billing period, the calculation is:
@@ -124,11 +128,12 @@ To manage costs and stay within your tier's limits or prepaid amounts:
 For new users, the best way to begin is with our 15-day free trial. A detailed guide to get you started is available here: xref:getting-started/paas/Signup Payara Cloud.adoc[].
 
 === Existing Users
-If you're already using Payara Cloud, you can easily create additional subscriptions by either link:additional.adoc[reusing existing invoicing data] or link:additional.adoc[providing new invoicing data].
+If you're already using {productName}, you can easily create additional subscriptions by either xref:user-guides/paas/billing/signup/additional.adoc#_signing_up_with_existing_payment_details[reusing existing invoicing data]
+or xref:user-guides/paas/billing/signup/additional.adoc#_initiating_an_additional_subscription[providing new invoicing data].
 
 == Invoicing
 
-Payara Cloud issues invoices based on 30-day cycles, which include:
+{productName} issues invoices based on 30-day cycles, which include:
 
 . *Fixed Monthly Fee (Standard & Premium):* Charged in advance for the upcoming billing period
 . *Variable Fee (All Tiers):* Covers any usage exceeding your plan's prepaid volume in the previous billing period
@@ -139,4 +144,4 @@ A subscription can be cancelled at any time by following the procedure listed he
 
 == Payment Options
 
-Payara Cloud accepts both credit and debit card payments processed securely through Stripe.
+{productName} accepts both credit and debit card payments processed securely through Stripe.
