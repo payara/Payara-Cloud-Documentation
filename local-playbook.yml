@@ -13,7 +13,7 @@ asciidoc:
         page-site-edition: 'qube'  # Set this to test qube locally
 ui:
     bundle:
-        url: https://github.com/payara/antora-ui-default/releases/download/v1.1/ui-bundle.zip
+        url: https://github.com/payara/antora-ui-default/releases/download/v2.2/ui-bundle.zip
         snapshot: true
 runtime:
     fetch: true
