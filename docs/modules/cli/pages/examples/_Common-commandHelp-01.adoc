@@ -1,7 +1,7 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl upload --help*
-Usage: pcl upload [-ehlqV] [--deploy] [-a=<applicationName>]
+*qube upload --help*
+Usage: qube upload [-ehlqV] [--deploy] [-a=<applicationName>]
                   [--endpoint=<baseUri>] [-n=<namespaceName>]
                   [-o=<outputFormat>] [-s=<subscriptionName>] [-t=<seconds>]
                   <file>
@@ -28,7 +28,7 @@ upload a new application into a namespace.
                                properly later.
       --endpoint=<baseUri>   Management endpoint URL. Defaults to 
                                +++https:+++//manage.payara.cloud. Use your Payara 
-                               Qube environment endpoint if applicable. Environment 
+                               Qube environment endpoint if applicable. Environment
                                variable: PCL+++_+++ENDPOINT
   -h, --help                 Show this help message and exit.
   -l, --logs                 Shows application deployment logs in real-time

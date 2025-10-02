@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ deploy --fail-early*
+*qube -n _$namespace_ -a _$appName_ deploy --fail-early*
 _[UPDATE] State of deployment process is DEPLOYING_
 _[WARN] Exception during lifecycle processing_
 _[WARN] org.glassfish.deployment.common.DeploymentException: CDI deployment failure:WELD-001408: Unsatisfied dependencies for type String with qualifiers @Default_

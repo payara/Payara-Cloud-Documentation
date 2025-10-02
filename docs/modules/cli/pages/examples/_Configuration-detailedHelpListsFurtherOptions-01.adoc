@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ configure contextRoot --help*
+*qube -n _$namespace_ -a _$appName_ configure contextRoot --help*
 Usage: configure contextRoot [-ehlV] [--deploy] [-t=<seconds>]
                              [--add=<key>=<value>]...
                              [--reset=<removedParameters>]... [<key>=<value>...]

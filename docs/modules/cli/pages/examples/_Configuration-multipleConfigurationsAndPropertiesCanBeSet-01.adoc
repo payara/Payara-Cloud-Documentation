@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ configure contextRoot contextRoot=/cr exposedPaths=/ui/+++*+++ microprofileConfig quiz.lockout=12*
+*qube -n _$namespace_ -a _$appName_ configure contextRoot contextRoot=/cr exposedPaths=/ui/+++*+++ microprofileConfig quiz.lockout=12*
 _[SUCCESS] Revision reconfigured_
 
 {
@@ -8,11 +8,11 @@ _[SUCCESS] Revision reconfigured_
         "microprofileConfig": {
             "pass-deploy": {
                 "values": {
-                    "maths.duration": "20",
                     "mp.jwt.verify.issuer": "fish.payara.demo",
+                    "quiz.lockout": "12",
                     "mp.jwt.verify.publickey.location": "publickey.pem",
-                    "quiz.duration": "20",
-                    "quiz.lockout": "12"
+                    "maths.duration": "20",
+                    "quiz.duration": "20"
                 },
                 "complete": true,
                 "keys": [
@@ -52,9 +52,9 @@ _[SUCCESS] Revision reconfigured_
         "appRuntime": {
             "pass-deploy.war": {
                 "values": {
-                    "rollOverTime": "MODERATE",
                     "runtimeSize": "QUARTER+++_+++CORE",
                     "runtimeType": "PAYARA5+++_+++JDK11",
+                    "rollOverTime": "MODERATE",
                     "scalabilityType": "ROLLING+++_+++UPGRADE"
                 },
                 "complete": true,
@@ -100,9 +100,9 @@ _[SUCCESS] Revision reconfigured_
         "contextRoot": {
             "pass-deploy.war": {
                 "values": {
+                    "exposedPaths": "/ui/+++*+++",
                     "appName": "game-demo",
-                    "contextRoot": "/cr",
-                    "exposedPaths": "/ui/+++*+++"
+                    "contextRoot": "/cr"
                 },
                 "complete": true,
                 "keys": [

@@ -2,7 +2,7 @@
 :man-prefix: #
 :man-suffix: 1
 :imagesdir: images/
-:release-version: 1.2.1
+:release-version: null object or invalid expression
 :release-repo: https://nexus.payara.fish/repository/payara-artifacts
 
 == Introduction
@@ -124,14 +124,14 @@ In order to be able to perform `pcl` commands in non-interactive environments su
 _[INFO] In order to log in follow following link: https://login.payara.cloud/activate_
 _[INFO] Your confirmation code is CVJF-XKGH_
 _[SUCCESS] Token for environment-based login:_
-PCL_AUTH_TOKEN=eyJyZWZyZXNoX3Rva2VuIjoiWktMTFVQaUVIeEZ3c2JfOGNXSzFILUdnaUR1OVlXZUdDR3h3TUVFUlVrM3VLIn0=
+QUBE_AUTH_TOKEN=eyJyZWZyZXNoX3Rva2VuIjoiWktMTFVQaUVIeEZ3c2JfOGNXSzFILUdnaUR1OVlXZUdDR3h3TUVFUlVrM3VLIn0=
 ----
 
 The output of the command is the environment to use in order to establish the identity in a script.
 
 In Github Actions the token can be used in following way:
 
-Set secret `PCL_AUTH_TOKEN` for the repository to `eyJyZWZyZXNoX3Rva2VuIjoiWktMTFVQaUVIeEZ3c2JfOGNXSzFILUdnaUR1OVlXZUdDR3h3TUVFUlVrM3VLIn0=`.
+Set secret `QUBE_AUTH_TOKEN` for the repository to `eyJyZWZyZXNoX3Rva2VuIjoiWktMTFVQaUVIeEZ3c2JfOGNXSzFILUdnaUR1OVlXZUdDR3h3TUVFUlVrM3VLIn0=`.
 
 In the workflow file refer to the secret like this:
 
@@ -139,7 +139,7 @@ In the workflow file refer to the secret like this:
 ----
     - name: Deploy new version
       env:
-        PCL_AUTH_TOKEN: ${{ secrets.PCL_AUTH_TOKEN }}
+        QUBE_AUTH_TOKEN: ${{ secrets.QUBE_AUTH_TOKEN }}
       run: pcl -n project-head -a main-app upload target/app.war --deploy
 ----
 
@@ -163,27 +163,27 @@ pcl login --endpoint http://custom-api.mycompany.cloud
 ----
 
 [start=2]
-. By using the `PCL_ENDPOINT` Environment Variable.
+. By using the `QUBE_ENDPOINT` Environment Variable.
 +
-Set the `PCL_ENDPOINT` environment variable to override the default for all CLI commands:
+Set the `QUBE_ENDPOINT` environment variable to override the default for all CLI commands:
 
 [source,bash]
 ----
-export PCL_ENDPOINT=http://custom-api.mycompany.cloud
+export QUBE_ENDPOINT=http://custom-api.mycompany.cloud
 pcl login
 ----
 
-NOTE: The CLI uses the value of `PCL_ENDPOINT` unless an `--endpoint` option is explicitly passed, which takes precedence.
+NOTE: The CLI uses the value of `QUBE_ENDPOINT` unless an `--endpoint` option is explicitly passed, which takes precedence.
 
 == Common options
 
 === Environment Variables
 The CLI supports the following environment variables to be set, reducing repetitive typing of common options:
 
-`PCL_NAMESPACE`: Default namespace name. Used when `-n` or `--namespace` is not specified.
+`QUBE_NAMESPACE`: Default namespace name. Used when `-n` or `--namespace` is not specified.
 Required for most commands except `login`, `list-namespaces`, and `create-namespace`.
 
-`PCL_SUBSCRIPTION`: Default subscription name. Used when `-s` or `--subscription` is not specified.
+`QUBE_SUBSCRIPTION`: Default subscription name. Used when `-s` or `--subscription` is not specified.
 Only needed when your account has access to multiple subscriptions.
 
 Command line options, when provided, will override these environment variables for that specific command.

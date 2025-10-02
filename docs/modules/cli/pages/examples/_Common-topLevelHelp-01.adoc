@@ -1,14 +1,14 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl --help*
-Payara Qube (Managed) Command Line.
-Usage: pcl [-hqV] [-a=<applicationName>] [--endpoint=<baseUri>]
+*qube --help*
+Payara Qube (Managed) Line.
+Usage: qube [-hqV] [-a=<applicationName>] [--endpoint=<baseUri>]
            [-n=<namespaceName>] [-o=<outputFormat>] [-s=<subscriptionName>]
            [COMMAND]
 The Payara Qube (Managed) command-line interface lets you manage namespaces and applications from the terminal.
-In order to sign in, use the command +++`+++pcl login+++`+++ interactively. This will allow
+In order to sign in, use the command +++`+++qube login+++`+++ interactively. This will allow
 the client to obtain credentials that are either stored in home directory or
-can be provided via environment variable +++`+++PCL+++_+++AUTH+++_+++TOKEN+++`+++. See +++`+++pcl login
+can be provided via environment variable +++`+++PCL+++_+++AUTH+++_+++TOKEN+++`+++. See +++`+++qube login
 --help+++`+++ for details.
   -a, --application=<applicationName>
                              Name of application to manage.
@@ -16,7 +16,7 @@ can be provided via environment variable +++`+++PCL+++_+++AUTH+++_+++TOKEN+++`++
                                as well as +++`+++list-applications+++`+++ and +++`+++upload+++`+++.
       --endpoint=<baseUri>   Management endpoint URL. Defaults to 
                                +++https:+++//manage.payara.cloud. Use your Payara 
-                               Qube environment endpoint if applicable. Environment 
+                               Qube environment endpoint if applicable. Environment
                                variable: PCL+++_+++ENDPOINT
   -h, --help                 Show this help message and exit.
   -n, --namespace=<namespaceName>
