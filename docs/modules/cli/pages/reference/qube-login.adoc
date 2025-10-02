@@ -12,7 +12,7 @@
 // tag::picocli-generated-man-section-name[]
 == Name
 
-qube-login - Log in to Payara Qube instance.
+pcl-login - Log in to a Payara Qube (Managed) environment.
 
 // end::picocli-generated-man-section-name[]
 
@@ -27,8 +27,8 @@ qube-login - Log in to Payara Qube instance.
 // tag::picocli-generated-man-section-description[]
 == Description
 
-Log in to Payara Qube instance.
-Browser-based flow will start in order to log in to Payara Qube management endpoint, and token will be stored in home directory.
+Log in to a Payara Qube (Managed) environment.
+Browser-based flow will start in order to log in to the Payara Qube (Managed) management endpoint, and the token will be stored in the home directory.
 
 *Non-interactive use:* In order to use in non-interactive way such as in CI, use parameter `--print-token`. After login procedure on interactive terminal the command will print out environment to be set in the CI in order that represents same login credential.
 
@@ -43,7 +43,7 @@ Browser-based flow will start in order to log in to Payara Qube management endpo
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
 
 *--endpoint*=_<baseUri>_::
-  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable QUBE_ENDPOINT
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to the management endpoint for your Payara Qube environment if you use a custom domain. Also settable with environment variable QUBE_ENDPOINT
 
 *-h*, *--help*::
   Show this help message and exit.

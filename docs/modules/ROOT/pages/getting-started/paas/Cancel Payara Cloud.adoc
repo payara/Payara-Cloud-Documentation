@@ -1,8 +1,13 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+
 = Cancelling a Subscription
 
-Once the 15-day free trial period concludes, if you decide to discontinue using Payara Cloud, it's necessary to initiate a cancellation.
+Once the 15-day free trial period concludes, if you decide to discontinue using {productName}, it's necessary to initiate a cancellation.
 
-Click on your email address located in the upper right corner of the Payara Cloud main page.
+Click on your email address located in the upper right corner of the {productName} main page.
 
 From the dropdown menu, choose btn:[Billing Management].
 

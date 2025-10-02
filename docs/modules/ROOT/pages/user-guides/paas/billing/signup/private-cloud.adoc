@@ -1,6 +1,11 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+
 = Private Cloud Subscriptions
 
-Deploy Payara Cloud applications in your own Azure infrastructure while maintaining full control over your cloud resources and costs.
+Deploy {productName} applications in your own Azure infrastructure while maintaining full control over your cloud resources and costs.
 This guide walks through Azure Private Cloud setup for deploying Jakarta EE applications across multiple regions in your Azure account.
 
 *Estimated setup time: 30 minutes*
@@ -23,15 +28,15 @@ DNS Zone:: Domain name system records for routing traffic
 Your costs will include:
 
 * Azure infrastructure costs for deployed resources
-* Payara Cloud runtime fee: $0.12 per vCPU-hour (minimum 0.25 core)
+* {productName} runtime fee: $0.12 per vCPU-hour (minimum 0.25 core)
 
 == Setup Instructions
 
-=== 1. Payara Cloud Setup
+=== 1. {productName} Setup
 
 . Create your Private Cloud Subscription:
 
-.. Visit https://billing.payara.cloud/cmr/signup[Payara Cloud Signup,window=_blank]
+.. Visit https://billing.payara.cloud/cmr/signup[{productName} Signup,window=_blank]
 +
 image::cmr-signup.png[image,width=480,height=149,window="_blank", link="{imagesdir}/cmr-signup.png"]
 
@@ -59,7 +64,7 @@ image::cmr-connection.png[Connection string,image,width=480,height=149,window="_
 
 . Access Azure Marketplace:
 // TODO: Link will be different since cloud-cmr uses standard Azure contract, which we will not use in the final version
-.. Search for https://portal.azure.com/#create/payara.cloud-cmr[Payara Cloud Customer Managed Region,window=_blank]
+.. Search for https://portal.azure.com/#create/payara.cloud-cmr[{productName} Customer Managed Region,window=_blank]
 .. Select the available plan
 +
 // TODO: This needs to be updated with final public plan screenshot
@@ -72,7 +77,7 @@ image::cmr-azureparams-1.png[Basic configuration,image,width=480,height=149,wind
 Subscription:: Azure subscription for deployment
 Resource Group:: Container for managed application
 Region:: Azure deployment location
-Connection String:: Value copied from Payara Cloud
+Connection String:: Value copied from {productName}
 Domain:: Your DNS subdomain
 Let's Encrypt Email:: SSL certificate notifications
 Application Name:: Managed Application identifier
@@ -127,7 +132,7 @@ Values: [dns_nameservers values]
 
 === 4. Final Verification
 
-. Check Payara Cloud dashboard:
+. Check {productName} dashboard:
 .. Monitor region status
 .. Wait for "Active" indication
 +
@@ -157,7 +162,7 @@ TIP: Keep your Azure infrastructure costs optimized by monitoring resource usage
 
 For technical assistance:
 
-* Check https://docs.payara.fish/cloud/docs/Overview.html[Payara Cloud documentation]
+* Check https://docs.payara.fish/cloud/docs/Overview.html[{productName} documentation]
 * Contact support through your subscription portal
 * Monitor Azure health dashboard for infrastructure status
 

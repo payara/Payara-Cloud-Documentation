@@ -1,6 +1,11 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+
 = Account Management and Current Usage
 
-You can check how many vCPU you’ve used at any time. After logging into your Payara Cloud account, click on the arrow next to your username to open the menu.
+You can check how many vCPU you’ve used at any time. After logging into your {productName} account, click on the arrow next to your username to open the menu.
 
 image:Account_management.png[image,width=624,height=202,window="_blank", link="{imagesdir}/Account_management.png"]
 
@@ -10,11 +15,11 @@ Click on btn:[Review or Edit Your Billing and Invoicing Details] button.
 
 image:image30.png[image,width=624,height=202,window="_blank", link="{imagesdir}/image30.png"]
 
-From the next screen (Payara Cloud Subscription Management powered by Stripe) you can cancel your plan, add and remove payment methods, update your billing information, and view your billing history and current usage.
+From the next screen ({productName} Subscription Management powered by Stripe) you can cancel your plan, add and remove payment methods, update your billing information, and view your billing history and current usage.
 
 
 == See Also
 
-https://www.payara.fish/products/payara-cloud/#faq[Payara Cloud Frequently Asked Questions]
+https://www.payara.fish/products/payara-cloud/#faq[{productName} Frequently Asked Questions]
 
-https://www.youtube.com/playlist?list=PLFMhxiCgmMR-V2lVMRw3B7eV3gqvJshvh[Payara Cloud Demo Videos]
+https://www.youtube.com/playlist?list=PLFMhxiCgmMR-V2lVMRw3B7eV3gqvJshvh[{productName} Demo Videos]

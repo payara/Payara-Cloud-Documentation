@@ -1,6 +1,10 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Application Revision
 
-Payara Cloud uses revisions for application version management.
+{productName} uses revisions for application version management.
 A revision represents an immutable snapshot of your uploaded application's binary at a particular point in time.
 This allows for tracking changes and potential rollbacks.
 
@@ -20,7 +24,7 @@ image::how-to-guides/application/application-7-application-revisions.png[window=
 
 
 == Reverting To Prior Versions
-Each revision maintains its unique xref:user-guides/common/application/microprofile-config.adoc[configurations], distinct from others.
+Each revision maintains its unique xref:user-guides/common/application/Configure Application.adoc[configurations], distinct from others.
 Configurations applied to one revision do not affect others, enabling you to experiment with different versions of your application under various settings.
 For instance, you might have one version of your application designed to connect to a Postgres database, while another connects to a MariaDB database.
 

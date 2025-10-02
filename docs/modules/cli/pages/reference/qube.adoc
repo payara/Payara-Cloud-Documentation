@@ -3,7 +3,7 @@
 :doctype: manpage
 :revnumber: pcl version  development-snapshot
 :manmanual: Qube Manual
-:mansource: pcl version  development-snapshot
+:mansource: qube version  development-snapshot
 :man-linkstyle: pass:[blue R < >]
 = qube(1)
 
@@ -12,7 +12,7 @@
 // tag::picocli-generated-man-section-name[]
 == Name
 
-qube - Payara Qube Command Line.
+qube - Payara Qube (Managed) Command Line.
 
 // end::picocli-generated-man-section-name[]
 
@@ -27,8 +27,8 @@ qube - Payara Qube Command Line.
 // tag::picocli-generated-man-section-description[]
 == Description
 
-Payara Qube Command Line Interface allows remote operations over Payara Qube's namespaces and application via command line.
-In order to sign in, use the command `qube login` interactively. This will allow the client to obtain credentials that are either stored in home directory or can be provided via environment variable `PCL_AUTH_TOKEN`. See `qube login --help` for details.
+The Payara Qube (Managed) command-line interface lets you manage namespaces and applications from the terminal.
+In order to sign in, use the command `qube login` interactively. This will allow the client to obtain credentials that are either stored in home directory or can be provided via environment variable `QUBE_AUTH_TOKEN`. See `qube login --help` for details.
 
 // end::picocli-generated-man-section-description[]
 
@@ -41,7 +41,7 @@ In order to sign in, use the command `qube login` interactively. This will allow
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
 
 *--endpoint*=_<baseUri>_::
-  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable QUBE_ENDPOINT
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to the management endpoint for your Payara Qube environment if you use a custom domain. Also settable with environment variable QUBE_ENDPOINT
 
 *-h*, *--help*::
   Show this help message and exit.
@@ -74,7 +74,7 @@ Only result of operations will be displayed to `stdout`, or error message to `st
 == Commands
 
 xref:qube-login.adoc[*login*]::
-  Log in to Payara Qube instance.
+  Log in to a Payara Qube (Managed) environment.
 
 xref:qube-list-subscriptions.adoc[*list-subscriptions*]::
   Get list of subscriptions available to user.
@@ -86,7 +86,7 @@ xref:qube-list-applications.adoc[*list-applications*]::
   List applications present in a namespace.
 
 xref:qube-upload.adoc[*upload*]::
-  Upload an application binary (.war file) to Payara Qube.
+  Upload an application binary (.war file) into Payara Qube (Managed).
 
 xref:qube-deploy.adoc[*deploy*]::
   Deploy an existing application.

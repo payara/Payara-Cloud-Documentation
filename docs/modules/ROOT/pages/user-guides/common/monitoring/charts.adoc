@@ -1,6 +1,10 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Metric charts
 
-Payara Cloud helps you gain insights into the performance of you application through the use of metric charts.
+{productName} helps you gain insights into the performance of you application through the use of metric charts.
 These are line charts that show log entries, HTTP requests and memory and CPU activities on the dashboard for your monitoring convenience
 
 There are two categories of metric charts - Namespace level charts and Application level charts.

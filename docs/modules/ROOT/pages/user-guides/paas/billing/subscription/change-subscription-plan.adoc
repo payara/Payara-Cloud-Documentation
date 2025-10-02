@@ -1,3 +1,7 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Change Subscription Plan
 
 To change the subscription plan, click on the "Subscription Actions" button on the top right of the subscription page and select "Change Plan".
@@ -7,7 +11,8 @@ image::how-to-guides/application/billing/change-plan.png[link="{imagesdir}/how-t
 
 == Select New Plan
 
-Select the new plan from the list of available plans. Payara Cloud offers both upgrade and downgrade options for your subscription plans. Click "Confirm Subscription Choice" to proceed.
+Select the new plan from the list of available plans. 
+{productName} offers both upgrade and downgrade options for your subscription plans. Click "Confirm Subscription Choice" to proceed.
 
 .Subscription Plan Selection
 image::how-to-guides/application/billing/change-plan-selection.png[link="{imagesdir}/how-to-guides/application/billing/change-plan-selection.png", window="_blank"]
