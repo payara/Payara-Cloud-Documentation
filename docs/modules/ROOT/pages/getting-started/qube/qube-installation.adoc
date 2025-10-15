@@ -2,279 +2,259 @@
 
 == Overview
 
-This documentation will walk you through the complete installation process for Payara Qube, from getting installation files to setting up your first organization.
-The installation uses Pulumi for infrastructure management and deploys on AWS.
+This guide walks you through the complete installation of Payara Qube on AWS.
+
+By the end of it, you will be able to:
+
+* Prepare DNS,
+* Generate the installation bundle
+* Deploy the infrastructure with Pulumi and
+* Complete the initial post-install configuration
+
+[TIP]
+====
+The wizard generates an Infrastructure-as-Code (IaC) project that uses Pulumi (an automation platform similar in concept to Terraform) to create all required AWS resources.
+You run the generated Pulumi project to install Payara Qube in your own AWS account.
+====
 
 == Prerequisites
 
-Before starting the installation, ensure you have:
+Before you start, make sure you have:
 
-* AWS CLI client configured with appropriate administrative permissions
-* Access to your Nexus credentials (provided in welcome package)
-* https://www.pulumi.com[Pulumi] installed on your machine (or the machine from which you run the commands)
-* npm and Helm (may be required depending on your system)
+* An AWS account with sufficient permissions to create Route 53 zones and infrastructure resources.
+* https://aws.amazon.com/cli/[AWS CLI] installed and configured on the machine you will use for the installation.
+* A Payara Nexus account with access to the Qube artifacts (listed in your welcome pack).
+* https://www.pulumi.com/[Pulumi] installed locally (install it in Windows or WSL if you are using Windows).
+* https://www.npmjs.com/get-npm[Node.js and npm].
+* An SMTP server and credentials so Qube can send email (for example, https://support.google.com/a/answer/176600?hl=en[Gmail with an app password]).
+* A domain to dedicate to Qube. If you cannot delegate the full domain to AWS, plan a subdomain that you can manage via Route 53.
+* https://helm.sh/docs/intro/install/[Helm] (only needed if the deployment process prompts you for it).
 
-== Getting Installation Files
+[NOTE]
+====
+DNS changes can take time to propagate.
+If you are pointing a domain or subdomain to AWS Route 53, allow extra time (up to 24 hours) before you run the Pulumi deployment.
+====
 
-Follow the following steps
+== Step 1: Prepare Your Domain
 
-1. Navigate to https://billing.payara.cloud/install-qube/wizard as instructed in your welcome package
-2. Enter your Nexus credentials when prompted
+Payara Qube requires two DNS zones: one for the control plane and one for applications.
+You can either delegate an entire domain to AWS or keep the parent domain with your current registrar and delegate only the required subdomains to AWS.
+
+=== Option 1: Delegate the Entire Domain to AWS (Recommended)
+
+. Sign in to the AWS console and open *Route 53*.
+. Choose *Hosted zones* and select *Create hosted zone*.
+. Enter your domain name (for example, `example.com`), leave *Description* empty, select *Public hosted zone*, and click *Create hosted zone*.
+. Note the four name servers listed in the *Value/Route traffic to* column (for example, `ns-1147.awsdns-15.org.`).
+. Update the name server records at your domain registrar so they match the values provided by AWS.
+
+=== Option 2: Use a Subdomain Without Delegating the Parent Domain
+
+. In Route 53, create a hosted zone for the control plane (for example, `qube.example.com`).
+. Note the AWS name servers for this hosted zone.
+. Create a second hosted zone for the applications (for example, `apps.qube.example.com`) and note its name servers.
+. Link the hosted zones:
+.. Open the control plane hosted zone.
+.. Choose *Create record*.
+.. Set *Record name* to `apps` (resulting in `apps.qube.example.com`), choose the `NS` record type, paste the four name servers from the application zone, optionally set *TTL* to 60, and click *Create records*.
+. Update DNS at your registrar so the subdomain (for example, `qube.example.com`) points to the AWS name servers for the control plane zone.
+. If your registrar requires one record per name server, create four individual NS records.
+
+=== Verify DNS Propagation
+
+Use `dig` to confirm that the NS records are visible on the public internet:
+
+[source,bash]
+----
+dig qube.example.com ns
+----
+
+You should see all four AWS name servers listed in the answer section before continuing.
+
+== Step 2: Generate the Installation Bundle
+
+Use the Payara Qube wizard to collect your installation bundle.
+
+. Navigate to https://billing.payara.cloud/install-qube/wizard (see your welcome pack for the exact URL) and authenticate with your Nexus credentials.
 +
 .Nexus Credentials Page
 image::docs:ROOT:qube/installation/qube-install-1.png[Nexus Credentials Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-1.png", window="_blank"]
 
-3. Define a name for your installation — this will prefix all AWS resources created
+. Give the installation a descriptive name.
+This value becomes your Pulumi stack name and prefixes the AWS resources that will be created.
 +
 .Installation Name Definition Page
 image::docs:ROOT:qube/installation/qube-install-2.png[Installation Name Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-2.png", window="_blank"]
 
-4. Configure DNS settings:
+. Configure the DNS values.
+Use the zones you created earlier and append the stack name where required.
 +
 .DNS Definition Page
 image::docs:ROOT:qube/installation/qube-install-3.png[DNS Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-3.png", window="_blank"]
-Configure DNS settings using the following format
 +
 [cols="1,2"]
 |===
-|Field |Example
+|Field |Example (stack name: `turn`, domain: `qube.example.com`)
 
-|**Control Plane Domain**
-|`stackName.control.example.com` +
-Example: If your stack name is "mycompany", enter `mycompany.control.example.com`
-
-|**Control Plane Zone**
-|`control.example.com` +
-This is the parent zone that must exist in your AWS account
-
-|**Application Domain**
-|`stackName.apps.example.com` +
-Example: If your stack name is "mycompany", enter `mycompany.apps.example.com`
-
-|**Application Zone**
-|`apps.example.com` +
-This is the parent zone for application deployments
-
-|**LetsEncrypt Contact Email**
-|`admin@example.com` +
-Replace with your actual email address for SSL certificate notifications
+|Control Plane Domain |`turn.qube.example.com`
+|Control Plane DNS Zone |`qube.example.com`
+|Application Domain |`turn.apps.qube.example.com`
+|Application DNS Zone |`apps.qube.example.com`
+|Let's Encrypt Contact Email |`admin@example.com`
 |===
 +
-* **Control Plane DNS Zone** must be present and modifiable in your current AWS account
-* **Application DNS Zone** should also be present for single-step installation (optional but recommended)
-+
-The DNS configuration follows a hierarchical structure where your stack name becomes a subdomain of the provided zones. This allows multiple installations to coexist within the same AWS account while maintaining proper DNS resolution.
+Ensure that the *Control Plane DNS Zone* and *Application DNS Zone* exactly match the Route 53 hosted zones you created.
 
-5. Review the SMTP Provider Settings
+. Provide SMTP settings so Qube can send email.
 +
 .SMTP Definition Page
 image::docs:ROOT:qube/installation/qube-install-4.png[SMTP Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-4.png", window="_blank"]
++
+If you are using Gmail, configure SMTP similar to the following (replace with your details):
 
-6. Review the default instance settings—avoid using instances smaller than 2-CPU as they can cause deployment timeouts
+* *SMTP From*: `youremailaddress@gmail.com`
+* *SMTP Host*: `smtp.gmail.com`
+* *SMTP Port*: 587
+* *SMTP Username*: `youremailaddress@gmail.com`
+* *SMTP Password*: Your Gmail app password
+* *Use TLS*: Yes
+
+. Review the default cluster settings.
+Leave the defaults unless you have a specific requirement.
+Avoid reducing the instance size below the defaults, as that can cause deployment timeouts.
 +
 .Default Instance Definition Page
-
 image::docs:ROOT:qube/installation/qube-install-5.png[Default Instance Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-5.png", window="_blank"]
 
-.Prerequisites to install additional regions in an existing Qube deployment:
-
-* Ensure there is existing Qube deployment in the same AWS account
-* Use same Stack name as existing deployment
-* URL: $existing-url/install-qube/region
-
-image::docs:ROOT:qube/installation/qube-install-7.png[Install additional region,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-7.png", window="_blank"]
-
-1. Set your Region ID (typically matches stack ID) and Region Description
+. Choose the AWS region where you want to deploy Qube.
+If you are adding an additional region to an existing Qube deployment, reuse the same stack name.
 +
 .Installation Region Definition Page
 image::docs:ROOT:qube/installation/qube-install-6.png[Installation Region Definition Page,width=624,height=257,link="{imagesdir}/qube/installation/qube-install-6.png", window="_blank"]
 
-2. Click **Generate installation data** to download the zip file
+. Click *Generate installation data* to download the installation zip file.
 
-== Pulumi Configuration
+== Step 3: Prepare the Installation Workspace
 
-=== Choosing State Management
-
-Pulumi offers several options for storing infrastructure state:
-
-* **Pulumi Cloud** (recommended): Secure online service for team use
-* **S3 bucket**: Store state in AWS S3 or other cloud storage
-* **Local storage**: Not recommended for production use
-
-Consult the https://www.pulumi.com/docs/iac/concepts/state-and-backends/[Managing State documentation] for detailed configuration options.
-
-=== Authentication Setup
-
-==== AWS Login
-Ensure your default AWS profile or environment variables have administrative permissions for your target account.
-
-==== Pulumi Login
-Choose the appropriate command based on your state backend:
-
+. Move the downloaded zip file into an empty directory (for example, `~/qube`) and unzip it.
++
 [source,bash]
 ----
-# For Pulumi Cloud
+mkdir -p ~/qube
+mv ~/Downloads/qube-installation.zip ~/qube/
+cd ~/qube
+unzip qube-installation.zip
+----
+
+. Verify that the directory contains files similar to the following (the stack name in `Pulumi.<stack>.yaml` matches the name you entered in the wizard):
++
+[source,bash]
+----
+.npmrc  Pulumi.turn.yaml  Pulumi.yaml  index.ts  node_modules  package-lock.json  package.json  tsconfig.json
+----
+
+. Decide where Pulumi will store its state and log in accordingly:
++
+[NOTE]
+====
+Pulumi keeps a state file that tracks every resource it creates so it can calculate updates safely.
+Pulumi Cloud hosts this state for you, while the local and self-managed options store it elsewhere.
+====
++
+[source,bash]
+----
+# Pulumi Cloud (recommended)
 pulumi login
 
-# For Azure Blob storage (example)
+# Azure Blob storage (example)
 pulumi login azblob://pulumi/?storage_account=stacc
 
-# For local storage (not recommended)
+# Local filesystem (use only for short-lived evaluation)
 pulumi login --local
 ----
 
-== Installation Environment Setup
+. Inspect the extracted `.npmrc`.
+If it contains a Payara Nexus entry, copy the line into your global `~/.npmrc` so that `npm install` can download the private Qube packages without prompting for credentials.
 
-. Extract the downloaded installation files to a directory
-. Consider version controlling this directory for team collaboration
+== Step 4: Deploy with Pulumi
 
-=== Stack Initialization
-
-[source,bash]
-----
-# Initialize the stack (replace 'qb02' with your chosen name)
-pulumi stack init qb02
-
-# Synchronize configuration
-pulumi refresh -y
-----
-
-=== Optional: Change Encryption Provider
-
-If you prefer a different encryption provider, run:
-
-[source,bash]
-----
-pulumi stack change-secrets-provider
-----
-
-Refer to the https://www.pulumi.com/docs/iac/cli/commands/pulumi_stack_change-secrets-provider/[official documentation] for available providers.
-
-=== Nexus Credentials
-
-The `.npmrc` file contains base64-encoded credentials. You may want to move the second line to your home directory's `.npmrc` for system-wide access.
-
-=== Install Pulumi SDK
-
+. Install the project dependencies:
++
 [source,bash]
 ----
 pulumi install
 ----
 
-== Infrastructure Deployment
+. Initialize the Pulumi stack (replace `turn` with your stack name) and synchronise the configuration:
++
+[source,bash]
+----
+pulumi stack init turn
+pulumi refresh -y
+----
 
-Start the deployment process:
-
+. Start the deployment:
++
 [source,bash]
 ----
 pulumi up
 ----
 
-The deployment process will:
+The first run downloads containers, provisions AWS infrastructure, and can take 45 minutes or more.
+Because AWS and Kubernetes are eventually consistent, you may need to re-run `pulumi up` if the first attempt reports transient errors.
 
-. Show a preview of planned changes
-. Wait for your confirmation
-. Execute the deployment (approximately 45 minutes)
-
-NOTE: Due to the eventually consistent nature of Kubernetes and AWS, you may need to run `pulumi up` multiple times if initial attempts encounter timing issues.
-
-=== Monitoring Deployment
-
-* Green text doesn't always indicate complete success - check for errors in the output
-* Look for a return code of 0 and no errors in the diagnostics section
-* The process is complete when you see a success message without errors
-
-== DNS Configuration
-
-If both parent domains were in your AWS account, DNS configuration is automatic. Otherwise, you need to manually configure NS records.
-
-. Check the AWS Route 53 console for your hosted zone details
-. Note the nameservers for your application domain
-. Create NS records in the parent domain pointing to these nameservers
-
-The installation will not complete successfully until domains resolve publicly on the internet.
-
-== Troubleshooting Common Issues
-
-=== AWS Credentials Error
-[source]
-----
-error: unable to validate AWS credentials
-----
-
-**Solution**: Check your AWS credentials with `aws sts get-caller-identity`
-
-=== Helm Timeout Error
-[source]
-----
-error: Helm release failed to initialize completely
-----
-
-**Solution**: Run `pulumi up` again or investigate using Helm CLI
-
-=== Domain Resolution Issues
-[source]
-----
-qb02-import-realm failing/timing out
-----
-
-**Solution**: Ensure your domain resolves on the internet. Keycloak must be accessible at `users.control.plane.domain.com` with a valid TLS certificate.
-
-== Post-Installation Configuration
-
-=== Access Installation Outputs
-
-View your installation details:
+When the deployment finishes, Pulumi prints the outputs you will use to access Qube.
+You can retrieve them again at any time (including secrets) with:
 
 [source,bash]
 ----
 pulumi stack output --show-secrets
 ----
 
-This displays important information including:
-* `userManagementUrl`: Keycloak admin interface
-* `managementUrl`: Payara Qube management interface
-* `userManagementAdminUser` and `userManagementAdminPassword`: Initial admin credentials
+The command returns the Keycloak URL, Payara Qube management URL, and initial administrative credentials.
 
-=== Keycloak Administrator Setup
+== Step 5: Post-Install Tasks
 
-. Visit the `userManagementUrl` with the provided admin credentials
-. Create a permanent admin account:
-* Navigate to **Users** > **Add User**
-* Fill in the username and create the user
-* Go to **Credentials** > **Set Password** and set a secure password
-* In **Role Mapping** > **Assign role**, switch to **Filter by realm roles** and assign the admin role
+* Sign in to the Keycloak admin interface (`userManagementUrl`) with the temporary administrator credentials provided in the Pulumi outputs.
+* Create a permanent administrator:
+** Go to *Users* → *Add user*, fill in the details, and create the user.
+** Open the new user, choose *Credentials*, set a strong password, and disable the *Temporary* flag.
+** In *Role Mapping*, assign the realm admin role.
+* Optionally disable the bootstrap administrator once the permanent account is confirmed.
+* Follow the xref:docs:ROOT:user-guides/qube/qube-organisation-management.adoc[Payara Qube Organisation Management] guide to create your first organisation, invite users, and configure namespaces.
 
-. Optional: Disable the initial admin account for security
+== Troubleshooting
 
-=== Payara Qube Organization Administrator
-The Payara Qube  xref:docs:ROOT:user-guides/qube/qube-organisation-management.adoc[] doc has full end-to-end information about managing organizations in Payara Qube via Keycloak.
+*AWS credentials error*
 
-=== Optional: Enable User Self-Registration
+[source,bash]
+----
+error: unable to validate AWS credentials
+----
 
-To allow users to register themselves:
+Verify your credentials with `aws sts get-caller-identity` and ensure you are targeting the correct AWS account.
 
-. In Keycloak, go to **Realm Settings** > **Login**
-. Toggle **User registration** to enabled
+*Helm release timeout*
 
-== Creating Your First Organization
+[source,bash]
+----
+error: Helm release failed to initialize completely
+----
 
-. Navigate to the `managementUrl` from your stack outputs
-. Log in with your organization admin credentials
-. You'll be directed to the **Organization Management** screen
-. Click to create a new organization and provide a name
-. Enter the organization and go to **Manage Users**
-. Add users by specifying their email addresses
+Run `pulumi up` again.
+If the problem persists, inspect the release with the Helm CLI or the Kubernetes dashboard.
 
-NOTE: Email configuration is not yet automated in this installation process.
-You'll need to manually send invitation links to new users, who will then register through Keycloak.
+*Domain resolution issues*
 
-== Next Steps
+[source,bash]
+----
+qb02-import-realm failing/timing out
+----
 
-Your Payara Qube installation is now complete! Organization administrators can:
+Confirm that both control plane and application domains resolve publicly and that the TLS certificate is valid at `https://users.control.plane.domain.example`.
 
-* Create and manage namespaces
-* Invite and manage users within their organization
-* Configure additional settings as needed
+*General deployment retries*
 
-Users will be redirected to Keycloak for account registration and can then access their assigned namespaces through the Payara Qube interface.
+If a deployment step fails due to eventual consistency, rerun `pulumi up`.
+Pulumi will converge the stack to the expected state.
