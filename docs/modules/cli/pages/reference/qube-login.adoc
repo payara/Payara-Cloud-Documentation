@@ -1,0 +1,87 @@
+// tag::picocli-generated-full-manpage[]
+// tag::picocli-generated-man-section-header[]
+:doctype: manpage
+:revnumber: 
+:manmanual: Qube Manual
+:mansource: 
+:man-linkstyle: pass:[blue R < >]
+= qube-login(1)
+
+// end::picocli-generated-man-section-header[]
+
+// tag::picocli-generated-man-section-name[]
+== Name
+
+qube-login - Log in to Payara Qube instance.
+
+// end::picocli-generated-man-section-name[]
+
+// tag::picocli-generated-man-section-synopsis[]
+== Synopsis
+
+*qube login* [*-hqV*] [*--print-token*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
+           [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_]
+
+// end::picocli-generated-man-section-synopsis[]
+
+// tag::picocli-generated-man-section-description[]
+== Description
+
+Log in to Payara Qube instance.
+Browser-based flow will start in order to log in to Payara Qube management endpoint, and token will be stored in home directory.
+
+*Non-interactive use:* In order to use in non-interactive way such as in CI, use parameter `--print-token`. After login procedure on interactive terminal the command will print out environment to be set in the CI in order that represents same login credential.
+
+// end::picocli-generated-man-section-description[]
+
+// tag::picocli-generated-man-section-options[]
+== Options
+
+*-a*, *--application*=_<applicationName>_::
+  Name of application to manage. 
++
+Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
+
+*--endpoint*=_<baseUri>_::
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable QUBE_ENDPOINT
+
+*-h*, *--help*::
+  Show this help message and exit.
+
+*-n*, *--namespace*=_<namespaceName>_::
+  Name of namespace to manage.
++
+Required for all commands except `login`, `list-namespaces` and `create-namespace`.
+
+*-o*, *--output*=_<outputFormat>_::
+  Set the output format. Allowed values: TEXT, JSON.
+
+*--print-token*::
+  Print out environment setting to be used to use this token in non-interactive way.
+
+*-q*, *--quiet*::
+  Enable quiet output.
++
+Only result of operations will be displayed to `stdout`, or error message to `stderrr`.
+
+*-s*, *--subscription*=_<subscriptionName>_::
+  Specify the name of the subscription to use. This is only necessary when your account has access to multiple subscriptions.
+
+*-V*, *--version*::
+  Print version information and exit.
+
+// end::picocli-generated-man-section-options[]
+
+// tag::picocli-generated-man-section-arguments[]
+// end::picocli-generated-man-section-arguments[]
+
+// tag::picocli-generated-man-section-commands[]
+// end::picocli-generated-man-section-commands[]
+
+// tag::picocli-generated-man-section-exit-status[]
+// end::picocli-generated-man-section-exit-status[]
+
+// tag::picocli-generated-man-section-footer[]
+// end::picocli-generated-man-section-footer[]
+
+// end::picocli-generated-full-manpage[]

@@ -1,19 +1,19 @@
-= Payara Qube (Managed) CLI User Guide
+= Payara Cloud CLI User Guide
 :man-prefix: #
 :man-suffix: 1
 :imagesdir: images/
-:release-version: 1.2.1
+:release-version: null object or invalid expression
 :release-repo: https://nexus.payara.fish/repository/payara-artifacts
 
 == Introduction
 
-`pcl` is command line utility for managing Payara Qube (Managed) namespaces and applications.
+`qube` is command-line utility for managing Payara Cloud namespaces and applications.
 It is distributed as executable jar file.
 It requires Java Runtime, version 8 or newer.
 
 === Documentation Structure
 
-User Guide demonstrates the concept and usage of `pcl` mainly through examples.
+User Guide demonstrates the concept and usage of `qube` mainly through examples.
 _Command Reference_ then lists all options and sub-commands supported by the client.
 The content of reference is equivalent to output provided by option `--help`.
 
@@ -44,7 +44,7 @@ Client is distributed over Payara's Nexus Repository under following coordinates
 ```
 <dependency>
   <groupId>fish.payara.cloud</groupId>
-  <artifactId>pcl</artifactId>
+  <artifactId>qube</artifactId>
   <version>{release-version}</version>
 </dependency>
 ```
@@ -66,19 +66,19 @@ Client is distributed over Payara's Nexus Repository under following coordinates
 
 ==== Download links
 
-* link:{release-repo}/fish/payara/cloud/pcl/{release-version}/pcl-{release-version}.zip[Full Distribution (.zip)]
-* link:{release-repo}/fish/payara/cloud/pcl/{release-version}/pcl-{release-version}.jar[Executable JAR only (.jar)]
+* link:{release-repo}/fish/payara/cloud/qube/{release-version}/qube-{release-version}.zip[Full Distribution (.zip)]
+* link:{release-repo}/fish/payara/cloud/qube/{release-version}/qube-{release-version}.jar[Executable JAR only (.jar)]
 
 // === Help
 // === Output options
 == Logging in
 
-`pcl` uses OAuth Device Authentication flow to establish its identity to Payara Qube (Managed).
-It will generate a confirmation code, which you use to log in to Payara Qube (Managed) web interface via browser.
+`qube` uses OAuth Device Authentication flow to establish its identity to Payara Cloud.
+It will generate a confirmation code, which you use to log in to Payara Cloud web interface via browser.
 
 [listing,subs=+quotes]
 ----
-*pcl login*
+*qube login*
 _[INFO] In order to log in follow following link: https://login.payara.cloud/activate_
 _[INFO] Your confirmation code is KKMD-STTF_
 ----
@@ -94,10 +94,10 @@ After that a confirmation page is displayed:
 [.text-center]
 image:login-02-confirmation.png[width=320]
 
-WARNING: Only confirm this page if you knowingly initiated login flow via `pcl login`.
-Payara Qube (Managed) will never ask you to authenticate via this flow via any other channel or under any other circumstance, such as solving a support issue.
+WARNING: Only confirm this page if you knowingly initiated login flow via `qube login`.
+Payara Cloud will never ask you to authenticate via this flow via any other channel or under any other circumstance, such as solving a support issue.
 
-If you are logging in for the first time the authentication service will ask you to authorize Payara Qube (Managed) CLI to perform application management tasks with your identity:
+If you are logging in for the first time the authentication service will ask you to authorize Payara Cloud CLI to perform application management tasks with your identity:
 
 [.text-center]
 image:login-03-authorize.png[width=320]
@@ -110,28 +110,28 @@ image:login-04-success.png[width=320]
 === Managing tokens
 
 After login is complete the relevant token is stored in `$HOME/.payara/manage.payara.cloud`.
-The token does not have any expiration time, so you will not need to log in again for when using `pcl`.
-Tokens can be invalidated remotely via User Preferences screen in Payara Qube (Managed) Web UI.
+The token does not have any expiration time, so you will not need to log in again for when using `qube`.
+Tokens can be invalidated remotely via User Preferences screen in Payara Cloud Web UI.
 
 === Non-interactive usage
 
 Login only works for interactive sessions.
-In order to be able to perform `pcl` commands in non-interactive environments such as CI `pcl login` offers option `--print-token`.
+In order to be able to perform `qube` commands in non-interactive environments such as CI `qube login` offers option `--print-token`.
 
 [listing,subs=+quotes]
 ----
-*pcl login --print-token*
+*qube login --print-token*
 _[INFO] In order to log in follow following link: https://login.payara.cloud/activate_
 _[INFO] Your confirmation code is CVJF-XKGH_
 _[SUCCESS] Token for environment-based login:_
-PCL_AUTH_TOKEN=eyJyZWZyZXNoX3Rva2VuIjoiWktMTFVQaUVIeEZ3c2JfOGNXSzFILUdnaUR1OVlXZUdDR3h3TUVFUlVrM3VLIn0=
+QUBE_AUTH_TOKEN=eyJyZWZyZXNoX3Rva2VuIjoiWktMTFVQaUVIeEZ3c2JfOGNXSzFILUdnaUR1OVlXZUdDR3h3TUVFUlVrM3VLIn0=
 ----
 
 The output of the command is the environment to use in order to establish the identity in a script.
 
 In Github Actions the token can be used in following way:
 
-Set secret `PCL_AUTH_TOKEN` for the repository to `eyJyZWZyZXNoX3Rva2VuIjoiWktMTFVQaUVIeEZ3c2JfOGNXSzFILUdnaUR1OVlXZUdDR3h3TUVFUlVrM3VLIn0=`.
+Set secret `QUBE_AUTH_TOKEN` for the repository to `eyJyZWZyZXNoX3Rva2VuIjoiWktMTFVQaUVIeEZ3c2JfOGNXSzFILUdnaUR1OVlXZUdDR3h3TUVFUlVrM3VLIn0=`.
 
 In the workflow file refer to the secret like this:
 
@@ -139,18 +139,18 @@ In the workflow file refer to the secret like this:
 ----
     - name: Deploy new version
       env:
-        PCL_AUTH_TOKEN: ${{ secrets.PCL_AUTH_TOKEN }}
-      run: pcl -n project-head -a main-app upload target/app.war --deploy
+        QUBE_AUTH_TOKEN: ${{ secrets.QUBE_AUTH_TOKEN }}
+      run: qube -n project-head -a main-app upload target/app.war --deploy
 ----
 
-NOTE: To use PCL with GitHub Actions, check out our dedicated GitHub Action at  https://github.com/payara/cloud-deploy[payara/cloud-deploy].
+NOTE: To use qube with GitHub Actions, check out our dedicated GitHub Action at  https://github.com/payara/cloud-deploy[payara/cloud-deploy].
 
 === Setting the endpoint
 By default, the CLI communicates with the default base endpoint at:
 
 link:https://manage.payara.cloud[https://manage.payara.cloud]
 
-You can override this to target the management endpoint for your Payara Qube (Managed) environment.
+You can override this to target the management endpoint of your Qube instance.
 This can be done in two ways:
 
 . By specifying custom endpoint using the `--endpoint` Command-Line Option.
@@ -159,31 +159,31 @@ Specify the custom endpoint directly when executing a command:
 
 [source,bash]
 ----
-pcl login --endpoint http://custom-api.mycompany.cloud
+qube login --endpoint http://custom-api.mycompany.cloud
 ----
 
 [start=2]
-. By using the `PCL_ENDPOINT` Environment Variable.
+. By using the `QUBE_ENDPOINT` Environment Variable.
 +
-Set the `PCL_ENDPOINT` environment variable to override the default for all CLI commands:
+Set the `QUBE_ENDPOINT` environment variable to override the default for all CLI commands:
 
 [source,bash]
 ----
-export PCL_ENDPOINT=http://custom-api.mycompany.cloud
-pcl login
+export QUBE_ENDPOINT=http://custom-api.mycompany.cloud
+qube login
 ----
 
-NOTE: The CLI uses the value of `PCL_ENDPOINT` unless an `--endpoint` option is explicitly passed, which takes precedence.
+NOTE: The CLI uses the value of `QUBE_ENDPOINT` unless an `--endpoint` option is explicitly passed, which takes precedence.
 
 == Common options
 
 === Environment Variables
 The CLI supports the following environment variables to be set, reducing repetitive typing of common options:
 
-`PCL_NAMESPACE`: Default namespace name. Used when `-n` or `--namespace` is not specified.
+`QUBE_NAMESPACE`: Default namespace name. Used when `-n` or `--namespace` is not specified.
 Required for most commands except `login`, `list-namespaces`, and `create-namespace`.
 
-`PCL_SUBSCRIPTION`: Default subscription name. Used when `-s` or `--subscription` is not specified.
+`QUBE_SUBSCRIPTION`: Default subscription name. Used when `-s` or `--subscription` is not specified.
 Only needed when your account has access to multiple subscriptions.
 
 Command line options, when provided, will override these environment variables for that specific command.
@@ -224,7 +224,7 @@ Other use cases, such as set up of custom domains or monitoring are only availab
 
 === Listing Namespaces
 
-Use xref:{man-prefix}pcl-list-namespaces{man-suffix}[ list-namespaces] to see namespaces available to you:
+Use xref:{man-prefix}qube-list-namespaces{man-suffix}[ list-namespaces] to see namespaces available to you:
 
 include::examples/_Namespaces-canBeListed-01.adoc[]
 
@@ -232,7 +232,7 @@ For all other commands that operate on namespace, you must supply the value of n
 
 === Creating a Namespace
 
-Creating namespace with xref:{man-prefix}pcl-create-namespace{man-suffix}[create-namespace] takes exact same input as GUI -- project and stage the namespace should represent:
+Creating namespace with xref:{man-prefix}qube-create-namespace{man-suffix}[create-namespace] takes exact same input as GUI -- project and stage the namespace should represent:
 
 include::examples/_Namespaces-canBeCreated-01.adoc[]
 
@@ -247,7 +247,7 @@ Additionally, one can specify the provider and region namespace will be provisio
 
 include::examples/_Namespaces-namespaceCanBeCreatedInOtherRegion-01.adoc[]
 
-Payara Qube (Managed) can extend to support more regions and providers.
+Payara Cloud can extend to support more regions and providers.
 The value is therefore checked after submission.
 If an invalid value is provided valid values for region will be provided in a warning message:
 
@@ -260,7 +260,7 @@ include::examples/_Namespaces-cannotBeCreatedTwice-01.adoc[]
 
 === Deleting a Namespace
 
-Namespace can be deleted by using xref:{man-prefix}pcl-delete-namespace{man-suffix}[delete-namespace] command:
+Namespace can be deleted by using xref:{man-prefix}qube-delete-namespace{man-suffix}[delete-namespace] command:
 
 include::examples/_Namespaces-canBeDeleted-01.adoc[]
 
@@ -275,7 +275,7 @@ CLI supports all usecases related to uploading a war file, configuring it and st
 
 === Uploading .war File
 
-A new application can be created within a namespace by uploading its binary artifact using the xref:{man-prefix}pcl-upload{man-suffix}[upload] command:
+A new application can be created within a namespace by uploading its binary artifact using the xref:{man-prefix}qube-upload{man-suffix}[upload] command:
 
 include::examples/_ApplicationUpload-uploadNamesApplicationFromManifest-01.adoc[]
 
@@ -287,7 +287,7 @@ Should you want to override that, provide option `-a`/`--application`:
 include::examples/_ApplicationUpload-specifyingNameOverridesApplication-01.adoc[]
 
 Status `PENDING` signifies that application has not been deployed yet.
-Deployment can be either performed by the  xref:{man-prefix}pcl-deploy{man-suffix}[deploy] command, or by providing option `--deploy` to the `upload` command.
+Deployment can be either performed by the  xref:{man-prefix}qube-deploy{man-suffix}[deploy] command, or by providing option `--deploy` to the `upload` command.
 
 include::examples/_Deployment-deploymentStraightFromUploadStartsApp-01.adoc[]
 
@@ -300,11 +300,11 @@ include::examples/_Deployment-uploadingNewRevisionSignalsPendingChanges-01.adoc[
 
 === Deploying Application
 
-To deploy an application as a separate step (for example after configuring it) use the xref:{man-prefix}pcl-deploy{man-suffix}[ deploy] command:
+To deploy an application as a separate step (for example after configuring it) use the xref:{man-prefix}qube-deploy{man-suffix}[ deploy] command:
 
 include::examples/_Deployment-deployingAfterPendingChangesMovesToRunningState-01.adoc[]
 
-Payara Qube (Managed) will keep retrying deployment for up to 10 minutes before it pronounces deployment failed.
+Payara Cloud will keep retrying deployment for up to 10 minutes before it pronounces deployment failed.
 There are two switches to enable CLI terminate before the 10 minutes, in the scenario of deployment failure.
 
 Note that in either of these cases backend deployment is not cancelled.
@@ -320,7 +320,7 @@ Exit code in such case is 2.
 
 include::examples/_Deployment-failEarlyFailsOnDeploymentProblem-03.adoc[]
 
-These both options are also available to other commands that might trigger deployment -- xref:{man-prefix}pcl-upload{man-suffix}[upload] and xref:{man-prefix}pcl-configure{man-suffix}[configure].
+These both options are also available to other commands that might trigger deployment -- xref:{man-prefix}qube-upload{man-suffix}[upload] and xref:{man-prefix}qube-configure{man-suffix}[configure].
 
 ==== Deployment Logs
 
@@ -340,13 +340,13 @@ The `--logs` switch works with several commands that involve deployment:
 
 === Listing Applications
 
-In order to list applications within a namespace use command xref:{man-prefix}pcl-list-applications{man-suffix}[list-applications], that shows application names and their basic properties:
+In order to list applications within a namespace use command xref:{man-prefix}qube-list-applications{man-suffix}[list-applications], that shows application names and their basic properties:
 
 include::examples/_Deployment-listApplicationsShowsState-04.adoc[]
 
 === Stopping an Application
 
-A running application can be stopped with xref:{man-prefix}pcl-stop{man-suffix}[stop], providing the application name.
+A running application can be stopped with xref:{man-prefix}qube-stop{man-suffix}[stop], providing the application name.
 
 include::examples/_Deployment-runningApplicationCanBeStopped-01.adoc[]
 
@@ -356,7 +356,7 @@ include::examples/_Deployment-stoppedApplicationCannotBeStopped-01.adoc[]
 
 === Starting an Application
 
-A stopped application can be started again by using the xref:{man-prefix}pcl-start{man-suffix}[start] command.
+A stopped application can be started again by using the xref:{man-prefix}qube-start{man-suffix}[start] command.
 
 include::examples/_Deployment-stoppedApplicationCanBeStarted-01.adoc[]
 
@@ -366,7 +366,7 @@ include::examples/_Deployment-runningApplicationCannotBeStarted-01.adoc[]
 
 === Configuring an Application
 
-The most dynamic command of cli is xref:{man-prefix}pcl-configure{man-suffix}[configure].
+The most dynamic command of cli is xref:{man-prefix}qube-configure{man-suffix}[configure].
 Available sub-commands of `configure` depend on specific application and the configuration options it provides.
 
 The configuration of an application consists of several partial configurations, that describe particular facets of that application.
@@ -386,7 +386,7 @@ When reconfiguration succeeds full configuration of the application as well as m
 include::examples/_Configuration-applicationCanBeReconfigured-01.adoc[]
 
 Changes are not immediately deployed.
-Command xref:{man-prefix}pcl-deploy{man-suffix}[deploy] needs to be invoked to make them live.
+Command xref:{man-prefix}qube-deploy{man-suffix}[deploy] needs to be invoked to make them live.
 Alternatively option `--deploy` can be passed to `configure` to trigger deployment immediately after reconfiguring.
 In such case output of the `configure` command matches output of `deploy` command.
 

@@ -1,6 +1,8 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ delete-application*
+*qube -n _$namespace_ -a _$appName_ delete-application*
 _[FAILURE] Application pass-deploy not found in namespace cli-clitest_
+_[INFO] Available resources:_
+_[INFO]  - game-demo_
 
 ----

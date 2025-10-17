@@ -1,6 +1,6 @@
 [listing,subs=+quotes]
 ----
-*pcl list-namespaces*
+*qube list-namespaces*
 _[SUCCESS] Namespaces:_cli-clitest
     name: cli-clitest
     liveURI: https://cli-clitest-bf025398.payara.app/

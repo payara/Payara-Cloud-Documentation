@@ -1,7 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ scale --instances=4*
-_[UPDATE] State of deployment process is DEPLOYING_
+*qube -n _$namespace_ -a _$appName_ scale --instances=4*
 _[UPDATE] State of deployment process is DEPLOYING [0/2]_
 _[UPDATE] State of deployment process is DEPLOYING [1/2]_
 _[UPDATE] State of deployment process is DEPLOYING [2/2]_

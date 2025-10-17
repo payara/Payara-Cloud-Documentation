@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -o json create-namespace --project cli --stage clitest*
-_{"timestamp":"2025-08-14T13:34:27.012976600Z","kind":"error","message":"Backend rejected the request: Namespace with this project / stage combination already exists (diagnostic id +++https:+++//api.payara.cloud/error-instance/mebfxwv5)"}_
+*qube -o json create-namespace --project cli --stage clitest*
+_{"timestamp":"2025-10-17T13:24:15.356450Z","kind":"error","message":"Backend rejected the request: Namespace with this project / stage combination already exists (diagnostic id +++https:+++//api.payara.cloud/error-instance/mguvrc9i)"}_
 
 ----

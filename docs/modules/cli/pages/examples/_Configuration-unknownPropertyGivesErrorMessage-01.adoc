@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ configure contextRoot ctxRoot=game*
+*qube -n _$namespace_ -a _$appName_ configure contextRoot ctxRoot=game*
 _[FAILURE] ctxRoot is not a valid option. If you want to add new property use --add ctxRoot=game_
 
 ----
