@@ -29,7 +29,7 @@ or can be provided via environment variable +++`+++QUBE+++_+++AUTH+++_+++TOKEN++
                              Set the output format. Allowed values: TEXT, JSON.
   -q, --quiet                Enable quiet output.
                              Only result of operations will be displayed to
-                               +++`+++stdout+++`+++, or error message to +++`+++stderr+++`+++.
+                               +++`+++stdout+++`+++, or error message to +++`+++stderrr+++`+++.
   -s, --subscription=<subscriptionName>
                              Specify the name of the subscription to use. This
                                is only necessary when your account has access
