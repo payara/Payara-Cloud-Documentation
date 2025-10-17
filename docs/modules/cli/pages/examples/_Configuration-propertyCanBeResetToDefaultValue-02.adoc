@@ -130,6 +130,33 @@ _[SUCCESS] Revision reconfigured_
                     }
                 ]
             }
+        },
+        "contextRoot": {
+            "pass-deploy.war": {
+                "values": {
+                    "appName": "game-demo",
+                    "contextRoot": "/"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "appName",
+                        "required": true,
+                        "restricted": false,
+                        "default": "game-demo"
+                    },
+                    {
+                        "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "dataGridMode",
+                        "required": false,
+                        "restricted": false
+                    }
+                ]
+            }
         }
     }
 }

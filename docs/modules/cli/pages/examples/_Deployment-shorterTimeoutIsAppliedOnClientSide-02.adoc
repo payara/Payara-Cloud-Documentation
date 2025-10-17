@@ -8,14 +8,14 @@ _[WARN] org.glassfish.deployment.common.DeploymentException: CDI deployment fail
 _[WARN]   at injection point [BackedAnnotatedField] @Inject cloud.payara.fail.injection.FailingServlet.notAvailable_
 _[WARN]   at cloud.payara.fail.injection.FailingServlet.notAvailable(FailingServlet.java:0)_
 _[WARN] WELD-001475: The following beans match by type, but none have matching qualifiers:_
-_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)],_
-_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)]_
+_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)],_
+_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)]_
 _[WARN]  -- WELD-001408: Unsatisfied dependencies for type String with qualifiers @Default_
 _[WARN]   at injection point [BackedAnnotatedField] @Inject cloud.payara.fail.injection.FailingServlet.notAvailable_
 _[WARN]   at cloud.payara.fail.injection.FailingServlet.notAvailable(FailingServlet.java:0)_
 _[WARN] WELD-001475: The following beans match by type, but none have matching qualifiers:_
-_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)],_
-_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)]_
+_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)],_
+_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)]_
 _[WARN] 	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)_
 _[WARN] 	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)_
 _[WARN] 	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)_
@@ -38,14 +38,14 @@ _[WARN]  @Default_
 _[WARN]   at injection point [BackedAnnotatedField] @Inject cloud.payara.fail.injection.FailingServlet.notAvailable_
 _[WARN]   at cloud.payara.fail.injection.FailingServlet.notAvailable(FailingServlet.java:0)_
 _[WARN] WELD-001475: The following beans match by type, but none have matching qualifiers:_
-_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)],_
-_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)]_
+_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)],_
+_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)]_
 _[WARN]  -- WELD-001408: Unsatisfied dependencies for type String with qualifiers @Default_
 _[WARN]   at injection point [BackedAnnotatedField] @Inject cloud.payara.fail.injection.FailingServlet.notAvailable_
 _[WARN]   at cloud.payara.fail.injection.FailingServlet.notAvailable(FailingServlet.java:0)_
 _[WARN] WELD-001475: The following beans match by type, but none have matching qualifiers:_
-_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)],_
-_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)]_
+_[WARN]   - Producer Method [String] with qualifiers [@BatchProperty @Any] declared as [[UnbackedAnnotatedMethod] @Produces @Dependent @BatchProperty public com.ibm.jbatch.container.cdi.BatchProducerBean.produceProperty(InjectionPoint)],_
+_[WARN]   - Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProviderServerRuntimeSpecifics$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)]_
 _[FAILURE] Timed out waiting for deployment to finish_
 
 ----

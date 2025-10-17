@@ -1,4 +1,4 @@
-= Payara Cloud CLI User Guide
+= Payara Qube CLI User Guide
 :man-prefix: #
 :man-suffix: 1
 :imagesdir: images/
@@ -7,7 +7,7 @@
 
 == Introduction
 
-`qube` is command-line utility for managing Payara Cloud namespaces and applications.
+`qube` is command-line utility for managing Payara Qube namespaces and applications.
 It is distributed as executable jar file.
 It requires Java Runtime, version 8 or newer.
 
@@ -73,8 +73,8 @@ Client is distributed over Payara's Nexus Repository under following coordinates
 // === Output options
 == Logging in
 
-`qube` uses OAuth Device Authentication flow to establish its identity to Payara Cloud.
-It will generate a confirmation code, which you use to log in to Payara Cloud web interface via browser.
+`qube` uses OAuth Device Authentication flow to establish its identity to Payara Qube.
+It will generate a confirmation code, which you use to log in to Payara Qube web interface via browser.
 
 [listing,subs=+quotes]
 ----
@@ -95,9 +95,9 @@ After that a confirmation page is displayed:
 image:login-02-confirmation.png[width=320]
 
 WARNING: Only confirm this page if you knowingly initiated login flow via `qube login`.
-Payara Cloud will never ask you to authenticate via this flow via any other channel or under any other circumstance, such as solving a support issue.
+Payara Qube will never ask you to authenticate via this flow via any other channel or under any other circumstance, such as solving a support issue.
 
-If you are logging in for the first time the authentication service will ask you to authorize Payara Cloud CLI to perform application management tasks with your identity:
+If you are logging in for the first time the authentication service will ask you to authorize Payara Qube CLI to perform application management tasks with your identity:
 
 [.text-center]
 image:login-03-authorize.png[width=320]
@@ -111,7 +111,7 @@ image:login-04-success.png[width=320]
 
 After login is complete the relevant token is stored in `$HOME/.payara/manage.payara.cloud`.
 The token does not have any expiration time, so you will not need to log in again for when using `qube`.
-Tokens can be invalidated remotely via User Preferences screen in Payara Cloud Web UI.
+Tokens can be invalidated remotely via User Preferences screen in Payara Qube Web UI.
 
 === Non-interactive usage
 
@@ -247,7 +247,7 @@ Additionally, one can specify the provider and region namespace will be provisio
 
 include::examples/_Namespaces-namespaceCanBeCreatedInOtherRegion-01.adoc[]
 
-Payara Cloud can extend to support more regions and providers.
+Payara Qube can extend to support more regions and providers.
 The value is therefore checked after submission.
 If an invalid value is provided valid values for region will be provided in a warning message:
 
@@ -304,7 +304,7 @@ To deploy an application as a separate step (for example after configuring it) u
 
 include::examples/_Deployment-deployingAfterPendingChangesMovesToRunningState-01.adoc[]
 
-Payara Cloud will keep retrying deployment for up to 10 minutes before it pronounces deployment failed.
+Payara Qube will keep retrying deployment for up to 10 minutes before it pronounces deployment failed.
 There are two switches to enable CLI terminate before the 10 minutes, in the scenario of deployment failure.
 
 Note that in either of these cases backend deployment is not cancelled.
