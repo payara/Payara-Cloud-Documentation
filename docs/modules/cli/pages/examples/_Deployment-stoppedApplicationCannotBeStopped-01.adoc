@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl stop -n _$namespace_ -a _$appName_*
+*qube stop -n _$namespace_ -a _$appName_*
 _[FAILURE] Application cannot be stopped_
 
 ----

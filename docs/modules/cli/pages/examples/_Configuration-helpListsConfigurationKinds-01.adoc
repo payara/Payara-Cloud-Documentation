@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ configure --help*
+*qube -n _$namespace_ -a _$appName_ configure --help*
 Usage: configure [-ehlV] [--deploy] [-t=<seconds>] [<CONFIGURATION KIND>
                  key=value...]...
       --deploy              Deploy revision with updated configuration
@@ -19,7 +19,7 @@ Usage: configure [-ehlV] [--deploy] [-t=<seconds>] [<CONFIGURATION KIND>
   -t, --timeout=<seconds>   Sets how long to wait for deployment completion on
                               the client side.
                             This timeout doesn't affect the actual deployment
-                              process in Payara Qube (Managed), so applications might
+                              process in Payara Qube, so applications might
                               still start up even after a timeout occurs.
   -V, --version             Print version information and exit.
 Configuration kinds:
