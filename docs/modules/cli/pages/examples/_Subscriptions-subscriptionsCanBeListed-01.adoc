@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl list-subscriptions*
+*qube list-subscriptions*
 _[SUCCESS] You have access to following subscriptions_
 CLI Company Test 2025-08-08
 

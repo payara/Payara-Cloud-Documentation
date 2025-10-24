@@ -2,34 +2,36 @@
 // tag::picocli-generated-man-section-header[]
 :doctype: manpage
 :revnumber: 
-:manmanual: Pcl Manual
+:manmanual: Qube Manual
 :mansource: 
 :man-linkstyle: pass:[blue R < >]
-= pcl-scale(1)
+= qube-configure(1)
 
 // end::picocli-generated-man-section-header[]
 
 // tag::picocli-generated-man-section-name[]
 == Name
 
-pcl-scale - Scale an application
+qube-configure - Change configuration of an application
 
 // end::picocli-generated-man-section-name[]
 
 // tag::picocli-generated-man-section-synopsis[]
 == Synopsis
 
-*pcl scale* [*-ehlqV*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
-          *--instances*=_<instances>_ [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_]
-          [*-s*=_<subscriptionName>_] [*-t*=_<seconds>_]
+*qube configure* [*-elq*] [*--deploy*] [*-a*=_<applicationName>_] [*--endpoint*=_<baseUri>_]
+               [*-n*=_<namespaceName>_] [*-o*=_<outputFormat>_] [*-s*=_<subscriptionName>_]
+               [*-t*=_<seconds>_]
 
 // end::picocli-generated-man-section-synopsis[]
 
 // tag::picocli-generated-man-section-description[]
 == Description
 
-Scale an application
-Application can be scaled by passing the number of instances to scale
+Change configuration of an application
+Configuration is different for each application. In order to discover which configuration kinds for an application are available, invoke `qube configuration -n $namespace -a $app configure --help`. 
+In order to learn about keys and configuration ids available for specific kind invoke `qube configuration -n $namespace -a $app configure $kind --help`.
+It is possible to chain setting values of multiple configuration kinds in single command.
 
 // end::picocli-generated-man-section-description[]
 
@@ -41,6 +43,9 @@ Application can be scaled by passing the number of instances to scale
 +
 Not required for commands listed by `-n` option, as well as `list-applications` and `upload`.
 
+*--deploy*::
+  Applies and deploys configuration changes immediately
+
 *-e*, *--fail-early*::
   Fail command immediately after first deployment problem instead of waiting for timeout on client or backend side
 +
@@ -49,13 +54,7 @@ There are certain scenarios when deployment can succeed despite reported deploym
 This means that even if you receive early warning messages about deployment failures, the application might still start up and run properly later.
 
 *--endpoint*=_<baseUri>_::
-  Management endpoint. Defaults to https://manage.payara.cloud. Set it to the management endpoint for your Payara Qube environment if you use a custom domain. Also settable with environment variable PCL_ENDPOINT
-
-*-h*, *--help*::
-  Show this help message and exit.
-
-*--instances*=_<instances>_::
-  State number of instances between 1 and 8
+  Management endpoint. Defaults to https://manage.payara.cloud. Set it to management endpoint of your Payara Qube instance if that’s your target. Also settable with environment variable QUBE_ENDPOINT
 
 *-l*, *--logs*::
   Shows application deployment logs in real-time
@@ -71,7 +70,7 @@ Required for all commands except `login`, `list-namespaces` and `create-namespac
 *-q*, *--quiet*::
   Enable quiet output.
 +
-Only result of operations will be displayed to `stdout`, or error message to `stderrr`.
+Only result of operations will be displayed to `stdout`, or error message to `stderr`.
 
 *-s*, *--subscription*=_<subscriptionName>_::
   Specify the name of the subscription to use. This is only necessary when your account has access to multiple subscriptions.
@@ -79,10 +78,7 @@ Only result of operations will be displayed to `stdout`, or error message to `st
 *-t*, *--timeout*=_<seconds>_::
   Sets how long to wait for deployment completion on the client side.
 +
-This timeout doesn't affect the actual deployment process in Payara Qube (Managed), so applications might still start up even after a timeout occurs.
-
-*-V*, *--version*::
-  Print version information and exit.
+This timeout doesn't affect the actual deployment process in Payara Qube, so applications might still start up even after a timeout occurs.
 
 // end::picocli-generated-man-section-options[]
 

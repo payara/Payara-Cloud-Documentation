@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl list-namespaces*
+*qube list-namespaces*
 _[SUCCESS] Namespaces:_
 cli-clitest
     name: cli-clitest
