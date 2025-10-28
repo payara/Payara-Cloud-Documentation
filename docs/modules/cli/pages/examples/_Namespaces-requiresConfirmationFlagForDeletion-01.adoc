@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl delete-namespace -n _$namespace_*
+*qube delete-namespace -n _$namespace_*
 _[WARN] To confirm you are sure about deleting this namespace, pass option -y on the command line_
 
 {

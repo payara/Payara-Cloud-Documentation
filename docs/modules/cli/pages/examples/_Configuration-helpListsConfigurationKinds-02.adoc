@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ configure --help*
+*qube -n _$namespace_ -a _$appName_ configure --help*
 Usage: configure [-ehlV] [--deploy] [-t=<timeout>] [<CONFIGURATION KIND>
                  key=value...]...
       --deploy              Deploy revision with updated configuration
@@ -18,7 +18,7 @@ Usage: configure [-ehlV] [--deploy] [-t=<timeout>] [<CONFIGURATION KIND>
   -t, --timeout=<timeout>   Duration in seconds specifying how long to wait for
                               deployment to complete
                             This is client side timeout which doesn't affect
-                              deployment process in Payara Qube (Managed). It is
+                              deployment process in Payara Qube. It is
                               therefore not guaranteed that application
                               deployment that failed due to this time out will
                               not eventually start up later.

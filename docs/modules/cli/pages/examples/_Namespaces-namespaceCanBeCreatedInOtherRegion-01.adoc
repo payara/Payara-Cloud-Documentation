@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl create-namespace --project cli --stage clitest --region azure-eastus*
+*qube create-namespace --project cli --stage clitest --region azure-eastus*
 _[SUCCESS] Namespace was created_
 
 {

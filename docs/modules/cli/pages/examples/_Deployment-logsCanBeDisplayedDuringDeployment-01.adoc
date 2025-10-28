@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl upload -n _$namespace_ -a _$appName_ _$warFile_*
+*qube upload -n _$namespace_ -a _$appName_ _$warFile_*
 _[UPDATE] State of inspection process is CREATED_
 _[SUCCESS] Application uploaded_
 

@@ -1,10 +1,39 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ configure appRuntime scalabilityType=HORIZONTAL+++_+++SCALING --add numberOfReplicas=2*
+*qube -n _$namespace_ -a _$appName_ configure appRuntime scalabilityType=HORIZONTAL+++_+++SCALING --add numberOfReplicas=2*
 _[SUCCESS] Revision reconfigured_
 
 {
     "kind": {
+        "contextRoot": {
+            "pass-deploy.war": {
+                "values": {
+                    "exposedPaths": "/+++*+++",
+                    "appName": "game-demo",
+                    "contextRoot": "/"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "appName",
+                        "required": true,
+                        "restricted": false,
+                        "default": "game-demo"
+                    },
+                    {
+                        "name": "contextRoot",
+                        "required": true,
+                        "restricted": false,
+                        "default": "/"
+                    },
+                    {
+                        "name": "exposedPaths",
+                        "required": false,
+                        "restricted": false
+                    }
+                ]
+            }
+        },
         "microprofileConfig": {
             "pass-deploy": {
                 "values": {
@@ -52,20 +81,16 @@ _[SUCCESS] Revision reconfigured_
         "appRuntime": {
             "pass-deploy.war": {
                 "values": {
-                    "runtimeSize": "QUARTER+++_+++CORE",
+                    "scaleToZeroMinutes": "0",
                     "numberOfReplicas": "2",
+                    "runtimeSize": "QUARTER+++_+++CORE",
                     "runtimeType": "PAYARA5+++_+++JDK11",
                     "scalabilityType": "HORIZONTAL+++_+++SCALING"
                 },
                 "complete": true,
                 "keys": [
                     {
-                        "name": "runtimeSize",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "numberOfReplicas",
+                        "name": "scaleToZeroMinutes",
                         "required": false,
                         "restricted": false
                     },
@@ -75,12 +100,12 @@ _[SUCCESS] Revision reconfigured_
                         "restricted": false
                     },
                     {
-                        "name": "dataGridMode",
+                        "name": "numberOfReplicas",
                         "required": false,
                         "restricted": false
                     },
                     {
-                        "name": "rollOverTime",
+                        "name": "runtimeSize",
                         "required": false,
                         "restricted": false
                     },
@@ -91,6 +116,16 @@ _[SUCCESS] Revision reconfigured_
                     },
                     {
                         "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "dataGridMode",
                         "required": false,
                         "restricted": false
                     }
@@ -113,13 +148,12 @@ _[SUCCESS] Revision reconfigured_
                         "default": "game-demo"
                     },
                     {
-                        "name": "contextRoot",
-                        "required": true,
-                        "restricted": false,
-                        "default": "/"
+                        "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
                     },
                     {
-                        "name": "exposedPaths",
+                        "name": "dataGridMode",
                         "required": false,
                         "restricted": false
                     }

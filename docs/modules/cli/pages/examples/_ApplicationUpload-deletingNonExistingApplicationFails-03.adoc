@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl delete-namespace --namespace _$namespace_ -y*
+*qube delete-namespace --namespace _$namespace_ -y*
 _[SUCCESS] Namespace has been deleted_
 
 ----

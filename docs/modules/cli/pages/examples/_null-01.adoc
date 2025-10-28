@@ -1,13 +1,12 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl create-namespace --project cli --stage clitest*
+*qube create-namespace --project cli --stage clitest*
 _[SUCCESS] Namespace was created_
 
 {
     "name": "cli-clitest",
     "cluster": {
         "name": "Azure, West Europe"
-    },
-    "liveURI": "+++https:+++//cli-clitest-xxxxxxxx.payara.app/"
+    }
 }
 ----
