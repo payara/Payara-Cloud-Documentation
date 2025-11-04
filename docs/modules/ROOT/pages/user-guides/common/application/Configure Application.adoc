@@ -13,14 +13,17 @@ For Spring Boot applications, configuration properties are managed using Spring 
 
 For Quarkus applications, configuration properties are managed using Quarkus's standard `application.properties` file.
 
+[#accessing-application-configuration]
 == Accessing Application Configuration
 
 Click on the btn:[Application Actions] button to access all actions related to the application.
+Click on the btn:[Edit Configuration] menu item under the Application Actions page to enter the configuration page.
 
 The unconfigured status means that the platform detected that a configuration is required before you can deploy your application. The Deploy action is also not available when the status is unconfigured. When the application uses a database (found a persistence.xml file, not when using @DataSourceDefinition) the status is automatically unconfigured until the configuration is made.
 
 To configure your application for deployment, click Change Configuration.
 
+[#configuration-overview]
 == Configuration Overview
 
 The configuration screen allows you to set up your application before deployment. {productName} supports configuration for:
@@ -34,6 +37,7 @@ The configuration options available depend on your application type:
 * *Spring Boot applications*: Configuration properties from `application.properties` and Spring datasource configuration
 * *Quarkus applications*: Configuration properties from `application.properties` or `microprofile-config.properties`, and Quarkus datasource configuration
 
+[#deployment-configuration]
 === Deployment Configuration
 
 Before deploying your application, you can configure the following:
@@ -50,6 +54,22 @@ Configuration for *Runtime Type* and *Runtime Size* is optional. If you do not s
 * For Spring Boot applications, select the appropriate Spring Boot runtime option
 * For Quarkus applications, select the appropriate Quarkus runtime option
 
+ifeval::["{page-site-edition}" == "qube"]
+
+[#java-runtime]
+**Java Runtime** - Select the JDK on which your application will run:
+
+* **Azul Zulu** (default): Standard OpenJDK distribution suitable for most applications
+* **Azul Zing**: Enhanced JDK from Azul Platform Prime that delivers up to 37% faster performance, advanced pauseless garbage collection, and optimized resource utilization
+
+[NOTE]
+====
+Azul Zing is part of the xref:user-guides/common/application/integrations.adoc#_azul_platform_prime[Azul Platform Prime] offering and comes with additional cost.
+It provides significant performance improvements and cost savings for demanding production workloads through more efficient CPU utilization and faster execution.
+====
+
+endif::[]
+
 **Runtime Size** - Select the amount of resources to allocate for this instance from the drop-down box. The resources count against the included CPU of your subscription.
 
 **Database Connection** (if applicable) - If your application connects to a datasource, provide the following details:
@@ -58,12 +78,11 @@ Configuration for *Runtime Type* and *Runtime Size* is optional. If you do not s
 * Username and Password: (Optional) Credentials for database authentication. If not provided here, they may be read from the JDBC URL string itself, depending on your JDBC driver.
 * Datasource class name: (Optional) This is almost always auto-detected from the JDBC URL.
 
-image::image13.png[image,width=480,height=149,window="_blank", link="{imagesdir}/image13.png"]
-
 [NOTE]
 
 For most of the configuration, if you do not explicitly configure, default options will be selected for your application.
 
+[#configuration-properties]
 == Configuration Properties
 
 You can add, update and remove configuration properties for your application on the configuration panel of the application dashboard.
@@ -80,6 +99,7 @@ image::how-to-guides/application/application-14-mp-config.png[window="_blank", l
 * ❶ Restrict Fields: This option allows you to mark fields as restricted for confidentiality. Values of restricted fields will be represented as * characters
 * ❷ Add Config Property: Clicking this button opens up the form to add a new configuration property for your application
 
+[#automatic-sensitive-field-detection]
 === Automatic Sensitive Field Detection
 
 During the application upload process, {productName} performs a best-effort automatic detection and pre-restriction of configuration properties that may contain sensitive information such as API keys, passwords, tokens, and other credentials.
@@ -89,6 +109,7 @@ During the application upload process, {productName} performs a best-effort auto
 This automatic detection is a best-effort process and may not identify all possible sensitive fields in your configuration. Users should review their configuration properties and manually restrict any additional sensitive fields as needed using the field restriction features described below.
 ====
 
+[#adding-configuration-properties]
 === Adding Configuration Properties
 
 For Jakarta EE/MicroProfile, Spring Boot, and Quarkus applications, you can create new properties by clicking the btn:[Add Configuration Key].
@@ -112,6 +133,7 @@ Configuration properties added through the {productName} Console are made availa
 This ensures that your application's source configuration files remain unchanged while still allowing you to override or add configuration values through the platform interface.
 ====
 
+[#common-quarkus-properties]
 === Common Quarkus Properties
 
 [IMPORTANT]
@@ -149,6 +171,7 @@ quarkus.log.category."com.example".level=DEBUG
 
 These runtime properties can be configured through the {productName} Console when deploying your Quarkus application. Changes to runtime properties require redeployment to take effect. Remember that build-time properties cannot be changed through the Console and require rebuilding your application.
 
+[#common-spring-boot-properties]
 === Common Spring Boot Properties
 
 [NOTE]
@@ -177,6 +200,7 @@ logging.level.org.springframework.web=INFO
 
 These properties can be configured through the {productName} Console when deploying your Spring Boot application. Changes to these properties require redeployment to take effect.
 
+[#spring-boot-property-limitations]
 === Spring Boot Property Limitations
 
 For Spring Boot applications, while you can modify certain properties through the {productName} Console, any changes to the following system-managed properties will be ignored at runtime.
@@ -196,6 +220,7 @@ management.endpoint.prometheus.enabled=true
 management.endpoints.web.exposure.include=prometheus,metrics,health
 ----
 
+[#restricting-fields]
 === Restricting Fields
 
 You can restrict configuration properties (MicroProfile Config, Spring Boot, and Quarkus properties) by clicking the Restricted Fields link on the configuration panel.
@@ -247,16 +272,22 @@ Note that communications within a namespace are http only, as the traffic is lim
 [[database-configuration]]
 == Database Configuration
 
+Apps deployed to {productName}, being Jakarta EE (Java EE) compatible, can connect to any database using the Jakarta EE https://docs.oracle.com/middleware/12211/wls/JDBCP/ds_annotation.htm#JDBCP1043[datasource] mechanism.
+
 When you upload your application, {productName} detects database configuration requirements:
 
-* **Jakarta EE/MicroProfile applications**: Looks for the `persistence.xml` file. If detected, you can specify database source configuration parameters for the referenced JNDI name.
+* **Jakarta EE/MicroProfile applications**: Looks for a `persistence.xml` file that uses the Jakarta EE https://nofluffjuststuff.com/blog/arun_gupta/2014/07/defaults_in_java_ee_7_tech_tip_37_#:~:text=nobeans%2Dxml.-,Default%20data%20source,-%3A%20A%C2%A0Java%20EE[default datasource] `java:comp/DefaultDataSource`. If detected, you can specify database source configuration parameters for the referenced JNDI name.
 * **Spring Boot applications**: Detects Spring Boot data source configuration properties (e.g., `spring.datasource.*` properties). You can configure database connection parameters through the application properties interface.
 * **Quarkus applications**: Detects Quarkus data source configuration properties (e.g., `quarkus.datasource.*` properties). You can configure database connection parameters through the application properties interface.
 
+If detected, {productName} makes the necessary minimal configuration parameters for the default datasource available in the Console.
+
 image::image16.png[Application Description automatically generated,width=624,height=242,window="_blank", link="{imagesdir}/image16.png"]
 
+[#alternative-database-configuration-methods]
 === Alternative Database Configuration Methods
 
+[#jakarta-ee-databases-without-jpa]
 ==== Jakarta EE/MicroProfile: Databases without JPA
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you can make use of the @DataSourceDefinition:
@@ -290,8 +321,46 @@ Or define the <data-source> element in _web.xml_:
 
 combined with `MPCONFIG` MicroProfile Config variables. These variables can be configured in the {productName} Console.
 
-If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in {productName} so the system can detect them as described above. Click 'Add Configuration Key' and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy.
+Using the MicroProfile Config property MPCONFIG, you can externalize the various properties needed for the connection. This allows you to set different values for different environments and namespaces in {productName}.
 
+[#jakarta-ee-multiple-datasources]
+===== Multiple Datasources
+
+You can also use the `@DataSourceDefinitions()` to define different datasources to connect to different databases:
+
+[source,java]
+----
+@DataSourceDefinitions(
+      value = {
+        @DataSourceDefinition(name="java:app/jdbc/cloud-postgres",
+        className="org.postgresql.ds.PGSimpleDataSource",
+        serverName = "${MPCONFIG=ds_servername}",
+        portNumber = 5432,
+        databaseName = "${MPCONFIG=ds_databasename}",
+        user="${MPCONFIG=ds_username}",
+        password="${MPCONFIG=ds_password}"
+),
+        @DataSourceDefinition(name = "java:comp/env/DS2",
+           minPoolSize = 0,
+           initialPoolSize = 0,
+           className = "org.apache.derby.jdbc.ClientDataSource",
+           portNumber = 1527,
+           serverName = "localhost",
+           user = "examples",
+           password = "examples",
+           databaseName = "examplesDB",
+           properties={"create=true", "weblogic.TestTableName=SQL SELECT 1 FROM SYS.SYSTABLES"}
+        )
+      }
+   )
+----
+
+[NOTE]
+====
+If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in {productName} so the system can detect them as described above. Click 'Add Configuration Key' and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy.
+====
+
+[#spring-boot-database-configuration]
 ==== Spring Boot: Database Configuration
 
 For Spring Boot applications, database configuration is typically done through standard Spring Boot properties:
@@ -309,15 +378,115 @@ spring.datasource.url=jdbc:mysql://localhost:3306/mydb
 spring.datasource.username=myuser
 spring.datasource.password=mypassword
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# Connection pool settings (optional)
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=5
+spring.datasource.hikari.connection-timeout=20000
 ----
 
 These properties can be configured through the {productName} application properties interface, allowing you to set database connection parameters without modifying your application code. Make sure the appropriate database driver dependency is included in your Spring Boot application.
 
+[#spring-boot-environment-variables]
+===== Using Environment Variables
+
+You can externalize database configuration using environment variables:
+
+[source,properties]
+----
+spring.datasource.url=${DATABASE_URL:jdbc:h2:mem:testdb}
+spring.datasource.username=${DATABASE_USERNAME:sa}
+spring.datasource.password=${DATABASE_PASSWORD:}
+----
+
+[#spring-boot-multiple-datasources]
+===== Multiple Datasources
+
+For applications requiring multiple database connections:
+
+[source,properties]
+----
+# Primary datasource
+spring.datasource.primary.url=jdbc:postgresql://localhost:5432/primary_db
+spring.datasource.primary.username=primary_user
+spring.datasource.primary.password=primary_password
+
+# Secondary datasource
+spring.datasource.secondary.url=jdbc:mysql://localhost:3306/secondary_db
+spring.datasource.secondary.username=secondary_user
+spring.datasource.secondary.password=secondary_password
+----
+
+[#quarkus-database-configuration]
+==== Quarkus: Database Configuration
+
+For Quarkus applications, database configuration is done through Quarkus-specific properties:
+
+[source,properties]
+----
+# PostgreSQL example
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.username=myuser
+quarkus.datasource.password=mypassword
+quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/mydb
+
+# MySQL example
+quarkus.datasource.db-kind=mysql
+quarkus.datasource.username=myuser
+quarkus.datasource.password=mypassword
+quarkus.datasource.jdbc.url=jdbc:mysql://localhost:3306/mydb
+
+# Connection pool settings (optional)
+quarkus.datasource.jdbc.max-size=10
+quarkus.datasource.jdbc.min-size=5
+----
+
+[IMPORTANT]
+====
+Note that `quarkus.datasource.db-kind` is a build-time property and must be set when building your application with Maven or Gradle. This property cannot be changed through the {productName} Console.
+
+The runtime properties (`quarkus.datasource.username`, `quarkus.datasource.password`, and `quarkus.datasource.jdbc.url`) can be configured through the {productName} application properties interface, allowing you to set database connection parameters without modifying your application code.
+====
+
+Make sure the appropriate database driver dependency is included in your Quarkus application's `pom.xml` or `build.gradle` file (e.g., `quarkus-jdbc-postgresql` or `quarkus-jdbc-mysql`).
+
+[#quarkus-environment-variables]
+===== Using Environment Variables
+
+You can externalize database configuration using environment variables:
+
+[source,properties]
+----
+quarkus.datasource.jdbc.url=${DATABASE_URL:jdbc:h2:mem:testdb}
+quarkus.datasource.username=${DATABASE_USERNAME:sa}
+quarkus.datasource.password=${DATABASE_PASSWORD:}
+----
+
+[#quarkus-multiple-datasources]
+===== Multiple Datasources
+
+For applications requiring multiple database connections:
+
+[source,properties]
+----
+# Default datasource
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/primary_db
+quarkus.datasource.username=primary_user
+quarkus.datasource.password=primary_password
+
+# Named datasource
+quarkus.datasource.secondary.db-kind=mysql
+quarkus.datasource.secondary.jdbc.url=jdbc:mysql://localhost:3306/secondary_db
+quarkus.datasource.secondary.username=secondary_user
+quarkus.datasource.secondary.password=secondary_password
+----
+
 
 image::image17.png[image,width=480,height=108,window="_blank", link="{imagesdir}/image17.png"]
 
-[[allowing-access-to-your-database-from-payara-cloud]]
-=== *Allowing Access to your Database from {productName}*
+[#allowing-database-access]
+=== Allowing Access to your Database from {productName}
 
 If you'd like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace.
 
