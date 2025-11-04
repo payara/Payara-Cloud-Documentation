@@ -13,16 +13,6 @@ For Spring Boot applications, configuration properties are managed using Spring 
 
 For Quarkus applications, configuration properties are managed using Quarkus's standard `application.properties` file.
 
-[#accessing-application-configuration]
-== Accessing Application Configuration
-
-Click on the btn:[Application Actions] button to access all actions related to the application.
-Click on the btn:[Edit Configuration] menu item under the Application Actions page to enter the configuration page.
-
-The unconfigured status means that the platform detected that a configuration is required before you can deploy your application. The Deploy action is also not available when the status is unconfigured. When the application uses a database (found a persistence.xml file, not when using @DataSourceDefinition) the status is automatically unconfigured until the configuration is made.
-
-To configure your application for deployment, click Change Configuration.
-
 [#configuration-overview]
 == Configuration Overview
 
@@ -37,17 +27,33 @@ The configuration options available depend on your application type:
 * *Spring Boot applications*: Configuration properties from `application.properties` and Spring datasource configuration
 * *Quarkus applications*: Configuration properties from `application.properties` or `microprofile-config.properties`, and Quarkus datasource configuration
 
-[#deployment-configuration]
-=== Deployment Configuration
+[#accessing-application-configuration]
+== Accessing Application Configuration
 
-Before deploying your application, you can configure the following:
+To access and modify your application configuration:
+
+1. Click the btn:[Application Actions] button on your application's page
+2. Select btn:[Edit Configuration] from the menu
 
 [NOTE]
 ====
-Configuration for *Runtime Type* and *Runtime Size* is optional. If you do not set these manually, the platform will automatically select an appropriate runtime and size based on an inspection of your uploaded artifact.
+When {productName} detects that configuration is required before deployment (such as when a `persistence.xml` file is found), the application status will show as "unconfigured" and the Deploy action will be unavailable until you provide the necessary configuration.
 ====
 
-**Runtime Type** - Select the appropriate runtime for your application:
+[#deployment-configuration]
+== Deployment Configuration
+
+Before deploying your application, configure the deployment settings to ensure your application runs in the correct environment with appropriate resources.
+
+[NOTE]
+====
+Configuration for *Runtime Type*, *Java Runtime*, and *Runtime Size* is optional. If not specified, {productName} will automatically select appropriate values based on your application artifact.
+====
+
+[#runtime-type]
+=== Runtime Type
+
+Select the runtime that matches your application framework and version:
 
 * For Jakarta EE 8 applications, select btn:[Payara 5, JDK 11]
 * For Jakarta EE 10 applications, select btn:[Payara 6, JDK 21]
@@ -57,7 +63,9 @@ Configuration for *Runtime Type* and *Runtime Size* is optional. If you do not s
 ifeval::["{page-site-edition}" == "qube"]
 
 [#java-runtime]
-**Java Runtime** - Select the JDK on which your application will run:
+=== Java Runtime
+
+Select the JDK on which your application will run:
 
 * **Azul Zulu** (default): Standard OpenJDK distribution suitable for most applications
 * **Azul Zing**: Enhanced JDK from Azul Platform Prime that delivers up to 37% faster performance, advanced pauseless garbage collection, and optimized resource utilization
@@ -70,17 +78,57 @@ It provides significant performance improvements and cost savings for demanding 
 
 endif::[]
 
-**Runtime Size** - Select the amount of resources to allocate for this instance from the drop-down box. The resources count against the included CPU of your subscription.
+[#runtime-size]
+=== Runtime Size
 
-**Database Connection** (if applicable) - If your application connects to a datasource, provide the following details:
+Select the amount of computing resources to allocate for your application instance. The resources allocated count against the included CPU quota of your subscription.
 
-* JDBC URL: The connection string for your database.
-* Username and Password: (Optional) Credentials for database authentication. If not provided here, they may be read from the JDBC URL string itself, depending on your JDBC driver.
-* Datasource class name: (Optional) This is almost always auto-detected from the JDBC URL.
+Available sizes range from small instances suitable for development to larger instances for production workloads. Choose a size appropriate for your application's memory and CPU requirements.
+
+[[context-root]]
+[#context-root]
+=== Context Root
+
+The context root defines the URL path where your application is accessible.
+
+For Jakarta EE/MicroProfile applications, the WAR file name is used as the default context root. For Spring Boot applications, use `server.servlet.context-path`, and for Quarkus applications, use `quarkus.http.root-path` in your application properties.
+
+The context root can be changed through the Application Configuration screen for all application types.
+
+image::image15.png[Context root configuration,width=624,height=221,window="_blank", link="{imagesdir}/image15.png"]
+
+[[internet-accessible-paths]]
+==== Internet-Accessible Paths
+
+By default, all paths under your context root (`/*`) are accessible both within the namespace and over the internet. You can restrict which sub-paths are publicly accessible while keeping them available to other applications within the namespace.
+
+To configure internet-accessible paths, enter space-separated patterns in the form `/prefix*`. Only paths matching these patterns will be accessible through the namespace's public domain.
+
+**Example:**
+
+Context Root: `/orders`
+Internet-Accessible Paths: `/details/*` `/cancel/*`
+
+Publicly accessible requests:
+----
+https://namespace-domain.payara.app/orders/details/000234
+https://namespace-domain.payara.app/orders/cancel/00234
+----
+
+Not publicly accessible (returns to root handler):
+----
+https://namespace-domain.payara.app/orders/place
+----
+
+Applications within the namespace can still access restricted paths:
+----
+http://applicationName/orders/place
+----
 
 [NOTE]
-
-For most of the configuration, if you do not explicitly configure, default options will be selected for your application.
+====
+Communications within a namespace use HTTP only, as traffic is isolated to the namespace. HTTPS is available for inbound traffic from the internet.
+====
 
 [#configuration-properties]
 == Configuration Properties
@@ -140,7 +188,7 @@ This ensures that your application's source configuration files remain unchanged
 ====
 Quarkus distinguishes between different configuration phases that affect when properties can be changed:
 
-* **Build-time properties**: These properties are locked in when the application is built using Maven or Gradle. They configure aspects like which extensions are enabled, what features are compiled in, and how the application is optimized. Examples include `quarkus.datasource.db-kind`, `quarkus.hibernate-orm.database.generation`, and properties prefixed with `quarkus.index.*`. These properties *cannot* be changed through the {productName} Console during deployment, as the application is not rebuilt at this stage. To modify build-time properties, you must rebuild your application with the desired configuration before deploying.
+* **Build-time properties**: These properties are locked in when the application is built using Maven or Gradle. They configure aspects like which extensions are enabled, what features are compiled in, and how the application is optimized. Examples include `quarkus.datasource.db-kind`, `quarkus.hibernate-orm.database.generation`, and properties prefixed with `quarkus.index.*`. These properties **cannot** be changed through the {productName} Console during deployment, as the application is not rebuilt at this stage. To modify build-time properties, you must rebuild your application with the desired configuration before deploying.
 
 * **Runtime properties**: These properties can be changed at application startup and can be overridden through the {productName} Console. Examples include connection URLs (`quarkus.datasource.jdbc.url`), credentials (`quarkus.datasource.username`, `quarkus.datasource.password`), logging levels (`quarkus.log.level`), and HTTP port configuration (`quarkus.http.port`).
 
@@ -235,54 +283,27 @@ You can select any number of fields to set as restricted. Clicking save, the res
 .Restricted config fields
 image::how-to-guides/application/application-16-restrected-fields.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-16-restrected-fields.png"]
 
-[[context-root]]
-== Context Root
-
-For Jakarta EE/MicroProfile applications, the name of the WAR file is taken as the context root by default. For Spring Boot and Quarkus applications, the context root can be configured through application properties (`server.servlet.context-path` for Spring Boot, `quarkus.http.root-path` for Quarkus).
-
-Using the Application Configuration screen, the context root value can be changed for all application types.
-
-image::image15.png[Table Description automatically generated with medium confidence,width=624,height=221,window="_blank", link="{imagesdir}/image15.png"]
-
-[[internet-accessible-paths]]
-=== Internet-Accessible Paths
-
-While everything served under a specified context root path is accessible to other applications within the namespace, it is possible to restrict which sub-paths of the context root are accessible over the internet. By default all paths are available `/*`
-
-To set which sub-paths are accessible, enter space-separated patterns in the form of `/prefix*`. Sub-paths matching this prefix will be available through the domain name of the namespace, while other paths will only be accessible to other applications within the same namespace.
-
-For example, let's assume Context Root of `/orders` and Internet-Accessible Paths `/details/*` `/cancel/*`.
-
-Then requests like
-
-\https://namespace-domain.payara.app/orders/details/000234
-
-or
-
-\https://namespace-domain.payara.app/orders/cancel/00234
-
-are directed to application.
-
-Requests to \https://namespace-domain.payara.app/orders/place will be handled by the application handling the root namespace.
-
-Other applications within this namespace can reach the handler for `/place` of this application by accessing \http://applicationName/orders/place.
-
-Note that communications within a namespace are http only, as the traffic is limited to the namespace. HTTPS is available for inbound traffic into the namespace.
-
 [[database-configuration]]
+[#database-configuration]
 == Database Configuration
 
-Apps deployed to {productName}, being Jakarta EE (Java EE) compatible, can connect to any database using the Jakarta EE https://docs.oracle.com/middleware/12211/wls/JDBCP/ds_annotation.htm#JDBCP1043[datasource] mechanism.
+{productName} supports database connectivity for all application types through their standard datasource mechanisms.
 
-When you upload your application, {productName} detects database configuration requirements:
+=== Automatic Database Detection
 
-* **Jakarta EE/MicroProfile applications**: Looks for a `persistence.xml` file that uses the Jakarta EE https://nofluffjuststuff.com/blog/arun_gupta/2014/07/defaults_in_java_ee_7_tech_tip_37_#:~:text=nobeans%2Dxml.-,Default%20data%20source,-%3A%20A%C2%A0Java%20EE[default datasource] `java:comp/DefaultDataSource`. If detected, you can specify database source configuration parameters for the referenced JNDI name.
-* **Spring Boot applications**: Detects Spring Boot data source configuration properties (e.g., `spring.datasource.*` properties). You can configure database connection parameters through the application properties interface.
-* **Quarkus applications**: Detects Quarkus data source configuration properties (e.g., `quarkus.datasource.*` properties). You can configure database connection parameters through the application properties interface.
+When you upload your application, {productName} automatically detects database requirements:
 
-If detected, {productName} makes the necessary minimal configuration parameters for the default datasource available in the Console.
+* **Jakarta EE/MicroProfile**: Detects `persistence.xml` files using the https://nofluffjuststuff.com/blog/arun_gupta/2014/07/defaults_in_java_ee_7_tech_tip_37_#:~:text=nobeans%2Dxml.-,Default%20data%20source,-%3A%20A%C2%A0Java%20EE[default datasource] (`java:comp/DefaultDataSource`)
+* **Spring Boot**: Detects `spring.datasource.*` properties in your configuration
+* **Quarkus**: Detects `quarkus.datasource.*` properties in your configuration
 
-image::image16.png[Application Description automatically generated,width=624,height=242,window="_blank", link="{imagesdir}/image16.png"]
+When database configuration is detected, {productName} provides a configuration interface where you can set:
+
+* **JDBC URL**: The database connection string
+* **Username and Password**: Database credentials (optional if included in JDBC URL)
+* **Datasource class name**: Usually auto-detected from the JDBC URL
+
+image::image16.png[Database configuration interface,width=624,height=242,window="_blank", link="{imagesdir}/image16.png"]
 
 [#alternative-database-configuration-methods]
 === Alternative Database Configuration Methods
@@ -504,4 +525,4 @@ If your database access is restricted by IP address, enable access to the follow
 
 When you are happy with your configuration settings, click Save to return to the application details screen.
 
-image::image18.png[A screenshot of a computer Description automatically generated,width=624,height=320, link="{imagesdir}/image18.png", window="_blank"]
+image::image18.png[Application configuration saved,width=624,height=320, link="{imagesdir}/image18.png", window="_blank"]
