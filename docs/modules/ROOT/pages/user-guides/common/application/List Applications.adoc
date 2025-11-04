@@ -1,5 +1,5 @@
 === Listing Applications
 
-- Click on Namespace on right side menu to see list of applications deployed to it. Click on Namespace on right side menu to see list of applications deployed to it. Click on Namespace on right side menu to see list of applications deployed to it. Click on Namespace on right side menu to see list of applications deployed to it
+Click on a Namespace on the left side menu to see list of applications deployed to it.
 
 image::how-to-guides/application/list-applications.png[link="{imagesdir}/how-to-guides/application/list-applications.png", window="_modal"]
