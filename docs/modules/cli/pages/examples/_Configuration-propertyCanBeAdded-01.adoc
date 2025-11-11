@@ -1,19 +1,47 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl -n _$namespace_ -a _$appName_ configure microprofileConfig --add new.app.config.property=value quiz.lockout=15*
+*qube -n _$namespace_ -a _$appName_ configure microprofileConfig --add new.app.config.property=value quiz.lockout=15*
 _[SUCCESS] Revision reconfigured_
 
 {
     "kind": {
+        "contextRoot": {
+            "pass-deploy.war": {
+                "values": {
+                    "appName": "game-demo",
+                    "contextRoot": "/"
+                },
+                "complete": true,
+                "keys": [
+                    {
+                        "name": "appName",
+                        "required": true,
+                        "restricted": false,
+                        "default": "game-demo"
+                    },
+                    {
+                        "name": "contextRoot",
+                        "required": true,
+                        "restricted": false,
+                        "default": "/"
+                    },
+                    {
+                        "name": "exposedPaths",
+                        "required": false,
+                        "restricted": false
+                    }
+                ]
+            }
+        },
         "microprofileConfig": {
             "pass-deploy": {
                 "values": {
-                    "maths.duration": "20",
-                    "mp.jwt.verify.issuer": "fish.payara.demo",
-                    "mp.jwt.verify.publickey.location": "publickey.pem",
                     "new.app.config.property": "value",
-                    "quiz.duration": "20",
-                    "quiz.lockout": "15"
+                    "mp.jwt.verify.issuer": "fish.payara.demo",
+                    "quiz.lockout": "15",
+                    "mp.jwt.verify.publickey.location": "publickey.pem",
+                    "maths.duration": "20",
+                    "quiz.duration": "20"
                 },
                 "complete": true,
                 "keys": [
@@ -58,20 +86,16 @@ _[SUCCESS] Revision reconfigured_
         "appRuntime": {
             "pass-deploy.war": {
                 "values": {
-                    "rollOverTime": "MODERATE",
+                    "scaleToZeroMinutes": "0",
                     "runtimeSize": "QUARTER+++_+++CORE",
                     "runtimeType": "PAYARA5+++_+++JDK11",
-                    "scalabilityType": "ROLLING+++_+++UPGRADE"
+                    "scalabilityType": "ROLLING+++_+++UPGRADE",
+                    "rollOverTime": "MODERATE"
                 },
                 "complete": true,
                 "keys": [
                     {
-                        "name": "runtimeSize",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "numberOfReplicas",
+                        "name": "scaleToZeroMinutes",
                         "required": false,
                         "restricted": false
                     },
@@ -81,12 +105,12 @@ _[SUCCESS] Revision reconfigured_
                         "restricted": false
                     },
                     {
-                        "name": "dataGridMode",
+                        "name": "numberOfReplicas",
                         "required": false,
                         "restricted": false
                     },
                     {
-                        "name": "rollOverTime",
+                        "name": "runtimeSize",
                         "required": false,
                         "restricted": false
                     },
@@ -97,6 +121,16 @@ _[SUCCESS] Revision reconfigured_
                     },
                     {
                         "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "dataGridMode",
                         "required": false,
                         "restricted": false
                     }
@@ -118,13 +152,12 @@ _[SUCCESS] Revision reconfigured_
                         "default": "game-demo"
                     },
                     {
-                        "name": "contextRoot",
-                        "required": true,
-                        "restricted": false,
-                        "default": "/"
+                        "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
                     },
                     {
-                        "name": "exposedPaths",
+                        "name": "dataGridMode",
                         "required": false,
                         "restricted": false
                     }

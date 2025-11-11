@@ -1,11 +1,11 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl upload --help*
-Usage: pcl upload [-ehlqV] [--deploy] [-a=<applicationName>]
-                  [--endpoint=<baseUri>] [-n=<namespaceName>]
-                  [-o=<outputFormat>] [-s=<subscriptionName>] [-t=<seconds>]
-                  <file>
-Upload an application binary (.war file) to Payara Qube (Managed).
+*qube upload --help*
+Usage: qube upload [-ehlqV] [--deploy] [-a=<applicationName>]
+                   [--endpoint=<baseUri>] [-n=<namespaceName>]
+                   [-o=<outputFormat>] [-s=<subscriptionName>] [-t=<seconds>]
+                   <file>
+Upload an application binary (.war file) to Payara Qube.
 This command can either provide a new binary for an existing application or
 upload a new application into a namespace.
       <file>                 Application archive file (.war) to be uploaded
@@ -26,10 +26,11 @@ upload a new application into a namespace.
                                messages about deployment failures, the
                                application might still start up and run
                                properly later.
-      --endpoint=<baseUri>   Management endpoint URL. Defaults to 
-                               +++https:+++//manage.payara.cloud. Use your Payara 
-                               Qube environment endpoint if applicable. Environment 
-                               variable: PCL+++_+++ENDPOINT
+      --endpoint=<baseUri>   Management endpoint. Defaults to +++https:+++//manage.
+                               payara.cloud. Set it to management endpoint of
+                               your Payara Qube instance if that’s your target.
+                               Also settable with environment variable
+                               QUBE+++_+++ENDPOINT
   -h, --help                 Show this help message and exit.
   -l, --logs                 Shows application deployment logs in real-time
   -n, --namespace=<namespaceName>
@@ -48,7 +49,7 @@ upload a new application into a namespace.
   -t, --timeout=<seconds>    Sets how long to wait for deployment completion on
                                the client side.
                              This timeout doesn't affect the actual deployment
-                               process in Payara Qube (Managed), so applications might
+                               process in Payara Qube, so applications might
                                still start up even after a timeout occurs.
   -V, --version              Print version information and exit.
 

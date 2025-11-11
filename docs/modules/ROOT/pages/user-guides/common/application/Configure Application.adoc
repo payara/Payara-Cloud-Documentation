@@ -13,36 +13,124 @@ For Spring Boot applications, configuration properties are managed using Spring 
 
 For Quarkus applications, configuration properties are managed using Quarkus's standard `application.properties` file.
 
-== Accessing Application Configuration
-
-Click on the btn:[Application Actions] button to access all actions related to the application.
-
-The unconfigured status means that the platform detected that a configuration is required before you can deploy your application. The Deploy action is also not available when the status is unconfigured. When the application uses a database (found a persistence.xml file, not when using @DataSourceDefinition) the status is automatically unconfigured until the configuration is made.
-
-To configure your application for deployment, click Change Configuration.
-
+[#configuration-overview]
 == Configuration Overview
 
-{productName} has support for configuration areas including application properties, context root, and database connections for data sources. The configuration screen will display:
+The configuration screen allows you to set up your application before deployment. {productName} supports configuration for:
 
-* **Configuration Properties** for Jakarta EE/MicroProfile applications using `microprofile-config.properties`, Spring Boot applications using `application.properties`, and Quarkus applications using `application.properties`
-* **Database Configuration** values if your application contains a `persistence.xml` file (Jakarta EE/MicroProfile), Spring Boot data source configuration, or Quarkus data source configuration
+* Configuration Properties - Application-specific settings, such as database connection details or logging levels.
+* Context Root - The URL path where your application is accessible.
 
-If your application connects to a datasource you’ll first provide the JDBC URL, datasource class, and the username and password used to authenticate your connection to the database server.
+The configuration options available depend on your application type:
 
-You’ll select your runtime size in the drop-down box based on the amount of resources you need to allocate for this instance. The resources count against the included CPU of your subscription.
+* *Jakarta EE/MicroProfile applications*: Configuration properties from `microprofile-config.properties` and database settings from `persistence.xml`
+* *Spring Boot applications*: Configuration properties from `application.properties` and Spring datasource configuration
+* *Quarkus applications*: Configuration properties from `application.properties` or `microprofile-config.properties`, and Quarkus datasource configuration
 
-The Runtime Type provides options for different application scenarios:
+[#accessing-application-configuration]
+== Accessing Application Configuration
+
+To access and modify your application configuration:
+
+1. Click the btn:[Application Actions] button on your application's page
+2. Select btn:[Edit Configuration] from the menu
+
+[NOTE]
+====
+When {productName} detects that configuration is required before deployment (such as when a `persistence.xml` file is found), the application status will show as "unconfigured" and the Deploy action will be unavailable until you provide the necessary configuration.
+====
+
+[#deployment-configuration]
+== Deployment Configuration
+
+Before deploying your application, configure the deployment settings to ensure your application runs in the correct environment with appropriate resources.
+
+[NOTE]
+====
+Configuration for *Runtime Type*, *Java Runtime*, and *Runtime Size* is optional. If not specified, {productName} will automatically select appropriate values based on your application artifact.
+====
+
+[#runtime-type]
+=== Runtime Type
+
+Select the runtime that matches your application framework and version:
 
 * For Jakarta EE 8 applications, select btn:[Payara 5, JDK 11]
 * For Jakarta EE 10 applications, select btn:[Payara 6, JDK 21]
 * For Spring Boot applications, select the appropriate Spring Boot runtime option
 * For Quarkus applications, select the appropriate Quarkus runtime option
 
+ifeval::["{page-site-edition}" == "qube"]
 
-image::image13.png[image,width=480,height=149,window="_blank", link="{imagesdir}/image13.png"]
+[#java-runtime]
+=== Java Runtime
 
+Select the JDK on which your application will run:
 
+* **Azul Zulu** (default): Standard OpenJDK distribution suitable for most applications
+* **Azul Zing**: Enhanced JDK from Azul Platform Prime that delivers up to 37% faster performance, advanced pauseless garbage collection, and optimized resource utilization
+
+[NOTE]
+====
+Azul Zing is part of the xref:user-guides/common/application/integrations.adoc#_azul_platform_prime[Azul Platform Prime] offering and comes with additional cost.
+It provides significant performance improvements and cost savings for demanding production workloads through more efficient CPU utilization and faster execution.
+====
+
+endif::[]
+
+[#runtime-size]
+=== Runtime Size
+
+Select the amount of computing resources to allocate for your application instance. The resources allocated count against the included CPU quota of your subscription.
+
+Available sizes range from small instances suitable for development to larger instances for production workloads. Choose a size appropriate for your application's memory and CPU requirements.
+
+[[context-root]]
+[#context-root]
+=== Context Root
+
+The context root defines the URL path where your application is accessible.
+
+For Jakarta EE/MicroProfile applications, the WAR file name is used as the default context root. For Spring Boot applications, use `server.servlet.context-path`, and for Quarkus applications, use `quarkus.http.root-path` in your application properties.
+
+The context root can be changed through the Application Configuration screen for all application types.
+
+image::image15.png[Context root configuration,width=624,height=221,window="_blank", link="{imagesdir}/image15.png"]
+
+[[internet-accessible-paths]]
+==== Internet-Accessible Paths
+
+By default, all paths under your context root (`/*`) are accessible both within the namespace and over the internet. You can restrict which sub-paths are publicly accessible while keeping them available to other applications within the namespace.
+
+To configure internet-accessible paths, enter space-separated patterns in the form `/prefix*`. Only paths matching these patterns will be accessible through the namespace's public domain.
+
+**Example:**
+
+Context Root: `/orders`
+Internet-Accessible Paths: `/details/*` `/cancel/*`
+
+Publicly accessible requests:
+----
+https://namespace-domain.payara.app/orders/details/000234
+https://namespace-domain.payara.app/orders/cancel/00234
+----
+
+Not publicly accessible (returns to root handler):
+----
+https://namespace-domain.payara.app/orders/place
+----
+
+Applications within the namespace can still access restricted paths:
+----
+http://applicationName/orders/place
+----
+
+[NOTE]
+====
+Communications within a namespace use HTTP only, as traffic is isolated to the namespace. HTTPS is available for inbound traffic from the internet.
+====
+
+[#configuration-properties]
 == Configuration Properties
 
 You can add, update and remove configuration properties for your application on the configuration panel of the application dashboard.
@@ -59,6 +147,17 @@ image::how-to-guides/application/application-14-mp-config.png[window="_blank", l
 * ❶ Restrict Fields: This option allows you to mark fields as restricted for confidentiality. Values of restricted fields will be represented as * characters
 * ❷ Add Config Property: Clicking this button opens up the form to add a new configuration property for your application
 
+[#automatic-sensitive-field-detection]
+=== Automatic Sensitive Field Detection
+
+During the application upload process, {productName} performs a best-effort automatic detection and pre-restriction of configuration properties that may contain sensitive information such as API keys, passwords, tokens, and other credentials.
+
+[IMPORTANT]
+====
+This automatic detection is a best-effort process and may not identify all possible sensitive fields in your configuration. Users should review their configuration properties and manually restrict any additional sensitive fields as needed using the field restriction features described below.
+====
+
+[#adding-configuration-properties]
 === Adding Configuration Properties
 
 For Jakarta EE/MicroProfile, Spring Boot, and Quarkus applications, you can create new properties by clicking the btn:[Add Configuration Key].
@@ -82,15 +181,74 @@ Configuration properties added through the {productName} Console are made availa
 This ensures that your application's source configuration files remain unchanged while still allowing you to override or add configuration values through the platform interface.
 ====
 
-=== Automatic Sensitive Field Detection
-
-During the application upload process, {productName} performs a best-effort automatic detection and pre-restriction of configuration properties that may contain sensitive information such as API keys, passwords, tokens, and other credentials.
+[#common-quarkus-properties]
+=== Common Quarkus Properties
 
 [IMPORTANT]
 ====
-This automatic detection is a best-effort process and may not identify all possible sensitive fields in your configuration. Users should review their configuration properties and manually restrict any additional sensitive fields as needed using the field restriction features described below.
+Quarkus distinguishes between different configuration phases that affect when properties can be changed:
+
+* **Build-time properties**: These properties are locked in when the application is built using Maven or Gradle. They configure aspects like which extensions are enabled, what features are compiled in, and how the application is optimized. Examples include `quarkus.datasource.db-kind`, `quarkus.hibernate-orm.database.generation`, and properties prefixed with `quarkus.index.*`. These properties **cannot** be changed through the {productName} Console during deployment, as the application is not rebuilt at this stage. To modify build-time properties, you must rebuild your application with the desired configuration before deploying.
+
+* **Runtime properties**: These properties can be changed at application startup and can be overridden through the {productName} Console. Examples include connection URLs (`quarkus.datasource.jdbc.url`), credentials (`quarkus.datasource.username`, `quarkus.datasource.password`), logging levels (`quarkus.log.level`), and HTTP port configuration (`quarkus.http.port`).
+
+* **Build-time with runtime overrides**: Some properties are read at build time but can be overridden at runtime. These are typically configuration values that affect generated code but have sensible runtime override capabilities.
+
+To determine which configuration phase a property belongs to, consult the https://quarkus.io/guides/all-config[Quarkus Configuration Reference]. Properties marked with a lock icon or labeled as "build time" cannot be changed after the application is built.
+
+Note that some Quarkus properties may be overridden by the platform to ensure proper operation and integration with {productName} infrastructure.
 ====
 
+Quarkus applications typically use properties such as:
+
+[source,properties]
+----
+# Application configuration
+quarkus.application.name=my-quarkus-app
+quarkus.http.port=8080
+
+# Database configuration (runtime properties only)
+quarkus.datasource.username=myuser
+quarkus.datasource.password=mypassword
+quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/mydb
+
+# Logging configuration
+quarkus.log.level=INFO
+quarkus.log.category."com.example".level=DEBUG
+----
+
+These runtime properties can be configured through the {productName} Console when deploying your Quarkus application. Changes to runtime properties require redeployment to take effect. Remember that build-time properties cannot be changed through the Console and require rebuilding your application.
+
+[#common-spring-boot-properties]
+=== Common Spring Boot Properties
+
+[NOTE]
+====
+Spring Boot does not have explicit build-time vs runtime property types like Quarkus. All Spring Boot configuration properties are read when the application starts. However, properties that initialize infrastructure resources (such as datasources, server ports, or connection pools) require the application to restart for changes to take effect.
+
+Properties configured through the {productName} Console override values in your `application.properties` file at startup. Note that some properties listed in the "Spring Boot Property Limitations" section below are platform-managed and will be overridden by {productName} regardless of values set in the Console.
+====
+
+Spring Boot applications typically use properties such as:
+
+[source,properties]
+----
+# Application configuration (note: server.port and spring.application.name are platform-managed)
+spring.profiles.active=production
+
+# Database configuration
+spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
+spring.datasource.username=myuser
+spring.datasource.password=mypassword
+
+# Logging configuration
+logging.level.com.example=DEBUG
+logging.level.org.springframework.web=INFO
+----
+
+These properties can be configured through the {productName} Console when deploying your Spring Boot application. Changes to these properties require redeployment to take effect.
+
+[#spring-boot-property-limitations]
 === Spring Boot Property Limitations
 
 For Spring Boot applications, while you can modify certain properties through the {productName} Console, any changes to the following system-managed properties will be ignored at runtime.
@@ -110,66 +268,7 @@ management.endpoint.prometheus.enabled=true
 management.endpoints.web.exposure.include=prometheus,metrics,health
 ----
 
-[checklist]
-Add Config Key
-
-* ❶ Name of configuration property
-* ❷ Click to add property
-
-Clicking btn:[Add Property] creates a new text box to enter a value.
-
-.Set property value
-image::how-to-guides/application/application-20-set-prop-value.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-20-set-prop-value.png"]
-
-Click btn:[Save] to save property value.
-
-image::image14.png[image,width=480,height=108,window="_blank", link="{imagesdir}/image14.png"]
-
-=== Common Spring Boot Properties
-
-Spring Boot applications typically use properties such as:
-
-[source,properties]
-----
-# Application configuration
-server.port=8080
-spring.application.name=my-spring-app
-
-# Database configuration
-spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
-spring.datasource.username=myuser
-spring.datasource.password=mypassword
-
-# Logging configuration
-logging.level.com.example=DEBUG
-logging.pattern.console=%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-----
-
-These properties can be configured through the {productName} Console when deploying your Spring Boot application.
-
-=== Common Quarkus Properties
-
-Quarkus applications typically use properties such as:
-
-[source,properties]
-----
-# Application configuration
-quarkus.application.name=my-quarkus-app
-quarkus.http.port=8080
-
-# Database configuration
-quarkus.datasource.db-kind=postgresql
-quarkus.datasource.username=myuser
-quarkus.datasource.password=mypassword
-quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/mydb
-
-# Logging configuration
-quarkus.log.level=INFO
-quarkus.log.category."com.example".level=DEBUG
-----
-
-These properties can be configured through the {productName} Console when deploying your Quarkus application.
-
+[#restricting-fields]
 === Restricting Fields
 
 You can restrict configuration properties (MicroProfile Config, Spring Boot, and Quarkus properties) by clicking the Restricted Fields link on the configuration panel.
@@ -184,51 +283,32 @@ You can select any number of fields to set as restricted. Clicking save, the res
 .Restricted config fields
 image::how-to-guides/application/application-16-restrected-fields.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-16-restrected-fields.png"]
 
-[[context-root]]
-== Context Root
-
-By default, the name of the WAR file is taken as the context root on which the application is made available.  Using the Application Configuration screen, this value can be changed.
-
-image::image15.png[Table Description automatically generated with medium confidence,width=624,height=221,window="_blank", link="{imagesdir}/image15.png"]
-
-[[internet-accessible-paths]]
-=== Internet-Accessible Paths
-
-While everything served under a specified context root path is accessible to other applications within the namespace, it is possible to restrict which sub-paths of the context root are accessible over the internet. By default all paths are available `/*`
-
-To set which sub-paths are accessible, enter space-separated patterns in the form of `/prefix*`. Sub-paths matching this prefix will be available through the domain name of the namespace, while other paths will only be accessible to other applications within the same namespace.
-
-For example, let's assume Context Root of `/orders` and Internet-Accessible Paths `/details/*` `/cancel/*`.
-
-Then requests like
-
-\https://namespace-domain.payara.app/orders/details/000234
-
-or
-
-\https://namespace-domain.payara.app/orders/cancel/00234
-
-are directed to application.
-
-Requests to \https://namespace-domain.payara.app/orders/place will be handled by the application handling the root namespace.
-
-Other applications within this namespace can reach the handler for `/place` of this application by accessing \http://applicationName/orders/place.
-
-Note that communications within a namespace are http only, as the traffic is limited to the namespace. HTTPS is available for inbound traffic into the namespace.
-
 [[database-configuration]]
+[#database-configuration]
 == Database Configuration
 
-When you upload your application, {productName} detects database configuration requirements:
+{productName} supports database connectivity for all application types through their standard datasource mechanisms.
 
-* **Jakarta EE/MicroProfile applications**: Looks for the `persistence.xml` file. If detected, you can specify database source configuration parameters for the referenced JNDI name.
-* **Spring Boot applications**: Detects Spring Boot data source configuration properties (e.g., `spring.datasource.*` properties). You can configure database connection parameters through the application properties interface.
-* **Quarkus applications**: Detects Quarkus data source configuration properties (e.g., `quarkus.datasource.*` properties). You can configure database connection parameters through the application properties interface.
+=== Automatic Database Detection
 
-image::image16.png[Application Description automatically generated,width=624,height=242,window="_blank", link="{imagesdir}/image16.png"]
+When you upload your application, {productName} automatically detects database requirements:
 
+* **Jakarta EE/MicroProfile**: Detects `persistence.xml` files using the https://nofluffjuststuff.com/blog/arun_gupta/2014/07/defaults_in_java_ee_7_tech_tip_37_#:~:text=nobeans%2Dxml.-,Default%20data%20source,-%3A%20A%C2%A0Java%20EE[default datasource] (`java:comp/DefaultDataSource`)
+* **Spring Boot**: Detects `spring.datasource.*` properties in your configuration
+* **Quarkus**: Detects `quarkus.datasource.*` properties in your configuration
+
+When database configuration is detected, {productName} provides a configuration interface where you can set:
+
+* **JDBC URL**: The database connection string
+* **Username and Password**: Database credentials (optional if included in JDBC URL)
+* **Datasource class name**: Usually auto-detected from the JDBC URL
+
+image::image16.png[Database configuration interface,width=624,height=242,window="_blank", link="{imagesdir}/image16.png"]
+
+[#alternative-database-configuration-methods]
 === Alternative Database Configuration Methods
 
+[#jakarta-ee-databases-without-jpa]
 ==== Jakarta EE/MicroProfile: Databases without JPA
 
 If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you can make use of the @DataSourceDefinition:
@@ -262,8 +342,46 @@ Or define the <data-source> element in _web.xml_:
 
 combined with `MPCONFIG` MicroProfile Config variables. These variables can be configured in the {productName} Console.
 
-If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in {productName} so the system can detect them as described above. Click 'Add Configuration Key' and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy.
+Using the MicroProfile Config property MPCONFIG, you can externalize the various properties needed for the connection. This allows you to set different values for different environments and namespaces in {productName}.
 
+[#jakarta-ee-multiple-datasources]
+===== Multiple Datasources
+
+You can also use the `@DataSourceDefinitions()` to define different datasources to connect to different databases:
+
+[source,java]
+----
+@DataSourceDefinitions(
+      value = {
+        @DataSourceDefinition(name="java:app/jdbc/cloud-postgres",
+        className="org.postgresql.ds.PGSimpleDataSource",
+        serverName = "${MPCONFIG=ds_servername}",
+        portNumber = 5432,
+        databaseName = "${MPCONFIG=ds_databasename}",
+        user="${MPCONFIG=ds_username}",
+        password="${MPCONFIG=ds_password}"
+),
+        @DataSourceDefinition(name = "java:comp/env/DS2",
+           minPoolSize = 0,
+           initialPoolSize = 0,
+           className = "org.apache.derby.jdbc.ClientDataSource",
+           portNumber = 1527,
+           serverName = "localhost",
+           user = "examples",
+           password = "examples",
+           databaseName = "examplesDB",
+           properties={"create=true", "weblogic.TestTableName=SQL SELECT 1 FROM SYS.SYSTABLES"}
+        )
+      }
+   )
+----
+
+[NOTE]
+====
+If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in {productName} so the system can detect them as described above. Click 'Add Configuration Key' and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy.
+====
+
+[#spring-boot-database-configuration]
 ==== Spring Boot: Database Configuration
 
 For Spring Boot applications, database configuration is typically done through standard Spring Boot properties:
@@ -272,26 +390,127 @@ For Spring Boot applications, database configuration is typically done through s
 ----
 # PostgreSQL example
 spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
-spring.datasource.username=${spring.datasource.username}
-spring.datasource.password=${spring.datasource.password}
+spring.datasource.username=myuser
+spring.datasource.password=mypassword
 spring.datasource.driver-class-name=org.postgresql.Driver
 
-# MySQL example  
+# MySQL example
 spring.datasource.url=jdbc:mysql://localhost:3306/mydb
-spring.datasource.username=${spring.datasource.username}
-spring.datasource.password=${spring.datasource.password}
+spring.datasource.username=myuser
+spring.datasource.password=mypassword
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# Connection pool settings (optional)
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=5
+spring.datasource.hikari.connection-timeout=20000
 ----
 
 These properties can be configured through the {productName} application properties interface, allowing you to set database connection parameters without modifying your application code. Make sure the appropriate database driver dependency is included in your Spring Boot application.
 
+[#spring-boot-environment-variables]
+===== Using Environment Variables
+
+You can externalize database configuration using environment variables:
+
+[source,properties]
+----
+spring.datasource.url=${DATABASE_URL:jdbc:h2:mem:testdb}
+spring.datasource.username=${DATABASE_USERNAME:sa}
+spring.datasource.password=${DATABASE_PASSWORD:}
+----
+
+[#spring-boot-multiple-datasources]
+===== Multiple Datasources
+
+For applications requiring multiple database connections:
+
+[source,properties]
+----
+# Primary datasource
+spring.datasource.primary.url=jdbc:postgresql://localhost:5432/primary_db
+spring.datasource.primary.username=primary_user
+spring.datasource.primary.password=primary_password
+
+# Secondary datasource
+spring.datasource.secondary.url=jdbc:mysql://localhost:3306/secondary_db
+spring.datasource.secondary.username=secondary_user
+spring.datasource.secondary.password=secondary_password
+----
+
+[#quarkus-database-configuration]
+==== Quarkus: Database Configuration
+
+For Quarkus applications, database configuration is done through Quarkus-specific properties:
+
+[source,properties]
+----
+# PostgreSQL example
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.username=myuser
+quarkus.datasource.password=mypassword
+quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/mydb
+
+# MySQL example
+quarkus.datasource.db-kind=mysql
+quarkus.datasource.username=myuser
+quarkus.datasource.password=mypassword
+quarkus.datasource.jdbc.url=jdbc:mysql://localhost:3306/mydb
+
+# Connection pool settings (optional)
+quarkus.datasource.jdbc.max-size=10
+quarkus.datasource.jdbc.min-size=5
+----
+
+[IMPORTANT]
+====
+Note that `quarkus.datasource.db-kind` is a build-time property and must be set when building your application with Maven or Gradle. This property cannot be changed through the {productName} Console.
+
+The runtime properties (`quarkus.datasource.username`, `quarkus.datasource.password`, and `quarkus.datasource.jdbc.url`) can be configured through the {productName} application properties interface, allowing you to set database connection parameters without modifying your application code.
+====
+
+Make sure the appropriate database driver dependency is included in your Quarkus application's `pom.xml` or `build.gradle` file (e.g., `quarkus-jdbc-postgresql` or `quarkus-jdbc-mysql`).
+
+[#quarkus-environment-variables]
+===== Using Environment Variables
+
+You can externalize database configuration using environment variables:
+
+[source,properties]
+----
+quarkus.datasource.jdbc.url=${DATABASE_URL:jdbc:h2:mem:testdb}
+quarkus.datasource.username=${DATABASE_USERNAME:sa}
+quarkus.datasource.password=${DATABASE_PASSWORD:}
+----
+
+[#quarkus-multiple-datasources]
+===== Multiple Datasources
+
+For applications requiring multiple database connections:
+
+[source,properties]
+----
+# Default datasource
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/primary_db
+quarkus.datasource.username=primary_user
+quarkus.datasource.password=primary_password
+
+# Named datasource
+quarkus.datasource.secondary.db-kind=mysql
+quarkus.datasource.secondary.jdbc.url=jdbc:mysql://localhost:3306/secondary_db
+quarkus.datasource.secondary.username=secondary_user
+quarkus.datasource.secondary.password=secondary_password
+----
+
 
 image::image17.png[image,width=480,height=108,window="_blank", link="{imagesdir}/image17.png"]
 
-[[allowing-access-to-your-database-from-payara-cloud]]
-=== *Allowing Access to your Database from {productName}*
+[#allowing-database-access]
+=== Allowing Access to your Database from {productName}
 
-If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace.
+If you'd like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace.
+
 If your database access is restricted by IP address, enable access to the following IP addresses based on the region the namespace is located in:
 
 |===
@@ -304,8 +523,6 @@ If your database access is restricted by IP address, enable access to the follow
 | 40.76.131.181
 |===
 
-If you’d like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace.
-
 When you are happy with your configuration settings, click Save to return to the application details screen.
 
-image::image18.png[A screenshot of a computer Description automatically generated,width=624,height=320, link="{imagesdir}/image18.png", window="_blank"]
+image::image18.png[Application configuration saved,width=624,height=320, link="{imagesdir}/image18.png", window="_blank"]

@@ -1,6 +1,6 @@
 [listing,subs="+macros,+quotes"]
 ----
-*pcl configure -n _$namespace_ -a _$appName_ contextRoot contextRoot=/2*
+*qube configure -n _$namespace_ -a _$appName_ contextRoot contextRoot=/2*
 _[SUCCESS] Revision reconfigured_
 
 {
@@ -8,20 +8,16 @@ _[SUCCESS] Revision reconfigured_
         "appRuntime": {
             "fail-deploy.war": {
                 "values": {
+                    "scaleToZeroMinutes": "0",
                     "runtimeSize": "QUARTER+++_+++CORE",
                     "runtimeType": "PAYARA5+++_+++JDK11",
-                    "rollOverTime": "MODERATE",
-                    "scalabilityType": "ROLLING+++_+++UPGRADE"
+                    "scalabilityType": "ROLLING+++_+++UPGRADE",
+                    "rollOverTime": "MODERATE"
                 },
                 "complete": true,
                 "keys": [
                     {
-                        "name": "runtimeSize",
-                        "required": false,
-                        "restricted": false
-                    },
-                    {
-                        "name": "numberOfReplicas",
+                        "name": "scaleToZeroMinutes",
                         "required": false,
                         "restricted": false
                     },
@@ -31,12 +27,12 @@ _[SUCCESS] Revision reconfigured_
                         "restricted": false
                     },
                     {
-                        "name": "dataGridMode",
+                        "name": "numberOfReplicas",
                         "required": false,
                         "restricted": false
                     },
                     {
-                        "name": "rollOverTime",
+                        "name": "runtimeSize",
                         "required": false,
                         "restricted": false
                     },
@@ -47,6 +43,16 @@ _[SUCCESS] Revision reconfigured_
                     },
                     {
                         "name": "scalabilityType",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "rollOverTime",
+                        "required": false,
+                        "restricted": false
+                    },
+                    {
+                        "name": "dataGridMode",
                         "required": false,
                         "restricted": false
                     }
