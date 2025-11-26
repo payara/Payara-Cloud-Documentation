@@ -23,8 +23,15 @@ Key advantages include:
 
 
 ifeval::["{page-site-edition}" == "qube"]
+[NOTE]
+====
+Azul Platform Prime requires opt-in during contract negotiations with sales.
+Sales will acquire a subscription based on vCPU cores, with annual billing directly from Azul.
+Customers receive an installation wizard with the JVM enabled.
+For post-installation enablement, contact sales - the service team will provide two commands to activate it on your existing installation.
 
 To use Azul Zing JDK in your application, refer to the xref:user-guides/common/application/Configure Application.adoc#java-runtime[Java Runtime] section in the application configuration guide.
+====
 
 endif::[]
 
