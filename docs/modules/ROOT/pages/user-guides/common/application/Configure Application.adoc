@@ -154,7 +154,7 @@ Select the JDK on which your application will run:
 
 [NOTE]
 ====
-Azul Zing is part of the xref:user-guides/common/application/integrations.adoc#_azul_platform_prime[Azul Platform Prime] offering and comes with additional cost.
+Azul Zing is part of the xref:user-guides/common/application/integrations.adoc#_azul_platform_prime[Azul Platform Prime] offering and is only available if you have opted in during contract negotiations.
 It provides significant performance improvements and cost savings for demanding production workloads through more efficient CPU utilization and faster execution.
 ====
 
