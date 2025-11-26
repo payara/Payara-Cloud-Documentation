@@ -3,7 +3,7 @@
 :man-suffix: 1
 :imagesdir: images/
 :release-version: 1.0-Alpha1
-:release-repo: https://mvnrepository.com/artifact/fish.payara.maven.plugins/payara-cloud-maven-plugin
+:release-repo: https://mvnrepository.com/artifact/fish.payara.maven.plugins/payara-qube-maven-plugin
 
 == Introduction
 
@@ -19,15 +19,15 @@ The plugin requires JDK 8 or higher, and the latest version is `1.0-Alpha1`.
 
 Aim: This goal logs in to a Payara Qube (Managed) environment. It initiates a browser-based flow to reach the Payara Qube (Managed) management endpoint and stores the token in the home directory.
 
-Usage: `mvn payara-cloud:login`
+Usage: `mvn payara-qube:login`
 
 Example:
 
 [source, xml]
 <plugin>
     <groupId>fish.payara.maven.plugins</groupId>
-    <artifactId>payara-cloud-maven-plugin</artifactId>
-    <version>${payara.cloud.maven.plugin.version}</version>
+    <artifactId>payara-qube-maven-plugin</artifactId>
+    <version>${payara.qube.maven.plugin.version}</version>
     <executions>
         <execution>
             <goals>
@@ -71,7 +71,7 @@ It will generate a confirmation code, which you use to log in to the Payara Qube
 
 [listing,subs=+quotes]
 ----
-*mvn payara-cloud:login*
+*mvn payara-qube:login*
 _INFO: In order to log in follow following link: https://login.payara.cloud/activate_
 _INFO: Your confirmation code is XZHD-CFDJ_
 _INFO: Opening URL: https://login.payara.cloud/activate?user_code=XZHD-CFDJ_
@@ -88,7 +88,7 @@ After that a confirmation page is displayed:
 [.text-center]
 image:login-02-confirmation.png[width=320, window="_blank", link="{imagesdir}/login-02-confirmation.png"]
 
-WARNING: Only confirm this page if you knowingly initiated login flow via `pcl login`, `payara-cloud-maven-plugin` or `Payara IDE plugins`.
+WARNING: Only confirm this page if you knowingly initiated login flow via `pcl login`, `payara-qube-maven-plugin` or `Payara IDE plugins`.
 Payara Qube (Managed) will never ask you to authenticate via this flow via any other channel or under any other circumstance, such as solving a support issue.
 
 If you are logging in for the first time the authentication service will ask you to authorize Payara Qube (Managed) CLI to perform application management tasks with your identity:
@@ -113,15 +113,15 @@ Tokens can be invalidated remotely via User Preferences screen in Payara Qube (M
 
 Aim: This goal uploads an application binary and deploys an existing application. It can be used to provide a new binary for an existing application or to upload a new application into a namespace.
 
-Usage: `mvn payara-cloud:deploy`
+Usage: `mvn payara-qube:deploy`
 
 Example:
 
 [source, xml, subs=attributes+]
 <plugin>
     <groupId>fish.payara.maven.plugins</groupId>
-    <artifactId>payara-cloud-maven-plugin</artifactId>
-    <version>${payara.cloud.maven.plugin.version}</version>
+    <artifactId>payara-qube-maven-plugin</artifactId>
+    <version>${payara.qube.maven.plugin.version}</version>
     <executions>
         <execution>
             <goals>
@@ -175,15 +175,15 @@ Example:
 
 Aim: This goal starts an application in Payara Qube (Managed). It is used when an application is in a stopped state.
 
-Usage: `mvn payara-cloud:start`
+Usage: `mvn payara-qube:start`
 
 Example:
 
 [source, xml]
 <plugin>
     <groupId>fish.payara.maven.plugins</groupId>
-    <artifactId>payara-cloud-maven-plugin</artifactId>
-    <version>${payara.cloud.maven.plugin.version}</version>
+    <artifactId>payara-qube-maven-plugin</artifactId>
+    <version>${payara.qube.maven.plugin.version}</version>
     <executions>
         <execution>
             <goals>
@@ -232,15 +232,15 @@ Example:
 
 Aim: This goal stops a deployed application in Payara Qube (Managed).
 
-Usage: `mvn payara-cloud:stop`
+Usage: `mvn payara-qube:stop`
 
 Example:
 
 [source, xml]
 <plugin>
     <groupId>fish.payara.maven.plugins</groupId>
-    <artifactId>payara-cloud-maven-plugin</artifactId>
-    <version>${payara.cloud.maven.plugin.version}</version>
+    <artifactId>payara-qube-maven-plugin</artifactId>
+    <version>${payara.qube.maven.plugin.version}</version>
     <executions>
         <execution>
             <goals>
@@ -288,15 +288,15 @@ Example:
 
 Aim: This goal deletes the deployed application from Payara Qube (Managed).
 
-Usage: `mvn payara-cloud:undeploy`
+Usage: `mvn payara-qube:undeploy`
 
 Example:
 
 [source, xml]
 <plugin>
     <groupId>fish.payara.maven.plugins</groupId>
-    <artifactId>payara-cloud-maven-plugin</artifactId>
-    <version>${payara.cloud.maven.plugin.version}</version>
+    <artifactId>payara-qube-maven-plugin</artifactId>
+    <version>${payara.qube.maven.plugin.version}</version>
     <executions>
         <execution>
             <goals>
@@ -345,15 +345,15 @@ Example:
 
 Aim: The dev goal enables continuous deployment of the application on source code changes with live browser reload.
 
-Usage: `mvn payara-cloud:dev`
+Usage: `mvn payara-qube:dev`
 
 Example:
 
 [source, xml]
 <plugin>
     <groupId>fish.payara.maven.plugins</groupId>
-    <artifactId>payara-cloud-maven-plugin</artifactId>
-    <version>${payara.cloud.maven.plugin.version}</version>
+    <artifactId>payara-qube-maven-plugin</artifactId>
+    <version>${payara.qube.maven.plugin.version}</version>
     <executions>
         <execution>
             <goals>
@@ -423,14 +423,14 @@ Example:
 
 Aim:: This goal lists all available subscriptions in Payara Qube (Managed).
 
-Usage:: `mvn payara-cloud:list-subscriptions`
+Usage:: `mvn payara-qube:list-subscriptions`
 
 Example::
 ----
 <plugin>
     <groupId>fish.payara.maven.plugins</groupId>
-    <artifactId>payara-cloud-maven-plugin</artifactId>
-    <version>${payara.cloud.maven.plugin.version}</version>
+    <artifactId>payara-qube-maven-plugin</artifactId>
+    <version>${payara.qube.maven.plugin.version}</version>
     <executions>
         <execution>
             <goals>
@@ -463,14 +463,14 @@ Example::
 
 Aim:: This goal lists all available namespaces in Payara Qube (Managed).
 
-Usage:: `mvn payara-cloud:list-namespaces`
+Usage:: `mvn payara-qube:list-namespaces`
 
 Example::
 ----
 <plugin>
     <groupId>fish.payara.maven.plugins</groupId>
-    <artifactId>payara-cloud-maven-plugin</artifactId>
-    <version>${payara.cloud.maven.plugin.version}</version>
+    <artifactId>payara-qube-maven-plugin</artifactId>
+    <version>${payara.qube.maven.plugin.version}</version>
     <executions>
         <execution>
             <goals>
@@ -510,14 +510,14 @@ Example::
 
 Aim:: This goal lists all deployed applications in Payara Qube (Managed).
 
-Usage:: `mvn payara-cloud:list-applications`
+Usage:: `mvn payara-qube:list-applications`
 
 Example::
 ----
 <plugin>
     <groupId>fish.payara.maven.plugins</groupId>
-    <artifactId>payara-cloud-maven-plugin</artifactId>
-    <version>${payara.cloud.maven.plugin.version}</version>
+    <artifactId>payara-qube-maven-plugin</artifactId>
+    <version>${payara.qube.maven.plugin.version}</version>
     <executions>
         <execution>
             <goals>
