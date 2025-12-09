@@ -63,3 +63,4 @@ As in the standard signup process, you will need to confirm the recurring paymen
 You also have the option to subscribe to {productName} product updates via a newsletter.
 
 Clicking btn:[Subscribe] will begin the provisioning process for your new subscription, which should complete in under a minute.
+endif::[]

@@ -6,3 +6,5 @@ ifdef::page-site-edition[]
 = Deploying an Application on {productName}
 
 See xref:user-guides/common/application/Deploying an Application.adoc#_deploying_an_application_on_payara_cloud[How to deploy an application] in the user guide for full steps.
+
+endif::[]

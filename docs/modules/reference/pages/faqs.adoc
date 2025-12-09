@@ -281,3 +281,4 @@ You can start a https://www.payara.fish/products/payara-cloud/#buy[15-day free t
 For security reasons, you'll need to provide a payment method, but you won't be charged until the trial ends.
 You will be sent a reminder before expiry of your trial.
 endif::[]
+endif::[]

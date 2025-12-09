@@ -53,3 +53,4 @@ image::how-to-guides/application/billing/03-canceled.png[link="{imagesdir}/how-t
 == Invoice Portal Renew Plan
 
 image::how-to-guides/application/billing/04-renew.png[link="{imagesdir}/how-to-guides/application/billing/04-renew.png", window="_blank"]
+endif::[]

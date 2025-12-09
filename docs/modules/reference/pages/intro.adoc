@@ -1,28 +1,120 @@
-= Introduction to Payara Cloud
+include::partial$_attributes.adoc[]
 
-Payara Cloud is a cloud-based (Payara-Server as a Service) platform that simplifies the deployment and management of Jakarta EE and MicroProfile web applications in the cloud.
-It eliminates the need for manual setup and configuration of servers and infrastructure, allowing you to focus on building and delivering your applications faster.
+ifdef::page-site-edition[]
 
-== Key Features:
-* *Automatic Deployment and Scaling*: Payara Cloud automates the deployment process through a user-friendly UI. It also provides automatic scaling capabilities, adjusting resources based on demand to ensure optimal performance and cost-efficiency.
-* *High Availability*: The platform guarantees high availability by distributing application instances across multiple availability zones. This built-in redundancy minimizes downtime and ensures your applications remain accessible in the unlikely event of infrastructure failures.
-* *Monitoring and Metrics*: Payara Cloud offers comprehensive monitoring and metrics dashboards, providing real-time insights into the health and performance of your applications. This enables proactive issue identification and resolution.
-* *Security*: Payara Cloud incorporates features like network isolation, encryption, secure access controls, and automated security updates to safeguard your applications and data.
-* *Centralized Logging*: Payara Cloud centralizes application logs, making it easy to search, filter, and analyze log data for troubleshooting and debugging purposes.
-* *Smooth Integrations*: Payara Cloud integrates with other cloud services, such as databases, storage, and messaging queues, allowing you to take advantage of the full power of the cloud ecosystem.
-* *User-Friendly UI*: Payara Cloud provides an intuitive web-based management console for easy application deployment, configuration, and monitoring.
 
-== Conceptual Framework
+= {productName} Documentation
 
-Payara Cloud's conceptual framework revolves around the following key elements:
+== What is Payara Qube?
 
-* *Namespace*: A logical grouping of related applications within a Payara Cloud subscription. Namespaces provide isolation, organization, and a unique domain for deploying applications.
-* *Custom Domains*: The ability to link custom domain names to namespaces, improving the professionalism and user-friendliness of your deployed applications.
-* *Application*: The individual deployable unit within a namespace. Applications are typically packaged as WAR files and represent the core functionality of your project.
-* *Subscription*: The billing unit in Payara Cloud, defining the resources and access levels available to users.
-* *Access Management*: A role-based access control system that governs user permissions and ensures secure and controlled access to the platform.
+Payara Qube is an enterprise-grade platform for deploying Jakarta EE, Spring Boot, and Quarkus applications.
+It simplifies deployment by automating infrastructure provisioning and removing the need to manually manage application servers, containers, and Kubernetes clusters.
+Instead of dealing with low-level components, the Payara Qube Console lets you configure your application and its runtime through a simple, guided UI and CLI for automated environments.
 
-Payara Cloud's architecture uses containerization and orchestration technologies to deploy, manage, and scale Jakarta EE and MicroProfile web applications in the cloud.
-It supports various deployment scenarios, including rolling upgrades, singleton instances, and horizontal scaling, providing flexibility to meet the specific needs of your applications.
+== Consumption Models
 
-Using a user-friendly interface, powerful features, and an industry standard underlying architecture, Payara Cloud simplifies the complexities of cloud-native Jakarta EE and MicroProfile web application deployment and management, accelerating your time to market
+Payara Qube is available in two consumption models:
+
+* **Payara Qube (Managed)**: A fully managed service where Payara hosts and operates the platform infrastructure. Your team can focus entirely on application development without operating the underlying infrastructure.
+* **Payara Qube**: A self-hosted platform that you install and run on your own Kubernetes infrastructure, giving you complete control over your environment, data, and security. Ideal for organizations with strict compliance requirements, data residency
+needs, or existing infrastructure investments.
+
+ifeval::["{page-site-edition}" == "cloud"]
+This documentation covers **Payara Qube (Managed)**, the fully managed service.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+This documentation covers **Payara Qube**, the self-hosted platform.
+endif::[]
+
+If you're new to {productName}, start with the *Getting Started* section.
+
+== Architecture
+
+{productName} is built on a cloud-native architecture that runs on Kubernetes infrastructure.
+ifeval::["{page-site-edition}" == "cloud"]
+By design, {productName} handles background tasks you don't need to worry about.
+endif::[]
+ifeval::["{page-site-edition}" == "qube"]
+The platform runs entirely within your own Kubernetes clusters, making it ideal for organizations with strict compliance requirements, data residency needs, or existing infrastructure investments.
+endif::[]
+
+Behind the scenes, a Payara Micro instance is set up to run your application.
+Integrations are automatic, including SSL/TLS certificates, routing, logging, and monitoring.
+The {productName} environment centers on two concepts: namespaces and applications.
+
+A namespace groups applications under a single domain, each with its own path prefix.
+Manage namespaces and applications in the {productName} Console through both a graphical user interface and comprehensive APIs for automation.
+
+== Supported Application Types
+
+{productName} supports three major application frameworks:
+
+* **Jakarta EE/MicroProfile applications**: Deployed as WAR files, supporting Jakarta EE 8 (Payara 5) and Jakarta EE 10 (Payara 6)
+* **Spring Boot applications**: Deployed as JAR files with full Spring Boot configuration support
+* **Quarkus applications**: Deployed as ZIP files with native Quarkus configuration support
+
+== Features
+
+ifeval::["{page-site-edition}" == "cloud"]
+*Pay as You Go subscription features:*
+
+* No upfront fee
+* 0--2 vCPU cores
+* Runtime size up to 2 vCPU / 6 GB RAM
+* Log and diagnostic dump access
+* Custom domains
+* No horizontal scaling
+
+*Standard subscription features:*
+
+* 2--32 vCPU cores
+* Custom domains
+* Runtime size up to 4 vCPU / 12 GB RAM
+* Log and diagnostic dump access
+* Horizontal scaling
+* Tiered usage pricing
+
+*Premium subscription features:*
+
+* 16--64 vCPU cores
+* Payara Micro Enterprise binaries for local development
+* Runtime size up to 4 vCPU / 12 GB RAM
+* Log and diagnostic dump access
+* Horizontal scaling
+* Access to Payara support team with 10x5 support
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+* Complete infrastructure control
+* Jakarta EE, Spring Boot, and Quarkus compatibility
+* Built-in scalability and horizontal scaling
+* Built-in monitoring and logging
+* Custom domain support
+* SSL/TLS certificate management
+* Self-hosted on your own Kubernetes infrastructure
+endif::[]
+
+endif::[]
+
+ifndef::page-site-edition[]
+Payara Platform provides enterprise-grade Jakarta EE/Spring/Quarkus application deployment solutions.
+Choose between our managed cloud service or self-hosted platform based on your organizational needs.
+
+== Platform Options
+
+*Payara Qube (Managed Service):*
+
+* Fully managed PaaS solution
+* No infrastructure management required
+* Automatic scaling and monitoring
+* Pay-as-you-go pricing model
+
+*Payara Qube (Self-Hosted):*
+
+* Deploy on your own infrastructure
+* Complete control and customization
+* License-based pricing model
+
+Visit our Getting Started section to learn more about each platform option.
+endif::[]

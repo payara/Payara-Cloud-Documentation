@@ -176,3 +176,4 @@ Remember to:
 ====
 
 xref:reference:azure-customer-managed-reg-ref.adoc[Additional Azure Managed Region Information]
+endif::[]

@@ -95,3 +95,4 @@ Clicking this button will present a dialog box where you can specify the desired
 image::clustering/Adjust scale dialog.png[window="_blank", link="{imagesdir}/clustering/Adjust scale dialog.png"]
 
 This action either halts some instances—if the target number is lower than the current—or initiates new ones to meet the specified requirement.
+endif::[]

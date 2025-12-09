@@ -108,3 +108,4 @@ image::how-to-guides/application/billing/remove.png[Screenshot of Remove User sc
 
 Upon confirmation, the user will be removed from the subscription, and their access will be revoked.
 They will need to be re-invited to regain access to the subscription.
+endif::[]

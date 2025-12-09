@@ -82,3 +82,5 @@ You can always edit or remove configured domains for namespaces on the Custom Do
 .Custom domain page showing additional operations
 image::image40-new.png[Interface displaying fully setup custom domain,width=624,height=282,window="_blank", link="{imagesdir}/image40-new.png"]
 
+
+endif::[]

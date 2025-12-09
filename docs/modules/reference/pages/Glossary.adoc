@@ -179,3 +179,4 @@ endif::[]
 
 Viewer:: A user role with read-only access to deployed applications.
 Viewers can monitor application metrics, view logs, and access configuration details (excluding sensitive properties) but cannot make any modifications.
+endif::[]

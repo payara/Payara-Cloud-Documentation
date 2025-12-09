@@ -21,3 +21,4 @@ Attempting to click on the URL at this time will display an error message. You m
 If you land on your Billing Management screen on your account instead then you can select btn:[Use Cloud] and it will redirect to the Application Management Page.
 
 //TODO: Add Image of Billing Management Screen
+endif::[]

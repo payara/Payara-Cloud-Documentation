@@ -1,12 +1,16 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
 = Subscription and Billing Management
 
-In Payara Cloud, a subscription serves as the fundamental billing unit, encompassing the resources and access levels you've selected for your cloud deployment needs.
+In {productName}, a subscription serves as the fundamental billing unit, encompassing the resources and access levels you've selected for your cloud deployment needs.
 It acts as the focal point for billing, consolidating all application usage across various namespaces into a single, easy-to-understand invoice.
-The subscription model simplifies the billing process, providing a clear and aggregated view of your Payara Cloud usage and costs.
+The subscription model simplifies the billing process, providing a clear and aggregated view of your {productName} usage and costs.
 
 == Choosing a Subscription Plan
 
-Payara Cloud offers three subscription plans tailored to different needs, each with its own set of features and resource allocations. The available plans are:
+{productName} offers three subscription plans tailored to different needs, each with its own set of features and resource allocations. The available plans are:
 
 * *Pay as You Go*: Provides essential features for deploying and managing applications includes additional features such as custom domain support.
 This plan is ideal for small applications or users who want to pay only for the resources they consume.
@@ -15,31 +19,31 @@ This plan is ideal for small applications or users who want to pay only for the 
 
 * *Premium*: Includes all the features of the Standard plan, plus access to Payara Micro Enterprise binaries for local development and expedited support from the Payara team.
 
-The specific resource allocations and pricing for each plan can be found on the Payara Cloud website or by contacting the Payara sales team.
+The specific resource allocations and pricing for each plan can be found on the {productName} website or by contacting the Payara sales team.
 
 == Managing Subscriptions
 
-You can view and manage your existing subscriptions through the Billing Management section in Payara Cloud.
+You can view and manage your existing subscriptions through the Billing Management section in {productName}.
 There, you can perform various actions, including:
 
 * *Viewing Subscription Details*: Access information about your current subscription plan, resource usage, and billing details.
 * *Upgrading or Downgrading*: Change your subscription plan to a higher or lower tier based on your evolving needs.
-* *Cancelling Subscription*: Terminate your subscription if you no longer require Payara Cloud services.
+* *Cancelling Subscription*: Terminate your subscription if you no longer require {productName} services.
 
 === Subscription Plan Changes (Upgrade/Downgrade)
 
-You can upgrade or downgrade your subscription plan at any time through Billing management section in Payara Cloud.
+You can upgrade or downgrade your subscription plan at any time through Billing management section in {productName}.
 
-Payara Cloud will not allow subscription downgrade if you have exceeded the vCPU quota.
+{productName} will not allow subscription downgrade if you have exceeded the vCPU quota.
 
 ==== Subscription Plan Change Cancellation
 
 * *Subscription Upgrade*: Since the upgrade takes effect immediately, it cannot be cancelled once initiated.
-* *Subscription Downgrade*: The downgrade will take effect at the end of the current billing cycle, and you can cancel the downgrade request before the end of the billing cycle through Billing Management section in Payara Cloud.
+* *Subscription Downgrade*: The downgrade will take effect at the end of the current billing cycle, and you can cancel the downgrade request before the end of the billing cycle through Billing Management section in {productName}.
 
 ==== Subscription Plan Change Email Notification
 
-Payara Cloud will send email notifications to Billing Managers for any subscription plan changes activity.
+{productName} will send email notifications to Billing Managers for any subscription plan changes activity.
 
 [checklist]
 * 1. When a subscription plan change is confirmed, an email notification will be sent to the Billing Manager.
@@ -49,7 +53,7 @@ Payara Cloud will send email notifications to Billing Managers for any subscript
 
 == Billing and Invoicing
 
-Payara Cloud operates on a 30-day billing cycle.
+{productName} operates on a 30-day billing cycle.
 Invoices are issued at the beginning of each billing period.
 You can view and download your invoices from the Billing Management section.
 
@@ -60,10 +64,10 @@ Invoices include:
 * *Consumption Measurement*: Billing is primarily based on vCPU-minutes, with each plan offering a certain amount of prepaid vCPU-minutes per month.
 
 === Payment Methods
-Payara Cloud accepts both credit and debit card payments.
+{productName} accepts both credit and debit card payments.
 
 
-Payara Cloud's subscription and billing management system offers transparency and flexibility, allowing you to tailor your cloud deployment costs to your specific requirements and usage patterns.
+{productName}'s subscription and billing management system offers transparency and flexibility, allowing you to tailor your cloud deployment costs to your specific requirements and usage patterns.
 
 === Subscription Plan Changes Payment
 
@@ -71,8 +75,9 @@ Payara Cloud's subscription and billing management system offers transparency an
 
 For an upgrade, the new plan will take effect immediately, it will create new invoice for the new plan and another invoice for the reminder of the current usage.
 
-In case of payment failure, Payara Cloud will keep your current subscription active and will try to process your payment within 24 hours. If the payment is not successful, the subscription upgrade will be voided.
+In case of payment failure, {productName} will keep your current subscription active and will try to process your payment within 24 hours. If the payment is not successful, the subscription upgrade will be voided.
 
 ==== Subscription Downgrade
 
 For a downgrade, the new plan will take effect at the end of the current billing cycle and will be effective from the next billing cycle, however it will get suspended if the payment is not successful within 7 days.
+endif::[]
