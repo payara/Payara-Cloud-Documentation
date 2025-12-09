@@ -31,3 +31,5 @@ From this page, you can perform a range of tasks from deploying new applications
 The layout ensures that you have quick access to all necessary information and functionalities to manage your Namespaces effectively.
 
 
+
+endif::[]

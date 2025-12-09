@@ -10,9 +10,9 @@ endif::[]
 
 ** Getting Started
 ifeval::["{page-site-edition}" == "cloud"]
-*** xref:Getting Started.adoc[Getting Started with {productName}]
-*** xref:getting-started/paas/Signup Payara Cloud.adoc[Signing up]
-*** xref:getting-started/paas/Log in into Account.adoc[Log into Your Account]
+*** xref:getting-started.adoc[Getting Started with {productName}]
+*** xref:getting-started/paas/signup.adoc[Signing up]
+*** xref:getting-started/paas/login.adoc[Log into Your Account]
 endif::[]
 
 ifeval::["{page-site-edition}" == "qube"]
@@ -54,7 +54,7 @@ ifeval::["{page-site-edition}" == "cloud"]
 **** xref:user-guides/paas/billing/subscription/user-preference.adoc[User Preferences]
 **** xref:user-guides/paas/billing/subscription/change-subscription-plan.adoc[Change Subscription Plan]
 **** xref:user-guides/paas/Account Management and How to View Current Usage.adoc[Account Management and Usage View]
-*** xref:getting-started/paas/Cancel Payara Cloud.adoc[How To Cancel Payara Cloud Account]
+*** xref:getting-started/paas/cancel-subscription.adoc[How To Cancel Payara Cloud Account]
 
 ** Access Management
 *** xref:user-guides/paas/billing/subscription/user-subscription.adoc[Manage User Access]
@@ -92,9 +92,9 @@ endif::[]
 ifndef::page-site-edition[]
 * xref:user-guides/paas/Pricing.adoc[Pricing]
 * How To Guides
-** xref:Getting Started.adoc[Getting Started]
-*** xref:getting-started/paas/Signup Payara Cloud.adoc[Signing up]
-*** xref:getting-started/paas/Log in into Account.adoc[Log into Your Account]
+** xref:getting-started.adoc[Getting Started]
+*** xref:getting-started/paas/signup.adoc[Signing up]
+*** xref:getting-started/paas/login.adoc[Log into Your Account]
 ** https://www.youtube.com/playlist?list=PLFMhxiCgmMR9S2uEiIogs6yp3MmDNsUKY[Demo Videos]
 ** Application Management
 *** xref:user-guides/common/namespace/detail.adoc[Namespace Detail]

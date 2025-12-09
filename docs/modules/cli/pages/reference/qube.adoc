@@ -73,43 +73,43 @@ Only result of operations will be displayed to `stdout`, or error message to `st
 // tag::picocli-generated-man-section-commands[]
 == Commands
 
-xref:qube-login.adoc[*login*]::
+xref:reference/qube-login.adoc[*login*]::
   Log in to Payara Qube instance.
 
-xref:qube-list-subscriptions.adoc[*list-subscriptions*]::
+xref:reference/qube-list-subscriptions.adoc[*list-subscriptions*]::
   Get list of subscriptions available to user.
 
-xref:qube-list-namespaces.adoc[*list-namespaces*]::
+xref:reference/qube-list-namespaces.adoc[*list-namespaces*]::
   List namespaces available in a subscription.
 
-xref:qube-list-applications.adoc[*list-applications*]::
+xref:reference/qube-list-applications.adoc[*list-applications*]::
   List applications present in a namespace.
 
-xref:qube-upload.adoc[*upload*]::
+xref:reference/qube-upload.adoc[*upload*]::
   Upload an application binary (.war file) to Payara Qube.
 
-xref:qube-deploy.adoc[*deploy*]::
+xref:reference/qube-deploy.adoc[*deploy*]::
   Deploy an existing application.
 
-xref:qube-start.adoc[*start*]::
+xref:reference/qube-start.adoc[*start*]::
   Start an application
 
-xref:qube-stop.adoc[*stop*]::
+xref:reference/qube-stop.adoc[*stop*]::
   Stop an application
 
-xref:qube-create-namespace.adoc[*create-namespace*]::
+xref:reference/qube-create-namespace.adoc[*create-namespace*]::
   Create new namespace
 
-xref:qube-delete-namespace.adoc[*delete-namespace*]::
+xref:reference/qube-delete-namespace.adoc[*delete-namespace*]::
   Deletes a namespace.
 
-xref:qube-delete-application.adoc[*delete-application*]::
+xref:reference/qube-delete-application.adoc[*delete-application*]::
   Delete an application.
 
-xref:qube-configure.adoc[*configure*]::
+xref:reference/qube-configure.adoc[*configure*]::
   Change configuration of an application
 
-xref:qube-scale.adoc[*scale*]::
+xref:reference/qube-scale.adoc[*scale*]::
   Scale an application
 
 // end::picocli-generated-man-section-commands[]

@@ -1,6 +1,4 @@
 = Payara Qube CLI User Guide
-:man-prefix: #
-:man-suffix: 1
 :imagesdir: images/
 :release-version: 2.0.0
 :release-repo: https://nexus.payara.fish/repository/payara-artifacts
@@ -224,7 +222,7 @@ Other use cases, such as set up of custom domains or monitoring are only availab
 
 === Listing Namespaces
 
-Use xref:{man-prefix}qube-list-namespaces{man-suffix}[ list-namespaces] to see namespaces available to you:
+Use xref:reference/qube-list-namespaces.adoc[ list-namespaces] to see namespaces available to you:
 
 include::examples/_Namespaces-canBeListed-01.adoc[]
 
@@ -232,7 +230,7 @@ For all other commands that operate on namespace, you must supply the value of n
 
 === Creating a Namespace
 
-Creating namespace with xref:{man-prefix}qube-create-namespace{man-suffix}[create-namespace] takes exact same input as GUI -- project and stage the namespace should represent:
+Creating namespace with xref:reference/qube-create-namespace.adoc[create-namespace] takes exact same input as GUI -- project and stage the namespace should represent:
 
 include::examples/_Namespaces-canBeCreated-01.adoc[]
 
@@ -260,7 +258,7 @@ include::examples/_Namespaces-cannotBeCreatedTwice-01.adoc[]
 
 === Deleting a Namespace
 
-Namespace can be deleted by using xref:{man-prefix}qube-delete-namespace{man-suffix}[delete-namespace] command:
+Namespace can be deleted by using xref:reference/qube-delete-namespace.adoc[delete-namespace] command:
 
 include::examples/_Namespaces-canBeDeleted-01.adoc[]
 
@@ -275,7 +273,7 @@ CLI supports all usecases related to uploading a war file, configuring it and st
 
 === Uploading .war File
 
-A new application can be created within a namespace by uploading its binary artifact using the xref:{man-prefix}qube-upload{man-suffix}[upload] command:
+A new application can be created within a namespace by uploading its binary artifact using the xref:reference/qube-upload.adoc[upload] command:
 
 include::examples/_ApplicationUpload-uploadNamesApplicationFromManifest-01.adoc[]
 
@@ -287,7 +285,7 @@ Should you want to override that, provide option `-a`/`--application`:
 include::examples/_ApplicationUpload-specifyingNameOverridesApplication-01.adoc[]
 
 Status `PENDING` signifies that application has not been deployed yet.
-Deployment can be either performed by the  xref:{man-prefix}qube-deploy{man-suffix}[deploy] command, or by providing option `--deploy` to the `upload` command.
+Deployment can be either performed by the  xref:reference/qube-deploy.adoc[deploy] command, or by providing option `--deploy` to the `upload` command.
 
 include::examples/_Deployment-deploymentStraightFromUploadStartsApp-01.adoc[]
 
@@ -300,7 +298,7 @@ include::examples/_Deployment-uploadingNewRevisionSignalsPendingChanges-01.adoc[
 
 === Deploying Application
 
-To deploy an application as a separate step (for example after configuring it) use the xref:{man-prefix}qube-deploy{man-suffix}[ deploy] command:
+To deploy an application as a separate step (for example after configuring it) use the xref:reference/qube-deploy.adoc[ deploy] command:
 
 include::examples/_Deployment-deployingAfterPendingChangesMovesToRunningState-01.adoc[]
 
@@ -320,7 +318,7 @@ Exit code in such case is 2.
 
 include::examples/_Deployment-failEarlyFailsOnDeploymentProblem-03.adoc[]
 
-These both options are also available to other commands that might trigger deployment -- xref:{man-prefix}qube-upload{man-suffix}[upload] and xref:{man-prefix}qube-configure{man-suffix}[configure].
+These both options are also available to other commands that might trigger deployment -- xref:reference/qube-upload.adoc[upload] and xref:reference/qube-configure.adoc[configure].
 
 ==== Deployment Logs
 
@@ -340,13 +338,13 @@ The `--logs` switch works with several commands that involve deployment:
 
 === Listing Applications
 
-In order to list applications within a namespace use command xref:{man-prefix}qube-list-applications{man-suffix}[list-applications], that shows application names and their basic properties:
+In order to list applications within a namespace use command xref:reference/qube-list-applications.adoc[list-applications], that shows application names and their basic properties:
 
 include::examples/_Deployment-listApplicationsShowsState-04.adoc[]
 
 === Stopping an Application
 
-A running application can be stopped with xref:{man-prefix}qube-stop{man-suffix}[stop], providing the application name.
+A running application can be stopped with xref:reference/qube-stop.adoc[stop], providing the application name.
 
 include::examples/_Deployment-runningApplicationCanBeStopped-01.adoc[]
 
@@ -356,7 +354,7 @@ include::examples/_Deployment-stoppedApplicationCannotBeStopped-01.adoc[]
 
 === Starting an Application
 
-A stopped application can be started again by using the xref:{man-prefix}qube-start{man-suffix}[start] command.
+A stopped application can be started again by using the xref:reference/qube-start.adoc[start] command.
 
 include::examples/_Deployment-stoppedApplicationCanBeStarted-01.adoc[]
 
@@ -366,7 +364,7 @@ include::examples/_Deployment-runningApplicationCannotBeStarted-01.adoc[]
 
 === Configuring an Application
 
-The most dynamic command of cli is xref:{man-prefix}qube-configure{man-suffix}[configure].
+The most dynamic command of cli is xref:reference/qube-configure.adoc[configure].
 Available sub-commands of `configure` depend on specific application and the configuration options it provides.
 
 The configuration of an application consists of several partial configurations, that describe particular facets of that application.
@@ -386,7 +384,7 @@ When reconfiguration succeeds full configuration of the application as well as m
 include::examples/_Configuration-applicationCanBeReconfigured-01.adoc[]
 
 Changes are not immediately deployed.
-Command xref:{man-prefix}qube-deploy{man-suffix}[deploy] needs to be invoked to make them live.
+Command xref:reference/qube-deploy.adoc[deploy] needs to be invoked to make them live.
 Alternatively option `--deploy` can be passed to `configure` to trigger deployment immediately after reconfiguring.
 In such case output of the `configure` command matches output of `deploy` command.
 

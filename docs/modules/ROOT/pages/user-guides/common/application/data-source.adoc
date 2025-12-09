@@ -216,3 +216,5 @@ quarkus.datasource.secondary.password=secondary_password
 
 These properties can be configured through the {productName} Console when deploying your Quarkus application.
 endif::[]
+
+endif::[]

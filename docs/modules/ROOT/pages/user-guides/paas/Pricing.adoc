@@ -125,7 +125,7 @@ To manage costs and stay within your tier's limits or prepaid amounts:
 == Starting a New Subscription
 
 === Free Trial
-For new users, the best way to begin is with our 15-day free trial. A detailed guide to get you started is available here: xref:getting-started/paas/Signup Payara Cloud.adoc[].
+For new users, the best way to begin is with our 15-day free trial. A detailed guide to get you started is available here: xref:getting-started/paas/signup.adoc[].
 
 === Existing Users
 If you're already using {productName}, you can easily create additional subscriptions by either xref:user-guides/paas/billing/signup/additional.adoc#_signing_up_with_existing_payment_details[reusing existing invoicing data]
@@ -140,8 +140,9 @@ or xref:user-guides/paas/billing/signup/additional.adoc#_initiating_an_additiona
 
 == Cancelling Subscription
 
-A subscription can be cancelled at any time by following the procedure listed here: xref:getting-started/paas/Cancel Payara Cloud.adoc[].
+A subscription can be cancelled at any time by following the procedure listed here: xref:getting-started/paas/cancel-subscription.adoc[].
 
 == Payment Options
 
 {productName} accepts both credit and debit card payments processed securely through Stripe.
+endif::[]
