@@ -4,7 +4,7 @@ ifeval::["{page-site-edition}" == "qube"]
 endif::[]
 
 ifeval::["{page-site-edition}" == "cloud"]
-:productName: Payara Cloud
+:productName: Payara Qube (Managed)
 :productEditionSlug: cloud
 endif::[]
 
