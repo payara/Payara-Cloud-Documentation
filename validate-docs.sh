@@ -52,6 +52,7 @@ run_validator() {
 
 # Run all validators (continue even if some fail)
 run_validator "Product Name Validation" "validate-product-names.sh" || true
+run_validator "Deprecated Name Check" "validate-deprecated-names.sh" || true
 run_validator "Link Integrity Check" "validate-links.sh" || true
 run_validator "Navigation Validation" "validate-nav.sh" || true
 run_validator "Conditional Content Check" "validate-conditionals.sh" || true

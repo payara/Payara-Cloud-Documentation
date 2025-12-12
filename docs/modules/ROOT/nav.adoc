@@ -54,7 +54,7 @@ ifeval::["{page-site-edition}" == "cloud"]
 **** xref:user-guides/paas/billing/subscription/user-preference.adoc[User Preferences]
 **** xref:user-guides/paas/billing/subscription/change-subscription-plan.adoc[Change Subscription Plan]
 **** xref:user-guides/paas/Account Management and How to View Current Usage.adoc[Account Management and Usage View]
-*** xref:getting-started/paas/cancel-subscription.adoc[How To Cancel Payara Cloud Account]
+*** xref:getting-started/paas/cancel-subscription.adoc[How To Cancel Subscription]
 
 ** Access Management
 *** xref:user-guides/paas/billing/subscription/user-subscription.adoc[Manage User Access]

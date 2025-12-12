@@ -1,4 +1,4 @@
-# Payara Cloud Documentation
+# Payara Qube Documentation
 
 Source documentation for **Payara Qube** (self-hosted) and **Payara Qube (Managed)** (cloud service), built with [Antora](https://antora.org/).
 
@@ -70,14 +70,15 @@ Run all validators before submitting PRs:
 
 ### Individual Validators
 
-| Validator                   | Purpose                                                                         |
-|-----------------------------|---------------------------------------------------------------------------------|
-| `validate-product-names.sh` | Ensures product names in `_attributes.adoc` and playbooks match expected values |
-| `validate-nav.sh`           | Verifies navigation entries point to existing pages, identifies orphaned pages  |
-| `validate-links.sh`         | Checks integrity of internal `xref` links between pages and modules             |
-| `validate-images.sh`        | Confirms referenced images exist in assets, warns about unused images           |
-| `validate-conditionals.sh`  | Validates `ifeval`/`ifdef` blocks use correct product names for each edition    |
-| `validate-empty.sh`         | Detects empty or whitespace-only `.adoc` files                                  |
+| Validator                      | Purpose                                                                         |
+|--------------------------------|---------------------------------------------------------------------------------|
+| `validate-product-names.sh`    | Ensures product names in `_attributes.adoc` and playbooks match expected values |
+| `validate-deprecated-names.sh` | Detects usage of deprecated product name "Payara Cloud" in documentation        |
+| `validate-nav.sh`              | Verifies navigation entries point to existing pages, identifies orphaned pages  |
+| `validate-links.sh`            | Checks integrity of internal `xref` links between pages and modules             |
+| `validate-images.sh`           | Confirms referenced images exist in assets, warns about unused images           |
+| `validate-conditionals.sh`     | Validates `ifeval`/`ifdef` blocks use correct product names for each edition    |
+| `validate-empty.sh`            | Detects empty or whitespace-only `.adoc` files                                  |
 
 ### Test Suite
 
