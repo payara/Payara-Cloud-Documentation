@@ -84,6 +84,7 @@ endif::[]
 
 ** Troubleshooting & Support
 *** xref:user-guides/common/Troubleshooting.adoc[Troubleshooting Tips]
+*** xref:user-guides/common/aws-region-help.adoc[AWS Region Support (Beta)]
 ifeval::["{page-site-edition}" == "qube"]
 endif::[]
 
@@ -106,4 +107,5 @@ ifndef::page-site-edition[]
 *** xref:user-guides/common/clustering.adoc[Clustering]
 ** Troubleshooting & Support
 *** xref:user-guides/common/Troubleshooting.adoc[Troubleshooting Tips]
+*** xref:user-guides/common/aws-region-help.adoc[AWS Region Support (Beta)]
 endif::[]
