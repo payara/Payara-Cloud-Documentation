@@ -105,3 +105,5 @@ Your application cannot connect to the database, resulting in application errors
 2.  **Obtain heap dumps or thread dumps**: In order to diagnose what your application is doing having either of these tools might help.
 
 By following these troubleshooting steps, you should be able to resolve most common issues related to application deployment on {productName}.
+
+endif::[]

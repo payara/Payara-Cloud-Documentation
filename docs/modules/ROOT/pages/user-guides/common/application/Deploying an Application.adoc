@@ -161,3 +161,5 @@ Upon successful deletion, a confirmation message is displayed, and you're redire
 image::image41.png[Successful deletion,width=624,height=287, link="{imagesdir}/image41.png", window="_blank"]
 
 [[create-a-team]]
+
+endif::[]

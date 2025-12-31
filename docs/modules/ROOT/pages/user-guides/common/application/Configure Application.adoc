@@ -619,3 +619,5 @@ If your database access is restricted by IP address, enable access to the follow
 When you are happy with your configuration settings, click Save to return to the application details screen.
 
 image::image18.png[Application configuration saved,width=624,height=320, link="{imagesdir}/image18.png", window="_blank"]
+
+endif::[]

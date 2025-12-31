@@ -70,3 +70,5 @@ This repository is private to each customer and is reserved for the customer's u
 * *_zulu-jdk_*
 
 This repository is public to each customer and hosts all new releases and patched for Zulu Enterprise JDK (OpenJDK) installer binaries. 
+
+endif::[]

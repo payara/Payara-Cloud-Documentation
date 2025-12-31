@@ -75,3 +75,5 @@ image::docs:ROOT:how-to-guides/cmr/cmr-3.png[A screenshot displaying new CMR dia
 If you encounter a certificate error, it might be because the Let's Encrypt certificate hasn't been issued yet.
 Make sure your DNS settings are correct, and wait a few minutes.
 You can monitor application logs within the {productName} interface.
+
+endif::[]

@@ -15,17 +15,15 @@ Instead of dealing with low-level components, the Payara Qube Console lets you c
 
 Payara Qube is available in two consumption models:
 
-ifeval::["{page-site-edition}" == "cloud"]
 * **Payara Qube (Managed)**: A fully managed service where Payara hosts and operates the platform infrastructure. Your team can focus entirely on application development without operating the underlying infrastructure.
-* **Payara Qube**: A self-hosted platform that you install and run on your own Kubernetes infrastructure, giving you complete control over your environment, data, and security.
+* **Payara Qube**: A self-hosted platform that you install and run on your own Kubernetes infrastructure, giving you complete control over your environment, data, and security. Ideal for organizations with strict compliance requirements, data residency
+needs, or existing infrastructure investments.
 
+ifeval::["{page-site-edition}" == "cloud"]
 This documentation covers **Payara Qube (Managed)**, the fully managed service.
 endif::[]
 
 ifeval::["{page-site-edition}" == "qube"]
-* **Payara Qube**: A self-hosted platform that you install and run on your own Kubernetes infrastructure, giving you complete control over your environment, data, and security. Ideal for organizations with strict compliance requirements, data residency needs, or existing infrastructure investments.
-* **Payara Qube (Managed)**: A fully managed service where Payara hosts and operates the platform infrastructure.
-
 This documentation covers **Payara Qube**, the self-hosted platform.
 endif::[]
 

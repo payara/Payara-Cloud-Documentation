@@ -1,0 +1,13 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+:ordinal: 800
+= Getting Started
+
+
+To start your journey with {productName}, securing access to a {productName} Subscription is the initial step. This can be effortlessly achieved by proceeding with the xref:getting-started/paas/signup.adoc[Signup]  process to create a trial account.
+
+Subsequently, having a Jakarta EE application ready is essential, as you'll need to deploy it onto the platform.
+
+endif::[]

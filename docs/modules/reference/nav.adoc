@@ -5,43 +5,34 @@ include::ROOT:partial$_attributes.adoc[]
 
 ifdef::page-site-edition[]
 
-ifeval::["{page-site-edition}" == "cloud"]
-** xref:intro.adoc[Introduction To {productName}]
-** xref:getting-started.adoc[Getting Started With {productName}]
-endif::[]
+** xref:intro.adoc[Introduction]
+** xref:getting-started.adoc[Getting Started]
 
-ifeval::["{page-site-edition}" == "qube"]
-** xref:qube-intro.adoc[Introduction To {productName}]
-ce]
-endif::[]
-
-** xref:application-management.adoc[Application Management]
+*** Platform Guide
+**** xref:application-management.adoc[Applications & Namespaces]
+**** xref:access-management.adoc[Roles & Permissions]
 
 ifeval::["{page-site-edition}" == "cloud"]
-** xref:subscription-and-billing-management.adoc[Subscription and Billing Management]
-** xref:access-management.adoc[Access Management]
-** xref:azure-customer-managed-reg-ref.adoc[Azure Customer Managed Region]
+*** Operations
+**** xref:subscription-and-billing-management.adoc[Subscription & Billing]
+**** xref:azure-customer-managed-reg-ref.adoc[Azure Customer Managed Region]
 endif::[]
 
-ifeval::["{page-site-edition}" == "qube"]
 
-endif::[]
 
-ifeval::["{page-site-edition}" == "cloud"]
-** xref:advanced-topics.adoc[Advanced Topics]
-** xref:faqs.adoc[Frequently Asked Questions]
-endif::[]
-
-** xref:Glossary.adoc[]
+*** Reference
+**** xref:advanced-topics.adoc[Advanced Topics]
+**** xref:faqs.adoc[FAQs]
+**** xref:Glossary.adoc[Glossary]
 
 endif::[]
 
 ifndef::page-site-edition[]
 // Fallback when no edition is specified
-** xref:intro.adoc[Introduction To Payara Platform]
+** xref:intro.adoc[Introduction]
 ** xref:getting-started.adoc[Getting Started]
 ** xref:application-management.adoc[Application Management]
 ** xref:advanced-topics.adoc[Advanced Topics]
-** xref:faqs.adoc[Frequently Asked Questions]
-** xref:Glossary.adoc[]
+** xref:faqs.adoc[FAQs]
+** xref:Glossary.adoc[Glossary]
 endif::[]
