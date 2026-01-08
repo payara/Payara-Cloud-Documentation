@@ -11,8 +11,8 @@
     "watch": "nodemon --watch docs -e adoc --exec antora local-playbook.yml"
   },
   "devDependencies": {
-    "@antora/cli": "^2.3.4",
-    "@antora/site-generator-default": "^2.3.4",
+    "@antora/cli": "^3.1.14",
+    "@antora/site-generator-default": "^3.1.14",
     "http-server": "^0.12.3",
     "nodemon": "^2.0.5"
   }
