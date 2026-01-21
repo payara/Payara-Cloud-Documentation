@@ -1,0 +1,31 @@
+site:
+  title: Payara Cloud Documentation
+  start_page: docs::Overview.adoc
+  url: https://docs.payara.fish
+content:
+  sources:
+  - url: ./
+    start_path: docs
+    branches: HEAD
+asciidoc:
+  attributes:
+    attribute-missing: 'skip'
+    experimental: ''
+    page-site-edition: 'cloud'
+    source-highlighter: rouge
+ui:
+  bundle:
+    url: https://github.com/payara/antora-ui-default/releases/download/v2.2/ui-bundle.zip
+    snapshot: true
+runtime:
+  fetch: true
+  log:
+    level: info
+output:
+  dir: ./build/html
+  destinations:
+  - provider: fs
+    path: ./build/assembler
+antora:
+  extensions:
+  - require: '@antora/pdf-extension'

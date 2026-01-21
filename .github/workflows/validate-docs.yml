@@ -19,4 +19,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run full documentation validation
-        run: ./validate-docs.sh
+        run: ./scripts/validate-docs.sh

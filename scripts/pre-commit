@@ -28,7 +28,7 @@ validation_failed=false
 # Always validate product names if attributes/yml changed
 if [ -n "$ATTRIBUTES_CHANGED" ]; then
     echo "→ Validating product names..."
-    if ! ./validate-product-names.sh; then
+    if ! ./scripts/validate-product-names.sh; then
         validation_failed=true
     fi
     echo ""
@@ -40,7 +40,7 @@ if [ -n "$ADOC_CHANGED" ]; then
     # Skip link checking (can be slow on large docs)
 
     echo "→ Validating conditional content..."
-    if ! ./validate-conditionals.sh; then
+    if ! ./scripts/validate-conditionals.sh; then
         validation_failed=true
     fi
     echo ""
@@ -54,7 +54,7 @@ if [ "$validation_failed" = true ]; then
     echo "Please fix the issues above before committing."
     echo ""
     echo "To bypass this check (not recommended): git commit --no-verify"
-    echo "To run full validation: ./validate-docs.sh"
+    echo "To run full validation: ./scripts/validate-docs.sh"
     exit 1
 else
     echo -e "${GREEN}Pre-commit validation passed${NC}"
