@@ -5,7 +5,7 @@ ifdef::page-site-edition[]
 
 = Application Configuration
 
-{productName} supports MicroProfile Config, Spring Boot and Quarkus configuration properties, providing an intuitive dashboard for managing all aspects of your application configuration.
+{productName} supports MicroProfile Config, Spring Boot and Quarkus configuration properties for managing your application configuration.
 
 For Jakarta EE/MicroProfile applications, configuration properties are managed through MicroProfile Config using the `microprofile-config.properties` file.
 
@@ -37,37 +37,37 @@ To access and modify your application configuration:
 
 [NOTE]
 ====
-When {productName} detects that configuration is required before deployment (such as when a `persistence.xml` file is found), the application status will show as "unconfigured" and the Deploy action will be unavailable until you provide the necessary configuration.
+When {productName} detects that configuration is required before deployment (such as when a `persistence.xml` file is found), the application status displays as "unconfigured" and the Deploy action will be unavailable until you provide the necessary configuration.
 ====
 
 [#deployment-configuration]
 == Deployment Configuration
 
-Before deploying your application, configure the deployment settings to ensure your application runs in the correct environment with appropriate resources.
+Before deploying your application, configure the deployment settings to ensure your application runs in the correct environment with correct resources.
 
 [NOTE]
 ====
-Configuration for *Runtime Type*, *Java Runtime*, and *Runtime Size* is optional. If not specified, {productName} will automatically select appropriate values based on your application artifact.
+Configuration for *Runtime Type*, *Java Runtime*, and *Runtime Size* is optional. If not specified, {productName} will automatically select matching values based on your application artifact.
 ====
 
 [#app-runtime-configuration]
 == App Runtime Configuration
 
-You can select the scaling method and runtime size of your {productName} application on the application configuration dashboard
+You can select the scaling method and runtime size of your {productName} application on the application configuration dashboard.
 
 [checklist]
-* ❶ Scalability Type: There are three scalability types you can choose from for your application.
-* ❷ Runtime Type: The underlying combination of Java and Jakarta EE, Spring Boot or Quarkus versions that your application is developed against.
+* ❶ Scalability Type: Choose from three scalability types for your application.
+* ❷ Runtime Type: The underlying combination of Java and Jakarta EE, Spring Boot, or Quarkus versions.
 * ❸ Runtime Size: The runtime or "CPU size" that powers your application.
 * ❹ Scale Down To Zero: Option to automatically scale down the application to zero instances when idle.
 * ❺ Rollover Time: The rollover time for new uploaded application versions to replace the currently deployed version.
 
 === Scalability Types
-There are three stability types in {productName}. These are Rolling Upgrade, Singleton and Horizontal Scaling.
+{productName} supports three scalability types: Rolling Upgrade, Singleton, and Horizontal Scaling.
 
 ==== Rolling Upgrade
 This is the default scaling type. A new application version is deployed and the prior one is terminated when the newly deployed version reports its readiness.
-{productName} determines the readiness of an application by calling the MicroProfile Health (for Jakarta EE/Java EE and Quarkus apps) and Spring Actuator endpoint if one is bundled with the application.
+{productName} determines the readiness of an application by calling the MicroProfile Health (for Jakarta EE/Java EE and Quarkus apps) and Spring Actuator endpoint if bundled.
 If not then the default health endpoint of the underlying Payara Micro instance is called.
 Rolling upgrade scalability type can be configured through the Rollover Time.
 
@@ -80,8 +80,8 @@ NOTE: Depending on the speed of your deployment, there may be a brief moment whe
 ==== Horizontal Scaling
 
 Horizontal scaling allows for configuring up to 8 application replicas.
-{productName} will create and destroy the replicas as needed based on application load.
-You can also enable Data Grid Mode to take advantage of https://www.payara.fish/products/features-catalog/domain-data-grid/[Payara Data Grid] for the application.
+{productName} will create and destroy the replicas based on application load.
+You can also enable Data Grid Mode to use https://www.payara.fish/products/features-catalog/domain-data-grid/[Payara Data Grid] for the application.
 
 [#runtime-type]
 === Runtime Type
@@ -97,7 +97,7 @@ Select the runtime that matches your application framework and version:
 [#runtime-size]
 === Runtime Size
 
-The runtime size specifies the amount of resources to allocate for this instance and count against the included vCPU of your subscription. The resource allocation is as follows:
+The runtime size specifies the amount of resources to allocate for this instance and consumes from the included vCPU of your subscription. The resource allocation is as follows:
 
 [%autowidth]
 |===
@@ -128,7 +128,7 @@ The runtime size specifies the amount of resources to allocate for this instance
 [#scale-down-to-zero]
 === Scale Down To Zero
 
-This feature allows your application to automatically scale down to zero instances when idle, reducing resource consumption and costs.
+This feature allows your application to automatically scale down to zero instances when idle.
 
 [cols="20,80"]
 |===
@@ -149,13 +149,13 @@ ifeval::["{page-site-edition}" == "qube"]
 
 Select the JDK on which your application will run:
 
-* **Azul Zulu** (default): Standard OpenJDK distribution suitable for most applications
+* **Azul Zulu** (default): Standard OpenJDK distribution
 * **Azul Zing**: Enhanced JDK from Azul Platform Prime that delivers up to 37% faster performance, advanced pauseless garbage collection, and optimized resource utilization
 
 [NOTE]
 ====
 Azul Zing is part of the xref:user-guides/common/application/integrations.adoc#_azul_platform_prime[Azul Platform Prime] offering and is only available if you have opted in during contract negotiations.
-It provides significant performance improvements and cost savings for demanding production workloads through more efficient CPU utilization and faster execution.
+It provides performance improvements and cost savings for demanding production workloads through more efficient CPU utilization and faster execution.
 ====
 
 endif::[]
@@ -170,7 +170,7 @@ Option for rollover time:
 |Setting |Description
 
 |Minimal
-|The instance immediately shuts down as soon as new instance reached ready state.
+|The instance immediately shuts down when new instance reached ready state.
 
 |Moderate
 |Add 90 second timeout before shutdown sequence is initiated
@@ -182,7 +182,7 @@ Option for rollover time:
 [#context-root]
 == Context Root
 
-The context root defines the URL path where your application is accessible.
+The context root is the URL path where your application is accessible.
 
 For Jakarta EE/MicroProfile applications, the WAR file name is used as the default context root. For Spring Boot applications, use `server.servlet.context-path`, and for Quarkus applications, use `quarkus.http.root-path` in your application properties.
 
@@ -227,7 +227,7 @@ Communications within a namespace use HTTP only, as traffic is isolated to the n
 == Configuration Properties
 
 You can add, update and remove configuration properties for your application on the configuration panel of the application dashboard.
-The specific configuration mechanism used depends on your application type:
+The configuration mechanism depends on your application type:
 
 * **Jakarta EE/MicroProfile applications**: Use MicroProfile Config properties
 * **Spring Boot applications**: Use Spring Boot configuration properties
@@ -237,8 +237,8 @@ The specific configuration mechanism used depends on your application type:
 image::how-to-guides/application/application-14-mp-config.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-14-mp-config.png"]
 
 [checklist]
-* ❶ Restrict Fields: This option allows you to mark fields as restricted for confidentiality. Values of restricted fields will be represented as * characters
-* ❷ Add Config Property: Clicking this button opens up the form to add a new configuration property for your application
+* ❶ Restrict Fields: Mark fields as restricted for confidentiality. Values of restricted fields display as * characters
+* ❷ Add Config Property: Clicking this button opens the form to add a new configuration property for your application
 
 [#automatic-sensitive-field-detection]
 === Automatic Sensitive Field Detection
@@ -271,7 +271,7 @@ image::how-to-guides/application/application-19-add-config-key.png[window="_blan
 [NOTE]
 ====
 Configuration properties added through the {productName} Console are made available to your application at runtime, but they will NOT modify or be written back to your application's `.properties` files.
-This ensures that your application's source configuration files remain unchanged while still allowing you to override or add configuration values through the platform interface.
+This keeps your application's source configuration files unchanged while still allowing you to override or add configuration values through the platform interface.
 ====
 
 [#common-quarkus-properties]
@@ -287,7 +287,7 @@ Quarkus distinguishes between different configuration phases that affect when pr
 
 * **Build-time with runtime overrides**: Some properties are read at build time but can be overridden at runtime. These are typically configuration values that affect generated code but have sensible runtime override capabilities.
 
-To determine which configuration phase a property belongs to, consult the https://quarkus.io/guides/all-config[Quarkus Configuration Reference]. Properties marked with a lock icon or labeled as "build time" cannot be changed after the application is built.
+Consult the https://quarkus.io/guides/all-config[Quarkus Configuration Reference] to determine a property's configuration phase. Properties marked with a lock icon or labeled as "build time" cannot be changed after the application is built.
 
 Note that some Quarkus properties may be overridden by the platform to ensure proper operation and integration with {productName} infrastructure.
 ====
@@ -301,9 +301,9 @@ quarkus.application.name=my-quarkus-app
 quarkus.http.port=8080
 
 # Database configuration (runtime properties only)
-quarkus.datasource.username=myuser
-quarkus.datasource.password=mypassword
-quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/mydb
+quarkus.datasource.username=${DATABASE_USERNAME:myuser}
+quarkus.datasource.password=${DATABASE_PASSWORD:mypassword}
+quarkus.datasource.jdbc.url=${DATABASE_URL:jdbc:postgresql://localhost:5432/mydb}
 
 # Logging configuration
 quarkus.log.level=INFO
@@ -330,9 +330,9 @@ Spring Boot applications typically use properties such as:
 spring.profiles.active=production
 
 # Database configuration
-spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
-spring.datasource.username=myuser
-spring.datasource.password=mypassword
+spring.datasource.url=${DATABASE_URL:jdbc:postgresql://localhost:5432/mydb}
+spring.datasource.username=${DATABASE_USERNAME:myuser}
+spring.datasource.password=${DATABASE_PASSWORD:mypassword}
 
 # Logging configuration
 logging.level.com.example=DEBUG
@@ -371,7 +371,7 @@ Clicking that button brings up the restrict fields option as shown below.
 .Restrict fields option
 image::how-to-guides/application/application-15-restrict-fields.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-15-restrict-fields.png"]
 
-You can select any number of fields to set as restricted. Clicking save, the restricted fields will be rendered as follows.
+You can select any number of fields to set as restricted. After clicking save, the restricted fields display as follows.
 
 .Restricted config fields
 image::how-to-guides/application/application-16-restrected-fields.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-16-restrected-fields.png"]
@@ -404,7 +404,7 @@ image::image16.png[Database configuration interface,width=624,height=242,window=
 [#jakarta-ee-databases-without-jpa]
 ==== Jakarta EE/MicroProfile: Databases without JPA
 
-If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you can make use of the @DataSourceDefinition:
+If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, use the @DataSourceDefinition:
 
 [source,java]
 ----
@@ -435,7 +435,7 @@ Or define the <data-source> element in _web.xml_:
 
 combined with `MPCONFIG` MicroProfile Config variables. These variables can be configured in the {productName} Console.
 
-Using the MicroProfile Config property MPCONFIG, you can externalize the various properties needed for the connection. This allows you to set different values for different environments and namespaces in {productName}.
+The MicroProfile Config property MPCONFIG externalizes the properties needed for the connection. This allows you to set different values for different environments and namespaces in {productName}.
 
 [#jakarta-ee-multiple-datasources]
 ===== Multiple Datasources
@@ -471,7 +471,7 @@ You can also use the `@DataSourceDefinitions()` to define different datasources 
 
 [NOTE]
 ====
-If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, you need to define the MicroProfile configuration keys manually in {productName} so the system can detect them as described above. Click 'Add Configuration Key' and enter the property value.  In both cases, make sure the appropriate database driver is included in the WAR file you deploy.
+If you are using plain JDBC connections instead of the JPA functionality of Jakarta EE, define the MicroProfile configuration keys manually in {productName}. Click 'Add Configuration Key' and enter the property value. In both cases, make sure the appropriate database driver is included in the WAR file you deploy.
 ====
 
 [#spring-boot-database-configuration]
@@ -482,15 +482,15 @@ For Spring Boot applications, database configuration is typically done through s
 [source,properties]
 ----
 # PostgreSQL example
-spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
-spring.datasource.username=myuser
-spring.datasource.password=mypassword
+spring.datasource.url=${DATABASE_URL:jdbc:postgresql://localhost:5432/mydb}
+spring.datasource.username=${DATABASE_USERNAME:myuser}
+spring.datasource.password=${DATABASE_PASSWORD:mypassword}
 spring.datasource.driver-class-name=org.postgresql.Driver
 
 # MySQL example
-spring.datasource.url=jdbc:mysql://localhost:3306/mydb
-spring.datasource.username=myuser
-spring.datasource.password=mypassword
+spring.datasource.url=${DATABASE_URL:jdbc:mysql://localhost:3306/mydb}
+spring.datasource.username=${DATABASE_USERNAME:myuser}
+spring.datasource.password=${DATABASE_PASSWORD:mypassword}
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 # Connection pool settings (optional)
@@ -521,14 +521,14 @@ For applications requiring multiple database connections:
 [source,properties]
 ----
 # Primary datasource
-spring.datasource.primary.url=jdbc:postgresql://localhost:5432/primary_db
-spring.datasource.primary.username=primary_user
-spring.datasource.primary.password=primary_password
+spring.datasource.primary.url=${DATABASE_URL:jdbc:postgresql://localhost:5432/primary_db}
+spring.datasource.primary.username=${DATABASE_USERNAME:primary_user}
+spring.datasource.primary.password=${DATABASE_PASSWORD:primary_password}
 
 # Secondary datasource
-spring.datasource.secondary.url=jdbc:mysql://localhost:3306/secondary_db
-spring.datasource.secondary.username=secondary_user
-spring.datasource.secondary.password=secondary_password
+spring.datasource.secondary.url=${DATABASE_URL:jdbc:mysql://localhost:3306/secondary_db}
+spring.datasource.secondary.username=${DATABASE_USERNAME:secondary_user}
+spring.datasource.secondary.password=${DATABASE_PASSWORD:secondary_password}
 ----
 
 [#quarkus-database-configuration]
@@ -540,15 +540,15 @@ For Quarkus applications, database configuration is done through Quarkus-specifi
 ----
 # PostgreSQL example
 quarkus.datasource.db-kind=postgresql
-quarkus.datasource.username=myuser
-quarkus.datasource.password=mypassword
-quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/mydb
+quarkus.datasource.username=${DATABASE_USERNAME:myuser}
+quarkus.datasource.password=${DATABASE_PASSWORD:mypassword}
+quarkus.datasource.jdbc.url=${DATABASE_URL:jdbc:postgresql://localhost:5432/mydb}
 
 # MySQL example
 quarkus.datasource.db-kind=mysql
-quarkus.datasource.username=myuser
-quarkus.datasource.password=mypassword
-quarkus.datasource.jdbc.url=jdbc:mysql://localhost:3306/mydb
+quarkus.datasource.username=${DATABASE_USERNAME:myuser}
+quarkus.datasource.password=${DATABASE_PASSWORD:mypassword}
+quarkus.datasource.jdbc.url=${DATABASE_URL:jdbc:mysql://localhost:3306/mydb}
 
 # Connection pool settings (optional)
 quarkus.datasource.jdbc.max-size=10
@@ -585,15 +585,15 @@ For applications requiring multiple database connections:
 ----
 # Default datasource
 quarkus.datasource.db-kind=postgresql
-quarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/primary_db
-quarkus.datasource.username=primary_user
-quarkus.datasource.password=primary_password
+quarkus.datasource.jdbc.url=${DATABASE_URL:jdbc:postgresql://localhost:5432/primary_db}
+quarkus.datasource.username=${DATABASE_USERNAME:primary_user}
+quarkus.datasource.password=${DATABASE_PASSWORD:primary_password}
 
 # Named datasource
 quarkus.datasource.secondary.db-kind=mysql
-quarkus.datasource.secondary.jdbc.url=jdbc:mysql://localhost:3306/secondary_db
-quarkus.datasource.secondary.username=secondary_user
-quarkus.datasource.secondary.password=secondary_password
+quarkus.datasource.secondary.jdbc.url=${DATABASE_URL:jdbc:mysql://localhost:3306/secondary_db}
+quarkus.datasource.secondary.username=${DATABASE_USERNAME:secondary_user}
+quarkus.datasource.secondary.password=${DATABASE_PASSWORD:secondary_password}
 ----
 
 
@@ -602,7 +602,7 @@ image::image17.png[image,width=480,height=108,window="_blank", link="{imagesdir}
 [#allowing-database-access]
 === Allowing Access to your Database from {productName}
 
-If you'd like to provision a database for the best possible performance, it is recommended to provision it on Microsoft Azure in the same region as the namespace.
+To provision a database for optimal performance, provision it on Microsoft Azure in the same region as the namespace.
 
 If your database access is restricted by IP address, enable access to the following IP addresses based on the region the namespace is located in:
 
@@ -616,7 +616,7 @@ If your database access is restricted by IP address, enable access to the follow
 | 40.76.131.181
 |===
 
-When you are happy with your configuration settings, click Save to return to the application details screen.
+When satisfied with your configuration, click Save to return to the application details screen.
 
 image::image18.png[Application configuration saved,width=624,height=320, link="{imagesdir}/image18.png", window="_blank"]
 

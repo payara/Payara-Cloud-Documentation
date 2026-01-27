@@ -13,7 +13,7 @@ For Quarkus applications, see xref::user-guides/common/application/Building-Quar
 
 [[create-a-namespace]]
 == Creating a Namespace
-A Namespace in {productName} works as a container that organizes your applications within your subscription.
+A Namespace in {productName} is a container that organizes your applications within your subscription.
 
 Each namespace:
 
@@ -28,7 +28,7 @@ image::image6.png[Creating a new namespace,width=504,height=435]
 . Click the btn:[Create New Namespace] button from the application management dashboard
 . Fill in these required fields:
 * *Project*: Enter a name (using only letters, numbers, and dashes). This becomes part of your application's URL.
-* *Stage*: Specify your environment (like "qa", "test", or "production")
+* *Stage*: Specify your environment (such as "qa", "test", or "production")
 * *Cloud Region*: Select your preferred cloud provider and location for hosting:
 ** AWS (EU Central 1 or US East 2)
 ** Azure (West Europe or East US)
@@ -51,7 +51,7 @@ You can access the upload dialog in three ways:
 * ❷ Namespace Actions Menu: Menu option to upload new application
 * ❸ Upload Button: Dedicated new application upload button
 
-Clicking either of the new application upload options above brings up the following upload dialog.
+Clicking either of the new application upload options above displays the following upload dialog.
 
 .New application upload popup dialog
 image::how-to-guides/application/application-10-upload.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-10-upload.png"]
@@ -63,14 +63,14 @@ Choose the appropriate file type for your application:
 * *Quarkus applications*: Upload a ZIP file (see xref::user-guides/common/application/Building-Quarkus-Applications.adoc[Building Quarkus Applications] for build instructions.)
 
 [checklist]
-* ❶ Binary Upload Button: Click to bring up the file upload dialog to pick an application binary (.WAR file for Jakarta EE applications, .JAR file for Spring Boot applications, or .ZIP file for Quarkus applications). For Quarkus, see xref::user-guides/common/application/Building-Quarkus-Applications.adoc[Building Quarkus Applications] for build instructions.
+* ❶ Binary Upload Button: Click to open the file dialog and select your application binary
 * ❷ Name Of Artifact: Shows the name of the selected application binary
 * ❸ Deploy Option: Option to directly deploy the uploaded binary
 * ❹ Application Name: Option to give your application a name distinct from the uploaded binary file
 
 If your application doesn't require any special configuration, mark the *Deploy Immediately* checkbox and click btn:[Upload].
 
-The application name is important as it also serves as the DNS name for the container hosting your application.
+The application name serves as the DNS name for the container hosting your application.
 This name is either specified in the {productName} Console dialog, derived from the `artifactId` in the `pom.xml` file if your application file is Maven-built, or taken from the uploaded file name.
 
 An uploaded application will transition to the xref:user-guides/common/application/detail.adoc#_pending_state[Pending State].
@@ -110,8 +110,8 @@ For Jakarta EE/MicroProfile applications, choose a runtime type based on your ap
 [cols="1,1,1", options="header"]
 |===
 | Jakarta EE Version | Payara Version | JDK
-|  8 |  5 |  11 /17/ 21
-|  10 |  6 |  11 /17/ 21
+|  8 |  5 |  11 / 17 / 21
+|  10 |  6 |  11 / 17 / 21
 |===
 
 As an example, if your application is developed on Jakarta EE 8 and compiled for JDK 17, then you can pick the option for Jakarta EE 8 (Payara 5, JDK17).
@@ -124,7 +124,7 @@ NOTE: {productName} by default will assign a runtime based on referenced Jakarta
 image::image-37-runtime-type1.png[Choosing a runtime type, link="{imagesdir}/image-37-runtime-type1.png", window="_blank"]
 image::image-37-runtime-type2.png[Choosing a runtime type, link="{imagesdir}/image-37-runtime-type2.png", window="_blank"]
 
-Post-upload, you can view or edit configurations by clicking btn:[Action], then btn:[Edit Configurations].
+After uploading, you can view or edit configurations by clicking btn:[Action], then btn:[Edit Configurations].
 
 For detailed configuration instructions, see xref:user-guides/common/application/Configure Application.adoc[Configure Application].
 
@@ -144,9 +144,9 @@ image::how-to-guides/application/application-11-deploy.png[window="_blank", link
 
 [checklist]
 * ❶ Deploy Changes: Deploy the uploaded application, transitioning it to the xref:user-guides/common/application/detail.adoc#_running_state[Running State]
-* ❷ and ❸ Both menus have the Deploy Changes option as well
+* ❷ and ❸: Additional locations where Deploy Changes is available
 
-The application transitions from Pending to Running state, making it accessible on the internet with its own unique domain.
+The application transitions from Pending to Running state, making your application accessible on the internet with its own unique domain.
 
 [[redeploying-applications]]
 === Updating a Running Application
@@ -166,9 +166,7 @@ Your application is now accessible via the provided Application URL. There might
 [[stop-application]]
 == Stopping an Application
 
-Stopping a running application in {productName} is simple.
-
-Select the application you wish to stop from the Namespace Navigator sidebar, open the btn:[Application Actions] drop-down menu and choose btn:[Stop Application].
+Select the application you wish to stop from the Namespace Navigator sidebar, open the btn:[Application Actions] dropdown menu and choose btn:[Stop Application].
 
 .Stop application menu option
 image::how-to-guides/application/Stop Application.png[Stopping an application,width=624,height=287, link="{imagesdir}/how-to-guides/application/Stop Application.png", window="_blank"]
@@ -181,21 +179,19 @@ image::image26.png[Stopping application confirmation,width=624,height=287]
 [[delete-application]]
 == Removing an Application
 
-Similarly, to delete an application, select the application you want to remove, open the btn:[Application Actions] drop down menu, and choose btn:[Delete Application].
+To delete an application, select the application you want to remove, open the btn:[Application Actions] dropdown menu, and choose btn:[Delete Application].
 
 .Application deletion menu
 image::image39.png[Deleting an application,width=624,height=287, link="{imagesdir}/image39.png", window="_blank"]
 
-You'll receive a confirmation prompt, type the name of the application you want to delete and click btn:[Delete] to confirm.
+A confirmation prompt appears. Type the name of the application you want to delete and click btn:[Delete] to confirm.
 
 .Application deletion confirmation
 image::image40.png[Deleting application confirmation,width=624,height=287]
 
-Upon successful deletion, a confirmation message is displayed, and you're redirected back to the Namespace Detail screen, where the application will no longer be listed.
+Upon successful deletion, a confirmation message displays and you return to the Namespace Detail screen, where the application no longer appears.
 
 .Deleted application page
 image::image41.png[Successful deletion,width=624,height=287, link="{imagesdir}/image41.png", window="_blank"]
-
-[[create-a-team]]
 
 endif::[]
