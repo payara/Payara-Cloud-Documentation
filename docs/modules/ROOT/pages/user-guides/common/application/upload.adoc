@@ -21,14 +21,14 @@ Clicking either of the new application upload options above brings up the follow
 image::how-to-guides/application/application-10-upload.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-10-upload.png"]
 
 [checklist]
-* ❶ Binary Upload Button: Click to bring up the file upload dialog to pick an application binary (.WAR file for Jakarta EE applications, .JAR file for Spring Boot applications, or .ZIP file for Quarkus applications). For Quarkus, see xref:Quarkus Applications.adoc[Building Quarkus Applications] for build instructions.
+* ❶ Binary Upload Button: Click to bring up the file upload dialog to pick an application binary (.WAR file for Jakarta EE applications, .JAR file for Spring Boot applications, or .ZIP file for Quarkus applications). For Quarkus, see link:Building-Quarkus-Applications.html[Building Quarkus Applications] for build instructions.
 * ❷ Name Of Artifact: Shows the name of the selected application binary
 * ❸ Deploy Option: Option to directly deploy the uploaded binary
 * ❹ Application Name: Option to give the application a name distinct from the uploaded binary file
 
 An uploaded application as shown in the above dialog will transition to the xref:user-guides/common/application/detail.adoc#_pending_state[Pending State].
 Custom xref:user-guides/common/application/overview.adoc[configurations] can be carried out on the uploaded application to make it ready for deployment.
-An application can also be immediately deployed by selecting 'Deploy immediately' op[Building Quarkus Applications]tion and click Upload.
+An application can also be immediately deployed by selecting 'Deploy immediately' option and click Upload.
 A directly deployed application transitions to the xref:user-guides/common/application/detail.adoc#_running_state[Running State]
 
 == Deploying Pending Applications

@@ -2,6 +2,7 @@ include::partial$_attributes.adoc[]
 
 ifdef::page-site-edition[]
 
+[[building-quarkus-applications]]
 = Building Quarkus Applications for {productName}
 
 Quarkus applications deploy to {productName} as ZIP files. The https://docs.quarkiverse.io/quarkus-payara-qube/dev/index.html[Payara Qube Quarkus extension] prepares your application for deployment by configuring logging, metrics, and packaging for the platform runtime.
@@ -137,9 +138,9 @@ If your application or its dependencies attempt these operations, deployment wil
 
 After building your Quarkus application:
 
-. xref:../Deploying an Application.adoc[Upload the ZIP file] to {productName}
-. xref:Configure Application.adoc[Configure your application] before deployment
-. xref:../../common/clustering.adoc[Enable clustering] for high availability (optional)
+. link:Deploying+an+Application.html[Upload the ZIP file] to {productName}
+. link:Configure+Application.html[Configure your application] before deployment
+. link:../../common/clustering.html[Enable clustering] for high availability (optional)
 
 == Additional Resources
 
