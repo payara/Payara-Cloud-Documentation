@@ -39,7 +39,22 @@ After creation, you'll be taken to the namespace details screen where you can st
 [[upload-an-application]]
 == Uploading an Application
 
-Uploading an application is straightforward. From the *Namespace Details Screen*, click btn:[Upload Application].
+Multiple applications can be uploaded to the same Namespace. From the *Namespace Details Screen*, click btn:[Upload Application].
+
+.Options to upload new application in a Namespace
+image::how-to-guides/application/application-9-upload-namespace.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-9-upload-namespace.png"]
+
+You can access the upload dialog in three ways:
+
+[checklist]
+* ❶ Namespace: The Namespace within which the application will be uploaded
+* ❷ Namespace Actions Menu: Menu option to upload new application
+* ❸ Upload Button: Dedicated new application upload button
+
+Clicking either of the new application upload options above brings up the following upload dialog.
+
+.New application upload popup dialog
+image::how-to-guides/application/application-10-upload.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-10-upload.png"]
 
 Choose the appropriate file type for your application:
 
@@ -47,20 +62,32 @@ Choose the appropriate file type for your application:
 * *Spring Boot applications*: Upload a JAR file
 * *Quarkus applications*: Upload a ZIP file (see xref::user-guides/common/application/Building-Quarkus-Applications.adoc[Building Quarkus Applications] for build instructions.)
 
-.Namespace home screen
-image::image8.png[Uploading an application,width=624,height=257,link="{imagesdir}/image8.png", window="_blank"]
+[checklist]
+* ❶ Binary Upload Button: Click to bring up the file upload dialog to pick an application binary (.WAR file for Jakarta EE applications, .JAR file for Spring Boot applications, or .ZIP file for Quarkus applications). For Quarkus, see xref::user-guides/common/application/Building-Quarkus-Applications.adoc[Building Quarkus Applications] for build instructions.
+* ❷ Name Of Artifact: Shows the name of the selected application binary
+* ❸ Deploy Option: Option to directly deploy the uploaded binary
+* ❹ Application Name: Option to give your application a name distinct from the uploaded binary file
 
-A dialog box will appear, prompting you to choose the WAR, JAR, or ZIP file for deployment.
-
-If your application doesn't require any special configuration, simply mark the *Deploy Immediately* checkbox.
+If your application doesn't require any special configuration, mark the *Deploy Immediately* checkbox and click btn:[Upload].
 
 The application name is important as it also serves as the DNS name for the container hosting your application.
 This name is either specified in the {productName} Console dialog, derived from the `artifactId` in the `pom.xml` file if your application file is Maven-built, or taken from the uploaded file name.
 
-.Application upload dialog
-image::image9.png[Application details post-upload,width=624,height=370]
+An uploaded application will transition to the xref:user-guides/common/application/detail.adoc#_pending_state[Pending State]. Custom xref:user-guides/common/application/Configure Application.adoc[configurations] can be carried out on the uploaded application to make it ready for deployment. An application can also be immediately deployed by selecting the 'Deploy immediately' option before clicking btn:[Upload].
 
-Once the application file is uploaded, you'll be navigated to the application's detail screen for configuration before deploying it.
+[[deploying-pending-applications]]
+=== Deploying Pending Applications
+
+A pending application can be deployed by clicking the 'Deploy Changes' menu option from the Application Actions drop-down menu.
+
+.Deploying an uploaded application
+image::how-to-guides/application/application-11-deploy.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-11-deploy.png"]
+
+[checklist]
+* ❶ Deploy Changes: Deploy the uploaded application, transitioning it to the xref:user-guides/common/application/detail.adoc#_running_state[Running State]
+* ❷ and ❸ Both menus have the Deploy Changes option as well
+
+A deployed application transitions to the xref:user-guides/common/application/detail.adoc#_running_state[Running State], which makes it accessible on the internet with its own unique domain.
 
 [[review-configuration]]
 == Reviewing Configuration
@@ -86,6 +113,8 @@ Configurations in {productName} cover different areas depending on your applicat
 If your Jakarta EE/MicroProfile application uses the MicroProfile Config API and has the microprofile-config.properties file, all properties declared in that file will be available in the {productName} Console.
 
 If your Jakarta EE/MicroProfile application bundles a persistence.xml file, then the datasource definition as declared through @Datasource annotation or in the web.xml will also be available for editing.
+
+For detailed configuration instructions, see xref:user-guides/common/application/Configure Application.adoc[Configure Application].
 
 === Runtime Type for Jakarta EE Applications
 
