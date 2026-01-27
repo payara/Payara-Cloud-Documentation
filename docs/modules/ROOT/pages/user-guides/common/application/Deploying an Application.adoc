@@ -73,12 +73,12 @@ If your application doesn't require any special configuration, mark the *Deploy 
 The application name is important as it also serves as the DNS name for the container hosting your application.
 This name is either specified in the {productName} Console dialog, derived from the `artifactId` in the `pom.xml` file if your application file is Maven-built, or taken from the uploaded file name.
 
-An uploaded application will transition to the xref:user-guides/common/application/detail.adoc#_pending_state[Pending State]. Custom xref:user-guides/common/application/Configure Application.adoc[configurations] can be carried out on the uploaded application to make it ready for deployment. An application can also be immediately deployed by selecting the 'Deploy immediately' option before clicking btn:[Upload].
+An uploaded application will transition to the xref:user-guides/common/application/detail.adoc#_pending_state[Pending State].
 
 [[review-configuration]]
 == Reviewing Configuration
 
-Configurations in {productName} cover different areas depending on your application type:
+Before deploying, review and configure your application settings. Configurations in {productName} cover different areas depending on your application type:
 
 *For Jakarta EE/MicroProfile applications:*
 
@@ -95,6 +95,8 @@ Configurations in {productName} cover different areas depending on your applicat
 
 * Application properties
 * Configuration profiles
+
+NOTE: Quarkus distinguishes between build-time and runtime properties. See xref:user-guides/common/application/Configure Application.adoc#common-quarkus-properties[Common Quarkus Properties] for important configuration caveats.
 
 If your Jakarta EE/MicroProfile application uses the MicroProfile Config API and has the microprofile-config.properties file, all properties declared in that file will be available in the {productName} Console.
 
