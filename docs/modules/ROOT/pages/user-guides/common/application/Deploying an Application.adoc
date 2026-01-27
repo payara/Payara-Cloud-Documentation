@@ -6,6 +6,8 @@ ifdef::page-site-edition[]
 
 {productName} supports deploying Jakarta EE (and MicroProfile) applications as WAR files, Spring Boot applications as JAR files, and Quarkus applications as ZIP files.
 
+NOTE: For Quarkus applications, see xref:user-guides/common/application/Quarkus Applications.adoc[Building Quarkus Applications] for instructions on preparing your application with the Payara Qube Quarkus extension.
+
 [[create-a-namespace]]
 == Creating a Namespace
 A Namespace in {productName} works as a container that organizes your applications within your subscription.
@@ -40,7 +42,7 @@ Choose the appropriate file type for your application:
 
 * *Jakarta EE/MicroProfile applications*: Upload a WAR file
 * *Spring Boot applications*: Upload a JAR file
-* *Quarkus applications*: Upload a ZIP file
+* *Quarkus applications*: Upload a ZIP file (see  xref:user-guides/common/application/Quarkus Applications.adoc[Building Quarkus Applications] build instructions.)
 
 .Namespace home screen
 image::image8.png[Uploading an application,width=624,height=257,link="{imagesdir}/image8.png", window="_blank"]

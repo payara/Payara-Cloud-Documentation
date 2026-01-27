@@ -261,7 +261,7 @@ Ensure you have an application ready in one of the supported formats:
 
 * **Jakarta EE/MicroProfile**: WAR file
 * **Spring Boot**: JAR file
-* **Quarkus**: ZIP file
+* **Quarkus**: ZIP file (see xref:ROOT:user-guides/common/application/Quarkus Applications.adoc[Building Quarkus Applications] for instructions)
 
 TIP: If you need a demo application, check out the https://github.com/Jakarta-EE-Petclinic/petclinic-jakartaee[Jakarta EE 10 version of Pet Clinic].
 
