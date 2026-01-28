@@ -142,6 +142,30 @@ This feature allows your application to automatically scale down to zero instanc
 
 |===
 
+[#application-wake-up-behavior]
+==== Application Wake-Up Behavior
+
+When an application has been scaled to zero, the first incoming request triggers the application to start up.
+The request is held during this startup period until the application becomes ready to handle it.
+
+[WARNING]
+====
+Clients should configure an appropriate read timeout to accommodate the application startup time.
+Browser clients typically handle this automatically, but programmatic clients (HTTP clients, API clients, etc.) must set a timeout that exceeds the expected application startup duration.
+====
+
+During the wake-up process, the following behaviors occur:
+
+* **307 Temporary Redirect**: Once the application starts up, {productName} returns a `307 Temporary Redirect` status code. Clients must properly handle this redirect by:
+  ** Repeating the request to the new location
+  ** Preserving the original HTTP method (POST, PUT, etc.)
+  ** Including the original request body
+
+* **503 Service Unavailable**: In rare cases where the application fails to wake up, {productName} returns a `503 Service Unavailable` status code with an HTML payload describing the failure. Clients must:
+  ** Detect the 503 response
+  ** Implement retry logic with exponential backoff
+  ** Handle the HTML response appropriately (not parse as JSON/XML)
+
 ifeval::["{page-site-edition}" == "qube"]
 
 [#java-runtime]
