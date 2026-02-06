@@ -71,10 +71,7 @@ ifeval::["{page-site-edition}" == "qube"]
 endif::[]
 
 ** Advanced Features
-ifeval::["{page-site-edition}" == "qube"]
 *** xref:user-guides/common/application/integrations.adoc[Third Party Integrations]
-endif::[]
-
 *** xref:user-guides/common/How to Use Custom Domains.adoc[How to Use Custom Domains]
 *** xref:user-guides/common/How To Route Applications.adoc[Application Communication]
 *** xref:user-guides/common/clustering.adoc[Clustering]
