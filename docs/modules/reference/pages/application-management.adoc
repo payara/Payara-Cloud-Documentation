@@ -183,3 +183,4 @@ endif::[]
 * *Application Logging*: The platform includes built-in application logging, allowing you to track and analyze your application's behavior. You can view and search logs using the "Search Logs" option within the Application Actions menu. The search functionality supports queries, date/time filtering, and Boolean operators for precise log analysis.
 * *Heap Dumps*: If you suspect memory-related problems, you can generate heap dumps of the JVM process running your application. These dumps can be analyzed using standard tools to identify memory leaks or inefficient object usage.
 * *Thread Dumps*: To gain insights into thread activity and potential performance bottlenecks, you can generate thread dumps. These dumps provide a snapshot of the threads within your application, aiding in the debugging of performance issues.
+endif::[]

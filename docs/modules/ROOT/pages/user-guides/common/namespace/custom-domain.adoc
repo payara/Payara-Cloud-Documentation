@@ -16,3 +16,5 @@ image::how-to-guides/application/manage/namespace/namespace-3-custom-domain.png[
 
 Click the Custom Domain menu item to navigate to the xref:user-guides/common/How to Use Custom Domains.adoc[Custom Domain] page.
 
+
+endif::[]

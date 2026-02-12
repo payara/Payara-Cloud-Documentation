@@ -53,3 +53,5 @@ image::how-to-guides/application/application-namespace-permissions.png[link="{im
 === Role Requirements
 A subscription must always have at least one user in the Billing Manager role and one in the Administrator role.
 This requirement can also be satisfied by a single user with the Billing Manager with Administrative Privileges role.
+
+endif::[]

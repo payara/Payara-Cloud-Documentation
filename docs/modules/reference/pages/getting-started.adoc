@@ -1,17 +1,431 @@
-= Getting Started with Payara Cloud
+include::partial$_attributes.adoc[]
 
-== Signing Up and Creating a Subscription
+ifdef::page-site-edition[]
 
-. *Free Trial*: Payara Cloud offers a 15-day free trial. Begin by visiting the https://payara.cloud/signup[signup page] and completing the signup form. You'll need to provide a username, email address, and a secure password.
-. *Account Verification*: After signing up, check your email for an account confirmation message. Click the verification link within the email to activate your account.
-. *Creating a Subscription*: Log in to your Payara Cloud account. If this is your first time, you'll be prompted to create a subscription. The free trial is the default selection. Proceed by clicking the "Continue to Invoicing" button.
-. *Invoicing Details*: Provide the necessary invoicing information, including the primary contact name and any relevant company details. Click "Continue to Confirmation."
-. *Confirmation and Subscription*: Review and accept the Terms & Conditions. You can also opt in for marketing communications. Finally, click the "Subscribe" button to create your subscription. You'll be redirected to the Application Management Page, where you can start using Payara Cloud immediately.
+= Getting Started with {productName}
+
+== What is Payara Qube?
+
+Payara Qube is an enterprise-grade platform for deploying Jakarta EE, Spring Boot, and Quarkus applications.
+It simplifies deployment by automating infrastructure provisioning and removing the need to manually manage application servers, containers, and Kubernetes clusters.
+
+The {productName} Console provides a simple, guided interface for configuring applications and their runtime, with comprehensive CLI tools available for automation.
+
+== Consumption Models
+
+Payara Qube is available in two consumption models:
+
+* **Payara Qube (Managed)**: A fully managed service where Payara hosts and operates the platform infrastructure. Your team can focus entirely on application development without operating the underlying infrastructure.
+* **Payara Qube**: A self-hosted platform that you install and run on your own Kubernetes infrastructure, giving you complete control over your environment, data, and security.
+
+ifeval::["{page-site-edition}" == "cloud"]
+This guide covers getting started with **Payara Qube (Managed)**, the fully managed service.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+This guide covers getting started with **Payara Qube**, the self-hosted platform.
+endif::[]
+
+== Supported Application Types
+
+{productName} supports three major application frameworks:
+
+* **Jakarta EE/MicroProfile applications**: Deployed as WAR files, supporting Jakarta EE 8 (Payara 5) and Jakarta EE 10 (Payara 6)
+* **Spring Boot applications**: Deployed as JAR files with full Spring Boot configuration support
+* **Quarkus applications**: Deployed as ZIP files with native Quarkus configuration support
+
+ifeval::["{page-site-edition}" == "cloud"]
+== Signing Up for Payara Qube (Managed)
+
+=== Create Your Account
+
+{productName} offers a 15-day free trial to explore the service without commitment.
+
+. Visit the https://www.payara.fish/products/payara-cloud/[signup page]
+. Complete the signup form:
+  * Enter a username
+  * Provide your email address
+  * Create a strong password (at least 8 characters with numbers, uppercase, lowercase, and/or special characters)
+. Alternatively, sign up with your Google or GitHub account
+. Click **Continue**
+
+IMPORTANT: Use a valid email address for important account notifications.
+
+. Check your email for an account confirmation message
+. Click the **Verify Your Account** button in the email
+. Your account is now verified and ready to use
+
+=== Create a Subscription
+
+To use {productName}, you must create a subscription - the billable unit for your usage.
+
+. After logging in for the first time, you'll see the subscription page
+. Click **Sign-Up To {productName}**
+. On the subscription creation page:
+  * Leave the default free trial selection
+  * Click **Continue To Invoicing**
+. On the invoicing tab:
+  * Enter the primary contact name for the account
+  * Optionally provide company details
+  * Click **Continue To Confirmation**
+. On the confirmation tab:
+  * Review and accept the Terms & Conditions
+  * Optionally opt in for marketing communications
+  * Click **Subscribe**
+
+You'll be redirected to your Application Management Page with a default `start-dev` namespace ready to use.
+
+NOTE: Your free trial starts immediately. You won't be charged until the trial ends and you choose a paid subscription.
+
+=== Subscription Plans
+
+{productName} offers three subscription tiers:
+
+**Pay as You Go:**
+
+* No upfront fee
+* 0-2 vCPU cores
+* Runtime size up to 2 vCPU / 6 GB RAM
+* Log and diagnostic dump access
+* Custom domains
+* No horizontal scaling
+
+**Standard:**
+
+* 2-32 vCPU cores
+* Runtime size up to 4 vCPU / 12 GB RAM
+* Custom domains
+* Log and diagnostic dump access
+* Horizontal scaling
+* Tiered usage pricing
+
+**Premium:**
+
+* 16-64 vCPU cores
+* Runtime size up to 4 vCPU / 12 GB RAM
+* Payara Micro Enterprise binaries for local development
+* Custom domains
+* Log and diagnostic dump access
+* Horizontal scaling
+* Access to Payara support team with 10x5 support
+
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+== Installing Payara Qube (Self-Hosted)
+
+=== Prerequisites
+
+Before starting the installation, ensure you have:
+
+* AWS CLI client configured with appropriate administrative permissions
+* Access to your Nexus credentials (provided in your welcome package)
+* https://www.pulumi.com[Pulumi] installed on your machine
+* npm and Helm (may be required depending on your system)
+
+=== Installation Overview
+
+Payara Qube installation uses Pulumi for infrastructure management and deploys on AWS. The process typically takes approximately 45 minutes.
+
+=== Get Installation Files
+
+. Navigate to https://billing.payara.cloud/install-qube/wizard as instructed in your welcome package
+. Enter your Nexus credentials when prompted
+. Define a name for your installation (this will prefix all AWS resources)
+. Configure DNS settings:
+  * **Control Plane Domain**: `stackName.control.example.com`
+  * **Control Plane Zone**: `control.example.com` (must exist in your AWS account)
+  * **Application Domain**: `stackName.apps.example.com`
+  * **Application Zone**: `apps.example.com` (recommended to exist in your AWS account)
+  * **LetsEncrypt Contact Email**: Your email for SSL certificate notifications
+. Review SMTP provider settings
+. Review default instance settings (avoid instances smaller than 2-CPU)
+. Set your Region ID and Region Description
+. Click **Generate installation data** to download the installation package
+
+=== Configure Pulumi
+
+Choose your state management backend:
+
+* **Pulumi Cloud** (recommended): Secure online service for team collaboration
+* **S3 bucket**: Store state in AWS S3 or other cloud storage
+* **Local storage**: Not recommended for production
+
+Authenticate with Pulumi:
+
+[source,bash]
+----
+# For Pulumi Cloud
+pulumi login
+
+# For Azure Blob storage
+pulumi login azblob://pulumi/?storage_account=stacc
+
+# For local storage (not recommended)
+pulumi login --local
+----
+
+=== Deploy Infrastructure
+
+. Extract the installation files to a directory
+. Initialize the Pulumi stack:
++
+[source,bash]
+----
+pulumi stack init your-stack-name
+pulumi refresh -y
+----
+
+. Install Pulumi SDK:
++
+[source,bash]
+----
+pulumi install
+----
+
+. Start deployment:
++
+[source,bash]
+----
+pulumi up
+----
+
+The deployment will show a preview and wait for confirmation before executing.
+
+NOTE: Due to eventually consistent nature of Kubernetes and AWS, you may need to run `pulumi up` multiple times if initial attempts encounter timing issues.
+
+=== Configure DNS
+
+If both parent domains were in your AWS account, DNS configuration is automatic. Otherwise:
+
+. Check AWS Route 53 console for your hosted zone details
+. Note the nameservers for your application domain
+. Create NS records in the parent domain pointing to these nameservers
+
+The installation will not complete until domains resolve publicly.
+
+=== Post-Installation Setup
+
+. View installation outputs:
++
+[source,bash]
+----
+pulumi stack output --show-secrets
+----
++
+This displays:
+  * `userManagementUrl`: Keycloak admin interface
+  * `managementUrl`: Payara Qube management interface
+  * `userManagementAdminUser` and `userManagementAdminPassword`: Initial admin credentials
+
+. Configure Keycloak Administrator:
+  * Visit the `userManagementUrl` with admin credentials
+  * Create a permanent admin account
+  * Navigate to **Users** > **Add User**
+  * Set username and password
+  * In **Role Mapping**, assign the admin role
+  * Optionally disable the initial admin account
+
+. Create Your First Organization:
+  * Navigate to the `managementUrl`
+  * Log in with organization admin credentials
+  * Click to create a new organization
+  * Add users by specifying their email addresses
+
+For detailed installation instructions, see the xref:ROOT:getting-started/qube/qube-installation.adoc[Installation Guide].
+
+=== Key Features
+
+* Complete infrastructure control
+* Built-in horizontal scaling
+* Built-in monitoring and logging
+* Custom domain support
+* SSL/TLS certificate management
+* Self-hosted on your own Kubernetes infrastructure
+
+endif::[]
 
 == Deploying Your First Application
-. Make sure you have a Jakarta EE application in WAR format ready to deploy. If you need a demo, check out the https://github.com/Jakarta-EE-Petclinic/petclinic-jakartaee[Jakarta EE 10 version of Pet Clinic].
-. Access the Namespace: Log in to your Payara Cloud account. You'll be directed to the Namespaces screen. A default namespace called "start-dev" is pre-created for you.
-. Upload Your Application: From the Namespace Details Screen, click "Upload Application." Select your WAR file and, if your application doesn't require special configuration, check the "Deploy Immediately" checkbox.
-. Configure (If Needed): If your application needs specific configurations, you'll be taken to the application's detail screen after uploading. Here, you can adjust settings related to MicroProfile Config properties, context root, and database connections.
-. Deploy: Once configured, deploy your application by navigating to the application details screen, clicking "Applications Actions," and choosing "Deploy Changes."
-. Access Your Application: After successful deployment, you can access your application using the provided Application URL. Note that there might be a slight delay due to DNS propagation.
+
+ifeval::["{page-site-edition}" == "cloud"]
+After creating your subscription, you're ready to deploy your first application.
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+After completing installation and creating an organization, you're ready to deploy your first application.
+endif::[]
+
+=== Prepare Your Application
+
+Ensure you have an application ready in one of the supported formats:
+
+* **Jakarta EE/MicroProfile**: WAR file
+* **Spring Boot**: JAR file
+* **Quarkus**: ZIP file (see link:../user-guides/common/application/Building-Quarkus-Applications.html[Building Quarkus Applications] for instructions)
+
+TIP: If you need a demo application, check out the https://github.com/Jakarta-EE-Petclinic/petclinic-jakartaee[Jakarta EE 10 version of Pet Clinic].
+
+=== Access Your Namespace
+
+ifeval::["{page-site-edition}" == "cloud"]
+. Log in to your {productName} account
+. You'll be directed to the Namespaces screen
+. A default namespace called `start-dev` is pre-created for you
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+. Log in to your {productName} instance
+. Navigate to your organization
+. Create or select a namespace for your application
+endif::[]
+
+=== Upload and Deploy
+
+. From the Namespace Details screen, click **Upload Application**
+. Select your application file (WAR, JAR, or ZIP)
+. If your application doesn't require special configuration:
+  * Check the **Deploy Immediately** checkbox
+  * Click **Upload**
+. If your application needs configuration:
+  * Upload without deploying
+  * Configure settings on the application detail screen:
+    - MicroProfile Config properties
+    - Context root
+    - Database connections
+    - Runtime size and scaling options
+  * Click **Application Actions** > **Deploy Changes**
+
+=== Access Your Application
+
+After successful deployment:
+
+. The application status will update to **Running**
+. Click on the **Application URL** to access your application
+. Note: There may be a slight delay due to DNS propagation
+
+== Core Concepts
+
+=== Namespaces
+
+A namespace groups applications under a single domain, with each application having its own path prefix. Namespaces provide:
+
+* Logical separation of applications
+* Shared domain configuration
+* Custom domain support
+* Isolated environments (dev, test, prod)
+
+=== Applications
+
+Applications are your deployed services. Each application:
+
+* Has its own configuration
+* Can be scaled independently
+* Has dedicated monitoring and logging
+* Supports multiple revisions
+
+=== Revisions
+
+Every deployment creates a new revision. Revisions allow you to:
+
+* Track deployment history
+* Rollback to previous versions
+* Compare configurations between deployments
+
+== Management Tools
+
+=== Web Console
+
+The {productName} Console provides:
+
+* Visual application management
+* Real-time monitoring and logging
+* Configuration management
+* User and organization management
+
+ifeval::["{page-site-edition}" == "cloud"]
+Access at: https://manage.payara.cloud
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+Access at: Your configured `managementUrl`
+endif::[]
+
+=== Command Line Interface (CLI)
+
+The Payara Qube CLI enables:
+
+* Automated deployments
+* CI/CD integration
+* Script-based management
+* Non-interactive operations
+
+See the xref:cli:user-guide.adoc[CLI User Guide] for detailed instructions.
+
+=== Maven Plugin
+
+For Maven projects, the Payara Qube Maven Plugin provides:
+
+* Deploy directly from Maven builds
+* Live reload during development
+* Integrated with Maven lifecycle
+
+See the xref:maven-plugin:user-guide.adoc[Maven Plugin Guide] for configuration.
+
+=== IntelliJ IDEA Plugin
+
+For IntelliJ users, the plugin offers:
+
+* Deploy directly from IDE
+* Integrated debugging
+* Log viewing within IDE
+
+See the xref:intellij-idea-plugin:user-guide.adoc[IntelliJ Plugin Guide] for setup.
+
+== Next Steps
+
+Now that you have {productName} set up and your first application deployed:
+
+ifeval::["{page-site-edition}" == "cloud"]
+* Explore xref:ROOT:user-guides/paas/Pricing.adoc[subscription plans] and pricing
+* Learn about xref:ROOT:user-guides/paas/billing/signup/additional.adoc[additional subscriptions]
+* Configure xref:ROOT:user-guides/paas/billing/subscription/user-subscription.adoc[user access]
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+* Set up xref:ROOT:user-guides/qube/access-management.adoc[access management]
+* Configure xref:ROOT:user-guides/qube/qube-organisation-management.adoc[organization management]
+endif::[]
+
+* Configure xref:ROOT:user-guides/common/How to Use Custom Domains.adoc[custom domains]
+* Set up xref:ROOT:user-guides/common/How To Route Applications.adoc[application communication]
+* Enable xref:ROOT:user-guides/common/clustering.adoc[clustering] for high availability
+* Review xref:ROOT:user-guides/common/Troubleshooting.adoc[troubleshooting tips]
+
+== Getting Help
+
+ifeval::["{page-site-edition}" == "cloud"]
+For support with Payara Qube (Managed):
+
+* Premium subscription customers: Contact support via your subscription portal
+* Documentation: Browse the user guides in this documentation
+endif::[]
+
+ifeval::["{page-site-edition}" == "qube"]
+For support with Payara Qube:
+
+* Contact your Payara account manager
+* Review the comprehensive documentation in this guide
+endif::[]
+
+endif::[]
+
+ifndef::page-site-edition[]
+= Getting Started with Payara Qube
+
+Choose your consumption model to get started:
+
+* **Payara Qube (Managed)**: Fully managed cloud service - xref:ROOT:getting-started/paas/signup.adoc[Start free trial]
+* **Payara Qube**: Self-hosted platform - xref:ROOT:getting-started/qube/qube-installation.adoc[Installation guide]
+
+For detailed information about each option, see xref:ROOT:Overview.adoc[Overview].
+endif::[]

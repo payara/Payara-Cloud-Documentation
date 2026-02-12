@@ -16,14 +16,14 @@ These subscriptions can be associated with different companies and use various p
 === Free Trial
 
 For new users, the best way to begin is with our free trial.
-A detailed guide to get you started is available xref:docs:ROOT:getting-started/paas/Signup Payara Cloud.adoc[here].
+A detailed guide to get you started is available xref:docs:ROOT:getting-started/paas/signup.adoc[here].
 
 If you're an existing {productName} user, you can easily create additional subscriptions.
 You can either link:additional.adoc[reuse existing invoicing data] or link:additional.adoc[provide new invoicing data] for these new subscriptions.
 
 == Cancelling Subscription
 
-A subscription can be canceled at any time by the following steps outlined in xref:docs:ROOT:getting-started/paas/Cancel Payara Cloud.adoc[cancel subscription].
+A subscription can be canceled at any time by the following steps outlined in xref:docs:ROOT:getting-started/paas/cancel-subscription.adoc[cancel subscription].
 
 == Invoicing
 
@@ -50,3 +50,5 @@ This 30-day cycle basis for billing periods is why they do not always align with
 
 
 
+
+endif::[]

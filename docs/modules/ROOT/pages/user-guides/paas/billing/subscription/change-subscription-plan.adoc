@@ -36,3 +36,4 @@ It will display the following downgrade summary. Click "Confirm Subscription Cha
 image::how-to-guides/application/billing/downgrade-confirmation.png[link="{imagesdir}/how-to-guides/application/billing/downgrade-confirmation.png", window="_blank"]
 
 Downgrade will happen at the end of the current billing cycle. The new plan will be effective from the next billing cycle.
+endif::[]

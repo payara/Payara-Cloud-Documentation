@@ -1,7 +1,6 @@
 /build
 /node_modules
-/package.json
-/yarn.lock
+yarn.lock
 .idea/
 */.idea
 /nbproject/private/

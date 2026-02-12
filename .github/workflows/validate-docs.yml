@@ -1,0 +1,22 @@
+name: Validate Documentation
+
+on:
+  push:
+    branches:
+      - main
+      - main-qube
+  pull_request:
+    branches:
+      - main
+      - main-qube
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run full documentation validation
+        run: ./scripts/validate-docs.sh

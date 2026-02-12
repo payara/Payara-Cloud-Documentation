@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Pre-commit hook to validate documentation
+# Runs before each commit to ensure documentation quality
+
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+GIT_ROOT=$(git rev-parse --show-toplevel)
+cd "$GIT_ROOT"
+
+# Check what files changed
+ATTRIBUTES_CHANGED=$(git diff --cached --name-only | grep -E "_attributes\.adoc|\.yml$" || true)
+ADOC_CHANGED=$(git diff --cached --name-only | grep "\.adoc$" || true)
+
+# If no relevant files changed, skip validation
+if [ -z "$ATTRIBUTES_CHANGED" ] && [ -z "$ADOC_CHANGED" ]; then
+    exit 0
+fi
+
+echo -e "${YELLOW}Documentation files modified, running validation...${NC}"
+echo ""
+
+validation_failed=false
+
+# Always validate product names if attributes/yml changed
+if [ -n "$ATTRIBUTES_CHANGED" ]; then
+    echo "→ Validating product names..."
+    if ! ./scripts/validate-product-names.sh; then
+        validation_failed=true
+    fi
+    echo ""
+fi
+
+# For .adoc changes, run quick validators
+if [ -n "$ADOC_CHANGED" ]; then
+    # Only run fast validators on commit
+    # Skip link checking (can be slow on large docs)
+
+    echo "→ Validating conditional content..."
+    if ! ./scripts/validate-conditionals.sh; then
+        validation_failed=true
+    fi
+    echo ""
+fi
+
+# Final result
+if [ "$validation_failed" = true ]; then
+    echo -e "${RED}========================================${NC}"
+    echo -e "${RED}Pre-commit validation FAILED${NC}"
+    echo -e "${RED}========================================${NC}"
+    echo "Please fix the issues above before committing."
+    echo ""
+    echo "To bypass this check (not recommended): git commit --no-verify"
+    echo "To run full validation: ./scripts/validate-docs.sh"
+    exit 1
+else
+    echo -e "${GREEN}Pre-commit validation passed${NC}"
+    exit 0
+fi

@@ -23,3 +23,5 @@ Application level charts are charts that only show metrics for the current appli
 
 .Application Level Charts
 image::how-to-guides/application/application-22-application-charts.png[window="_blank", link="{imagesdir}/how-to-guides/application/application-22-application-charts.png"]
+
+endif::[]
