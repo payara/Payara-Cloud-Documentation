@@ -1,0 +1,25 @@
+include::partial$_attributes.adoc[]
+
+[[release-notes]]
+= Release Notes
+
+Detailed information about features and fixes in every release.
+
+[[all-release-notes]]
+== All Release Notes
+
+ifeval::["{page-site-edition}" == "qube"]
+
+**{productName}**
+
+* xref:Release Notes/qube/1.0.0.adoc[1.0.0]
+
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+
+**{productName}**
+
+* xref:Release Notes/cloud/1.0.0.adoc[1.0.0]
+
+endif::[]

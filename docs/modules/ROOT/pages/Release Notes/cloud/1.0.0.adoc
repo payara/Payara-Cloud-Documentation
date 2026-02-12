@@ -1,0 +1,22 @@
+include::partial$_attributes.adoc[]
+
+= {productName} 1.0.0 Release Notes
+
+Released: 2025-06-01
+
+== New Features
+
+Initial release of {productName}.
+
+// Add new features here:
+// * [PR link] Feature description
+
+== Bug Fixes
+
+// Add bug fixes here:
+// * [PR link] Bug fix description
+
+== Known Issues
+
+// Add known issues here:
+// * Known issue description and workaround

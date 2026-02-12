@@ -1,0 +1,12 @@
+* Release Notes
+
+** xref:Release Notes/Overview.adoc[Overview]
+
+
+ifeval::["{page-site-edition}" == "qube"]
+// ** xref:Release Notes/qube/1.0.0.adoc[1.0.0]
+endif::[]
+
+ifeval::["{page-site-edition}" == "cloud"]
+// ** xref:Release Notes/cloud/1.0.0.adoc[1.0.0]
+endif::[]
