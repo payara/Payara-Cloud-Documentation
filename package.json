@@ -8,11 +8,15 @@
   "scripts": {
     "start": "npm run watch & npm run serve",
     "serve": "http-server build/html -c-1 -p 5001",
-    "watch": "nodemon --watch docs -e adoc --exec antora local-playbook.yml"
+    "watch": "nodemon --watch docs -e adoc --exec antora local-playbook.yml",
+    "pdf": "./scripts/pdf-node.sh generate pdf-playbook.yml",
+    "pdf:cloud": "./scripts/pdf-node.sh generate pdf-playbook-cloud.yml",
+    "pdf:qube": "./scripts/pdf-node.sh generate pdf-playbook-qube.yml"
   },
   "devDependencies": {
-    "@antora/cli": "^2.3.4",
-    "@antora/site-generator-default": "^2.3.4",
+    "@antora/cli": "^3.1.14",
+    "@antora/pdf-extension": "^1.0.0-beta.15",
+    "@antora/site-generator-default": "^3.1.14",
     "http-server": "^0.12.3",
     "nodemon": "^2.0.5"
   }

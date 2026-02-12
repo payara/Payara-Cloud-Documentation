@@ -1,0 +1,150 @@
+include::partial$_attributes.adoc[]
+
+ifdef::page-site-edition[]
+
+[[building-quarkus-applications]]
+= Building Quarkus Applications for {productName}
+
+Quarkus applications deploy to {productName} as ZIP files. The https://docs.quarkiverse.io/quarkus-payara-qube/dev/index.html[Payara Qube Quarkus extension] prepares your application for deployment by configuring logging, metrics, and packaging for the platform runtime.
+
+== Adding the Extension
+
+Add the Payara Qube extension to your `pom.xml`:
+
+[source,xml]
+----
+<dependency>
+    <groupId>io.quarkiverse.payara-qube</groupId>
+    <artifactId>quarkus-payara-qube</artifactId>
+    <version>1.0.0</version>
+</dependency>
+----
+
+For Gradle builds, add to your `build.gradle`:
+
+[source,groovy]
+----
+implementation "io.quarkiverse.payara-qube:quarkus-payara-qube:1.0.0"
+----
+
+== Building the Application
+
+Build your application using the standard Maven or Gradle commands:
+
+[source,bash]
+----
+# Maven
+mvn clean package
+
+# Gradle
+./gradlew build
+----
+
+The extension produces a ZIP file in your build output directory (`target/` for Maven, `build/` for Gradle) configured for {productName}.
+
+== What the Extension Configures
+
+The Payara Qube extension automatically configures your Quarkus application for the platform:
+
+=== Logging Format
+
+Configures JSON-formatted logging that integrates with {productName}'s log aggregation system. This enables log search, filtering, and analysis through the management console.
+
+Use standard SLF4J or JBoss Logging APIs in your application code. The extension handles format configuration.
+
+[WARNING]
+====
+Do not override the logging format in your application configuration. Overriding the format will prevent your logs from appearing correctly in the console.
+====
+
+=== Metrics Endpoint
+
+Exposes application and runtime metrics to {productName}'s monitoring system. Memory usage, request rates, and custom application metrics become visible in the management console.
+
+=== Configuration Sources
+
+Provides additional MicroProfile Config sources that read configuration from files supplied by the {productName} runtime. This allows you to modify configuration through the console without rebuilding your application.
+
+== Build-Time vs Runtime Properties
+
+Quarkus distinguishes between build-time properties and runtime properties. {productName} respects this distinction.
+
+=== Build-Time Properties
+
+Build-time properties lock during compilation. You cannot change these through the {productName} console because they affect how Quarkus compiles and optimizes your application.
+
+Examples of build-time properties:
+
+* `quarkus.datasource.db-kind` - Database type
+* `quarkus.hibernate-orm.database.generation` - Database schema generation
+* Properties prefixed with `quarkus.index.*` - Indexing configuration
+
+To modify build-time properties, rebuild your application with the desired configuration.
+
+=== Runtime Properties
+
+Runtime properties can be changed through the {productName} console without rebuilding. These include connection URLs, credentials, logging levels, and HTTP port configuration.
+
+To determine which configuration phase a property belongs to, consult the https://quarkus.io/guides/all-config[Quarkus Configuration Reference]. Properties marked with a lock icon or labeled as "build time" cannot be changed after the application is built.
+
+== Database Configuration
+
+Most Quarkus applications connect to a database. When configuring datasources, use environment variables for database hosts to work correctly in containerized {productName} environments:
+
+[source,properties]
+----
+# Single datasource
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.username=${DB_USER}
+quarkus.datasource.password=${DB_PASSWORD}
+quarkus.datasource.jdbc.url=jdbc:postgresql://${DB_HOST}:5432/mydb
+----
+
+For applications requiring multiple databases, use Quarkus named datasources:
+
+[source,properties]
+----
+# Default datasource
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.jdbc.url=jdbc:postgresql://${PRIMARY_DB_HOST}:5432/primary_db
+
+# Named datasource
+quarkus.datasource.secondary.db-kind=mysql
+quarkus.datasource.secondary.jdbc.url=jdbc:mysql://${SECONDARY_DB_HOST}:3306/secondary_db
+----
+
+{productName} provides the network path to your database services. Quarkus handles the connection.
+
+== Runtime Limitations
+
+The {productName} runtime environment restricts certain operations:
+
+=== No Reaugmentation
+
+{productName} does not perform reaugmentation. Only properties marked as runtime-configurable in Quarkus can be changed through the {productName} console.
+
+Build-time properties must be set before packaging your application. Changes to build-time properties require rebuilding and redeploying the ZIP file.
+
+=== Execution Constraints
+
+The runtime environment restricts certain operations for security and stability:
+
+* **File System Access**: Applications can only write to `/tmp`. Writes to other locations will fail.
+* **Process Spawning**: Applications cannot launch additional processes or subprocesses.
+
+If your application or its dependencies attempt these operations, deployment will fail. Review your dependencies and ensure they operate within these constraints.
+
+== Next Steps
+
+After building your Quarkus application:
+
+. link:Deploying+an+Application.html[Upload the ZIP file] to {productName}
+. link:Configure+Application.html[Configure your application] before deployment
+. link:../../common/clustering.html[Enable clustering] for high availability (optional)
+
+== Additional Resources
+
+* https://docs.quarkiverse.io/quarkus-payara-qube/dev/index.html[Payara Qube Quarkus Extension Documentation]
+* https://quarkus.io/guides/all-config[Quarkus Configuration Reference]
+
+endif::[]

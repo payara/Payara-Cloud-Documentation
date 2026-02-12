@@ -2,6 +2,9 @@
 
 # Master validation script - runs all documentation validators
 
+# Ensure we're at repository root
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -27,7 +30,7 @@ run_validator() {
     echo -e "${BLUE}Running: $name...${NC}"
 
     # Run validator and capture output
-    if ./"$script" > "$temp_output" 2>&1; then
+    if bash "scripts/$script" > "$temp_output" 2>&1; then
         passed_validators+=("$name")
         exit_code=0
     else

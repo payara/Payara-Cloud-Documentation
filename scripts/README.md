@@ -52,3 +52,45 @@ git commit --no-verify -m "your message"
 ```
 
 **Note**: This should only be used in exceptional circumstances, as it bypasses important validation checks.
+
+---
+
+## Documentation Validation Scripts
+
+### Running All Validations
+
+To run the complete validation suite locally:
+
+```bash
+./scripts/validate-docs.sh
+```
+
+This runs all validators and provides a summary of passed/failed checks.
+
+### Individual Validators
+
+Each validator can be run independently:
+
+| Script | Purpose |
+|--------|---------|
+| `validate-product-names.sh` | Ensures product names and slugs are correctly configured |
+| `validate-deprecated-names.sh` | Checks for deprecated product name usage |
+| `validate-links.sh` | Validates internal and external link integrity |
+| `validate-nav.sh` | Checks navigation structure consistency |
+| `validate-conditionals.sh` | Validates conditional content blocks |
+| `validate-images.sh` | Verifies image references exist |
+| `validate-empty.sh` | Detects empty documentation files |
+
+### Running Individual Validators
+
+```bash
+# Run a specific validator
+./scripts/validate-links.sh
+./scripts/validate-product-names.sh
+```
+
+### Exit Codes
+
+All validators return:
+- `0` - All checks passed
+- `1` - One or more checks failed
